@@ -1,7 +1,9 @@
 ---
-title: Uses
+title: What I use
 date: 2022-11-14
-description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
+description-meta: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
+title-block-banner: "#771C6D"
+published-title: Last updated
 toc: true
 toc-location: left
 toc-title: "Contents"

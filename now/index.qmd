@@ -1,7 +1,9 @@
 ---
 title: What I'm doing now
 date: 2022-11-14
-description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
+description-meta: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
+published-title: Last updated
+title-block-banner: "#771C6D"
 toc: false
 ---
 
