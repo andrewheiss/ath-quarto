@@ -15,7 +15,7 @@ website:
       - text: "About"
         href: "#"
       - text: "CV"
-        href: "#"
+        href: "cv/index.qmd"
       - text: "Blog"
         file: blog/index.qmd
       - text: "Research"

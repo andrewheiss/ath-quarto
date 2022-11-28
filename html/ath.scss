@@ -421,3 +421,16 @@ body {
         }
     }
 }
+
+.cv-download {
+    font-family: $headings-font-family;
+    background-color: #771C6D;
+    border-color: #771C6D;
+    color: $white;
+
+    &:hover {
+        background-color: $red;
+        border-color: $red;
+        color: $white;
+    }
+}
