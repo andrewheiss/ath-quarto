@@ -1,0 +1,70 @@
+<header id="title-block-header"
+    class="quarto-title-block research default$if(quarto-template-params.banner-header-class)$ $quarto-template-params.banner-header-class$$endif$">
+    <div class="quarto-title-banner">
+        $if(include-back-link)$
+        <div class="back-nav"><a href="/research/">← Back to research</a></div>
+        $endif$
+        <div class="quarto-title column-body">
+            <h1 class="title">$title$</h1>
+
+            $if(subtitle)$
+            <p class="subtitle lead">$subtitle$</p>
+            $endif$
+
+            $if(description)$
+            <div>
+                <div class="description">
+                    $description$
+                </div>
+            </div>
+            $endif$
+
+            $if(haiku)$
+            <div class="haiku">
+                $for(haiku)$$haiku$$sep$<br>$endfor$
+            </div>
+            $endif$
+
+            $if(categories)$
+            $if(quarto-template-params.title-block-categories)$
+            <div class="quarto-categories">
+                $for(categories)$
+                <div class="quarto-category">$categories$</div>
+                $endfor$
+            </div>
+            $endif$
+            $endif$
+        </div>
+    </div>
+    
+    $if(pub-info)$
+    <div class="project-details">
+        <div class="publication-content">
+            <p>$pub-info.reference$</p>
+        </div>
+        $if(pub-info.links)$
+        <ul class="project-links">
+            $for(pub-info.links)$
+            <li class="project-link">
+                <a href="$pub-info.links.url$"><i class="$pub-info.links.icon$"></i> $pub-info.links.name$</a>
+            </li>
+            $endfor$
+        </ul>
+        $endif$
+    </div>
+
+    $endif$
+
+    $title-metadata.html()$
+
+    $if(pub-info.extra)$
+
+    <div class="quarto-title-meta-heading manual">Other details</div>
+    <div class="quarto-title-meta-contents">
+        <p class="publication-extra">
+            $pub-info.extra$
+        </p>
+    </div>
+    $endif$
+
+</header>
