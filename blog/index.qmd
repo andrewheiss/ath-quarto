@@ -15,6 +15,10 @@ listing:
     contents: "2020/**/index.qmd"
     sort: "date desc"
     template: ../html/blog/listing.ejs
+  - id: posts_2019
+    contents: "2019/**/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
 page-layout: full
 toc-title: Year
 toc-location: right
@@ -34,5 +38,10 @@ date-format: "MMMM D, YYYY"
 ## 2020
 
 :::{#posts_2020}
+:::
+
+## 2019
+
+:::{#posts_2019}
 :::
 
