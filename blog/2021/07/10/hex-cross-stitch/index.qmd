@@ -1,20 +1,20 @@
 ---
 title: "Hex sticker/logo cross stitch pattern"
 date: 2021-07-10
-year: "2021"
-month: "2021/07"
 description: "Make your own data science hex logo cross stitch with a free pattern and an Illustrator template"
-images: 
-- /blog/2021/07/10/hex-cross-stitch/card-image.jpg
-tags: 
+image: card-image.jpg
+categories: 
   - art
   - cross stitch
   - pandemic boredom
   - data science
-slug: hex-cross-stitch
 ---
 
-<div class="alert alert-info"><a href="#downloads">Jump to the downloads</a> and get your own free pattern and template files!</div>
+::: {.callout-tip}
+### Downloads
+
+<a href="#downloads">Jump to the downloads</a> and get your own free pattern and template files!
+:::
 
 In the data science world, hex stickers with logos of developers' favorite packages are all the rage. People collect them at conferences and events and display them on their laptops (or, like me, keep them in a pile on their desk because they're too afraid to commit to affixing them anywhere permanently). There are even [official standard dimensions](http://hexb.in/sticker.html) and [templates](https://github.com/terinjokes/StickersStandard) people can follow.
 

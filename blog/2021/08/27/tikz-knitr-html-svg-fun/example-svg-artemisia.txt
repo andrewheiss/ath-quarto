@@ -1,0 +1,20 @@
+---
+title: "TikZ fun!"
+output:
+  html_document: default
+---
+
+```{r point-to-ghostscript, include=FALSE}
+Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.53.3/lib/libgs.dylib.9.53")
+```
+
+```{r setup, include=FALSE}
+font_opts <- list(extra.preamble = c("\\usepackage{gfsartemisia-euler}"),
+                  dvisvgm.opts = "--font-format=woff")
+```
+
+```{tikz rectangle-text, fig.ext="svg", echo=FALSE, fig.align="center", engine.opts=font_opts}
+\begin{tikzpicture}
+\draw (0,0) rectangle (6, 2) node[midway, align=center] {I am a rectangle with math: \\ $\hat{y} = \beta_0 + \beta_1 x_1 + \text{Some text} + \varepsilon$};
+\end{tikzpicture}
+```

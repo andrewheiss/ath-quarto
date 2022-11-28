@@ -2,16 +2,28 @@
 title: "Blog"
 author: ""
 listing:
-  contents:
-    - "*/index.qmd"
-  sort: "date desc"
-  type: default
-  fields: [date, title, subtitle, description, categories, image]
-  categories: true
-  page-size: 999
-  # sort-ui: true
-  # filter-ui: true
+  - id: posts_2022
+    contents: "2022/**/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+    categories: true
+  - id: posts_2021
+    contents: "2021/**/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
 page-layout: full
-citation: false
+toc-title: Year
+toc-location: right
+date-format: "MMMM D, YYYY"
 ---
+
+## 2022
+
+:::{#posts_2022}
+:::
+
+## 2021
+
+:::{#posts_2021}
+:::
 

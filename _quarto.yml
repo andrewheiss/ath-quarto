@@ -1,5 +1,10 @@
 project:
   type: website
+  resources:
+    - "files/"
+
+bibliography: files/bib/references.bib
+csl: files/bib/chicago-author-date.csl
 
 website:
   title: "Andrew Heiss"
@@ -7,6 +12,11 @@ website:
   favicon: ""
   repo-url: "https://github.com/andrewheiss/ath-quarto"
   site-url: "https://www.andrewheiss.com"
+
+  twitter-card: 
+    creator: "@andrewheiss"
+  open-graph: 
+    locale: en_US
   
   navbar:
     pinned: true

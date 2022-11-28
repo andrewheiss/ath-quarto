@@ -1,20 +1,20 @@
 ---
 title: "Bayesian (cross stitch) sampler"
 date: 2021-01-26
-year: "2021"
-month: "2021/01"
 description: "Make your own Bayesian cross stitch sampler with a free pattern of Bayes Theorem and the accompanying Illustrator template"
-images: 
-- /blog/2021/01/26/bayesian-cross-stitch-sampler/sampler-photo.jpg
-tags: 
+image: sampler-photo.jpg
+categories: 
   - art
   - cross stitch
   - pandemic boredom
   - bayes
-slug: bayesian-cross-stitch-sampler
 ---
 
-<div class="alert alert-info"><a href="#downloads">Jump to the downloads</a> and get your own free pattern!</div>
+::: {.callout-tip}
+### Downloads
+
+<a href="#downloads">Jump to the downloads</a> and get your own free pattern!
+:::
 
 For my latest pandemic art medium (on this, the three hundred and nineteenth day of sheltering in place), I decided to teach myself how to cross stitch. I did a ton of needlepoint as a kid and teen, but was always afraid of cross stitch because it was so much smaller and more delicate.
 

@@ -1,0 +1,37 @@
+---
+title: "TikZ fun!"
+output:
+  html_document: 
+    self_contained: no
+---
+
+```{r point-to-ghostscript, include=FALSE}
+Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.53.3/lib/libgs.dylib.9.53")
+```
+
+```{r setup, include=FALSE}
+# Conditional tikz output types; use PDF if this is LaTeX, otherwise use SVG
+if (knitr::is_latex_output()) {
+  knitr::opts_template$set(
+    tikz_settings = list(fig.ext = "pdf", fig.align = "center")
+  )
+} else {
+  knitr::opts_template$set(
+    tikz_settings = list(fig.ext = "svg", fig.align = "center")
+  )
+}
+```
+
+Here's a DAG with text:
+
+```{tikz dag-text, echo=FALSE, fig.cap="DAG with text", opts.label="tikz_settings"}
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[every node/.append style={draw, minimum size=0.5cm}]
+\node [draw=none] (X) at (0,0) {$X_{it}$};
+\node [draw=none] (Y) at (2,0) {$Y_{it}$};
+\node [rectangle] (Z) at (1,1) {$Z$};
+\path [-latex] (X) edge (Y);
+\draw [-latex] (Z) edge (Y);
+\draw [-latex] (Z) edge (X);
+\end{tikzpicture}
+```

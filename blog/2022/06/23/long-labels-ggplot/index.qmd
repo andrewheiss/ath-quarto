@@ -1,25 +1,19 @@
 ---
 title: "Quick and easy ways to deal with long labels in ggplot2"
 date: 2022-06-23
-year: "2022"
-month: "2022/06"
 description: "Explore different manual and automatic ways to rotate, dodge, recode, break up, and otherwise deal with long axis labels with ggplot2"
-images: 
-- /blog/2022/06/23/long-labels-ggplot/index_files/figure-html/plot-all-1.png
+image: index_files/figure-html/plot-all-1.png
 categories:
   - r
   - tidyverse
   - ggplot
   - data visualization
-slug: long-labels-ggplot
-editor_options:
-  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,
                       fig.width = 5.5, fig.height = (5.5 * 0.618),
-                      out.width = "75%", collapse = TRUE)
+                      out.width = "90%", collapse = TRUE)
 options(digits = 3, width = 300)
 ```
 
@@ -239,6 +233,7 @@ ggplot(essential_by_category,
 Here's a quick comparison of all these different approaches:
 
 ```{r plot-all, echo=FALSE, fig.width=10, fig.height=7, out.width="100%"}
+#| column: page-inset-right
 library(patchwork)
 
 p_original <- ggplot(essential_by_category,

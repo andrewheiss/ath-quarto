@@ -1,0 +1,22 @@
+---
+title: "TikZ fun!"
+output:
+  pdf_document: 
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+options(tinytex.engine = "xelatex")
+
+font_opts <- list(extra.preamble = c("\\usepackage{fontspec}", 
+                                     "\\setmainfont{Comic Sans MS}",
+                                     "\\usepackage{unicode-math}",
+                                     "\\usepackage{mathastext}",
+                                     "\\setmathfont{Comic Sans MS}"))
+```
+
+```{tikz rectangle-text, echo=FALSE, fig.align="center", engine.opts=font_opts}
+\begin{tikzpicture}
+\draw (0,0) rectangle (6, 2) node[midway, align=center] {I am a rectangle with math: \\ $\hat{y} = \beta_0 + \beta_1 x_1 + \text{Some text} + \varepsilon$};
+\end{tikzpicture}
+```

@@ -1,0 +1,24 @@
+---
+title: "TikZ fun!"
+output:
+  html_document: 
+    self_contained: no
+---
+
+```{r point-to-ghostscript, include=FALSE}
+Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.53.3/lib/libgs.dylib.9.53")
+```
+
+Here's an empty DAG:
+
+```{tikz empty-dag, echo=FALSE, fig.cap="Empty DAG", fig.align="center", fig.ext="svg"}
+\usetikzlibrary{positioning}
+\begin{tikzpicture}[every node/.append style={draw, minimum size=0.5cm}]
+\node [circle] (X) at (0,0) {};
+\node [circle] (Y) at (2,0) {};
+\node [rectangle] (Z) at (1,1) {};
+\path [-latex] (X) edge (Y);
+\draw [-latex] (Z) edge (Y);
+\draw [-latex] (Z) edge (X);
+\end{tikzpicture}
+```
