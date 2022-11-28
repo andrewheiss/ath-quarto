@@ -1,0 +1,22 @@
+# Date format
+date-format: "dddd, MMMM D, YYYY"
+
+# Enable banner style title blocks
+title-block-banner: "#170C3A"
+
+# Default for table of contents
+toc: true
+toc-title: Contents
+toc-location: left
+
+# Default knitr options
+execute:
+  echo: true
+  message: true
+  warning: true
+
+# Default author
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914

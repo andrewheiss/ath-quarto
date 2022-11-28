@@ -1,0 +1,25 @@
+<hr>
+
+<details><summary>Session Info</summary>
+
+<div style='font-size:12px;'>
+
+```{r, echo=FALSE}
+library(sessioninfo)
+# save the session info as an object
+pkg_sesh <- session_info(pkgs = "attached")
+# get the quarto version
+quarto_version <- quarto::quarto_version()
+# inject the quarto info
+pkg_sesh$platform$quarto <- paste(
+  quarto::quarto_version(), 
+  "@", 
+  quarto::quarto_path()
+  )
+# print it out
+pkg_sesh
+```
+
+</div>
+
+</details>

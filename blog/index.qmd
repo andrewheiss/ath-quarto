@@ -1,0 +1,17 @@
+---
+title: "Blog"
+author: ""
+listing:
+  contents:
+    - "*/index.qmd"
+  sort: "date desc"
+  type: default
+  fields: [date, title, subtitle, description, categories, image]
+  categories: true
+  page-size: 999
+  # sort-ui: true
+  # filter-ui: true
+page-layout: full
+citation: false
+---
+
