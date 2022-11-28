@@ -1,0 +1,69 @@
+- title: "Introduction to the tidyverse + data visualization with ggplot2"
+  date: 2021-11-16
+  description: >-
+    Two sessions for <a href="https://www.seacen.org/">SEACEN's</a> November 2021 online course on "Data Analytics for Macroeconomic Surveillance"
+  location: Kuala Lumpur, Malaysia (via Zoom)
+  links:
+  - name: Companion site, slides, and materials
+    url: https://talks.andrewheiss.com/2021-seacen/
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2021-seacen
+    icon: fa-brands fa-github
+
+- title: "Making documents, websites, and dashboards with R"
+  date: 2021-08-17
+  description: "Workshop for the Georgia Policy Labs at the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Companion site and slides
+    url: https://talks.andrewheiss.com/2021-gpl/03_markdown-interactivity/
+    icon: fa-solid fa-chalkboard-user
+
+- title: "Introduction to Geographic Information Systems (GIS) data with R"
+  date: 2021-07-13
+  description: "Workshop for the Georgia Policy Labs at the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Companion site and slides
+    url: https://talks.andrewheiss.com/2021-gpl/02_gis-with-r/
+    icon: fa-solid fa-chalkboard-user
+
+- title: "Graphic design for public administrators"
+  date: 2021-06-29
+  description: "Workshop for the Georgia Policy Labs at the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Companion site and slides
+    url: https://talks.andrewheiss.com/2021-gpl/01_graphic-design/
+    icon: fa-solid fa-chalkboard-user
+
+- title: "Universal documents and reproducibility"
+  date: "2021-03-04T16:00:00"
+  description: 'Workshop for EPID 9100 (PhD/MS seminar), Department of Epidemiology & Biostatistics, University of Georgia'
+  location: Athens, Georgia (via Zoom)
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2021-03-04_uga-markdown/slides/universal-writing-reproducibility.html
+    icon: fa-solid fa-chalkboard-user
+  - name: Companion site
+    url: https://talks.andrewheiss.com/2021-03-04_uga-markdown/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/2021-03-04_uga-markdown
+    icon: fa-brands fa-github
+
+- title: "What does the internet say about you?"
+  date: "2021-02-05T11:00:00"
+  description: "Workshop for the Political Science Graduate Student Association, Department of Political Science, Georgia State University"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2021-02-05_gsu-polisci-web-presence/slides.html
+    icon: fa-solid fa-chalkboard-user
+  - name: Handout page
+    url: https://talks.andrewheiss.com/2021-02-05_gsu-polisci-web-presence/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/2021-02-05_gsu-polisci-web-presence
+    icon: fa-brands fa-github

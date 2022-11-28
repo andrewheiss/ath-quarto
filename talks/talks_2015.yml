@@ -1,0 +1,47 @@
+- title: "Enhancing basic statistical figures: Make pretty pictures like the New York Times"
+  date: 2015-10-16
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2015-10-16_making-pretty-figures/presentation/Making%20pretty%20figures.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2015-10-16_making-pretty-figures
+    icon: fa-brands fa-github
+
+- title: "Graphic Design for Non-Designers"
+  date: 2015-10-02
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2015-10-02_graphic-design-nondesigners/presentation/Graphic%20design%20for%20non-designers.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2015-10-02_graphic-design-nondesigners
+    icon: fa-brands fa-github
+
+- title: "A <em>Very</em> Brief Overview of Topics in Data Visualization"
+  date: 2015-09-15
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2015-09-15_intro-data-visualization/presentation/Intro%20to%20data%20visualization.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2015-09-15_intro-data-visualization
+    icon: fa-brands fa-github
+
+- title: "Telling Stories with Data"
+  date: 2015-04-17
+  description: "PhD workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2015-04-17_telling-stories-data-phd/presentation/Telling%20stories%20with%20data,%20PhD.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2015-04-17_telling-stories-data-phd
+    icon: fa-brands fa-github

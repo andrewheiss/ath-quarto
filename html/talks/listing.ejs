@@ -1,0 +1,32 @@
+```{=html}
+
+<div class="talks">
+    <% for (const talk of items) { %>
+    <div class="talk-entry">
+        <div class="metadata">          
+            <p class="date"><%= talk.date %></p>
+        </div>
+        <div class="body">
+            <p class="title"><%= talk.title %></p>
+            <p class="description"><%= talk.description %> | <%= talk.location %></p>
+
+            <% if (talk.links) { %>
+            <ul class="talk-links">
+                <% for (const link of talk.links) { %>
+                <li class="talk-link">
+                    <% if (link.local) { %>
+                    <a href="<%- talk.path.substring(0, talk.path.lastIndexOf('/')) %>/<%- link.url %>">
+                    <% } else { %>
+                    <a href="<%- link.url %>">
+                    <% } %>
+                        <i class="<%- link.icon %>"></i> <%= link.name %>
+                    </a>
+                </li>
+                <% } %>
+            <% } %>
+            </ul>
+        </div>
+    </div>
+    <% } %>
+</div>
+```

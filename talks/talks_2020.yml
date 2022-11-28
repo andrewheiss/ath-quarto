@@ -1,0 +1,97 @@
+- title: "The US and the 2020 Election"
+  date: 2020-10-29
+  description: "Guest lecture for KIEN 2263 (English Academic and Professional Skills II), Centre for Language & Communication Studies, University of Turku"
+  location: Turku, Finland (via Zoom)
+
+- title: "What does the internet say about you?"
+  date: "2020-10-23T15:00:00"
+  description: '"Unpacking the Hidden Curriculum": Graduate Student Professionalization Workshop, Department of Political Science, University of Utah'
+  location: Salt Lake City, Utah (via Zoom)
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2020-10-23_utah-web-presence/slides.html
+    icon: fa-solid fa-chalkboard-user
+  - name: Handout page
+    url: https://talks.andrewheiss.com/2020-10-23_utah-web-presence/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/2020-10-23_utah-web-presence
+    icon: fa-brands fa-github
+
+- title: "Universal documents and reproducibility"
+  date: "2020-10-23T17:00:00"
+  description: '"Unpacking the Hidden Curriculum": Graduate Student Professionalization Workshop, Department of Political Science, University of Utah'
+  location: Salt Lake City, Utah (via Zoom)
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2020-10-23_utah-markdown/slides/universal-writing-reproducibility.html
+    icon: fa-solid fa-chalkboard-user
+  - name: Companion site
+    url: https://talks.andrewheiss.com/2020-10-23_utah-markdown/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/2020-10-23_utah-markdown
+    icon: fa-brands fa-github
+
+- title: "Truth, beauty, and data: Why data visualization matters in research"
+  date: 2020-09-17
+  description: "Methods workshop in the Département de science politique, Université de Montréal"
+  location: Montréal, Canada (via Zoom)
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2020-09-17_umontreal-dataviz/slides.html
+    icon: fa-solid fa-chalkboard-user
+  - name: Handout page
+    url: https://talks.andrewheiss.com/2020-09-17_umontreal-dataviz/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/2020-09-17_umontreal-dataviz
+    icon: fa-brands fa-github
+
+- title: "Program evaluation and causal inference with R"
+  date: 2020-08-21
+  description: "Workshop for the Georgia Policy Labs at the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Slides and materials
+    url: https://talks.andrewheiss.com/2020-gpl/03_causal-inference/
+    icon: fa-solid fa-chalkboard-user
+
+- title: "Data visualization with R"
+  date: 2020-07-20
+  description: "Workshop for the Georgia Policy Labs at the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Slides and materials
+    url: https://talks.andrewheiss.com/2020-gpl/02_data-visualization/
+    icon: fa-solid fa-chalkboard-user
+
+- title: "What does the internet say about you?"
+  date: 2020-07-16
+  description: "Workshop for members of the International Society for Third-Sector Research (ISTR)"
+  location: Online workshop via Zoom
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2020-07-16_istr-internet/slides/istr-internet.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/talks/tree/master/2020-07-16_istr-internet
+    icon: fa-brands fa-github
+
+- title: "Welcome to the tidyverse: Introduction to R and tidy data analysis"
+  date: 2020-07-09
+  description: "Workshop for the Georgia Policy Labs at the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia (via Zoom)
+  links:
+  - name: Slides and materials
+    url: https://talks.andrewheiss.com/2020-gpl/01_welcome-tidyverse/
+    icon: fa-solid fa-chalkboard-user
+
+- title: "Truth, Beauty, and Data"
+  date: 2020-07-07
+  description: "Workshop on data visualization for employees of the Church of Jesus Christ of Latter-day Saints"
+  location: Salt Lake City, Utah (via Zoom)
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2020-07-07_church-dataviz/
+    icon: fa-solid fa-chalkboard-user

@@ -1,0 +1,35 @@
+- title: "Data Visualization and Exploratory Data Analysis"
+  date: 2014-09-11
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2014-09-11_data-visualization-eda/presentation/Data%20visualization.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2014-09-11_data-visualization-eda
+    icon: fa-brands fa-github
+
+- title: "Practically Perfect Professional Policy Presentations"
+  date: 2014-09-02
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2014-09-02_practically-perfect-policy-presentations/presentation/Practically%20Perfect%20Professional%20Policy%20Presentations,%20short.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2014-09-02_practically-perfect-policy-presentations
+    icon: fa-brands fa-github
+
+- title: "Data Visualization and Exploratory Data Analysis"
+  date: 2014-01-22
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2014-01-22_data-visualization-eda/presentation/Data%20visualization%20old.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2014-01-22_data-visualization-eda
+    icon: fa-brands fa-github

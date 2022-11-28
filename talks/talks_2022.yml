@@ -1,0 +1,27 @@
+- title: "APIs and web scraping with R"
+  date: 2022-09-12
+  description: >-
+    Workshop for <a href="https://www.seacen.org/">SEACEN's</a> September 2022 online course on "Data Analytics for Macroeconomic Surveillance"
+  location: Kuala Lumpur, Malaysia (via Zoom)
+  links:
+  - name: Companion site, slides, and materials
+    url: https://talks.andrewheiss.com/2022-seacen/
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2022-seacen
+    icon: fa-brands fa-github
+  
+- title: "Putting everything out there as a researcher"
+  date: "2022-02-22T16:00:00"
+  description: 'Workshop for EPID 9100 (PhD/MS seminar), Department of Epidemiology & Biostatistics, University of Georgia'
+  location: Athens, Georgia
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2022-03-22_uga-putting-everything-out-there/slides.html
+    icon: fa-solid fa-chalkboard-user
+  - name: Handout page
+    url: https://talks.andrewheiss.com/2022-03-22_uga-putting-everything-out-there/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/talks/tree/master/2022-03-22_uga-putting-everything-out-there
+    icon: fa-brands fa-github

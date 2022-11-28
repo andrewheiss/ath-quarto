@@ -1,0 +1,60 @@
+- title: "A lightning quick introduction to data visualization"
+  date: 2018-09-19
+  description: "Utah Valley University Department of Biology Seminar"
+  location: Orem, Utah
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2018-09-18_uvu-dataviz/presentation/andrew-heiss_2018-09-19_uvu-dataviz.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2018-09-18_uvu-dataviz
+    icon: fa-brands fa-github
+  - name: Handout page
+    url: https://talks.andrewheiss.com/uvu-dataviz/
+    icon: fa-solid fa-up-right-from-square
+
+- title: "Introduction to data visualization with R"
+  date: 2018-07-11
+  description: "Utah <a href='https://twitter.com/utahrug'>R Users Group</a>"
+  location: Salt Lake City, Utah
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2018-07-11_utah-rug-dataviz/presentation/andrew-heiss_2018-07-11_utah-rug-dataviz.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/talks/tree/master/2018-07-11_utah-rug-dataviz
+    icon: fa-brands fa-github
+  - name: Resources and code examples
+    url: https://talks.andrewheiss.com/utah-rug-dataviz/
+    icon: fa-solid fa-up-right-from-square
+  - name: Video
+    url: https://www.youtube.com/watch?v=BsoHElr7HpA
+    icon: fa-brands fa-youtube
+
+- title: "Taking Control of Regulations: How International Advocacy NGOs Shape the Regulatory Environments of their Target Countries"
+  date: 2018-06-12
+  description: >-
+    <a href="http://www.concordia.ca/cuevents/main/2018/06/11/interest-groups-international-organizations-and-global-problem-solving-capacity.html">Interest Groups, International Organizations, and Global Problem-solving Capacity workshop</a>
+  location: Stockholm, Sweden
+  links:
+  - name: Slides
+    url: https://docs.google.com/presentation/d/1s09gaDK1B0dZQ9ulAMKd2y6fh5QyYwfvpP2eBdK2OBw/edit?usp=sharing
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository for paper
+    url: https://github.com/andrewheiss/taking-control-of-regulations
+    icon: fa-brands fa-github
+
+- title: "A lightning quick introduction to data visualization"
+  date: 2018-04-27
+  description: "<a href='https://westcoastnonprofitdata.org/'>West Coast Nonprofit Data Conference</a>"
+  location: Salt Lake City, Utah
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2019-09-19_curiosity-transparency-failure/presentation/curiousity-transparency-failure.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/talks/tree/master/2018-04-27_wcnpd18
+    icon: fa-brands fa-github
+  - name: Handout page
+    url: https://talks.andrewheiss.com/wcnpd18/
+    icon: fa-solid fa-up-right-from-square

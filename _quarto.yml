@@ -23,7 +23,7 @@ website:
       - text: "Teaching"
         href: "#"
       - text: "Talks"
-        href: "#"
+        href: "talks/index.qmd"
       - text: "Now"
         href: now/index.qmd
       - text: "Uses"

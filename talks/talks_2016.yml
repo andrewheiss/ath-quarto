@@ -1,0 +1,11 @@
+- title: "Telling Stories with Data"
+  date: 2016-03-07
+  description: "MPP workshop at the Sanford School of Public Policy, Duke University"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2016-03-07_telling-stories-data-short/presentation/Telling%20stories%20with%20data,%20short.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2016-03-07_telling-stories-data-short
+    icon: fa-brands fa-github

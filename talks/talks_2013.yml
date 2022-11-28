@@ -1,0 +1,23 @@
+- title: "Telling Stories with Data"
+  date: 2013-09-12
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2013-09-12_telling-stories-data/presentation/Telling%20stories%20with%20data.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2013-09-12_telling-stories-data
+    icon: fa-brands fa-github
+
+- title: "Practically Perfect Professional Policy Presentations"
+  date: 2013-09-12
+  description: "MPP workshop at the Sanford School of Public Policy"
+  location: Durham, North Carolina
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2013-09-12_practically-perfect-policy-presentations/presentation/Practically%20Perfect%20Professional%20Policy%20Presentations.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2013-09-12_practically-perfect-policy-presentations
+    icon: fa-brands fa-github

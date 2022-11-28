@@ -1,0 +1,100 @@
+---
+title: "Talks"
+listing:
+  - id: talks_2022
+    contents: talks_2022.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2021
+    contents: talks_2021.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2020
+    contents: talks_2020.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2019
+    contents: talks_2019.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2018
+    contents: talks_2018.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2016
+    contents: talks_2016.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2015
+    contents: talks_2015.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2014
+    contents: talks_2014.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+  - id: talks_2013
+    contents: talks_2013.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
+title-block-banner: "#FB9E07"
+page-layout: full
+toc: true
+toc-location: right
+toc-title: Year
+date-format: "MMMM D, YYYY"
+---
+
+
+This page contains the source code, links, and slides for various workshops, talks, lectures, and presentations I've given. Research presentations given at conferences are typically stored in their respective repositories on GitHub; one-off workshops and talks can all be found in a [catch-all GitHub repository](https://github.com/andrewheiss/talks).
+
+::: {.callout-note}
+### Copyright
+
+Except where noted, all content is © Andrew Heiss and licensed under [Creative Commons](https://creativecommons.org/licenses/by-sa/4.0/).
+:::
+
+## 2022
+
+:::{#talks_2022}
+:::
+
+## 2021
+
+:::{#talks_2021}
+:::
+
+## 2020
+
+:::{#talks_2020}
+:::
+
+## 2019
+
+:::{#talks_2019}
+:::
+
+## 2018
+
+:::{#talks_2018}
+:::
+
+## 2016
+
+:::{#talks_2016}
+:::
+
+## 2015
+
+:::{#talks_2015}
+:::
+
+## 2014
+
+:::{#talks_2014}
+:::
+
+## 2013
+
+:::{#talks_2013}
+:::

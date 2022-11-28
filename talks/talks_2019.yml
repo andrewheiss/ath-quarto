@@ -1,0 +1,78 @@
+- title: "Why Donors Donate: Disentangling Organizational and Structural Heuristics for International Philanthropy"
+  date: 2019-11-21
+  description: "2019 Conference for the Association for Research on Nonprofit Organizations and Voluntary Action (ARNOVA)"
+  location: San Diego, California
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2019-11-21_why-donors-donate_arnova19/presentation/why-donors-donate_arnova19.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2019-11-21_why-donors-donate_arnova19
+    icon: fa-brands fa-github
+
+- title: "NGOs and authoritarianism"
+  date: 2019-11-05
+  description: "Guest lecture for International NGOs (PMAP 8201)"
+  location: Atlanta, Georgia
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2019-11-05_ngos-authoritarianism/presentation/pmap8201f19_ngos-authoritarianism.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2019-11-05_ngos-authoritarianism
+    icon: fa-brands fa-github
+
+- title: "Open source resources for teaching data public service-focused data science courses"
+  date: 2019-10-18
+  description: "2019 Conference for the Network of Schools of Public Policy, Affairs, and Administration (NASPAA)"
+  location: Los Angeles, California
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2019-10-18_ds4ps-naspaa19/presentation/naspaa19.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2019-10-18_ds4ps-naspaa19
+    icon: fa-brands fa-github
+  - name: Handout page
+    url: https://talks.andrewheiss.com/naspaa19/
+    icon: fa-solid fa-up-right-from-square
+
+- title: "Data Science, Open Source, and Radical Transparency"
+  date: 2019-10-10
+  description: "Brown bag presentation to PhD students in the Andrew Young School of Policy Studies"
+  location: Atlanta, Georgia
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2019-10-10_data-science-radical-transparency/presentation/ds-transparency.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2019-10-10_data-science-radical-transparency
+    icon: fa-brands fa-github
+
+- title: "Curiosity, Transparency, and Failure"
+  date: 2019-09-19
+  description: "Guest talk to epidemiology PhD students at the University of Georgia"
+  location: Athens, Georgia
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/talks/blob/master/2019-09-19_curiosity-transparency-failure/presentation/curiousity-transparency-failure.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/talks/tree/master/2019-09-19_curiosity-transparency-failure
+    icon: fa-brands fa-github
+
+- title: >-
+    "Why won't this run again?!": Making R analysis more reproducible
+  date: 2019-05-14
+  description: "Utah County R Users Group"
+  location: Provo, Utah
+  links:
+  - name: Slides
+    url: https://github.com/andrewheiss/2019-05-14_reproducibility/blob/dd8479a1ed882bab18849c5e8929a54980cbe1ea/presentation/andrew-heiss_2019-05-14_utah-county-rug_reproducibility.pdf
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/2019-05-14_reproducibility
+    icon: fa-brands fa-github
+  - name: Handout page
+    url: https://github.com/andrewheiss/2019-05-14_reproducibility
+    icon: fa-solid fa-up-right-from-square
