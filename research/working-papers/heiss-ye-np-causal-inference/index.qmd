@@ -1,0 +1,39 @@
+---
+title: "Causal Inference in Nonprofit Management and Public Administration"
+date: 2021-10-03
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+  - name: Meng Ye
+    orcid: 0000-0002-6552-8338
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories: 
+  - Causal inference
+  - Nonprofits
+  - Methods
+pub-info:
+  reference: >-
+    <strong>Andrew Heiss</strong> and <a href="https://aysps.gsu.edu/phd-student/ye-meng/">Meng Ye</a>, “Causal Inference in Nonprofit Management and Public Administration”
+  links:
+  - name: Code
+    url: https://github.com/andrewheiss/corrupt-caterpillar
+    icon: fa-brands fa-github
+pub-status: 
+  status: Writing
+  class: warning
+  icon: fa-solid fa-pencil
+#   status: Under review
+#   class: success
+#   icon: fas fa-glasses
+---
+
+## Important links
+
+- [GitHub repository](https://github.com/andrewheiss/corrupt-caterpillar)
+
+
+## Abstract
+
+The "causal revolution" in the broader social sciences has led to a new field of observational causal inference. However, these advancements have been less used among nonprofit scholars and practitioners. In this article, we provide a methodological guide for applying causal inference tools within nonprofit studies. We walk through practical examples of model-based and design-based approaches from epidemiology and econometrics to observational causal inference, including causal models, inverse probability weighting, difference-in-differences, regression discontinuity, and instrumental variables. We include empirical illustrations of these approaches by replicating existing nonprofit research and program evaluations. We conclude with a call for more careful and explicit attempts at making causal claims in nonprofit studies.

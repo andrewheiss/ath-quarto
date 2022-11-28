@@ -1,0 +1,61 @@
+---
+title: "Closing Space and the Restructuring of Global Activism: Causes and Consequences of the Global Crackdown on NGOs"
+date: 2020-12-31
+author:
+  - name: Suparna Chaudhry
+    url: http://www.suparnachaudhry.com/
+    orcid: 0000-0003-3506-7590
+    affiliation: Lewis & Clark College
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories:
+    - Civil society
+    - NGO regulations
+    - Human rights
+pub-info:
+  reference: >-
+    <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a> and <strong>Andrew Heiss</strong>, “Closing Space and the Restructuring of Global Activism: Causes and Consequences of the Global Crackdown on NGOs,” chap. 2 in <em>Beyond the Boomerang: New Patterns in Transcalar Advocacy</em>, eds. Christopher L. Pallas and Elizabeth Bloodgood (Tuscaloosa, AL: University of Alabama Press, 2022).
+  links:
+    - name: Preprint (PDF)
+      url: 2021-chaudhry-heiss-closing-space.pdf
+      local: true
+      icon: fa-solid fa-file-pdf
+    - name: Preprint (HTML)
+      url: closing-space.html
+      local: true
+      icon: fa-solid fa-file-lines
+    - name: Analysis notebook
+      url: figures.html
+      local: true
+      icon: fa-solid fa-chart-simple
+    - name: Complete code
+      url: https://github.com/andrewheiss/Closing-space
+      icon: fa-brands fa-github
+haiku:
+  - Governments threatened—
+  - NGO regulations
+  - shift funding; missions.
+---
+
+## Important figure
+
+Figure 1: 2017 CIVICUS Monitor civic space ratings
+
+![Figure 1: 2017 CIVICUS Monitor civic space ratings](output/civicus_map.png)
+
+
+## BibTeX citation
+
+```bibtex
+@incollection{ChaudhryHeiss:2022,
+    Address = {Tuscaloosa, AL},
+    Author = {Suparna Chaudhry and Andrew Heiss},
+    Booktitle = {Beyond the Boomerang: New Patterns in Transcalar Advocacy},
+    Editor = {Christopher L. Pallas and Elizabeth Bloodgood},
+    Publisher = {University of Alabama Press},
+    Title = {Closing Space and the Restructuring of Global Activism: Causes and Consequences of the Global Crackdown on {NGOs}},
+    Chapter = {2},
+    Year = {2022}}
+```

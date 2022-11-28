@@ -1,0 +1,29 @@
+---
+title: "Discovering Discourse: The Relationship between Media and NGOs in Egypt between 2011–13"
+date: 2014-03-20
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Sanford School of Public Policy, Duke University
+  - name: Ken Rogerson
+    affiliation: Sanford School of Public Policy, Duke University
+categories: 
+  - Egypt
+  - Text analysis
+  - Topic modeling
+  - NGOs
+pub-info:
+  reference: >-
+    "Discovering Discourse: The Relationship between Media and NGOs in Egypt between 2011–13" (with Ken Rogerson, Duke University)
+  links:
+  - name: PDF
+    url: 2014-heiss-rogerson-discourse.pdf
+    local: true
+    icon: fa-solid fa-file-pdf
+  - name: Code
+    url: https://github.com/andrewheiss/Media-and-NGOs
+    icon: fa-brands fa-github
+  extra: >-
+    Presented at the annual meetings of the Southern Political Science Association (SPSA), New Orleans, LA, January 2014; and the International Studies Association (ISA), Toronto, Canada, March 2014
+---

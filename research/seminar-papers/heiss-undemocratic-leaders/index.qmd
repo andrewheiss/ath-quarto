@@ -1,0 +1,33 @@
+---
+title: "Explaining Support for Undemocratic Leaders in Democracies in the Middle East"
+date: 2013-04-30
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Sanford School of Public Policy, Duke University
+categories:
+  - Authoritarianism
+pub-info:
+  links:
+  - name: PDF
+    url: 2013-seminar-heiss-undemocratic-leaders.pdf
+    local: true
+    icon: fa-solid fa-file-pdf
+  - name: Code
+    url: https://github.com/andrewheiss/Attitudes-in-the-Arab-World
+    icon: fa-brands fa-github
+  - name: Raw output
+    url: 2013-seminar-heiss-undemocratic-leaders-replication.html
+    icon: fa-solid fa-chart-simple
+    local: true
+  - name: Poster
+    url: 2013-seminar-heiss-undemocratic-leaders-poster.pdf
+    icon: fa-solid fa-square
+    local: true
+  reference: >-
+    “Explaining Support for Undemocratic Leaders in Democracies in the Middle East”<br>Replication and extension of Amaney Jamal and Mark Tessler. 2008. <a href="https://www.princeton.edu/~ajamal/Jamal_Tessler.97-110.pdf">“Attitudes in the Arab World."</a> <em>Journal of Democracy</em> 19, no. 1 (January): 97–110.
+  extra: >-
+    Prepared for PolSci 733, Maximum Likelihood Estimation, Duke University (taught by <a href="http://mdwardlab.com/">Mike Ward</a>)
+---
+

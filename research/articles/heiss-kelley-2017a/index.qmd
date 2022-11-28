@@ -1,0 +1,72 @@
+---
+title: "From the Trenches: A Global Survey of Anti-TIP NGOs and their Views of US Efforts"
+date: 2016-06-01
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Sanford School of Public Policy, Duke University
+  - name: Judith G. Kelley
+    orcid: 0000-0002-1154-2943
+    affiliation: Sanford School of Public Policy, Duke University
+categories: 
+  - INGOs
+  - Survey
+  - Human trafficking
+pub-info:
+  reference: >-
+    <strong>Andrew Heiss</strong> and Judith G. Kelley, “From the Trenches: A Global Survey of Anti-TIP NGOs and their Views of US Efforts,” <em>Journal of Human Trafficking</em> 3, no. 3 (2017): 1500–1528, doi: <a href="http://doi.org/10.1080/23322705.2016.1199241"><code>10.1080/23322705.2016.1199241</code></a>.
+  links:
+  - name: Preprint
+    url: 2016-heiss-kelley-anti-tip-ngos.pdf
+    icon: fa-solid fa-file-pdf
+    local: true
+  - name: Final version
+    url: https://doi.org/10.1080/23322705.2016.1199241
+    icon: fa-solid fa-scroll
+  - name: Code
+    url: https://github.com/andrewheiss/From-the-Trenches-Anti-TIP-NGOs-and-US
+    icon: fa-brands fa-github
+  - name: Data
+    url: https://github.com/andrewheiss/From-the-Trenches-Anti-TIP-NGOs-and-US/tree/master/data
+    icon: fa-solid fa-table
+doi: 10.1080/23322705.2016.1199241
+haiku:
+  - Big sector survey—
+  - NGOs like U.S. work
+  - fighting trafficking.
+---
+
+## Abstract
+
+Amid the academic and policy critiques of the United States 15-year push to eliminate human trafficking, the perspective of the nongovernmental organizations (NGOs) working with anti-trafficking advocacy and services has been largely ignored. This article presents the results of a global survey of nearly 500 anti-trafficking NGOs in working in 133 countries, and is the first NGO-focused survey of its kind. Based on the results of the survey, we provide an overview of the anti-trafficking NGO sector as a whole, detail the relationship between anti-trafficking NGOs and the US, and account for some of the variation in NGO opinions of US efforts. Notably, we find that NGOs are remarkably satisfied with US-led efforts—despite their acknowledged flaws—and that NGOs believe that American anti-TIP policies are important and, on balance, helpful. These results also provide a warning for the future of the United States' anti-trafficking advocacy, suggesting that the US avoid politicizing its annual Trafficking in Persons Report.
+
+
+## Important figures
+
+Figure 1: Countries where NGOs work, excluding NGOs working only in the US
+
+![Figure 1: Countries where NGOs work, excluding NGOs working only in the US](jht-16_fig1.png)
+
+Figure 4: Embassies or foreign governments NGOs reported as active partners in the fight against human trafficking
+
+![Figure 4: Embassies or foreign governments NGOs reported as active partners in the fight against human trafficking](jht-16_fig4.png)
+
+Figure 7: Average importance and positivity of US anti-TIP efforts across regions
+
+![Figure 7: Average importance and positivity of US anti-TIP efforts across regions](jht-16_fig7.png)
+
+
+## BibTeX citation
+
+```bibtex
+@article{HeissKelley:2017,
+  Author = {Andrew Heiss and Judith G. Kelley},
+  Doi = {10.1080/23322705.2016.1199241},
+  Journal = {Journal of Human Trafficking},
+  Number = {3},
+  Pages = {231--254},
+  Title = {From the Trenches: A Global Survey of Anti-{TIP} {NGOs} and their Views of {US} Efforts},
+  Volume = {3},
+  Year = {2017}}
+```

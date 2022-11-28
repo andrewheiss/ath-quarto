@@ -1,0 +1,27 @@
+---
+title: "Do Democracies Discourage NGO Cooperation?"
+date: 2014-04-20
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Sanford School of Public Policy, Duke University
+categories:
+  - INGOs
+  - NGOs
+pub-info:
+  reference : >-
+    “Do Democracies Discourage NGO Cooperation?"<br>Replication and extension of Amanda Murdie. 2014. <a href="http://link.springer.com/article/10.1007/s11558-013-9180-2">“Scrambling for Contact: The Determinants of Inter-NGO Cooperation in Non-Western Countries."</a> <em>Review of International Organizations</em> 9, no. 3 (September): 309–31.
+  links:
+  - name: PDF
+    url: 2014-seminar-heiss-ngo-cooperation.pdf
+    local: true
+    icon: fa-solid fa-file-pdf
+  - name: Code
+    url: https://github.com/andrewheiss/democracy-ngo-cooperation
+    icon: fa-brands fa-github
+  extra: >-
+    Prepared for PolSci 618, The Politics of Institutional Change, Duke University (taught by <a href="http://polisci.duke.edu/people?Gurl=&amp;Uil=1557&amp;subpage=profile">Karen Remmer</a>)
+---
+
+

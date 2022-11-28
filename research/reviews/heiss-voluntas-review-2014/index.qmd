@@ -1,0 +1,36 @@
+---
+title: "Review of <em>Manufacturing Civil Society: Principles, Practices, and Effects</em>, ed. Taco Brandsen, Willem Trommel, and Bram Verschuere"
+date: 2015-04-01
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Sanford School of Public Policy, Duke University
+categories: 
+  - Civil society
+pub-info:
+  reference: >-
+    <strong>Andrew Heiss</strong>, review of Taco Brandsen, Willem Trommel, and Bram Verschuere (eds.), <em>Manufacturing Civil Society: Principles, Practices, and Effects</em>, <em>Voluntas: International Journal of Voluntary and Nonprofit Organizations</em> 26, no. 2 (April 2014): 728–30, doi: <a href="https://doi.org/10.1007/s11266-014-9541-3"><code>10.1007/s11266-014-9541-3</code></a>.
+  links:
+  - name: Preprint
+    url: 2015-heiss-voluntas-review.pdf
+    local: true
+    icon: fa-solid fa-file-pdf
+  - name: Final version
+    url: https://doi.org/10.1007/s11266-014-9541-3
+    icon: fa-solid fa-scroll
+doi: 10.1007/s11266-014-9541-3
+---
+
+## BibTeX citation
+
+```bibtex
+@article{Heiss:2015,
+    author = {Andrew Heiss},
+    doi = {10.1007/s11266-014-9541-3},
+    journal = {Voluntas: International Journal of Voluntary and Nonprofit Organizations},
+    pages = {728--730},
+    titleaddon = {\bibstring{reviewof} Taco Brandsen, Willem Trommel, and Bram Verschuere (eds.), \mkbibemph{Manufacturing Civil Society: Principles, Practices, and Effects}},
+    volume = {26},
+    year = {2015}}
+```

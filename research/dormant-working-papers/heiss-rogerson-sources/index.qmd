@@ -1,0 +1,29 @@
+---
+title: "Sources of Advocacy: When Does the Media Give Voice to Egyptian Advocacy NGOs?"
+date: 2014-08-20
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Sanford School of Public Policy, Duke University
+  - name: Ken Rogerson
+    affiliation: Sanford School of Public Policy, Duke University
+categories: 
+  - Egypt
+  - Text analysis
+  - Topic modeling
+  - NGOs
+pub-info:
+  reference: >-
+    "Sources of Advocacy: When Does the Media Give Voice to Egyptian Advocacy NGOs?" (with Ken Rogerson, Duke University)
+  links:
+  - name: PDF
+    url: 2014-heiss-rogerson-sources.pdf
+    local: true
+    icon: fa-solid fa-file-pdf
+  - name: Code
+    url: https://github.com/andrewheiss/Egyptian-NGO-sources-in-media
+    icon: fa-brands fa-github
+  extra: >-
+    Presented at the annual meeting of the American Political Science Association (APSA), Washington, DC, August 2014
+---

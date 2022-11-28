@@ -1,0 +1,504 @@
+/*
+Title: ATH Clean
+Author: Andrew Heiss @andrewheiss <www.andrewheiss.com>
+Description: Nice clean theme for Pandoc, based in part on "Pesto"
+    (https://github.com/ttscoff/MarkedCustomStyles/blob/master/Pesto.scss) by
+    Andrew Patton (@acusti <http://www.acusti.ca>)
+Non-standard fonts used: Work Sans, Gentium Basic
+---
+*/
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Gentium+Basic");
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html, button, input, select, textarea {
+  font-family: sans-serif;
+}
+
+html, body, button, input, select, textarea {
+  color: #0a0a0a;
+  font-family: "Gentium Basic", "Palatino", serif;
+}
+
+body {
+  margin: 0 auto;
+  background-color: white;
+}
+
+body, textarea {
+  line-height: 1.5;
+}
+
+body:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+body {
+  padding: 1rem 1.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1050px;
+  display: block;
+}
+@media (min-width: base) {
+  body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media (min-width: 466px) {
+  body {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}
+@media (min-width: 612px) {
+  body {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 874.8px) {
+  body {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media (min-width: 1014.96px) {
+  body {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+}
+
+h1 {
+  font-size: 2.8em;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 1.75em 0 0.333em;
+}
+
+h1 + h2 {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.9em;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 1.5em 0 0.333em;
+}
+
+h2 + h3 {
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 1.3em 0 0;
+}
+
+h4 {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin: 1.3em 0 0;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: 300;
+  margin: 1.3em 0 0;
+}
+
+h6 {
+  font-size: 0.8em;
+  font-weight: 300;
+  margin: 1.3em 0 0;
+}
+
+/* Links */
+a {
+  color: #c7402d;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #eaaca3;
+}
+
+/* Monospaced stuff */
+code, pre, kbd, samp, tt {
+  font-family: "Consolas", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  background-color: #f2f2f2;
+  font-size: 80%;
+  padding: 0;
+}
+
+pre {
+  font-size: 1.3em;
+  margin: 1em 0;
+  line-height: 1.1;
+  background-color: #f2f2f2;
+  overflow-x: auto;
+  padding: 1.3rem;
+  position: relative;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 7px;
+  white-space: nowrap;
+  border: 1px solid #e3e3e3;
+  background-color: #f2f2f2;
+  color: #0a0a0a;
+}
+
+pre > code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+/* General typography */
+p {
+  font-size: 1.3em;
+  margin: 1em 0;
+}
+
+b, strong {
+  font-weight: bold;
+  font-weight: 700;
+}
+
+blockquote {
+  margin: 2em 4em;
+}
+
+small {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.footnote-ref, sup {
+  font-size: 0.9rem;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.footnotes {
+  font-size: 80%;
+}
+
+.footnote-back {
+  padding-left: 0.5em;
+}
+
+sub {
+  font-size: 0.9rem;
+  vertical-align: sub;
+}
+
+hr {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: -moz-use-text-color -moz-use-text-color #0a0a0a;
+  border-image: none;
+  border-style: none none solid;
+  border-width: medium medium 1px;
+  margin: 3em 6em;
+}
+
+/* Extra document parts */
+.article-meta {
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  font-weight: 300;
+}
+
+.title {
+  font-size: 3.3em;
+}
+
+.subtitle {
+  font-size: 1.9em;
+  margin-top: 0;
+}
+
+.date {
+  font-size: 1em;
+}
+
+.published {
+  font-size: 1em;
+}
+
+.authors {
+  margin: 2em 0;
+}
+
+.author {
+  font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.affilation {
+  font-size: 1em;
+  margin-top: 0;
+}
+
+.abstract {
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  margin: 0 3em 0;
+  padding: 5px;
+}
+
+.acknowledgments {
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  margin: 2em 3em;
+  padding: 5px;
+  background: #f2f2f2;
+}
+
+.epigraph-wrapper {
+  overflow: hidden;
+}
+
+.epigraph {
+  width: 65%;
+  float: right;
+  color: #8a8a8a;
+}
+
+.epigraph-text {
+  padding-top: 0.8em;
+  font-style: italic;
+  font-size: 1.6em;
+}
+
+.epigraph-source {
+  text-align: right;
+  font-size: 1.2em;
+}
+
+.references .csl-entry {
+  padding-left: 3rem;
+  margin-bottom: 1rem;
+  text-indent: -3rem;
+  font-size: 1.1em;
+  line-height: 1.3;
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  font-weight: 300;
+}
+
+/* Images */
+/* figure {
+    display: inline-block;
+    position: relative;
+    margin: 1em 0 2em;
+    text-align: center;
+}    
+
+img {
+    margin: 0 auto;
+    border: 0 none;
+    display: block;
+    width: auto;
+    max-width: 100%;
+} */
+figure {
+  display: table;
+  text-align: center;
+  margin: 0 auto;
+}
+
+figure img {
+  display: block;
+  max-width: 100%;
+}
+
+figcaption {
+  display: table-caption;
+  caption-side: bottom;
+}
+
+p img {
+  display: inline;
+}
+
+/* Lists */
+ol > li:before {
+  color: #0a0a0a;
+  content: counter(ol, decimal) ".";
+  counter-increment: ol;
+  margin-right: 0.333em;
+  position: absolute;
+  right: 100%;
+}
+
+ul > li:before {
+  background-color: #0a0a0a;
+  border-radius: 50%;
+  content: "";
+  height: 0.3em;
+  width: 0.3em;
+  margin-right: 0.5em;
+  margin-top: 0.6em;
+  position: absolute;
+  right: 100%;
+}
+
+ol, ul, dl {
+  margin-left: 3.1em;
+  padding: 0;
+  font-size: 1.3em;
+}
+
+ol ol, ul ul, dl dl,
+dl ol, dl ul {
+  margin-left: 2em;
+  font-size: 100%;
+}
+
+dl ol, dl ul {
+  margin-bottom: 0.75em;
+}
+
+ol p, ul p, dl p {
+  font-size: 100%;
+}
+
+dl table {
+  font-size: 80%;
+}
+
+ol {
+  counter-reset: ol;
+}
+
+li + li, dd + dt {
+  margin-top: 0em;
+}
+
+ul > li {
+  position: relative;
+}
+
+ol > li {
+  position: relative;
+}
+
+li {
+  list-style: none outside none;
+}
+
+dt {
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  padding-top: 0.5em;
+  font-size: 0.9em;
+}
+
+/* Tables */
+tbody {
+  display: table-row-group;
+}
+
+tfoot {
+  display: table-footer-group;
+}
+
+table {
+  margin-bottom: 2em;
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  padding: 0;
+  border-collapse: collapse;
+  width: 90%;
+  margin: 0 auto 2em auto;
+}
+
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+table th {
+  padding-top: 9px;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+table td {
+  vertical-align: top;
+  border-top: 1px solid #d6d6d6;
+  font-weight: 300;
+}
+
+tbody tr:nth-child(odd) {
+  /* background-color: $color-text-lightest; */
+}
+
+table ul, table ol {
+  margin-top: 0;
+  margin-left: 1em;
+  font-size: 100%;
+}
+
+/* Captions */
+caption, figcaption {
+  font-family: "Work Sans", "Roboto Condensed", sans-serif;
+  font-size: 1em;
+  text-align: left;
+  background: #f2f2f2;
+  padding: 4px 8px;
+  margin: 4px 0;
+}
+
+figure > figcaption {
+  margin-top: 0.25em;
+}
+
+/* Print */
+@media print {
+  html {
+    font-size: 130%;
+  }
+
+  body {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  ul > li:before {
+    height: 0.325em;
+    width: 0.325em;
+  }
+}
+
+/*# sourceMappingURL=ath-clean.css.map */

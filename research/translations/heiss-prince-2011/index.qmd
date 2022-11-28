@@ -1,0 +1,22 @@
+---
+title: Thalatha Haqaʾib lil-Safar / Three Suitcases for Departure
+date: 2011-01-01
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: American University in Cairo
+pub-info:
+  links:
+  - name: Book
+    url: http://www.amazon.com/The-Literary-Life-Cairo-Hundred/dp/9774163907
+    icon: fa-solid fa-book
+  - name: PDF
+    url: 2011-heiss-prince.pdf
+    icon: fa-solid fa-file-pdf
+    local: true
+  reference: >-
+    Prince, Mona. 2011. "Three Suitcases for Departure (<em>Thalatha Haqaʾib lil-Safar</em> / <span class="rtl">ثلاثة حقائب للسفر</span>)." In <em>The Literary Life of Cairo: One Hundred Years in the Heart of the City</em>, edited by Samia Mehrez, translated by Andrew Heiss, 212–13. Cairo: American University in Cairo Press.
+---
+
+
