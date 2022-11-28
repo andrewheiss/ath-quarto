@@ -3,6 +3,9 @@ project:
   resources:
     - "files/"
 
+execute:
+  freeze: auto
+
 bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
 
