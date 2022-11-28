@@ -1,0 +1,28 @@
+- title: Economy, Society, and Public Policy
+  university: Brigham Young University
+  number: MPA 612
+  url: https://econw19.classes.andrewheiss.com/
+  logo: logos/econw19.png
+  semester:
+  - name: Winter 2019
+    url: https://econw19.classes.andrewheiss.com/
+  - name: Winter 2019 (executive MPA)
+    url: https://empa-econw19.classes.andrewheiss.com/
+
+- title: Data Science and Statistics for Public Management
+  university: Brigham Young University
+  number: MPA 630
+  url: https://statsf18.classes.andrewheiss.com/
+  logo: logos/statsf18.png
+  semester:
+  - name: Fall 2018
+    url: https://statsf18.classes.andrewheiss.com/
+
+- title: Data Visualization
+  university: Brigham Young University
+  number: MPA 635
+  url: https://datavizf18.classes.andrewheiss.com/
+  logo: logos/datavizf18.png
+  semester:
+  - name: Fall 2018
+    url: https://datavizf18.classes.andrewheiss.com/

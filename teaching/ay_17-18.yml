@@ -1,0 +1,26 @@
+- title: Economic Decision Making for Managers
+  university: Brigham Young University
+  number: MPA 612
+  url: https://econw18.classes.andrewheiss.com/
+  logo: logos/econw18.png
+  semester:
+  - name: Winter 2018
+    url: https://econw18.classes.andrewheiss.com/
+
+- title: Telling Stories with Data
+  university: Brigham Young University
+  number: Bus M 491R
+  url: https://storiesf17.classes.andrewheiss.com/
+  logo: logos/storiesf17.png
+  semester:
+  - name: Fall 2017
+    url: https://storiesf17.classes.andrewheiss.com/
+
+- title: Data Visualization
+  university: Brigham Young University
+  number: MPA 635
+  url: https://datavizf17.classes.andrewheiss.com/
+  logo: logos/datavizf17.png
+  semester:
+  - name: Fall 2017
+    url: https://datavizf17.classes.andrewheiss.com/

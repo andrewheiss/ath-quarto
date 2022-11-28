@@ -370,6 +370,76 @@ body {
     }
 }
 
+.teaching {
+    .course-entry {
+        display: flex;
+        flex-direction: row;
+        font-family: $headings-font-family;
+        line-height: 1.3;
+        margin-bottom: 3em;
+        column-gap: 0.7em;
+
+        .body {
+            flex: 1 1 auto;
+        }
+
+        .logo {
+            flex: 0 0 140px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .course-title {
+            font-weight: 500;
+            font-size: 1.25em;
+            margin-bottom: 0.2em;
+        }
+        
+        .course-details {
+            font-weight: 300;
+            font-size: 0.9em;
+            margin-bottom: 0.5em;
+            color: $gray-800;
+        }
+
+        .course-description {
+            font-weight: 300;
+            font-size: 1.1em;
+            margin-bottom: 0.5em;
+        }
+
+        .course-role {
+            font-weight: 500;
+        }
+
+        ul.course-semesters {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+
+            li {
+                display: inline-block;
+                white-space: nowrap;
+                background-color: $orange;
+                margin: 0 0.2em 0.4em 0;
+                padding: 0.2em 0.4em;
+                font-size: 0.85em;
+                border-radius: 0.25rem;
+
+                &.no-link {
+                    background-color: $white;
+                    border: 1px solid $black;
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
 
 .talks {
     .talk-entry {

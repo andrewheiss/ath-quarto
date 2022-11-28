@@ -1,0 +1,33 @@
+- title: Data Visualization with R
+  description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
+  university: Georgia State University
+  number: PMAP 8921
+  url: https://datavizm20.classes.andrewheiss.com/
+  logo: logos/datavizm20.png
+  semester:
+  - name: May 2020 (asynchronous online)
+    url: https://datavizm20.classes.andrewheiss.com/
+
+- title: Program Evaluation for Public Service
+  description: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+  university: Georgia State University
+  number: PMAP 8521
+  url: https://evalsp20.classes.andrewheiss.com/
+  logo: logos/evalsp20.png
+  semester:
+  - name: Spring 2020
+    url: https://evalsp20.classes.andrewheiss.com/
+  - name: Fall 2019
+    url: https://evalf19.classes.andrewheiss.com/
+
+- title: Microeconomics for Public Policy
+  description: "Learn how to understand, speak, and do economics in the public sector"
+  university: Georgia State University
+  number: PMAP 8141
+  url: https://econs20.classes.andrewheiss.com/
+  logo: logos/econw19.png
+  semester:
+  - name: Summer 2020 (asynchronous online)
+    url: https://econs20.classes.andrewheiss.com/
+  - name: Fall 2019
+    url: https://econf19.classes.andrewheiss.com/

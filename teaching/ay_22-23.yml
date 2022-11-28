@@ -1,0 +1,29 @@
+- title: Program Evaluation for Public Service
+  description: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+  university: Georgia State University
+  number: PMAP 8521
+  url: https://evalf22.classes.andrewheiss.com/
+  logo: logos/evalsp20.png
+  semester:
+  - name: Fall 2022
+    url: https://evalf22.classes.andrewheiss.com/
+
+- title: Bayesian Statistics Readings
+  description: "Independent readings course on Bayesian statistics with R and Stan"
+  university: Georgia State University
+  number: PMAP 8911
+  url: https://bayesf22.classes.andrewheiss.com/
+  logo: logos/bayesf22.png
+  semester:
+  - name: Fall 2022
+    url: https://bayesf22.classes.andrewheiss.com/
+
+- title: Introduction to Nonprofits
+  description: "Discover what nonprofit organizations are, how they work, and how they can improve communities (and the world!)"
+  university: Georgia State University
+  number: PMAP 3210
+  url: https://nonprofitsp22.classes.andrewheiss.com/
+  logo: logos/nonprofitsp22.png
+  semester:
+  - name: Fall 2022
+    url: https://nonprofitf22.classes.andrewheiss.com/

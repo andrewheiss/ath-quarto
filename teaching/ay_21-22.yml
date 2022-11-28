@@ -1,0 +1,41 @@
+- title: Program Evaluation for Public Service
+  description: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+  university: Georgia State University
+  number: PMAP 8521
+  url: https://evalsp22.classes.andrewheiss.com/
+  logo: logos/evalsp20.png
+  semester:
+  - name: Spring 2022
+    url: https://evalsp22.classes.andrewheiss.com/
+  - name: Fall 2021
+    url: https://evalf21.classes.andrewheiss.com/
+
+- title: Introduction to Nonprofits
+  description: "Discover what nonprofit organizations are, how they work, and how they can improve communities (and the world!)"
+  university: Georgia State University
+  number: PMAP 3210
+  url: https://nonprofitsp22.classes.andrewheiss.com/
+  logo: logos/nonprofitsp22.png
+  semester:
+  - name: Spring 2022
+    url: https://nonprofitsp22.classes.andrewheiss.com/
+
+- title: Data Visualization with R
+  description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
+  university: Georgia State University
+  number: PMAP 8921
+  url: https://datavizs22.classes.andrewheiss.com/
+  logo: logos/datavizm20.png
+  semester:
+  - name: Summer 2022 (asynchronous online)
+    url: https://datavizs22.classes.andrewheiss.com/
+
+- title: Microeconomics for Public Policy
+  description: "Learn how to understand, speak, and do economics in the public sector"
+  university: Georgia State University
+  number: PMAP 8141
+  url: https://econs22.classes.andrewheiss.com/
+  logo: logos/econw19.png
+  semester:
+  - name: Summer 2022 (asynchronous online)
+    url: https://econs21.classes.andrewheiss.com/

@@ -1,0 +1,65 @@
+- title: Stats in Real Life
+  university: Duke University
+  role: TA, as PhD student
+  number: PubPol 590
+  logo: logos/teaching-generic-duke.png
+  semester:
+  - name: Fall 2014
+  - name: Spring 2014
+
+- title: Policy Analysis
+  university: Duke University
+  role: TA, as PhD student
+  number: PubPol 803/807
+  logo: logos/teaching-generic-duke.png
+  semester:
+  - name: Fall 2015
+  - name: Fall 2013
+
+- title: Statistical Analysis for Public Administrators
+  university: Brigham Young University
+  role: TA, as MPA student
+  number: PMGT 630
+  logo: logos/teaching-generic-byu.png
+  semester:
+  - name: Summer 2012
+
+- title: International Development Field Study
+  university: Brigham Young University
+  role: TA, as MPA student
+  number: PubPol 803/807
+  logo: logos/teaching-generic-byu.png
+  semester:
+  - name: Winter and Spring 2012
+
+- title: Decision Modeling and Analysis
+  university: Brigham Young University
+  show_university: true
+  role: TA, as MPA student
+  number: PubPol 803/807
+  logo: logos/teaching-generic-byu.png
+  semester:
+  - name: Winter 2012
+  - name: Fall 2011
+
+- title: Print Publishing
+  university: Brigham Young University
+  show_university: true
+  role: Instructor, as undergraduate
+  number: CHum 260
+  logo: logos/teaching-generic-byu.png
+  semester:
+  - name: Winter 2008
+
+- title: First-year Arabic
+  university: Brigham Young University
+  show_university: true
+  role: Instructor, as undergraduate
+  number: Arabic 101
+  logo: logos/teaching-generic-byu.png
+  url: /etc/byuarabic101/
+  semester:
+  - name: Winter 2007
+    url: /etc/byuarabic101/
+  - name: Fall 2006
+    url: /etc/byuarabic101/

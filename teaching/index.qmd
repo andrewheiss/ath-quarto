@@ -1,0 +1,65 @@
+---
+title: "Teaching"
+listing:
+  - id: ay_22-23
+    contents: ay_22-23.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+  - id: ay_21-22
+    contents: ay_21-22.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+  - id: ay_20-21
+    contents: ay_20-21.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+  - id: ay_19-20
+    contents: ay_19-20.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+  - id: ay_17-19
+    contents: 
+      - ay_18-19.yml
+      - ay_17-18.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+  - id: ay_older
+    contents: ay_older.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
+title-block-banner: "#EE6A24"
+page-layout: full
+toc: true
+toc-location: right
+toc-title: Academic year
+---
+
+## 2022–23
+
+:::{#ay_22-23}
+:::
+
+## 2021–22
+
+:::{#ay_21-22}
+:::
+
+## 2020–21
+
+:::{#ay_20-21}
+:::
+
+## 2019–20
+
+:::{#ay_19-20}
+:::
+
+## 2017–19
+
+:::{#ay_17-19}
+:::
+
+## 2007–15
+
+:::{#ay_older}
+:::
