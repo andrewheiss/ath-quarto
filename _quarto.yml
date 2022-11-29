@@ -31,8 +31,9 @@ website:
   description: "Andrew Heiss is an assistant professor at Georgia State University, researching international NGOs and teaching data science & economics."
   favicon: "/files/favicon-512.png"
   site-url: "https://www.andrewheiss.com"
-
   repo-url: "https://github.com/andrewheiss/ath-quarto"
+
+  google-analytics: "UA-527449-5"
 
   twitter-card: 
     image: "/files/profiles/twitter-card-large.png"
