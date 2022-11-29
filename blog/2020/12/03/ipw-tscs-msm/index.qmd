@@ -129,7 +129,9 @@ The formula for calculating weights differs depending on if the treatment is bin
 
 Here's my version of how to calculate stabilized inverse probability weights with a binary treatment:
 
-$$\text{Binary stabilized IPW}_{it} = \prod^t_{t = 1} \frac{P[X_{it} | \bar{X}_{i, t-1}, V_i]}{P[X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i]}$$
+$$
+\text{Binary stabilized IPW}_{it} = \prod^t_{t = 1} \frac{P[X_{it} | \bar{X}_{i, t-1}, V_i]}{P[X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i]}
+$$
 
 There are a ton of variables in this equation. Let's go through them one at a time:
 
@@ -153,7 +155,9 @@ Technically the numerator can just be 1 instead of the whole $P[\cdot]$ thing, b
 
 The equation for continuous weights looks really similar:
 
-$$\text{Continuous stabilized IPW}_{it} = \prod^t_{t = 1} \frac{f_{X | \bar{X}, V}[(X_{it} | \bar{X}_{i, t-1}, V_i); \mu_1, \sigma^2_1]}{f_{X | \bar{X}, Y, C, V}[(X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i), \mu_2, \sigma^2_2]}$$
+$$
+\text{Continuous stabilized IPW}_{it} = \prod^t_{t = 1} \frac{f_{X | \bar{X}, V}[(X_{it} | \bar{X}_{i, t-1}, V_i); \mu_1, \sigma^2_1]}{f_{X | \bar{X}, Y, C, V}[(X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i), \mu_2, \sigma^2_2]}
+$$
 
 Yikes. This is looks really complicated (and it is!), but again we can separate it into individual parts:
 
@@ -235,7 +239,9 @@ According to this, implementing a 6-hour workday is associated with a 6.8-point 
 
 We'll follow this formula to use confounders and previous treatments and outcomes to generate stabilized weights:
 
-$$\text{Binary stabilized IPW}_{it} = \prod^t_{t = 1} \frac{P[X_{it} | \bar{X}_{i, t-1}, V_i]}{P[X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i]}$$
+$$
+\text{Binary stabilized IPW}_{it} = \prod^t_{t = 1} \frac{P[X_{it} | \bar{X}_{i, t-1}, V_i]}{P[X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i]}
+$$
 
 The numerator predicts the treatment using the previous treatment and time invariant confounders. We'll use logistic regression here, but I'm like 90% sure you can do fancier things like multilevel models or machine learning or Bayes stuff:
 
@@ -361,7 +367,9 @@ Here we see that an additional day of vacation is associated with a 2.1-point in
 
 We'll follow the formula for continuous stabilized weights:
 
-$$\text{Continuous stabilized IPW}_{it} = \prod^t_{t = 1} \frac{f_{X | \bar{X}, V}[(X_{it} | \bar{X}_{i, t-1}, V_i); \mu_1, \sigma^2_1]}{f_{X | \bar{X}, Y, C, V}[(X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i), \mu_2, \sigma^2_2]}$$
+$$
+\text{Continuous stabilized IPW}_{it} = \prod^t_{t = 1} \frac{f_{X | \bar{X}, V}[(X_{it} | \bar{X}_{i, t-1}, V_i); \mu_1, \sigma^2_1]}{f_{X | \bar{X}, Y, C, V}[(X_{it} | \bar{X}_{i, t-1}, Y_{i, t-1}, C_{it}, V_i), \mu_2, \sigma^2_2]}
+$$
 
 The numerator predicts the treatment using the previous treatment and time invariant confounders. We'll use regular old linear regression here, but again, I'm like 90% sure you can do fancier things like multilevel models or machine learning or Bayes stuff:
 

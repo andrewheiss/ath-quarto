@@ -1,7 +1,7 @@
 ---
 title: "Exploring R² and regression variance with Euler/Venn diagrams"
 date: 2021-08-21
-description: "Use R to correctly close backdoor confounding in panel data with marginal structural models and inverse probability weights with both GEE and multilevel models"
+description: "Use Venn diagrams to visualize the proportion of an outcome explained by a regression model"
 image: index_files/figure-html/nice-plot-1.png
 categories:
   - r
