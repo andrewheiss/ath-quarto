@@ -52,7 +52,7 @@ website:
         rel: me
       - icon: mastodon
         aria-label: mastodon
-        href: https://fediscience.org/@andrew
+        href: https://fediscience.org/users/andrew/
         rel: me
       - icon: github
         aria-label: github
