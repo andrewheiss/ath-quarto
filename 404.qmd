@@ -1,0 +1,9 @@
+---
+title: "Page not found!"
+---
+
+### oh noes! :(
+
+The page or item that you’re looking for isn’t here! 
+
+Try using the <i class="fa-solid fa-magnifying-glass"></i> **search button** at the top of the page or <a href="https://www.google.com/search?q=site%3Aandrewheiss.com" target="_blank">searching on Google.</a>
