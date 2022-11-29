@@ -1,7 +1,18 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "*.md"
+    - "!etc/"
   resources:
-    - "files/"
+    - "files/**"
+    - "etc/**"
+
+    # Things that need to be at the site root
+    - "LiveSearchSiteAuth.xml"
+    - "keybase.txt"
+    - "y_key_31e0c4105fc75710.html"
+    - "pgp_ath.asc.txt"
 
 execute:
   freeze: auto

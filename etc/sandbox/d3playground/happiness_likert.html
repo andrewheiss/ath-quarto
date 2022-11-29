@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Likert Face</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        #wrapper {
+            width: 200px;
+            margin: 2em auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+    <p>
+      <label for="happiness_level" 
+             style="display: inline-block; text-align: right">
+             Satisfaction
+      </label>
+      <input type="range" min="60" max="200" id="happiness_level">
+    </p>
+
+    <div id="happiness"></div>
+</div>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script type="text/javascript">
+var svg = d3.select("#happiness").append("svg")
+    .attr("width", 200)
+    .attr("height", 200);
+
+var face_data = [
+    {"cx": 100, "cy": 100, "r": 100, "fill": "#F8CA00"},
+    {"cx": 70,  "cy": 70,  "r": 15,  "fill": "black"},
+    {"cx": 130, "cy": 70,  "r": 15,  "fill": "black"}
+];
+
+var face = svg.selectAll("circle")
+    .data(face_data)
+    .enter()
+    .append("circle");
+
+var face_attributes = face
+    .attr("cx", function (d) {return d.cx})
+    .attr("cy", function (d) {return d.cy})
+    .attr("r", function (d) {return d.r})
+    .attr("fill", function (d) {return d.fill});
+
+var smile_data = [ 
+    {"x": 30,  "y": 130},
+    {"x": 100, "y": 130},
+    {"x": 170, "y": 130}
+];
+
+var smile_function = d3.svg.line()
+    .x(function(d) {return d.x;})
+    .y(function(d) {return d.y;})
+    .interpolate("bundle");
+
+var smile = svg.append("path")
+    .attr("d", smile_function(smile_data))
+    .attr("stroke", "black")
+    .attr("stroke-width", 4)
+    .attr("fill", "none");
+
+function update(new_y) {
+    d3.select("#happiness_level").property("value", new_y);
+
+    smile_data[1].y = new_y
+
+    smile.attr("d", smile_function(smile_data))
+};
+
+// Initialize
+update(130);
+
+// Adjust smile with slider
+d3.select("#happiness_level").on("input", function() {
+    update(+this.value);
+});
+</script>
+
+</body>
+</html>

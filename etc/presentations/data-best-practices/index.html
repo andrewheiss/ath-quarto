@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Social Sciencing the Right Way</title>
+
+		<meta name="description" content="Presentation on using GitHub and make for reproducible social science research.">
+		<meta name="author" content="Andrew Heiss">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<style type="text/css">
+			.smaller {
+				font-size: 50% !important;
+				margin-left: 1em !important;
+			}
+
+		.bordered {
+			font-size: 90% !important;
+			line-height: 1.3em !important;
+		}
+
+		.bordered td {
+			vertical-align: middle;
+		}
+
+		.bordered th {
+			border-bottom: 2px solid #000000 !important;
+			vertical-align: bottom;
+		}
+
+		.bordered td {
+			padding: 20px 0 !important;
+		}
+		</style>
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Social Sciencing<br>the Right Way</h1>
+					<br>
+					<h3>Maintainability, Transparency, and Reproducibility</h3>
+					<br>
+					<p>Andrew Heiss • September 9, 2014</p>
+					<a href="http://www.andrewheiss.com">andrewheiss.com</a>
+				</section>
+
+				<section>
+					<section>
+						<h2>Requirements for good science</h2>
+						<div class="fragment">
+							<p>Transparency</p>
+							<p>Reproducibility</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>What are the ingredients of a research project?</h2>
+						<p class="fragment">Idea</p>
+						<p class="fragment"><strong>Data</strong></p>
+						<p class="fragment"><strong>Writing</strong></p>
+						<p class="fragment"><strong>Tables</strong></p>
+						<p class="fragment"><strong>Figures</strong></p>
+					</section>
+
+					<section>
+					<h2>How do you ensure transparency and reproducibility?</h2>
+						<p class="fragment">&#8220;You can do productive, maintainable and reproducible work with all kinds of different software set-ups.&#8221;</p>
+						<p class="fragment">But...</p>
+						<p class="fragment">&#8220;In the social sciences, text and data management skills are usually not taught to students explicitly.&#8221;</p>
+						<br/>
+						<p class="fragment">Kieran Healy, <a href="http://kieranhealy.org/files/misc/workflow-apps.pdf">&#8220;Choosing Your Workflow Applications.&#8221;</a></p>
+					</section>
+
+					<section>
+						<h2>Essential skills</h2>
+						<p>Coding</p>
+						<p>Version control</p>
+						<p>Automation</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Coding</h2>
+					</section>
+
+					<section>
+						<h2>Text Editors</h2>
+						<p>You're a programmer now. Stop using the default Stata editor.</p>
+					</section>
+
+					<section>
+						<h2>Text Editors</h2>
+						<p>It doesn't matter which one you use.</p>
+					  <img src="http://imgs.xkcd.com/comics/real_programmers.png">
+					</section>
+
+					<section>
+						<h3>The Zen of Text Editing</h3>
+						<p class="fragment">The best editor is the one you work best with.</p>
+						<p class="fragment"><small>(But some editors are more equal than others.)</small></p>
+					</section>
+
+					<section>
+						<h2>Choices!</h2>
+						<ul>
+							<li><strong>Good</strong> <span class="smaller">(good basic syntax highlighting)</span>
+							<ul>
+								<li><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a> <span class="smaller">(OS X; free)</span></li>
+								<li><a href="http://notepad-plus-plus.org/">Notepad++</a> <span class="smaller">(Windows; free)</span></li>
+							</ul></li>
+							<li><strong>Better</strong> <span class="smaller">(macros, snippets, and build systems, oh my!)</span>
+							<ul>
+								<li><a href="http://macromates.com/">Textmate</a> <span class="smaller">(OS X; free)</span></li>
+								<li><a href="http://www.sublimetext.com/">Sublime Text</a> <span class="smaller">(Windows and OS X; kind of free-ish)</span></li>
+							</ul></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>The magic of<br/>Sublime Text</h2>
+						<p>Demonstration</p>
+					</section>
+
+					<section>
+						<h2>Code style</h2>
+						<p>Your code is as important as the writeup.</p>
+						<p>Take care of it.</p>
+					</section>
+
+					<section>
+						<h2>Ultimate goal</h2>
+						<p>Anyone (including future you) should be able to open a file and know what's going on.</p>
+					</section>
+
+
+					<section>
+						<h2>Style matters</h2>
+						<img src="images/bad_code.png">
+					</section>
+
+					<section>
+						<h2>Style matters</h2>
+						<img src="images/better_code.png">
+					</section>
+
+					<section>
+						<h2>Sample guidelines</h2>
+						<ul>
+							<li><a href="http://adv-r.had.co.nz/Style.html">Basic R guidelines</a></li>
+							<li><a href="http://google-styleguide.googlecode.com/svn/trunk/Rguide.xml">Google's R guidelines</a></li>
+							<li><a href="http://www.stata-journal.com/sjpdf.html?articlenum=pr0018">Recommended Stata guidelines</a></li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Most common errors <span class="smaller">(that are easy to fix)</span></h2>
+						<h3 class="fragment">Headers and whitespace in code</h3>
+						<h3 class="fragment">Purposeful naming and commenting</h3>
+						<div class="fragment">						
+						<p>Bad</p>
+
+<pre><code>gen var1 ... * Generate a variable for GDP/capita
+gen var2 ... * Generate a variable for logged GDP/capita
+</code></pre>
+						</div>
+
+						<div class="fragment">
+						<p>Bad</p>
+
+<pre><code>gen gdp_capita ... * Generate a variable for GDP/capita
+gen log_gdp_capita ...  * Generate a variable for logged GDP/capita
+</code></pre>
+						</div>
+
+						<div class="fragment">
+						<p>Good</p>
+
+<pre><code>* Create extra variables
+gen gdp_capita ...
+gen log_gdp_capita ...
+</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Version Control</h2>
+						<p>Everyone does it. Some do it well; some do it poorly.</p>
+					</section>
+
+					<section>
+						<img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" />
+					</section>
+
+					<section>
+						<h2>Why use version control?</h2>
+						<!-- <ul> -->
+							<p class="fragment">Industry best practice <span class="smaller">All the cool kids are doing it!</span></p>
+							<p class="fragment">Catching on in academia <span class="smaller">All the cool <em>scholars</em> are doing it!</span></p>
+						<!-- </ul> -->
+						<ul class="fragment">
+							<li>Helps you not break stuff</li>
+							<li>Helps you not delete stuff</li>
+							<li>Help you back stuff up</li>
+							<li>Helps you remember what stuff you did</li>
+							<li>Helps others build on your stuff</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Types of version control</h2>
+						<table class="bordered">
+						<colgroup>
+						<col style="text-align:left;"/>
+						<col style="text-align:center;"/>
+						<col style="text-align:center;"/>
+						<col style="text-align:center;"/>
+						<col style="text-align:center;"/>
+						</colgroup>
+
+						<thead>
+						<tr>
+							<th style="text-align:left;">Type</th>
+							<th style="text-align:center;">Backup</th>
+							<th style="text-align:center;">Best practice</th>
+							<th style="text-align:center;">Tracks history</th>
+							<th style="text-align:center;">Collaboration</th>
+						</tr>
+						</thead>
+
+						<tbody>
+						<tr class="fragment">
+							<td style="text-align:left;"><strong>Manually</strong></td>
+							<td style="text-align:center;">Only if you set it up</td>
+							<td style="text-align:center;">Not really</td>
+							<td style="text-align:center;">Nope</td>
+							<td style="text-align:center;">Infinite chains<br />of e-mails</td>
+						</tr>
+						<tr class="fragment">
+							<td style="text-align:left;"><strong>Dropbox</strong></td>
+							<td style="text-align:center;">Yep</td>
+							<td style="text-align:center;">Kind of</td>
+							<td style="text-align:center;">30 days</td>
+							<td style="text-align:center;">Kind of</td>
+						</tr>
+						<tr class="fragment">
+							<td style="text-align:left;"><strong>Git/Hg/SVN</strong></td>
+							<td style="text-align:center;">Yep</td>
+							<td style="text-align:center;">Yep</td>
+							<td style="text-align:center;">Yep</td>
+							<td style="text-align:center;">Awesome</td>
+						</tr>
+						</tbody>
+						</table>
+
+					</section>
+
+					<section>
+						<h2>Basic intuition</h2>
+						<p class="fragment">Edit stuff <span class="smaller">Add a new feature, fix a bug, whatever.</span></p>
+						<p class="fragment">Commit the changes <span class="smaller">Add an explanatory note about what you did.</span></p>
+						<p class="fragment">Push changes <span class="smaller">Your repository lives <a href="http://git-scm.com/about/distributed">in the cloud</a>.</span></p>
+						<p class="fragment">Repeat!<br/><span class="smaller">And repeat. And repeat. And then publish.</span></p>
+					</section>
+
+					<section>
+						<h2>Bonus stuff!</h2>
+						<p class="fragment">Make <a href="http://git-scm.com/about/branching-and-merging">branches</a> <span class="smaller">For those times when you want to experiment with stuff.</span></p>
+						<p class="fragment">Look (or even go!) <a href="http://git-scm.com/about/info-assurance">back in time</a> <span class="smaller">See how far you've come! Or go back and find working code.</span></p>
+					</section>
+
+					<section>
+						<h2>The Magic of GitHub</h2>
+						<p class="smaller">It&rsquo;s like Facebook for code.</p>
+						<p><a href="https://github.com/">Demonstration</a></p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Automation</h2>
+					</section>
+
+					<section>
+						<h2>Drowning in graphs and tables</h2>
+						<p>You make lots of stuff during a project. <span class="smaller">Hooray for <code>outreg2</code>, <code>ggsave</code>, and <code>xtable</code>!</span></p>
+						<p class="fragment">What if you change something in your code or data, but that change only affects some of your graphs...</p>
+						<div class="fragment">
+							<p>Which ones do you update?</p>
+							<p>What if you forget one?</p>
+							<p class="smaller">Panic! Or just make them all again.</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>Tell the computer what to do</h2>
+						<p><a href="http://tonyfischetti.github.io/sake/">Sakefile</a> = a list of instructions for the computer</p>
+						<pre><code data-trim class="yaml">
+name of task:
+  help: description of task
+  dependencies:
+    - list of files the task needs
+  formula: >
+    commands to run the task
+  output:
+    list of files that the formula makes
+						</code></pre>
+						<p>Type <code>sake</code> at the terminal to generate all output files.</p>
+						<br />
+						<p>Sake keeps track of file timestamps;<br>no unnecessary file creation!</p>
+					</section>
+
+					<section>
+						<h2>For example...</h2>
+						<pre><code data-trim class="yaml">
+build model:
+  help: run a flimsy OLS regression model
+  dependencies: 
+    - Data/olympic-medals.csv
+    - build_model.R
+  formula: >
+    Rscript build_model.R
+  output: 
+    - Output/medal_model.docx
+    				</code></pre>
+					</section>
+
+					<section>
+						<h2>Mix and Match!</h2>
+						<p>You can use any program you want.</p>
+						<p>If you can type a command in the terminal, Sake can run it.</p>
+						<br />
+						<ul class="fragment">
+							<li>Use a Python script to download and clean data; then...</li>
+							<li>Use <code>ivregress</code> in Stata and save its output; then...</li>
+							<li>Load it in R for Monte Carlo simulation and pretty graphs.</li>
+						</ul>
+						<br />
+						<p class="fragment"><br /><a href="https://github.com/andrewheiss/Egyptian-NGO-sources-in-media/blob/master/Sakefile">Real life example</a></p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Putting it all together</h2>
+					</section>
+
+					<section>
+						<h2>Transparency and accountability</h2>
+							<p>If you commit it, they can see it. <span class="smaller">Journal of Unpublished Results</span></p>
+					</section>
+					
+					<section>
+						<h2>Instantly rebuildable&mdash;by anyone.</h2>
+						<p>Install Sake.</p>
+						<p>Download your git repository.</p>
+						<p>Type <code>sake</code>.</p>
+						<p>Boom.</p>
+					</section>
+
+					<section>
+						<h2>Benefits</h2>
+						<p class="fragment">Accuracy!</p>
+						<p class="fragment">&ldquo;Making your research publicly accessible in this manner makes it considerably easier to replicate, meaning that, all else equal, more people will build on your work, leading to higher citation counts and impact.&rdquo;</p>
+						<br />
+						<p class="fragment">&ldquo;Hosting your work on GitHub, because of its popularity in and outside of academia, also increases the probability of your work being seen by people that aren&rsquo;t actively involved in academic political science.&rdquo;</p>
+						<br />
+						<p class="fragment">Zach Jones, <a href="http://thepoliticalmethodologist.com/2013/11/18/gitgithub-transparency-and-legitimacy-in-quantitative-research/">&ldquo;Git/GitHub, Transparency, and Legitimacy in Quantitative Research&rdquo;</a></p>
+					</section>
+				</section>	
+
+				<section>
+				<section>
+					<h2>Go forth and create maintainable, reproducible stuff!</h2>
+				</section>
+					<section>
+						<h2>Demonstration</h2>
+						<p>Go to <a href="http://andhs.co/sake-example">http://andhs.co/sake-example</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				previewLinks: false,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

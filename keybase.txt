@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/andrewheiss
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.andrewheiss.com
+  * I am andrewheiss (https://keybase.io/andrewheiss) on keybase.
+  * I have a public key ASBqrTHaAkOPL62yFn4Od1_cz5C0G8S-WePRE6H9LKK36Ao
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01206aad31da02438f2fadb2167e0e775fdccf90b41bc4be59e3d113a1fd2ca2b7e80a",
+            "host": "keybase.io",
+            "kid": "01206aad31da02438f2fadb2167e0e775fdccf90b41bc4be59e3d113a1fd2ca2b7e80a",
+            "uid": "e2d363c701390ae85b5015b9a00db319",
+            "username": "andrewheiss"
+        },
+        "service": {
+            "hostname": "www.andrewheiss.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1485650884,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1485650789,
+        "hash": "cb5ae73791678df09c827e1c3be6adec24b53ec135dbb1162a69e3b01e85b68f41691eb79a89e036885628a15e17759b906e1a4d1410d41ed61eeb742bf09f04",
+        "seqno": 821863
+    },
+    "prev": "01c358fdd7f112c5184f366f533f8b3932ccee0f586b4cb6e39097b1c34d03d6",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgaq0x2gJDjy+tshZ+Dndf3M+QtBvEvlnj0ROh/Syit+gKp3BheWxvYWTFAv57ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNmFhZDMxZGEwMjQzOGYyZmFkYjIxNjdlMGU3NzVmZGNjZjkwYjQxYmM0YmU1OWUzZDExM2ExZmQyY2EyYjdlODBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNmFhZDMxZGEwMjQzOGYyZmFkYjIxNjdlMGU3NzVmZGNjZjkwYjQxYmM0YmU1OWUzZDExM2ExZmQyY2EyYjdlODBhIiwidWlkIjoiZTJkMzYzYzcwMTM5MGFlODViNTAxNWI5YTAwZGIzMTkiLCJ1c2VybmFtZSI6ImFuZHJld2hlaXNzIn0sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJ3d3cuYW5kcmV3aGVpc3MuY29tIiwicHJvdG9jb2wiOiJodHRwczoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMTgifSwiY3RpbWUiOjE0ODU2NTA4ODQsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJtZXJrbGVfcm9vdCI6eyJjdGltZSI6MTQ4NTY1MDc4OSwiaGFzaCI6ImNiNWFlNzM3OTE2NzhkZjA5YzgyN2UxYzNiZTZhZGVjMjRiNTNlYzEzNWRiYjExNjJhNjllM2IwMWU4NWI2OGY0MTY5MWViNzlhODllMDM2ODg1NjI4YTE1ZTE3NzU5YjkwNmUxYTRkMTQxMGQ0MWVkNjFlZWI3NDJiZjA5ZjA0Iiwic2Vxbm8iOjgyMTg2M30sInByZXYiOiIwMWMzNThmZGQ3ZjExMmM1MTg0ZjM2NmY1MzNmOGIzOTMyY2NlZTBmNTg2YjRjYjZlMzkwOTdiMWMzNGQwM2Q2Iiwic2Vxbm8iOjgsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RASSglH9/57Hcy8orxvxfTUbsnTPYq3IPxHVC37c++We2JG/mxUVM9XPvf4IKG40jF2skzF/L5rExLNVVRRbSMB6hzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBZkv25Cvi5oei09sBXEAHuZHzNt8ujeMXvXiquidOxdo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/andrewheiss
+
+==================================================================

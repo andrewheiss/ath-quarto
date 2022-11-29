@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript sandbox</title>
+<style type="text/css">
+
+#wrapper {
+    text-align: center;
+    font-family: "HelveticaNeue";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#answer_area {
+    background-color: #cccccc;
+    border: 1px solid #666666;
+    width: 400px;
+    height: 400px;
+}
+
+.correct {
+    background-color: #8A9B0F !important;
+}
+
+.incorrect {
+    background-color: #C02942 !important;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="wrapper">
+    <h1>Which thing is it?</h1>
+    <p>Space bar or left arrow?</p>
+    <div id="answer_area"></div>
+</div>
+
+<!-- http://www.freesound.org -->
+<audio id="correct">
+    <source src="correct.wav" type="audio/wav">
+</audio>
+
+<audio id="incorrect">
+    <source src="gas.wav" type="audio/wav">
+</audio>
+
+
+<script type="text/javascript">
+// http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+    var sounds = {
+        32 : 'correct',
+        37 : 'incorrect'
+    };
+
+    var answer_area = document.getElementById('answer_area');
+
+    function sleep(ms) {
+        var dt = new Date();
+        dt.setTime(dt.getTime() + ms);
+        while (new Date().getTime() < dt.getTime());
+    }
+
+    function pausecomp(ms) {
+        ms += new Date().getTime();
+        while (new Date() < ms){}
+    } 
+
+    document.onkeydown = function(e) {
+        var soundId = sounds[e.keyCode];
+        if (soundId) {
+            document.getElementById(soundId).play();
+            answer_area.className = sounds[e.keyCode];
+
+            setTimeout(
+                function() {
+                    answer_area.className = ""
+                }, 750
+            );
+        } else {
+            console.log("key not mapped : code is", e.keyCode);
+        }
+    }
+</script>
+
+</body>
+
+</html>
