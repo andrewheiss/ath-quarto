@@ -1,0 +1,34 @@
+<?php
+// MySQL connection variables
+$host="localhost"; 
+$username="theusername"; 
+$password="thepassword"; 
+$db_name="PDFStuff"; 
+$tbl_name="PDF_Loans"; 
+
+// Connect to server and select database.
+mysql_connect("$host", "$username", "$password")or die("cannot connect");
+mysql_select_db("$db_name")or die("cannot select DB");
+
+//Save data from the HTTP POST values submitted from the PDF
+$FirstName=$_REQUEST["FirstName"];
+$LastName=$_REQUEST["LastName"];
+$EMail=$_REQUEST["EMail"];
+
+// Insert all the data from above into the table in the database
+$sql="INSERT INTO $tbl_name(FirstName, LastName, EMail)VALUES('$FirstName', '$LastName', '$EMail')";
+$result=mysql_query($sql);
+
+// If it worked, say so...
+// This will change later on so it won't have the like to view all users, obviously...that's just for testing purposes
+if($result){
+echo "Successful";
+}
+
+else {
+echo "ERROR";
+}
+
+// Close connection to the database
+mysql_close();
+?>

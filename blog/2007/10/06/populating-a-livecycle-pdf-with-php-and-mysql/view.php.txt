@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>View Loan Agreements</title>
+</head>
+
+<body>
+<?php
+// MySQL connection variables
+$host="localhost"; 
+$username="theusername"; 
+$password="thepassword"; 
+$db_name="PDFStuff"; 
+$tbl_name="PDF_Loans"; 
+
+// Connect to server and select database.
+mysql_connect("$host", "$username", "$password")or die("cannot connect");
+mysql_select_db("$db_name")or die("cannot select DB");
+
+// Get data from database
+$sql="SELECT * FROM $tbl_name ";
+$result=mysql_query($sql);
+?>
+
+<table width="550" border="1">
+  <tr>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">E-mail</th>
+    <th scope="col">View PDF</th>
+  </tr>
+
+<?php
+// Loop through all the rows in the database
+while($rows=mysql_fetch_array($result)){
+?>
+  <tr>
+    <td><div align="center"><?php echo $rows["FirstName"]; ?></div></td>
+    <td><div align="center"><?php echo $rows["LastName"]; ?></div></td>
+    <td><div align="center"><?php echo $rows["EMail"]; ?></div></td>
+    <td><div align="center"><a href="#">View PDF</a></div></td>
+  </tr>
+<?php
+// Close loop
+}
+?>
+</table>
+
+<?php
+// Close the connection
+mysql_close();
+?>
+</body>
+</html>

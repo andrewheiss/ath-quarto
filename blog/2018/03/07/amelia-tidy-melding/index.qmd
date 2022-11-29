@@ -1,0 +1,196 @@
+---
+title: Meld regression output from multiple imputations with tidyverse
+date: 2018-03-07
+description: Use tidyverse functions to correctly meld and pool multiply imputed model output.
+categories: 
+  - r
+  - imputation
+  - tidyverse
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 4, fig.align = "center", 
+                      fig.retina = 3, out.width = "90%", collapse = TRUE)
+options(digits = 3, width = 90)
+options(dplyr.summarise.inform = FALSE)
+```
+
+<span class="small">([See this notebook on GitHub](https://github.com/andrewheiss/amelia-tidy-melding))</span>
+
+---
+
+Missing data can significantly influence the results of normal regression models, since the default in R and most other statistical packages is to throw away any rows with missing variables. To avoid unnecessarily throwing out data, it's helpful to impute missing values. One of the best ways to do this is to build a separate regression model to make predictions that fill in the gaps in data. This isn't always accurate, so it's best to make many iterations of predictions (in imputation parlance, $m$ is the number of imputations done to a dataset). After making $m$ datasets, you can use this data by (1) running statistical tests on each imputation individually and then (2) pooling those results into a single number. The [excellent Amelia vignette](https://cran.r-project.org/web/packages/Amelia/vignettes/amelia.pdf) details the theory and mechanics of how to use multiple imputation, and it's a fantastic resource.
+
+There are several packages for dealing with missing data in R, including [`mi`](https://cran.r-project.org/package=mi), [`mice`](https://cran.r-project.org/package=mice), and [`Amelia`](https://cran.r-project.org/package=Amelia), and Thomas Leeper has [a short overview of how to use all three](http://thomasleeper.com/Rcourse/Tutorials/mi.html). I'm partial to [Amelia](https://gking.harvard.edu/amelia), since it's designed to work well with time series-cross sectional data and can deal with complicated features like country-year observations. 
+
+Because Amelia is written by Gary King, et al., it works with [Zelig](https://zeligproject.org/), a separate framework that's designed to simplify modeling in R. With Zelig + Amelia, you can combine all of the $m$ imputations automatically with whatever Zelig uses for printing model results. I'm not a huge fan of Zelig, though, and I prefer using `lm()`, `glm()`, `stan_glm()`, and gang on my own, thank you very much.
+
+However, doing it on my own means there's a little more work involved with combining coefficients and parameters across imputations. Fortunately, the [tidyverse](https://www.tidyverse.org/)—specifically its ability to store models within data frames—makes it really easy to deal with models based on imputed data. Here's how to do it using tidy functions. The code for this whole process can be greatly simplified in real life. You technically don't need all these intermediate steps, though they're helpful for seeing what's going on behind the scenes. 
+
+We'll start by working with some basic example imputed data frame from Amelia's built-in data. We create 5 imputed datasets defining countries and years as cross sections and time series, and we log GDP per capita in the predictive model:
+
+```{r load-libraries-impute, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(Amelia)
+library(broom)
+
+set.seed(1234)
+data(africa)
+imp_amelia <- amelia(x = africa, m = 5, cs = "country", ts = "year", 
+                     logs = "gdp_pc", p2s = 0)
+```
+
+The resulting object contains a list of data frames, and each imputed dataset is stored in a list slot named "imputations" or `imp_amelia$imputations`. We can combine these all into one big data frame with `bind_rows()`, group by the imputation number ($m$), and nest them into imputation-specific rows:
+
+```{r combine-imputations}
+# unclass() is necessary because bind_rows() will complain when dealing with
+# lists with the "amelia" class, which is what amelia() returns
+all_imputations <- bind_rows(unclass(imp_amelia$imputations), .id = "m") %>%
+  group_by(m) %>%
+  nest()
+
+all_imputations
+```
+
+With this nested data, we can use `purrr::map()` to run models and return tidy summaries of those models directly in the data frame:
+
+```{r imputation-models}
+models_imputations <- all_imputations %>%
+  mutate(model = data %>% map(~ lm(gdp_pc ~ trade + civlib, data = .)),
+         tidied = model %>% map(~ tidy(., conf.int = TRUE)),
+         glance = model %>% map(~ glance(.)))
+
+models_imputations
+```
+
+Having the models structured like this makes it easy to access coefficients for models from individual imputations, like so:
+
+```{r check-one-imputation}
+models_imputations %>%
+  filter(m == "imp1") %>%
+  unnest(tidied)
+```
+
+More importantly, we can access the coefficients for all the models, which is essential for combining and averaging the coefficients across all five imputations.
+
+Pooling or melding coefficients from many models is a little trickier than just averaging them all together (as delightfully easy as that would be). [Donald Rubin (1987)](https://doi.org/10.1002/9780470316696) outlines an algorithm/set of rules for combining the results from multiply imputed datasets that reflects the averages and accounts for differences in standard errors. Rubin's rules are essentially a fancier, more robust way of averaging coefficients and other quantities of interest across imputations.
+
+Amelia has a built-in function for using Rubin's rules named `mi.meld()` that accepts two m-by-k matrices (one for coefficients and one for standard errors) like so:
+
+```text
+      coef1  coef2  coefn
+imp1  x      x      x
+imp2  x      x      x
+impn  x      x      x
+```
+
+We can use some dplyr/tidyr magic to wrangle the regression results into this form:
+
+```{r matrix-wrangle}
+# Create a wide data frame of just the coefficients and standard errors
+params <- models_imputations %>%
+  unnest(tidied) %>%
+  select(m, term, estimate, std.error) %>%
+  gather(key, value, estimate, std.error) %>%
+  spread(term, value) %>% 
+  ungroup()
+params
+```
+
+```{r matrix-coefs, message=FALSE}
+# Extract just the coefficients
+just_coefs <- params %>%
+  filter(key == "estimate") %>%
+  select(-m, -key)
+just_coefs
+```
+
+```{r matrix-ses, message=FALSE}
+# Extract just the standard errors
+just_ses <- params %>%
+  filter(key == "std.error") %>%
+  select(-m, -key)
+just_ses
+```
+
+We can then use these matrices in `mi.meld()`, which returns a list with two slots—`q.mi` and `se.mi`:
+
+```{r}
+coefs_melded <- mi.meld(just_coefs, just_ses)
+coefs_melded
+```
+
+Armed with these, we can create our regression summary table with some more dplyr wizardry. To calculate the p-value and confidence intervals, we need to extract the degrees of freedom from one of the imputed models
+
+```{r}
+model_degree_freedom <- models_imputations %>%
+  unnest(glance) %>%
+  filter(m == "imp1") %>%
+  pull(df.residual)
+
+melded_summary <- as.data.frame(cbind(t(coefs_melded$q.mi),
+                                      t(coefs_melded$se.mi))) %>%
+  magrittr::set_colnames(c("estimate", "std.error")) %>%
+  mutate(term = rownames(.)) %>%
+  select(term, everything()) %>%
+  mutate(statistic = estimate / std.error,
+         conf.low = estimate + std.error * qt(0.025, model_degree_freedom),
+         conf.high = estimate + std.error * qt(0.975, model_degree_freedom),
+         p.value = 2 * pt(abs(statistic), model_degree_freedom, lower.tail = FALSE))
+
+melded_summary
+```
+
+Hooray! Correctly melded coefficients and standard errors!
+
+But what do we do about the other model details, like $R^2$ and the F-statistic? How do we report those?
+
+According to [a post on the Amelia mailing list](https://lists.gking.harvard.edu/pipermail/amelia/2016-July/001249.html), there are two ways. First, we can use a fancy method for combining $R^2$ and adjusted $R^2$ described by [Ofer Harel (2009)](https://doi.org/10.1080/02664760802553000). Second, we can just take the average of the $R^2$s from all the imputed models. The results should be roughly the same.
+
+Harel's method involves two steps:
+
+1. In each complete data set, calculate the $R^2$, take its square root ($R$), transform $R$ with a Fisher z-transformation ($Q = \frac{1}{2} \log_{e}(\frac{1 + R}{1 - R})$), and calculate the variance of $R^2$ (which is $\frac{1}{\text{degrees of freedom}}$)
+2. Meld the resulting $Q$ and variance using Rubin's rules (`mi.meld()`; this creates $Q_a$), undo the z-transformation ($R_a = (\frac{-1 + \exp(2Q_a)}{1 + \exp(2Q_a)})^2$), and square it ($R_a^2$)
+
+That looks complicated, but it's fairly easy with some dplyr magic. Here's how to do it for adjusted $R^2$ (the same process works for regular $R^2$ too):
+
+```{r r2-meld-step1}
+# Step 1: in each complete data set, calculate R2, take its square root,
+# transform it with Fisher z-transformation, and calculate the variance of R2\
+r2s <- models_imputations %>%
+  unnest(glance) %>%
+  select(m, adj.r.squared, df.residual) %>%
+  mutate(R = sqrt(adj.r.squared),  # Regular R
+         Q = 0.5 * log((R + 1) / (1 - R)),  # Fisher z-transformation
+         se = 1 / df.residual)  # R2 variance
+r2s
+```
+
+```{r rd-meld-step2}
+# Step 2: combine the results using Rubin's rules (mi.meld()), inverse transform
+# the value, and square it
+
+# Meld the R2 values with mi.meld()
+Q_melded <- mi.meld(as.matrix(r2s$Q), as.matrix(r2s$se))
+
+# Inverse transform Q to R and square it
+r2_melded <- ((exp(2 * Q_melded$q.mi) - 1) / (1 + exp(2 * Q_melded$q.mi)))^2
+r2_melded
+```
+
+The correctly pooled/melded $R^2$ is thus `r r2_melded %>% round(4)`. Neat.
+
+How does this compare to just the average of all the $R^2$s from all the imputations?
+
+```{r r2-avg}
+r2s_avg <- models_imputations %>%
+  ungroup() %>% 
+  unnest(glance) %>%
+  summarize(adj.r.squared_avg = mean(adj.r.squared)) %>%
+  pull(adj.r.squared_avg)
+r2s_avg
+```
+
+The incorrectly averaged $R^2$ is `r r2s_avg %>% round(4)`, which is basically identical to the correctly melded `r r2_melded %>% round(4)`. This is probably because the models from the five imputed models are already fairly similar—there might be more variance in $R^2$ in data that's less neat. But for this situation, the two approaches are essentially the same. Other model diagnostics like the F-statistic can probably be pooled just with averages as well. I haven't found any specific algorithms for melding them with fancy math. 
+
+So, in summary, combine the coefficients and standard errors from multiply imputed models with `mi.meld()` and combine other model parameters like $R^2$ either with Harel's fancy method or by simply averaging them.

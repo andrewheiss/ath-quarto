@@ -16,13 +16,56 @@ listing:
     sort: "date desc"
     template: ../html/blog/listing.ejs
   - id: posts_2019
-    contents: "2019/**/index.qmd"
+    contents: 
+      - "2019/**/index.qmd"
+      - "2019/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2018
+    contents: 
+      - "2018/**/index.qmd"
+      - "2018/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2017
+    contents: 
+      - "2017/**/index.qmd"
+      - "2017/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2016
+    contents: "2016/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2013
+    contents: "2013/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2012
+    contents: "2012/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2011
+    contents: "2011/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2010
+    contents: "2010/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2009
+    contents: "2009/**/index.md"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+  - id: posts_2007
+    contents: "2007/**/index.md"
     sort: "date desc"
     template: ../html/blog/listing.ejs
 page-layout: full
 toc-title: Year
 toc-location: right
 date-format: "MMMM D, YYYY"
+code-tools: false
 ---
 
 ## 2022
@@ -45,3 +88,47 @@ date-format: "MMMM D, YYYY"
 :::{#posts_2019}
 :::
 
+## 2018
+
+:::{#posts_2018}
+:::
+
+## 2017
+
+:::{#posts_2017}
+:::
+
+## 2016
+
+:::{#posts_2016}
+:::
+
+## 2013
+
+:::{#posts_2013}
+:::
+
+## 2012
+
+:::{#posts_2012}
+:::
+
+## 2011
+
+:::{#posts_2011}
+:::
+
+## 2010
+
+:::{#posts_2010}
+:::
+
+## 2009
+
+:::{#posts_2009}
+:::
+
+## 2007
+
+:::{#posts_2007}
+:::
