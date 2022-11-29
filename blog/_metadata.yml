@@ -13,6 +13,7 @@ format:
         repo: andrewheiss/ath-quarto
         category: Blog comments
         category-id: DIC_kwDOIg6EJc4CSz92
+        mapping: pathname
     quarto-template-params:
       banner-header-class: "blog-post"
 
