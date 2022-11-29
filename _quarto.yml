@@ -9,6 +9,7 @@ project:
     - "etc/**"
 
     # Things that need to be at the site root
+    - ".htaccess"
     - "LiveSearchSiteAuth.xml"
     - "keybase.txt"
     - "y_key_31e0c4105fc75710.html"
