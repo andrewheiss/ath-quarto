@@ -67,6 +67,7 @@ toc-title: Year
 toc-location: right
 date-format: "MMMM D, YYYY"
 code-tools: false
+comments: false
 ---
 
 ## 2022
