@@ -45,6 +45,6 @@ Here's a (very) quick example of this in action:
 
 You could set up similar rules for transliteration with different systems (even Franco), or even different languages. Typing IJMES transliterated words for academic papers just got infinitely easier.
 
-<div class="alert alert-warning">
+::: {.callout-warning}
 You will probably only want to use IJMES transliteration in print because of font encoding issues on different platforms and browsers. For online text you'll have to stick with Franco or something like it.
-</div>
+:::

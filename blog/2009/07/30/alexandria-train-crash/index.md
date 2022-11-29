@@ -9,7 +9,9 @@ categories:
 ---
 
 
-<div class="alert alert-info">See update below <a href="#update">(skip to update)</a></div>
+::: {.callout-note}
+See update below <a href="#update">(skip to update)</a>
+:::
 
 After almost a year of being in Egypt, we finally decided to go up to Alexandria today. We took the 9:00 AM train from Cairo and the ride went smooth until we were just outside the final Mahatat Misr station, where we were delayed for over an hour until pulling up to a platform.
 

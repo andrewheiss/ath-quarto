@@ -11,8 +11,9 @@ categories:
   - text
 ---
 
-
-<div class="alert alert-warning">This tutorial is officially defunct. It is only here for archival purposes. The main script has been consolidated into one PHP class—<a href="http://www.andrewheiss.com/blog/2009/06/19/pdftk-php-officially-released/">pdftk-php</a>. Please see <a href="http://www.andrewheiss.com/blog/2009/07/29/installing-pdftk-php/">the updated tutorial</a>.</div>
+::: {.callout-warning}
+This tutorial is officially defunct. It is only here for archival purposes. The main script has been consolidated into one PHP class—<a href="http://www.andrewheiss.com/blog/2009/06/19/pdftk-php-officially-released/">pdftk-php</a>. Please see <a href="http://www.andrewheiss.com/blog/2009/07/29/installing-pdftk-php/">the updated tutorial</a>.
+:::
 
 I work in the Harold B. Lee Library Multimedia Lab where we check out digital video and still cameras, tripods, external hard drives, digital voice recorders, and let people use $8,000 Quad Core Intel Macs. Expensive stuff…
 

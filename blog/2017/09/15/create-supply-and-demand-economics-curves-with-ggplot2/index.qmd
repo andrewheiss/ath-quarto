@@ -10,7 +10,9 @@ categories:
   - economics
 ---
 
-<div class="alert alert-primary">This is now an R package named <a href="https://github.com/andrewheiss/reconPlots"><code>reconPlots</code></a>.</div>
+::: {.callout-tip}
+This is now an R package named <a href="https://github.com/andrewheiss/reconPlots"><code>reconPlots</code></a>.
+:::
 
 <span class="small">([Skip to the tl;dr complete example](#tldr); [see this mini project on GitHub](https://github.com/andrewheiss/supply-demand-ggplot))</span>
 

@@ -11,7 +11,9 @@ categories:
 ---
 
 
-<div class="alert alert-info">See update below <a href="#update">(skip to update)</a></div>
+::: {.callout-note}
+See update below <a href="#update">(skip to update)</a>
+:::
 
 [Google Voice](http://www.google.com/voice "Google Voice"), the Google-ized incarnation of GrandCentral, is a fantastic service that aims to become your virtual phone switchboard. It gives you a free phone number that can receive regular phone calls and route them to any other actual phones you have connected to your account. Powerful stuff.
 
