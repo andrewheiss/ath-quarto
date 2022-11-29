@@ -1,6 +1,7 @@
 ---
 title: "ath-quarto"
-format: html
+pagetitle: "{{< meta website.title >}}"
+description-meta: "{{< meta website.description >}}"
 ---
 
 This is a Quarto website.

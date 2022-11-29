@@ -1,5 +1,6 @@
 ---
 title: "Research"
+description-meta: "{{< meta website.description >}}"
 listing:
   - id: articles
     contents: "articles/*/index.qmd"

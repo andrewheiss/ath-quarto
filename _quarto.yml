@@ -9,16 +9,27 @@ execute:
 bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
 
+# Metadata stuff
+pagetitle: "{{< meta title >}} | {{< meta website.title >}}"
+description-meta: "{{< meta description >}}"
+author-meta: "Andrew Heiss"
+
 website:
   title: "Andrew Heiss"
-  description: ""
-  favicon: ""
-  repo-url: "https://github.com/andrewheiss/ath-quarto"
+  description: "Andrew Heiss is an assistant professor at Georgia State University, researching international NGOs and teaching data science & economics."
+  favicon: "/files/favicon-512.png"
   site-url: "https://www.andrewheiss.com"
 
+  repo-url: "https://github.com/andrewheiss/ath-quarto"
+
   twitter-card: 
+    image: "/files/profiles/twitter-card-large.png"
+    card-style: summary_large_image
     creator: "@andrewheiss"
+    site: "@andrewheiss"
+
   open-graph: 
+    image: "/files/profiles/twitter-card-large.png"
     locale: en_US
   
   navbar:
@@ -92,4 +103,3 @@ format:
     reference-location: margin
     footnotes-hover: true
     highlight-style: monokai
-
