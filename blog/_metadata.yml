@@ -8,6 +8,11 @@ title-block-banner: "#170C3A"
 format: 
   html:
     code-tools: true
+    comments:
+      giscus: 
+        repo: andrewheiss/ath-quarto
+        category: Blog comments
+        category-id: DIC_kwDOIg6EJc4CSz92
     quarto-template-params:
       banner-header-class: "blog-post"
 
