@@ -54,6 +54,9 @@ website:
         file: uses/index.qmd
     
     right:
+      - icon: rss
+        aria-label: rss
+        href: atom.xml
       - icon: envelope
         aria-label: email
         href: "mailto:aheiss@gsu.edu"
