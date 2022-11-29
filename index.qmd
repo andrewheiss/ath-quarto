@@ -1,13 +1,44 @@
 ---
-title: "ath-quarto"
+title: "Hello there!"
 pagetitle: "{{< meta website.title >}}"
 description-meta: "{{< meta website.description >}}"
+main-photo: /files/profiles/andrew-heiss-2016.jpg
+main-photo-square: /files/profiles/andrew-heiss-2016-square.jpg
+title-block-banner: "#CF4446"
+format:
+  html:
+    quarto-template-params:
+      banner-header-class: "home"
 ---
 
-This is a Quarto website.
+::: {.grid}
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+::: {.g-col-12 .g-col-sm-4}
 
-```{r}
-1 + 1
+```{=html}
+<div class="grid" style="--bs-columns: 5; row-gap: 0;">
+  <div class="g-col-1 g-col-sm-0"></div>
+  <div class="g-col-3 g-col-sm-5">
+    <picture>
+      <source media="(max-width: 576px)" srcset="{{< meta main-photo-square >}}">
+      <source media="(min-width: 576px)" srcset="{{< meta main-photo >}}">
+      <img class="img-fluid" src="{{< meta main-photo >}}" alt="{{< meta author-meta >}}">
+    </picture>
+  </div>
+  <div class="g-col-1 g-col-sm-0"></div>
+</div>
 ```
+
+:::
+
+::: {.g-col-12 .g-col-sm-8}
+
+I'm an assistant professor in the [Department of Public Management and Policy](https://aysps.gsu.edu/public-management-policy/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/). I received a PhD in public policy and political science from Duke University's [Sanford School of Public Policy](http://sanford.duke.edu/) in 2017.
+
+I study [how international NGOs work in authoritarian countries](https://www.ingoresearch.org/amicable-contempt/), and I received the 2016–2018 [Emerging Scholar Dissertation Award](https://www.istr.org/page/DissertationISTR) from the [International Society for Third Sector Research (ISTR)](https://www.istr.org/). I do research in public administration and policy, nonprofit management, international relations, and comparative politics.
+
+I teach courses on [program evaluation and causal inference](https://evalf22.classes.andrewheiss.com/), [statistics and data science](https://statsf18.classes.andrewheiss.com/), [data visualization](https://datavizs22.classes.andrewheiss.com/), [economics](https://econs22.classes.andrewheiss.com/), and [science communication](https://storiesf17.classes.andrewheiss.com/). I'm also a [certified RStudio instructor](https://education.rstudio.com/trainers/people/heiss+andrew/) and a [Posit Academy mentor](https://posit.co/products/enterprise/academy/) and absolutely love teaching how to use [R](https://www.r-project.org/) and [the tidyverse](https://www.tidyverse.org/).
+
+:::
+
+:::

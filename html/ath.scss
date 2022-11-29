@@ -102,6 +102,29 @@ body {
     direction: rtl;
 }
 
+
+.home {
+    .quarto-title-banner {
+        margin-bottom: 0;
+    }
+}
+
+#title-block-header {
+    &.home {
+        margin-block-end: 0.5rem;
+    }
+}
+
+.home {
+    .quarto-title-banner {
+        margin-bottom: 0;
+    }
+
+    #title-block-header {
+        margin-block-end: 0;
+    }
+}
+
 // Shrink blocks of code
 pre.text, pre.sourceCode, .cell-output pre {
     font-size: 0.775em;

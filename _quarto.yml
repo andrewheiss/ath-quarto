@@ -48,7 +48,7 @@ website:
 
     left:
       - text: "About"
-        href: "#"
+        href: "index.qmd"
       - text: "CV"
         href: "cv/index.qmd"
       - text: "Blog"
