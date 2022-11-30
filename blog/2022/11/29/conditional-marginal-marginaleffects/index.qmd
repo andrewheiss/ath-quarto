@@ -302,7 +302,7 @@ We can fit this model with {brms} (or `lme4::lmer()` if you don't want to be Bay
 fit <- brm(
   bf(y ~ 1 + TX + (1 | cluster)), 
   family = lognormal(), 
-  data = dat,
+  data = d,
   chains = 4, iter = 5000, warmup = 1000, seed = 4445
 )
 ```
