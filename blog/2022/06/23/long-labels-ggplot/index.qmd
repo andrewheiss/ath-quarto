@@ -39,6 +39,7 @@ essential_by_category <- essential_raw %>%
 ```
 
 ```{r plot-the-problem}
+#| fig-cap: "Something goes here."
 ggplot(essential_by_category,
        aes(x = CATEGORY, y = total)) +
   geom_col() +
