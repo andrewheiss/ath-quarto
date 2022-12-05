@@ -458,7 +458,7 @@ b0j <- 0
   unname()
 ```
 
-We can again calculate this by setting `re_formula = NA` in `marginaleffects::predictions()`:
+We can again calculate this by setting `re_formula = NA` in `marginaleffects::comparisons()`:
 
 ```{r eval=FALSE}
 # Cluster-specific average treatment effect (when offset is 0)
