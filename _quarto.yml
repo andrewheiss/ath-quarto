@@ -1,9 +1,17 @@
 project:
   type: website
+
+  preview: 
+    port: 5555
+    browser: true
+    watch-inputs: true
+    navigate: true
+
   render:
     - "*.qmd"
     - "*.md"
     - "!etc/"
+
   resources:
     - "files/**"
     - "etc/**"
@@ -15,8 +23,7 @@ project:
     - "y_key_31e0c4105fc75710.html"
     - "pgp_ath.asc.txt"
 
-execute:
-  freeze: auto
+freeze: true
 
 bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
