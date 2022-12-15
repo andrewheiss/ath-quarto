@@ -2,8 +2,8 @@
 title: "Hello there!"
 pagetitle: "{{< meta website.title >}}"
 description-meta: "{{< meta website.description >}}"
-main-photo: /files/profiles/andrew-heiss-2016.jpg
-main-photo-square: /files/profiles/andrew-heiss-2016-square.jpg
+main-photo: /files/profiles/andrew-heiss-2022.jpg
+main-photo-square: /files/profiles/andrew-heiss-2022-square.jpg
 title-block-banner: "#CF4446"
 format:
   html:
