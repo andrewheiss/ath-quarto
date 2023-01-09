@@ -3,11 +3,15 @@ title: "Blog"
 author: ""
 description-meta: "{{< meta website.description >}}"
 listing:
+  - id: posts_2023
+    contents: "2023/**/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+    categories: true
   - id: posts_2022
     contents: "2022/**/index.qmd"
     sort: "date desc"
     template: ../html/blog/listing.ejs
-    categories: true
   - id: posts_2021
     contents: "2021/**/index.qmd"
     sort: "date desc"
@@ -69,6 +73,11 @@ date-format: "MMMM D, YYYY"
 code-tools: false
 comments: false
 ---
+
+## 2023
+
+:::{#posts_2023}
+:::
 
 ## 2022
 
