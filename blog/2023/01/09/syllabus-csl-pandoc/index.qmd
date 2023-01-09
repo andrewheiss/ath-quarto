@@ -280,6 +280,6 @@ Perfect!
 
 This is all great and super easy if you (like me) are fond of Chicago. What if you want to use APA, though? Or MLA? Or any other style that doesn't use footnotes? You're (somewhat) out of luck.
 
-The simple trick of switching `class="note"` to `class="in-text"` doesn't work if the underlying style is already in-text like APA or Chicago author-date. You'd have to do some major editing and rearranging in the CSL file to force the bibliography entries to show up as the inline citations, which goes beyond my skills. 
+The simple trick of switching `class="note"` to `class="in-text"` doesn't work if the underlying style is already in-text like APA or Chicago author-date. You'd have to do some major editing and rearranging in the CSL file to force the bibliography entries to show up as inline citations, which goes beyond my skills. 
 
 As a workaround you can use [the {RefManageR} package](https://cran.r-project.org/web/packages/RefManageR/index.html) in R to read the bibliography file with R and output the bibliography part of the citations as Markdown. Steve Miller [has a helpful guide for this here](http://svmiller.com/blog/2022/01/print-references-reading-list-syllabus-r-markdown-stevemisc/).
