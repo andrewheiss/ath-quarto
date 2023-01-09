@@ -16,7 +16,7 @@ knitr::opts_chunk$set(fig.width = 6, fig.height = 3.8,
                       out.width = "85%", collapse = TRUE)
 ```
 
-Pandoc-flavored Markdown makes it really easy to cite and reference things in R Markdown and Quarto Markdown documents. You can write something like this (assuming you use [this `references.bib` BibTeX file](references.bib)):
+Pandoc-flavored Markdown makes it really easy to [cite and reference things](https://pandoc.org/MANUAL.html#citations). You can write something like this (assuming you use [this `references.bib` BibTeX file](references.bib)):
 
 ```md
 ---
@@ -117,7 +117,7 @@ Turing, Alan Mathison. 1936. “On Computable Numbers, with an Application to th
 
 The full citations are all in the document, but not in a very convenient location. Readers have to go to the back of the document to see what they actually need to read (especially if there's a website or DOI URL they need to click on).
 
-## Making note-based CSL styles appear in the text
+## Making note-based styles appear in the text
 
 It would be great if the full citation could be included in the lists *in* the document instead of at the end of the document.
 
@@ -229,7 +229,7 @@ This isn't quite perfect, though. There are three glaring problems with this:
 
 3. If you render this in Quarto, you get helpful popups that contain the full reference when you hover over the link. But again, the link *is* the full reference, so that extra hover information is redundant.
 
-   ![Citation reference hovering popup](citation-hover.png){.border .rounded width=70% fig-alt="Citation reference hovering popup"}
+![Citation reference hovering popup](citation-hover.png){.border .rounded width=70% fig-alt="Citation reference hovering popup"}
 
 All these problems are easy to fix with some additional YAML settings that suppress the final bibliography, turn off citation links, and disable Quarto's hovering:
 
@@ -257,9 +257,9 @@ citations-hover: false
 
 Perfect!
 
-::::: {.callout-note}
+::::: {.callout-tip}
 
-### Rendered document
+### Perfect final rendered document
 
 <p class="fs-2">**Some course syllabus**</p>
 
