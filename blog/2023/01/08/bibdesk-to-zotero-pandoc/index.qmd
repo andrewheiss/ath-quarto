@@ -12,6 +12,7 @@ categories:
   - markdown
   - citations
   - pandoc
+  - zotero
 ---
 
 ```{r setup, include=FALSE}
@@ -358,7 +359,9 @@ Because the front matter is pointed at a plain text `.bib` file that contains al
 
 ### RStudio-based alternative
 
-Alternatively, if you write in RStudio, you can connect RStudio to your Zotero database and have it do a similar auto-export thing. You can also tell it to use Better BibTeX to keep things automatically synced. 
+Alternatively, if you write in RStudio, you can connect RStudio to your Zotero database and have it do a similar auto-export thing. You can also tell it to use Better BibTeX to keep things automatically synced:
+
+![RStudio preferences pane for enabling Zotero](img/rstudio-zotero.png){width=80% fig-alt="RStudio preferences pane for enabling Zotero"}
 
 *([See here for more details about Zotero citations in RStudio](https://rstudio.github.io/visual-markdown-editing/citations.html))*
 
