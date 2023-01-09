@@ -1,0 +1,285 @@
+---
+title: "One Simple Trick™ to create inline bibliography entries with Markdown and pandoc"
+date: 2023-01-09
+description: "By default, pandoc doesn't include full bibliographic references inline in documents, but with one tweak to a CSL file, you can create syllabus-like lists of citations with full references"
+categories:
+  - writing
+  - markdown
+  - citations
+  - pandoc
+  - zotero
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width = 6, fig.height = 3.8,
+                      fig.align = "center", fig.retina = 3,
+                      out.width = "85%", collapse = TRUE)
+```
+
+Pandoc-flavored Markdown makes it really easy to cite and reference things in R Markdown and Quarto Markdown documents. You can write something like this (assuming you use [this `references.bib` BibTeX file](references.bib)):
+
+```md
+---
+title: "Some title"
+bibliography: references.bib
+---
+
+According to @Lovelace:1842, computers can calculate things. This was important 
+during World War II [@Turing:1936].
+```
+
+And it'll convert to this after running the document through pandoc:
+
+::::: {.callout-note}
+
+### Rendered document
+
+<span class="fs-2">**Some title**</span>
+
+According to Lovelace ([1842](#)), computers can calculate things. This was important during World War II ([Turing 1936](#)).
+
+<span class="fs-4">**References**</span>
+
+:::: {.references .csl-bib-body .hanging-indent}
+
+::: {.csl-entry}
+Lovelace, Augusta Ada. 1842. “Sketch of the Analytical Engine Invented by Charles Babbage, by LF Menabrea, Officer of the Military Engineers, with Notes Upon the Memoir by the Translator.” *Taylor’s Scientific Memoirs* 3: 666–731.
+:::
+
+::: {.csl-entry}
+Turing, Alan Mathison. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” *Journal of Math* 58 (345-363): 230–65.
+:::
+
+::::
+
+:::::
+
+This is all great and ideal when working with documents that have a single bibliography at the end. 
+
+## The limits of default in-text citations
+
+Some documents—like course syllabuses and readings lists—don't have a final bibliography. Instead they have lists of things people should read. However, if you try to insert citations like normal, you'll get the inline references and a final bibliography:
+
+```md
+---
+title: "Some course syllabus"
+bibliography: references.bib
+---
+
+## Course schedule
+
+### Week 1
+
+- [@Lovelace:1842]
+- [@Turing:1936]
+
+### Week 2
+
+- [@Keynes:1937]
+```
+
+::::: {.callout-note}
+
+### Rendered document
+
+<p class="fs-2">**Some course syllabus**</p>
+
+<p class="fs-4">**Course schedule**</p>
+
+<p class="fs-6">**Week 1**</p>
+
+- ([Lovelace 1842](#))
+- ([Turing 1936](#))
+
+<p class="fs-6">**Week 2**</p>
+
+- ([Keynes 1937](#))
+
+<span class="fs-4">**References**</span>
+
+:::: {.references .csl-bib-body .hanging-indent}
+
+::: {.csl-entry}
+Keynes, John Maynard. 1937. “The General Theory of Employment.” *The Quarterly Journal of Economics* 51 (2): 209–23.
+:::
+
+::: {.csl-entry}
+Lovelace, Augusta Ada. 1842. “Sketch of the Analytical Engine Invented by Charles Babbage, by LF Menabrea, Officer of the Military Engineers, with Notes Upon the Memoir by the Translator.” *Taylor’s Scientific Memoirs* 3: 666–731.
+:::
+
+::: {.csl-entry}
+Turing, Alan Mathison. 1936. “On Computable Numbers, with an Application to the Entscheidungsproblem.” *Journal of Math* 58 (345-363): 230–65.
+:::
+
+::::
+
+:::::
+
+The full citations are all in the document, but not in a very convenient location. Readers have to go to the back of the document to see what they actually need to read (especially if there's a website or DOI URL they need to click on).
+
+## Making note-based CSL styles appear in the text
+
+It would be great if the full citation could be included in the lists *in* the document instead of at the end of the document.
+
+And it's possible, with just a minor tweak to the Citation Style Language (CSL) style file that you're using (thanks to [adam.smith at StackOverflow for pointing out how](https://stackoverflow.com/a/63582716/120898)).
+
+By default pandoc uses Chicago author-date for bibiliographic references—hence the `(Lovelace 1842)` style of references. You can download any other CSL file from [Zotero's searchable style repository](https://www.zotero.org/styles), from [the Citation Styles project's searchable list](https://editor.citationstyles.org/searchByName/), or clone the full massive [GitHub repository of styles](https://github.com/citation-style-language/styles) to find others, like Chicago notes, APA, MLA, and so on.
+
+The easiest way to get full citations inline is to find a CSL that uses note-based citations, like [the Chicago full note style](https://editor.citationstyles.org/styleInfo/?styleId=http%3A%2F%2Fwww.zotero.org%2Fstyles%2Fchicago-fullnote-bibliography) and edit the CSL file to tell it to be an inline style instead of a note style.
+
+The second line of all CSL files contains a `<style>` XML element with a `class` attribute. Inline styles like APA and Chicago author date have `class="in-text"`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
+  <info>
+    <title>Chicago Manual of Style 17th edition (author-date)</title>
+    ...
+```
+
+…while note-based styles like Chicago notes have `class="note"`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
+  <info>
+    <title>Chicago Manual of Style 17th edition (full note)</title>
+    ...
+```
+
+If you download a note-based CSL style and manually change it to be `in-text`, the footnotes that it inserts will get inserted in the text itself instead of as foonotes.
+
+Here I downloaded [Chicago full note](https://editor.citationstyles.org/styleInfo/?styleId=http%3A%2F%2Fwww.zotero.org%2Fstyles%2Fchicago-fullnote-bibliography), edited the second line to say `class="in-text"`, and saved it as `chicago-syllabus.csl`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="display-and-sort" page-range-format="chicago">
+  <info>
+    <title>Chicago Manual of Style 17th edition (full note, but in-text)</title>
+    ...
+```
+
+I can then tell pandoc to use that CSL when rendering the document:
+
+```md
+---
+title: "Some course syllabus"
+bibliography: references.bib
+csl: chicago-syllabus.csl
+---
+
+## Course schedule
+
+### Week 1
+
+- [@Lovelace:1842]
+- [@Turing:1936]
+
+### Week 2
+
+- [@Keynes:1937]
+```
+
+…and the full references are included in the document itself!
+
+::::: {.callout-note}
+
+### Rendered document
+
+<p class="fs-2">**Some course syllabus**</p>
+
+<p class="fs-4">**Course schedule**</p>
+
+<p class="fs-6">**Week 1**</p>
+
+- Augusta Ada Lovelace, [“Sketch of the Analytical Engine Invented by Charles Babbage, by LF Menabrea, Officer of the Military Engineers, with Notes Upon the Memoir by the Translator,” *Taylor’s Scientific Memoirs* 3 (1842): 666–731](#).
+- Alan Mathison Turing, [“On Computable Numbers, with an Application to the Entscheidungsproblem,” *Journal of Math* 58, no. 345-363 (1936): 230–65](#).
+
+<p class="fs-6">**Week 2**</p>
+
+- John Maynard Keynes, [“The General Theory of Employment,” *The Quarterly Journal of Economics* 51, no. 2 (1937): 209–23](#).
+
+<span class="fs-4">**References**</span>
+
+:::: {.references .csl-bib-body .hanging-indent}
+
+::: {.csl-entry}
+Keynes, John Maynard. “The General Theory of Employment.” *The Quarterly Journal of Economics* 51, no. 2 (1937): 209–23.
+:::
+
+::: {.csl-entry}
+Lovelace, Augusta Ada. “Sketch of the Analytical Engine Invented by Charles Babbage, by LF Menabrea, Officer of the Military Engineers, with Notes Upon the Memoir by the Translator.” *Taylor’s Scientific Memoirs* 3 (1842): 666–731.
+:::
+
+::: {.csl-entry}
+Turing, Alan Mathison. “On Computable Numbers, with an Application to the Entscheidungsproblem.” *Journal of Math* 58, no. 345-363 (1936): 230–65.
+:::
+
+::::
+
+:::::
+
+## A few minor tweaks to perfect the output
+
+This isn't quite perfect, though. There are three glaring problems with this:
+
+1. We have a bibliography at the end, since Chicago notes-bibliography requires it. This makes sense for regular documents where you have footnotes throughout the body of the text with a list of references at the end, but it's not necessary here.
+
+2. The in-text references all have hyperlinks to their corresponding references in the final bibliography. We don't need those since the linked text *is* the bibliography.
+
+3. If you render this in Quarto, you get helpful popups that contain the full reference when you hover over the link. But again, the link *is* the full reference, so that extra hover information is redundant.
+
+   ![Citation reference hovering popup](citation-hover.png){.border .rounded width=70% fig-alt="Citation reference hovering popup"}
+
+All these problems are easy to fix with some additional YAML settings that suppress the final bibliography, turn off citation links, and disable Quarto's hovering:
+
+```md
+---
+title: "Some course syllabus"
+bibliography: references.bib
+csl: chicago-syllabus.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false
+---
+
+## Course schedule
+
+### Week 1
+
+- [@Lovelace:1842]
+- [@Turing:1936]
+
+### Week 2
+
+- [@Keynes:1937]
+```
+
+Perfect!
+
+::::: {.callout-note}
+
+### Rendered document
+
+<p class="fs-2">**Some course syllabus**</p>
+
+<p class="fs-4">**Course schedule**</p>
+
+<p class="fs-6">**Week 1**</p>
+
+- Augusta Ada Lovelace, “Sketch of the Analytical Engine Invented by Charles Babbage, by LF Menabrea, Officer of the Military Engineers, with Notes Upon the Memoir by the Translator,” *Taylor’s Scientific Memoirs* 3 (1842): 666–731.
+- Alan Mathison Turing, “On Computable Numbers, with an Application to the Entscheidungsproblem,” *Journal of Math* 58, no. 345-363 (1936): 230–65.
+
+<p class="fs-6">**Week 2**</p>
+
+- John Maynard Keynes, “The General Theory of Employment,” *The Quarterly Journal of Economics* 51, no. 2 (1937): 209–23.
+
+:::::
+
+## Using other styles
+
+This is all great and super easy if you (like me) are fond of Chicago. What if you want to use APA, though? Or MLA? Or any other style that doesn't use footnotes? You're (somewhat) out of luck.
+
+The simple trick of switching `class="note"` to `class="in-text"` doesn't work if the underlying style is already in-text like APA or Chicago author-date. You'd have to do some major editing and rearranging in the CSL file to force the bibliography entries to show up as the inline citations, which goes beyond my skills. 
+
+As a workaround you can use [the {RefManageR} package](https://cran.r-project.org/web/packages/RefManageR/index.html) in R to read the bibliography file with R and output the bibliography part of the citations as Markdown. Steve Miller [has a helpful guide for this here](http://svmiller.com/blog/2022/01/print-references-reading-list-syllabus-r-markdown-stevemisc/).
