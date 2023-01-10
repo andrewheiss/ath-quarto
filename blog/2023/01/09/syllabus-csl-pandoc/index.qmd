@@ -278,8 +278,51 @@ Perfect!
 
 ## Using other styles
 
-This is all great and super easy if you (like me) are fond of Chicago. What if you want to use APA, though? Or MLA? Or any other style that doesn't use footnotes? You're (somewhat) out of luck.
+This is all great and super easy if you (like me) are fond of Chicago. What if you want to use APA, though? Or MLA? Or any other style that doesn't use footnotes? 
 
-The simple trick of switching `class="note"` to `class="in-text"` doesn't work if the underlying style is already in-text like APA or Chicago author-date. You'd have to do some major editing and rearranging in the CSL file to force the bibliography entries to show up as inline citations, which goes beyond my skills. 
+For APA, you're in luck! There's an [APA (curriculum vitae) CSL style](https://www.zotero.org/styles?q=id%3Aapa-cv) that you can use, and you don't need to edit it beforehand—it just works:
+
+```md
+---
+title: "Some course syllabus with APA"
+bibliography: references.bib
+csl: apa-cv.csl
+suppress-bibliography: true
+link-citations: false
+citations-hover: false
+---
+
+## Course schedule
+
+### Week 1
+
+- [@Lovelace:1842]
+- [@Turing:1936]
+
+### Week 2
+
+- [@Keynes:1937]
+```
+
+::::: {.callout-tip}
+
+### Final rendered document using APA CV
+
+<p class="fs-2">**Some course syllabus with APA**</p>
+
+<p class="fs-4">**Course schedule**</p>
+
+<p class="fs-6">**Week 1**</p>
+
+- Lovelace, A. A. (1842). Sketch of the analytical engine invented by Charles Babbage, by LF Menabrea, officer of the military engineers, with notes upon the memoir by the translator. *Taylor’s Scientific Memoirs*, 3, 666–731.
+- Turing, A. M. (1936). On computable numbers, with an application to the Entscheidungsproblem. *Journal of Math*, 58(345-363), 230–265.
+
+<p class="fs-6">**Week 2**</p>
+
+- Keynes, J. M. (1937). The general theory of employment. *The Quarterly Journal of Economics*, 51(2), 209–223.
+
+:::::
+
+For MLA or any other style though, you're (somewhat) out of luck. The simple trick of switching `class="note"` to `class="in-text"` doesn't work if the underlying style is already in-text like APA or Chicago author-date. You'd have to do some major editing and rearranging in the CSL file to force the bibliography entries to show up as inline citations, which goes beyond my skills. 
 
 As a workaround you can use [the {RefManageR} package](https://cran.r-project.org/web/packages/RefManageR/index.html) in R to read the bibliography file with R and output the bibliography part of the citations as Markdown. Steve Miller [has a helpful guide for this here](http://svmiller.com/blog/2022/01/print-references-reading-list-syllabus-r-markdown-stevemisc/).
