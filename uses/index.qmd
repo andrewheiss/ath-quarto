@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2022-12-12
+date: 2023-01-09
 description-meta: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -11,7 +11,7 @@ toc-title: "Contents"
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of December 12, 2022 this is what I'm using:
+I try to keep this updated fairly regularly. As of January 9, 2023 this is what I'm using:
 
 ## Writing
 
@@ -20,7 +20,7 @@ I try to keep this updated fairly regularly. As of December 12, 2022 this is wha
 - Ulysses has decent HTML previewing powers, but when I need more editorial tools, I use [Marked](http://marked2app.com/).
 - I use [Typora](https://typora.io/) to edit standalone Markdown files, since Ulysses uses its own syntax when using fancy things like footnotes. Typora is my favorite standalone Markdown editor I've found so far because it inherently supports pandoc-flavored Markdown.
 - The key to my writing workflow is the magical [pandoc](http://pandoc.org/), which converts Markdown files into basically anything else. I use [my own variation](https://github.com/andrewheiss/Global-Pandoc-files) of Kieran Healy's [Plain Text Social Science workflow](http://plain-text.co/) to convert Markdown to HTML, PDF (through LaTeX), and Word (through LibreOffice).
-- I store all my bibliographic references, books, and articles in a [BibTeX](http://www.bibtex.org/) file that I edit with [BibDesk](http://bibdesk.sourceforge.net/).
+- I store all my bibliographic references, books, and articles in Zotero ([see here for why](/blog/2023/01/08/bibdesk-to-zotero-pandoc/)).
 - I read and annotate all my PDFs with [Skim](http://skim-app.sourceforge.net/) (and [iAnnotate](http://www.iannotate.com/) on iOS), since both export annotations as clean plain text.
 - I store all my notes in [Obsidian](https://obsidian.md/). Before switching to Obsidian I used [Bear](https://bear.app/), which was great but didn't support fancier things like math or syntax highlighting. Before that, I used [Evernote](https://www.evernote.com/), but I abandoned it in September 2018 after 9 years of heavy use, given their ongoing privacy controversies and mass layoffs.
 

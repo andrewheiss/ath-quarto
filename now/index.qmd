@@ -1,13 +1,13 @@
 ---
 title: What I'm doing now
-date: 2022-12-12
+date: 2023-01-09
 description-meta: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
 toc: false
 ---
 
-As of December 12, 2022, I'm spending all my time on these things:
+As of January 9, 2023, I'm spending all my time on these things:
 
 - Staying at home pretty much 24/7 because of the COVID-19 pandemic
 - Raising 6 kids (15, 13, 10, 7, 5, and 1) and trying to stay sane ([family blog](http://www.heissatopia.com/))
