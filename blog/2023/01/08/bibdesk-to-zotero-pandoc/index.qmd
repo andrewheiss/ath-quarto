@@ -43,7 +43,7 @@ BibDesk got me through my dissertation and all my research projects up until now
 I enjoy reading PDFs on my iPad (particularly in the [iAnnotate app](https://www.folia.com/iannotate)), but getting PDFs from BibDesk onto the iPad has always required a bizarre dance:
 
 1. Store `references.bib` and the BibDesk-managed folder of PDFs in Dropbox
-2. Use the [References](https://sites.google.com/site/appsformaths/references) iPad app to open the BibTex file from Dropbox on the iPad
+2. Use the [References](https://sites.google.com/site/appsformaths/references) iPad app to open the BibTeX file from Dropbox on the iPad
 3. Use iAnnotate to navigate Dropbox and find the PDF I want to read
 4. Read and annotate the PDF in iAnnotate
 5. Send the finished PDF from iAnnotate back to Dropbox and go back to References to ensure that the annotated PDF updates
