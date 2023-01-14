@@ -117,7 +117,7 @@ So instead I sorted all my entries in BibDesk by rating, selected all the 5 star
 
 ### Files
 
-#### Fixing BibDesk's stored filename
+#### A note on BibDesk's stored filename
 
 BibDesk can autofile attached PDFs and manage their location. To keep track of where the files are, it stores their path as a base64-encoded path in a `bdsk-file-N` field in the `.bib` file, like this:
 
@@ -137,22 +137,7 @@ BibDesk can autofile attached PDFs and manage their location. To keep track of w
 
 Zotero doesn't parse that gnarly field—it needs a field named `file`—and it doesn't decode that messy string into a plain text file path, so the attached PDF won't get imported correctly.
 
-This is easily fixable, though, thanks to [this Zotero forum comment](https://forums.zotero.org/discussion/comment/348017/#Comment_348017):
-
-1. [Download and install](https://github.com/andriusvelykis/bibdesk-scripts) `LinkedFilesToFields.applescript` into BibDesk
-2. Change two things in the AppleScript file:
-	1. Set `property useRelativePath` to `false`
-	2. Set `FileLinkEntry` to `"File"`
-3. Run the AppleScript file to convert all the base64-encoded paths to regular paths
-
-If you look at the `.bib` file, it looks like this now:
-
-```bibtex
-@article{HeissKelley:2017,
-	...
-	file = {/Users/andrew/Dropbox/Readings/Papers/HeissKelley2017 - Between a Rock and a Hard Place International NGOs and the Dual.pdf},
-	...}
-```
+*However*, [thanks to Emiliano Heyns](https://github.com/retorquere/zotero-better-bibtex/issues/2374), the Better BibTeX add-on will automatically convert these base64-encoded paths to plain text fields that Zotero can work with just fine. All PDFs will import automatically!
 
 #### Customizing Zotero's renaming rules
 
@@ -252,7 +237,9 @@ For instance, here's what Zotero looked like after I assigned these 6 items, tag
 
 ### `incollection`  / `inbook` and `crossref`
 
-This is the one major obstacle I ran into when importing my stuff and I couldn't find any way around it.
+::: {.callout-tip}
+This [used to cause problems](https://github.com/andrewheiss/ath-quarto/blob/74041ee1b8eab2f1054a4422651f0d49e12137bc/blog/2023/01/08/bibdesk-to-zotero-pandoc/index.qmd#L253) with child references not importing fields from their parents, but [thanks to Emiliano Heynes](https://github.com/retorquere/zotero-better-bibtex/issues/2373), this all works flawlessly if you have verison 6.7.47+ of Better BibTeX installed.
+:::
 
 [BibDesk natively supports the `crossref` field](https://bibdesk.sourceforge.io/manual/BibDeskHelp_2.html#SEC18), which biber and biblatex use when working with LaTeX. This field lets you set up child/parent relationships with items, where children inherit fields from their parents. For instance, consider these two items—an edited book with lots of chapters from different authors and a chapter from that book:
 
@@ -279,23 +266,9 @@ In BibDesk, the chapter displays like this:
 
 Fields like book title, publisher, year, etc., are all greyed out because they're inherited from the parent book, with the citekey `SalamonSokolowski:2004`
 
-When importing the `.bib` file, though, the chapter doesn't get any of the parent information—book title, date, publisher, etc. are all blank:
+If you install version 6.7.47+ of the [Better BibTeX](https://retorque.re/zotero-better-bibtex/) add-on, the chapter will inherit all the information from its parent book—the book title, date, publisher, etc., will all be imported correctly:
 
-![Cross referenced parent attributes in Zotero aren't imported and fields are blank](img/blank-crossref-fields.png){width=50% fig-alt="Cross referenced parent attributes in Zotero aren't imported and fields are blank"}
-
-Boo :(
-
-It's really hard to search for anything related to this issue on Google, GitHub, or the Zotero forums since "Crossref" refers to both [Crossref.org](https://www.crossref.org/) (a site for searching DOIs) and the `crossref` field in BibLaTeX. I even tried to see if there was a way to break the child/parent relationship and somehow embed all the inherited fields as actual fields in BibDesk, but couldn't find a way to do it.
-
-So I just gave up and handled these manually. The `crossref` field was imported and stored in the "Extra" field in Zotero:
-
-![BibLaTeX's crossref field stored in the Extra field in Zotero](img/crossref-extra.png){.border .rounded width=60% fig-alt="BibLaTeX's crossref field stored in the Extra field in Zotero"}
-
-I searched for all entries that contained "crossref", used the [Zutilo plugin](https://github.com/wshanks/Zutilo) to copy the fields from the parent item, and then pasted those copied fields into empty fields in the child items:
-
-![Using Zutilo to paste parent fields into unused fields in a child item](img/zutilo.png){width=100% fig-alt="Using Zutilo to paste parent fields into unused fields in a child item"}
-
-It was a pain doing that for a couple dozen books and their child items, but it worked 🤷‍♂️
+![Cross referenced parent attributes in Zotero are imported correctly](img/correct-crossref-fields.png){width=50% fig-alt="Cross referenced parent attributes in Zotero are imported correctly"}
 
 ### All done!
 
