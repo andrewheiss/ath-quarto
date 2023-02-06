@@ -1,12 +1,12 @@
 ---
 title: Curriculum vitæ
 description-meta: "{{< meta website.description >}}"
-date: 2022-02-02
+date: 2023-01-26
 title-block-banner: "#771C6D"
 published-title: CV last updated
 engine: knitr 
 cv:
-  pdf: "2022-02-02_andrew-heiss-cv.pdf"
+  pdf: "2023-01-26_andrew-heiss-cv.pdf"
 ---
 
 ```{css echo=FALSE}
