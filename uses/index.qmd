@@ -64,6 +64,7 @@ I try to keep this updated fairly regularly. As of February 6, 2023 this is what
 - I use [Vitamin-R](http://www.publicspace.net/Vitamin-R/) as a souped-up Pomodoro timer.
 - I was an early convert to [Todo.txt](http://todotxt.com/) and used it for years until my tasks and projects got too unwieldy. I switched to [Taskpaper](https://www.taskpaper.com/) for a while, used [2Do](http://www.2doapp.com/) for a couple years, and now I'm a convert to [OmniFocus](https://www.omnigroup.com/omnifocus).
 - [Fantastical 2](https://flexibits.com/fantastical)’s natural language input is a glorious thing.
+- I use [Timery](https://timeryapp.com/) as an interface to [Toggl](https://toggl.com/) to [track my time](https://thesweetsetup.com/apps/best-time-tracking-app/) during the day
 - I keep a log of what I work on (and occasionally do more traditional diary-like entries) with [Day One](http://dayoneapp.com/) on both iOS and macOS.
 - I use [TextExpander](https://smilesoftware.com/textexpander) to replace and expand a ton of snippets, and I use [Keyboard Maestro](https://www.keyboardmaestro.com/main/) to run dozens of little scripts that help control my computer with the keyboard.
 - I use [Übersicht](http://tracesof.net/uebersicht/) to show weather, iTunes track information, and my todo lists on my desktop.
