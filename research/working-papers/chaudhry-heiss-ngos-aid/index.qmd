@@ -1,6 +1,6 @@
 ---
 title: "Are Donors Really Responding? Analyzing the Impact of Global Restrictions on NGOs"
-date: 2016-03-01
+date: 2023-02-25
 author:
   - name: Suparna Chaudhry
     url: http://www.suparnachaudhry.com/
@@ -23,8 +23,11 @@ pub-info:
       local: true
       icon: fa-solid fa-file-pdf
     - name: Code
-      url: https://github.com/andrewheiss/donors-ngo-restrictions
+      url: https://github.com/andrewheiss/testy-turtle
       icon: fa-brands fa-github
+    - name: Analysis notebook
+      url: https://stats.andrewheiss.com/testy-turtle/
+      icon: fa-solid fa-chart-simple  
   reference: >-
     <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a> and <strong>Andrew Heiss</strong>, “Are Donors Really Responding? Analyzing the Impact of Global Restrictions on NGOs”
   extra: >-
@@ -42,8 +45,8 @@ pub-status:
 
 - [Paper (preprint)](chaudhry-heiss-ngos-aid.pdf)
 - [Supplement (preprint)](chaudhry-heiss-ngos-aid-supplement.pdf)
-- [Statistical analysis notebook](https://stats.andrewheiss.com/donors-ngo-restrictions/)
-- [GitHub repository](https://github.com/andrewheiss/donors-ngo-restrictions)
+- [Statistical analysis notebook](https://stats.andrewheiss.com/testy-turtle/)
+- [GitHub repository](https://github.com/andrewheiss/testy-turtle)
 
 
 ## Abstract
@@ -60,9 +63,9 @@ Figure 5: Predicted ODA (foreign aid) across a range of differences from average
 ## BibTeX citation
 
 ```bibtex
-@unpublished{ChaudhryHeiss:2018,
+@unpublished{ChaudhryHeiss:2023,
     Author = {Suparna Chaudhry and Andrew Heiss},
     Note = {Working paper},
     Title = {Are Donors Really Responding? Analyzing the Impact of Global Restrictions on {NGO}s},
-    Year = {2018}}
+    Year = {2023}}
 ```

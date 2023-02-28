@@ -1,0 +1,37 @@
+---
+title: "Amicable Contempt: A Conceptual Framework for Understanding International NGO Behavior in the Era of Closing Civic Space"
+date: 2023-02-28
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories: 
+  - INGOs
+  - Civil society
+  - NGO regulations
+  - Institutions
+  - Mixed methods
+  - Survey
+  - Theory
+pub-info:
+  reference: >-
+    <strong>Andrew Heiss</strong>, “Amicable Contempt: A Conceptual Framework for Understanding International NGO Behavior in the Era of Closing Civic Space”
+  links:
+  - name: Code
+    url: https://github.com/andrewheiss/amicable-contempt
+    icon: fa-brands fa-github
+pub-status: 
+  status: Under review
+  class: success
+  icon: fas fa-glasses
+---
+
+## Important links
+
+- [GitHub repository](https://github.com/andrewheiss/amicable-contempt)
+
+
+## Abstract
+
+Over the past decade, international NGOs (INGOs) have become increasingly active in authoritarian regimes as they respond to emergencies, assist with development, or advocate for human rights. Though these services and advocacy can challenge the legitimacy and power of the regime, many autocratic states permit INGO activities and INGOs continue to work in these countries despite the sometimes heavy restrictions on their activities. In my dissertation, I theorize that this relationship between INGOs and autocrats creates a state of amicable contempt, where each party is aware that the other threatens—yet sustains—their existence. Autocrats and INGOs engage in a dance of cost-benefit calculus, each trying to advance their own agenda without upsetting their counterpart. Regimes work to set the optimal level of INGO regulations, maximizing the practical and reputational benefits that INGOs provide and minimizing the potential destabilizing costs of INGO activities. Meanwhile, INGOs work to find the optimal mix of programming within a country that allows them to pursue their principled objectives within the boundaries the regime has set—affecting as much change and providing as many services as possible without risking expulsion from the country. I use evidence from a global survey of international NGOs to define each INGO-related element of the theory of amicable contempt. I find that INGOs are primarily motivated by their core vision and values, but that they have to balance the pursuit of their missions with instrumental concerns such as fundraising, time, staffing, and collaboration. These concerns both limit and enable INGO activities—without substantial instrumental resources and programmatic flexibility, organizations are unable to carry out their mission, while too much emphasis on resource concerns distracts organizations from their core programming and reduces their effectiveness. 

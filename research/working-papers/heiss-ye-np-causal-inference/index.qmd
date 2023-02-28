@@ -1,5 +1,5 @@
 ---
-title: "Causal Inference in Nonprofit Management and Public Administration"
+title: "Clarifying Correlation and Causation: A Guide to Modern Quantitative Causal Inference in Nonprofit Studies"
 date: 2021-10-03
 author:
   - name: Andrew Heiss
@@ -15,7 +15,7 @@ categories:
   - Methods
 pub-info:
   reference: >-
-    <strong>Andrew Heiss</strong> and <a href="https://aysps.gsu.edu/phd-student/ye-meng/">Meng Ye</a>, “Causal Inference in Nonprofit Management and Public Administration”
+    <strong>Andrew Heiss</strong> and <a href="https://aysps.gsu.edu/phd-student/ye-meng/">Meng Ye</a>, “Clarifying Correlation and Causation: A Guide to Modern Quantitative Causal Inference in Nonprofit Studies”
   links:
   - name: Code
     url: https://github.com/andrewheiss/corrupt-caterpillar
@@ -36,4 +36,4 @@ pub-status:
 
 ## Abstract
 
-The "causal revolution" in the broader social sciences has led to a new field of observational causal inference. However, these advancements have been less used among nonprofit scholars and practitioners. In this article, we provide a methodological guide for applying causal inference tools within nonprofit studies. We walk through practical examples of model-based and design-based approaches from epidemiology and econometrics to observational causal inference, including causal models, inverse probability weighting, difference-in-differences, regression discontinuity, and instrumental variables. We include empirical illustrations of these approaches by replicating existing nonprofit research and program evaluations. We conclude with a call for more careful and explicit attempts at making causal claims in nonprofit studies.
+Discovering causal relationships and testing theoretical mechanisms is a core endeavor of social science. Randomized experiments have long served as a gold standard for making valid causal inferences, but most of the data social scientists work with is observational and non-experimental. However, with newer methodological developments in economics, political science, epidemiology, and other disciplines, an increasing number of studies in social science make causal claims with observational data. As a newer interdisciplinary field, however, nonprofit studies has lagged behind other disciplines in its use of observational causal inference. In this article, we present a hands-on introduction and guide to design-based observational causal inference methods. We first review and categorize all studies making causal claims in top nonprofit studies journals over the past decade to illustrate the field’s current of experimental and observational approaches to causal inference. We then introduce a framework for modeling and identifying causal processes using directed acyclic graphs (DAGs) and provide a walk-through of the assumptions and procedures for making inferences with a range of different methods, including matching, inverse probability weighting, difference-in-differences, regression discontinuity designs, and instrumental variables. We illustrate each approach with synthetic and empirical examples and provide sample R and Stata code for implementing these methods. We conclude by encouraging scholars and practitioners to make more careful and explicit causal claims in their observational empirical research, collectively developing and improving quantitative work in the broader field of nonprofit studies.

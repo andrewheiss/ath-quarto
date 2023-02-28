@@ -1,0 +1,31 @@
+---
+title: "‘Some State Officials Want Your Services’: International NGO Responses to Authoritarian Program Capture Regulations"
+date: 2023-02-20
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories: 
+  - INGOs
+  - Civil society
+  - NGO regulations
+  - Institutions
+  - Mixed methods
+  - Survey
+pub-info:
+  reference: >-
+    <strong>Andrew Heiss</strong>, “‘Some State Officials Want Your Services’: International NGO Responses to Authoritarian Program Capture Regulation”
+  links:
+  - name: Code
+    url: https://github.com/andrewheiss/program-capture-ingos
+    icon: fa-brands fa-github
+pub-status: 
+  status: Revising
+  class: info
+  icon: fa-solid fa-rotate
+---
+
+## Important links
+
+- [GitHub repository](https://github.com/andrewheiss/program-capture-ingos)

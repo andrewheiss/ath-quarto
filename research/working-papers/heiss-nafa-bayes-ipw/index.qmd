@@ -1,6 +1,6 @@
 ---
 title: "Taking Uncertainty Seriously: Bayesian Marginal Structural Models for Causal Inference in Political Science"
-date: 2021-12-26
+date: 2023-02-01
 author:
   - name: Andrew Heiss
     url: https://www.andrewheiss.com/

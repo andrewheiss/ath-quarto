@@ -1,0 +1,39 @@
+---
+title: "Why Donors Donate: Disentangling Organizational and Structural Heuristics for International Philanthropy"
+date: 2023-02-26
+author:
+  - name: Suparna Chaudhry
+    url: http://www.suparnachaudhry.com/
+    orcid: 0000-0003-3506-7590
+    affiliation: Lewis & Clark College
+  - name: Marc Dotson
+    url: https://marriottschool.byu.edu/directory/details?id=50683
+    affiliation: Marriott School of Business, Brigham Young University
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories: 
+  - Philanthropy
+  - Experiment
+  - Conjoint analysis
+  - Bayes
+  - INGOs
+pub-info:
+  reference: >-
+    <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, <a href="https://marriottschool.byu.edu/directory/details?id=50683">Marc Dotson</a>, and <strong>Andrew Heiss</strong>, Why Donors Donate: Disentangling Organizational and Structural Heuristics for International Philanthropy”
+  links:
+    - name: Code
+      url: https://github.com/andrewheiss/why-donors-donate
+      icon: fa-brands fa-github
+---
+
+## Important links
+
+- [GitHub repository](https://github.com/andrewheiss/why-donors-donate)
+- [Experiment preregistration](https://osf.io/hsbyd) (research question #1)
+
+
+## Abstract
+
+As space for civil society has closed around the world, transnational NGOs have faced a crisis of funding. We explore how NGOs have shifted from traditionally Northern funding sources toward grassroots private philanthropic money. How do individual donors in the US feel about donating to legally besieged NGOs abroad? Do legal restrictions on NGOs influence donors’ decision to donate? We use a conjoint survey experiment to argue that domestic political environments of NGO host countries influence preferences of private donors and that legal crackdowns on NGOs serve as a heuristic of organizational deservingness.

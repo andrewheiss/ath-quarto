@@ -1,0 +1,42 @@
+---
+title: "The Marginal Effects Zoo: A Guide to Interpretation Using `marginaleffects` for R"
+date: 2023-02-23
+author:
+  - name: Vincent Arel-Bundock
+    url: https://arelbundock.com/
+    orcid: 0000-0003-2042-7063
+    affiliation: Université de Montréal
+  - name: Noah Greifer
+    url: https://ngreifer.github.io/
+    orcid: 0000-0003-3067-7154
+    affiliation: Institute for Quantitative Social Science, Harvard University
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories:
+  - Human rights
+  - Civil society
+  - NGO regulations
+  - COVID-19
+pub-info:
+  reference: >-
+    <a href="https://arelbundock.com/">Vincent Arel-Bundock</a>, <a href="https://ngreifer.github.io/">Noah Greifer</a>, and <strong>Andrew Heiss</strong>, “The Marginal Effects Zoo: A Guide to Interpretation Using <code>marginaleffects</code> for R”
+  links:
+  - name: Code
+    url: https://github.com/vincentarelbundock/mfxplainer
+    icon: fa-brands fa-github
+pub-status: 
+  status: Writing
+  class: warning
+  icon: fa-solid fa-pencil
+---
+
+## Important links
+
+- [GitHub repository](https://github.com/vincentarelbundock/mfxplainer)
+
+
+## Abstract
+
+Analysts often transform their models' parameter estimates to report more meaningful and interpretable quantities of interest. This article presents a simple conceptual framework to describe a vast array of estimands which are reported under imprecise and inconsistent terminology across disciplines: predictions, marginal predictions, marginal means, marginal effects, conditional effects, slopes, contrasts, risk ratios, etc. We introduce `marginaleffects`, an R package which offers a simple and powerful interface to compute all of those quantites, and to conduct hypothesis tests on them. `marginaleffects` is lightweight; extensible; it works well in combination with other R packages; and it supports over 70 classes of models, including Generalized Linear, Generalized Additive, Mixed Effects, and Bayesian models.

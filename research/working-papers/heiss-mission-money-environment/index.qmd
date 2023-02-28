@@ -1,0 +1,31 @@
+---
+title: "‘We Changed Our Strategy… Without Losing Our Values, Vision and Mission’: Mission, Money, and the Practical Operating Environment for International NGOs"
+date: 2023-02-01
+author:
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories: 
+  - INGOs
+  - Civil society
+  - NGO regulations
+  - Institutions
+  - Mixed methods
+  - Survey
+pub-info:
+  reference: >-
+    <strong>Andrew Heiss</strong>, “‘We Changed Our Strategy… Without Losing Our Values, Vision and Mission’: Mission, Money, and the Practical Operating Environment for International NGOs”
+  links:
+  - name: Code
+    url: https://github.com/andrewheiss/mission-money-environment
+    icon: fa-brands fa-github
+pub-status: 
+  status: Revising
+  class: info
+  icon: fa-solid fa-rotate
+---
+
+## Important links
+
+- [GitHub repository](https://github.com/andrewheiss/mission-money-environment)
