@@ -29,7 +29,7 @@ bibliography: files/bib/references.bib
 csl: files/bib/chicago-author-date.csl
 
 # Metadata stuff
-pagetitle: "{{< meta title >}} | {{< meta website.title >}}"
+pagetitle: "{{< meta title >}} | Andrew Heiss"
 description-meta: "{{< meta description >}}"
 author-meta: "Andrew Heiss"
 
