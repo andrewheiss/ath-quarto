@@ -1,7 +1,8 @@
 ---
 title: Working with R, Cairo graphics, custom fonts, and ggplot
 date: 2017-09-27
-description: The Cairo graphics library makes it easy to embed custom fonts in PDFs and create high resolution PNGs.
+date-modified: 2023-04-13
+description: The Cairo graphics library makes it easy to embed custom fonts in PDFs and create high resolution PNGs (with either AGG or Cairo).
 image: example-plot-1.png
 categories: 
   - r
@@ -9,9 +10,13 @@ categories:
   - dataviz
   - cairo
   - fonts
+language: 
+  title-block-modified: "Updated with {ragg} details"
 ---
 
+::: {.callout-note}
 Skip to instructions for [macOS](#mac) or [Windows](#windows)
+:::
 
 ---
 
@@ -61,13 +66,76 @@ Embedding fonts in PDFs is also fairly easy. Instead of using R's default PDF-wr
 ggsave(..., filename = "whatever.pdf", ..., device = cairo_pdf)
 ```
 
-You can also use Cairo's PNG engine when writing PNG files. R's default PNG-writing engine can sometimes have issues with correctly setting the resolution. In theory, if you specify a width and a height and a DPI, `ggsave()` will generate a file with those dimensions. However, if you place the PNG into Word, PowerPoint, InDesign, or any other programs, the graphic will be too large, for reasons unknown. If you save the graphic with the Cairo library, though, these programs will respect the size and DPI and place the image correctly.
+You can also use Cairo's PNG engine when writing PNG files. R's default PNG-writing engine can sometimes have issues with correctly setting the resolution. In theory, if you specify a width and a height and a DPI, `ggsave()` will generate a file with those dimensions. However, if you place the PNG into Word, PowerPoint, InDesign, or any other programs, the graphic will be too large, for reasons unknown. If you save the graphic with the Cairo library or AGG library though, these programs will respect the size and DPI and place the image correctly.
 
-``` r
-ggsave(..., filename = "whatever.png", ..., dpi = 300, type = "cairo")
+::: {.callout-important}
+## {ragg} PNGs
+
+Since 2022, there's no need for Cairo PNGs. Starting with ggplot v3.3ish, ggplot's default PNG-writing engine switched to the [AGG library](https://github.com/ghaerr/agg-2.6) (through the [{ragg} package](https://ragg.r-lib.org/)). Unlike R's default grDevices engine, it creates images that are sized correctly when placed in Word and other programs. This means all the instructions here about using the Cairo PNG device aren't necessary anymore, unless you really want to use Cairo over AGG. 
+
+**I personally have stopped using Cairo-based PNGs and use {ragg} instead.** I still use Cairo PDFs, since Cairo is still the best (and only?) way to embed fonts in PDFs.
+
+See [this post at Jumping Rivers](https://www.jumpingrivers.com/blog/r-knitr-markdown-png-pdf-graphics/) for more details about {ragg}.
+
+I've updated this post to show the updated syntax for specifying both AGG and Cairo PNGs in both `ggsave()` and with knitr. 
+
+**tl;dr version**: the old `ggsave(..., type = "cairo")` syntax doesn't work anymore. 
+
+To make a 300 DPI PNG with Cairo, you can do this:
+
+```r
+# With Cairo
+ggsave(..., filename = "whatever.png", ..., 
+       device = png, type = "cairo", dpi = 300)
 ```
 
-Using the Cairo PNG library makes a significant difference when you use the image in other programs. Notice how the Cairo-based PNG is actually 4 inches wide in Word, while R's default PNG takes up the full width of the page and uses a lower resolution:
+Or use these knitr options:
+
+```r
+knitr::opts_chunk$set(dev = "png", 
+                      dev.args = list(type = "cairo"))
+```
+
+…and for AGG-based version, you can do this:
+
+```r
+# With {ragg}
+ggsave(..., filename = "whatever.png", ..., 
+       device = ragg::agg_png, res = 300)
+```
+
+Or use these knitr options:
+
+```r
+knitr::opts_chunk$set(dev = "ragg_png")
+```
+
+Or if you use Quarto, you can add this to the YAML settings:
+
+```yaml
+format:
+  pdf:
+    knitr:
+      opts_chunk:
+        dev: "cairo_pdf"
+  # For AGG
+  docx:
+    knitr:
+      opts_chunk:
+        dev: "ragg_png"
+        dpi: 300
+  # For Cairo
+  docx:
+    knitr:
+      opts_chunk:
+        dev: "png"
+        dev-args:
+          - "cairo-png"
+```
+
+:::
+
+Using the AGG or Cairo PNG libraries makes a significant difference when you use the image in other programs. Notice how the Cairo/AGG-based PNG is actually 4 inches wide in Word, while R's default PNG takes up the full width of the page and uses a lower resolution:
 
 ```{r echo=FALSE}
 #| fig-cap: "Cairo vs. not Cairo in Word"
@@ -84,7 +152,7 @@ output:
   pdf_document:
     dev: cairo_pdf
   html_document:
-    dev: png
+    dev: ragg_png
 ---
 ```
 
@@ -147,10 +215,16 @@ knitr::include_graphics("full-example-mac-1.png")
 ggsave(p, filename = "example.pdf", device = cairo_pdf,
        width = 4, height = 3, units = "in")
 
-# You can also save the plot as a high resolution PNG using Cairo
-# Note the difference here; instead of using device = cairo_pdf, you use
-# type = "cairo". It's confusing and weird and that's just life.
-ggsave(p, filename = "example.png", dpi = 300, type = "cairo",
+# You can also save the plot as a high resolution PNG using 
+# AGG or Cairo
+# With {ragg}
+ggsave(p, filename = "whatever.png",
+       device = ragg::agg_png, res = 300,
+       width = 4, height = 3, units = "in")
+
+# With Cairo
+ggsave(p, filename = "whatever.png",
+       device = png, type = "cairo", dpi = 300,
        width = 4, height = 3, units = "in")
 ```
 
@@ -252,11 +326,15 @@ knitr::include_graphics("full-example-windows2-1.png")
 ggsave(p, filename = "example.pdf", device = cairo_pdf,
        width = 4, height = 3, units = "in")
 
-# You can also save the plot as a high resolution PNG using Cairo
-# Note the difference here; instead of using device = cairo_pdf, you use
-# type = "cairo". It's confusing and weird and that's just life.
-ggsave(p, filename = "example.png", dpi = 300, type = "cairo",
+# You can also save the plot as a high resolution PNG using 
+# AGG or Cairo
+# With {ragg}
+ggsave(p, filename = "whatever.png",
+       device = ragg::agg_png, res = 300,
        width = 4, height = 3, units = "in")
-ggsave(p, filename = "example_no_cairo.png", dpi = 300,
+
+# With Cairo
+ggsave(p, filename = "whatever.png",
+       device = png, type = "cairo", dpi = 300,
        width = 4, height = 3, units = "in")
 ```
