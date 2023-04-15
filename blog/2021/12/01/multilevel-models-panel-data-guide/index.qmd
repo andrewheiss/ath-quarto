@@ -582,7 +582,7 @@ We'd previously excised random country effects $b_{\text{Country}}$ from the err
 
 $$
 \begin{aligned}
-\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}}) + (\beta_1 \text{Year} + b_{1, \text{Country}}) + \epsilon \\
+\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}}) + (\beta_1 + b_{1, \text{Country}}) \text{Year} + \epsilon \\
 b_{0, \text{Country}} &\sim \mathcal{N}(0, \tau_0) \\
 b_{1, \text{Country}} &\sim \mathcal{N}(0, \tau_1)
 \end{aligned}
@@ -695,7 +695,7 @@ To do this, we'll add independent year-based offsets to the intercept term, or $
 
 $$
 \begin{aligned}
-\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}} + b_{0, \text{Year}}) + (\beta_1 \text{Year} + b_{1, \text{Country}}) + \epsilon \\
+\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}} + b_{0, \text{Year}}) + (\beta_1 + b_{1, \text{Country}}) \text{Year} + \epsilon \\
 b_{0, \text{Country}} &\sim \mathcal{N}(0, \tau_{0, \text{Country}}) \\
 b_{1, \text{Country}} &\sim \mathcal{N}(0, \tau_{1, \text{Country}}) \\
 b_{0, \text{Year}} &\sim \mathcal{N}(0, \tau_{0, \text{Year}})
@@ -803,7 +803,7 @@ Each of these group terms also has its own variance term ($\tau$) like the other
 $$
 \begin{aligned}
 \text{Life expectancy} =&\ (\beta_0 + b_{0, \text{Continent}} + b_{0, \text{Continent, Country}}) + \\
-&\ (\beta_1 \text{Year} + b_{1, \text{Continent}} + b_{1, \text{Continent, Country}}) + \epsilon
+&\ (\beta_1 + b_{1, \text{Continent}} + b_{1, \text{Continent, Country}}) \text{Year} + \epsilon
 \end{aligned}
 $$
 
@@ -1201,7 +1201,7 @@ As we saw in the plot with the different across-time trajectories, each country 
 
 $$
 \begin{aligned}
-\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}}) + (\beta_1 \text{GDP} + b_{1, \text{Country}}) + \beta_2 \text{Year} + \epsilon \\
+\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}}) + (\beta_1 + b_{1, \text{Country}}) \text{GDP} + \beta_2 \text{Year} + \epsilon \\
 b_{0, \text{Country}} &\sim \mathcal{N}(0, \tau_0) \\
 b_{1, \text{Country}} &\sim \mathcal{N}(0, \tau_1)
 \end{aligned}
@@ -1380,7 +1380,7 @@ While it's cool that GDP now varies by country, we saw earlier that year-based t
 
 $$
 \begin{aligned}
-\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}}) + (\beta_1 \text{GDP} + b_{1, \text{Country}}) + (\beta_2 \text{Year} + b_{2, \text{Country}}) + \epsilon \\
+\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}}) + (\beta_1 + b_{1, \text{Country}}) \text{GDP} + (\beta_2 + b_{2, \text{Country}}) \text{Year} + \epsilon \\
 b_{0, \text{Country}} &\sim \mathcal{N}(0, \tau_0) \\
 b_{1, \text{Country}} &\sim \mathcal{N}(0, \tau_1) \\
 b_{2, \text{Country}} &\sim \mathcal{N}(0, \tau_2)
@@ -1625,8 +1625,8 @@ To do this, we'll add independent year-based offsets to the intercept term ($b_{
 
 $$
 \begin{aligned}
-\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}} + b_{0, \text{Year}}) + (\beta_1 \text{GDP} + b_{1, \text{Country}} + b_{1, \text{Year}}) + \\
-&= (\beta_2 \text{Year} + b_{2, \text{Country}}) + \epsilon \\
+\text{Life expectancy} &= (\beta_0 + b_{0, \text{Country}} + b_{0, \text{Year}}) + (\beta_1 + b_{1, \text{Country}} + b_{1, \text{Year}}) \text{GDP} + \\
+&= (\beta_2 + b_{2, \text{Country}}) \text{Year} + \epsilon \\
 b_{0, \text{Country}} &\sim \mathcal{N}(0, \tau_{0, \text{Country}}) \\
 b_{1, \text{Country}} &\sim \mathcal{N}(0, \tau_{1, \text{Country}}) \\
 b_{2, \text{Country}} &\sim \mathcal{N}(0, \tau_{2, \text{Country}}) \\
