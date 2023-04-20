@@ -37,6 +37,9 @@ pub-info:
     - name: Data
       url: "#data-and-code"
       icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1111/1758-5899.12984
+      icon: ai ai-zotero
   extra: >-
     Presented at a workshop for a special issue of *Global Policy* entitled “Restricting NGOs: From Pushback to Accommodation,” University of Amsterdam, The Netherlands, June 2020 (held online due to COVID-19)
 doi: 10.1111/1758-5899.12984
@@ -82,7 +85,11 @@ This project includes the following data files:
 - [**`data/raw_data/Market Simulator Version 01.xlsx`**](https://github.com/andrewheiss/who-cares-about-crackdown/blob/master/data/raw_data/Market%20Simulator%20Version%2001.xlsx): An interactive Excel version of the market simulator to help demonstrate the intuition behind all the moving parts of the simulation.
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1111/1758-5899.12984">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{ChaudhryDotsonHeiss:2021,

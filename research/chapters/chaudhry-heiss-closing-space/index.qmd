@@ -18,21 +18,24 @@ pub-info:
   reference: >-
     <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a> and <strong>Andrew Heiss</strong>, “Closing Space and the Restructuring of Global Activism: Causes and Consequences of the Global Crackdown on NGOs,” chap. 2 in <em>Beyond the Boomerang: New Patterns in Transcalar Advocacy</em>, eds. Christopher L. Pallas and Elizabeth Bloodgood (Tuscaloosa, AL: University of Alabama Press, 2022).
   links:
-    - name: Preprint (PDF)
-      url: 2021-chaudhry-heiss-closing-space.pdf
-      local: true
-      icon: fa-solid fa-file-pdf
-    - name: Preprint (HTML)
-      url: closing-space.html
-      local: true
-      icon: fa-solid fa-file-lines
-    - name: Analysis notebook
-      url: figures.html
-      local: true
-      icon: fa-solid fa-chart-simple
-    - name: Complete code
-      url: https://github.com/andrewheiss/Closing-space
-      icon: fa-brands fa-github
+  - name: Preprint (PDF)
+    url: 2021-chaudhry-heiss-closing-space.pdf
+    local: true
+    icon: fa-solid fa-file-pdf
+  - name: Preprint (HTML)
+    url: closing-space.html
+    local: true
+    icon: fa-solid fa-file-lines
+  - name: Analysis notebook
+    url: figures.html
+    local: true
+    icon: fa-solid fa-chart-simple
+  - name: Code
+    url: https://github.com/andrewheiss/Closing-space
+    icon: fa-brands fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=isbn&q=9780817321147
+    icon: ai ai-zotero
 haiku:
   - Governments threatened—
   - NGO regulations
@@ -46,7 +49,11 @@ Figure 1: 2017 CIVICUS Monitor civic space ratings
 ![Figure 1: 2017 CIVICUS Monitor civic space ratings](output/civicus_map.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=isbn&q=9780817321147">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @incollection{ChaudhryHeiss:2022,

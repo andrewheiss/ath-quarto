@@ -22,6 +22,9 @@ pub-info:
   - name: Code
     url: https://github.com/andrewheiss/ngos-authoritarianism
     icon: fa-brands fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=isbn&q=9780367783860
+    icon: ai ai-zotero
 haiku:
   - It’s complicated.
   - Dictators love NGOs,
@@ -40,7 +43,11 @@ Figure 2: Civil society repression and regulations
 ![Figure 2: Civil society repression and regulations](ngos-ir-19_fig2.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=isbn&q=9780367783860">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @incollection{Heiss:2019,

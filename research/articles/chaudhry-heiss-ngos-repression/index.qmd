@@ -30,6 +30,9 @@ pub-info:
   - name: Code and data
     url: https://github.com/andrewheiss/cautioning-canary
     icon: fa-brands fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1080/14754835.2022.2030205
+    icon: ai ai-zotero
   extra: >-
     Presented at the annual meeting of the International Studies Association (ISA), online, April 2021; and at the "Human Rights on the Edge: The Future of International Human Rights Law and Practice" workshop at Arizona State University, online, April 29, 2021
 doi: 10.1080/14754835.2022.2030205
@@ -58,7 +61,11 @@ An increasing number of countries have recently cracked down on non-governmental
 ![Figure 7: The disconnect between Egypt’s de jure 2002 law and the widespread de facto repression of civil society a decade later](plot-egypt-cs.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1080/14754835.2022.2030205">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{ChaudhryHeiss:2022,

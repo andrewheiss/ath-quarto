@@ -30,6 +30,9 @@ pub-info:
   - name: Data
     url: https://github.com/andrewheiss/From-the-Trenches-Anti-TIP-NGOs-and-US/tree/master/data
     icon: fa-solid fa-table
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1080/23322705.2016.1199241
+    icon: ai ai-zotero
 doi: 10.1080/23322705.2016.1199241
 haiku:
   - Big sector survey—
@@ -57,7 +60,11 @@ Figure 7: Average importance and positivity of US anti-TIP efforts across region
 ![Figure 7: Average importance and positivity of US anti-TIP efforts across regions](jht-16_fig7.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1080/23322705.2016.1199241">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{HeissKelley:2017,

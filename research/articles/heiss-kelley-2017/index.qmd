@@ -27,6 +27,9 @@ pub-info:
   - name: Code
     url: https://github.com/andrewheiss/Between-rock-and-hard-place
     icon: fa-brands fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1086/691218
+    icon: ai ai-zotero
 doi: 10.1086/691218
 haiku:
   - "Donors and targets:"
@@ -53,7 +56,11 @@ Figure 2: The dual environmental constraints confronting INGOs
 - Amanda Murdie, *Help or Harm: The Human Security Effects of International NGOs* (Stanford: Stanford University Press, 2014), doi: [`10.2307/j.ctvqsdpq8`](https://doi.org/10.2307/j.ctvqsdpq8).
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1086/691218">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{HeissKelley:2017,

@@ -30,6 +30,9 @@ pub-info:
   - name: Data
     url: https://github.com/andrewheiss/taking-control-of-regulations/tree/master/data
     icon: fa-solid fa-table
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1057/s41309-019-00061-0
+    icon: ai ai-zotero
   extra: >-
     Presented at the workshop on Interest Groups, International Organizations, and Global Problem-Solving Capacity, Stockholm University, Sweden, June 2018, organized by Elizabeth Bloodgood and Lisa Dellmuth
 doi: 10.1057/s41309-019-00061-0
@@ -58,7 +61,11 @@ Figure 1: Relationship between institutional constraints, resource configuration
 ![Figure 1: Relationship between institutional constraints, resource configurations, programmatic flexibility, and advocacy effects](iga-19_fig1.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1057/s41309-019-00061-0">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{Heiss:2019,

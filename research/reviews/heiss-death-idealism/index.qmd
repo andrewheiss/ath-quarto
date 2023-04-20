@@ -27,10 +27,17 @@ pub-info:
   - name: Code
     url: https://github.com/andrewheiss/review-death-idealism
     icon: fa-brands fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1177/00943061211050046g
+    icon: ai ai-zotero
 doi: 10.1177/00943061211050046g
 ---
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1177/00943061211050046g">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{Heiss:20211,

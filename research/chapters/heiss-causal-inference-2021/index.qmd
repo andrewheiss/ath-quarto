@@ -11,18 +11,21 @@ categories:
   - Methods
 pub-info:
   reference: >-
-    <strong>Andrew Heiss</strong>, “Causal Inference,” chap. 10 in <em>R for Political Data Science: A Practical Guide</em>, ed. Francisco Urdinez and Andrés Cruz (Boca Raton, Florida: Chapman and Hall / CRC, 2021), 235–274, doi: <a href="https://doi.org/10.1201/9781003010623"><code>10.1201/9781003010623</code></a>.
+    <strong>Andrew Heiss</strong>, “Causal Inference,” chap. 10 in <em>R for Political Data Science: A Practical Guide</em>, ed. Francisco Urdinez and Andrés Cruz (Boca Raton, Florida: Chapman and Hall / CRC, 2021), 235–274, doi: <a href="https://doi.org/10.1201/9781003010623-10"><code>10.1201/9781003010623-10</code></a>.
   links:
   - name: Preprint
     url: "10-causal-inference.pdf"
     local: true
     icon: fa-solid fa-file-pdf
   - name: Final version
-    url: "https://doi.org/10.1201/9781003010623"
+    url: "https://doi.org/10.1201/9781003010623-10"
     icon: fa-solid fa-scroll
   - name: Code
     url: "https://github.com/andrewheiss/heiss-causal-inference"
     icon: fa-brands fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1201/9781003010623-10
+    icon: ai ai-zotero
 haiku:
   - DAGs, inference, R!
   - Observational data?
@@ -45,7 +48,11 @@ Figure 17: Adjustment set to identify the relationship between mosquito net use 
 ![Figure 17: Adjustment set to identify the relationship between mosquito net use and malaria risk](mosquito-dag-adjusted.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1201/9781003010623-10">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @incollection{Heiss:2021,
@@ -53,6 +60,7 @@ Figure 17: Adjustment set to identify the relationship between mosquito net use 
     author = {Andrew Heiss},
     booktitle = {R for Political Data Science: A Practical Guide},
     chapter = {10},
+    doi = {10.1201/9781003010623-10},
     editor = {Francisco Urdinez and Andr{\'e}s Cruz},
     pages = {235--274},
     publisher = {{Chapman and Hall} / CRC},

@@ -44,7 +44,7 @@ Figure 1: NDP Leadership Organizational Chart, 2010 (based on original chart by 
 ![Figure 1: NDP Leadership Organizational Chart, 2010](jtws-12_fig1.png)
 
 
-## BibTeX citation
+## Citation
 
 ```bibtex
 @article{Heiss:2012,

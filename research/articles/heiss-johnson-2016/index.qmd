@@ -15,13 +15,16 @@ pub-info:
   reference: >-
     <strong>Andrew Heiss</strong> and Tana Johnson, “Internal, Interactive, and Institutional Factors: Towards a Unified Theory of INGO Behavior,” <em>International Studies Review</em> 18, no. 3 (September 2016): 528–41, doi: <a href="http://doi.org/10.1093/isr/viv014"><code>10.1093/isr/viv014</code></a>.
   links:
-    - name: Preprint
-      url: 2016-heiss-johnson-ingo-behavior.pdf
-      icon: fa-solid fa-file-pdf
-      local: true
-    - name: Final version
-      url: https://doi.org/10.1093/isr/viv014
-      icon: fa-solid fa-scroll
+  - name: Preprint
+    url: 2016-heiss-johnson-ingo-behavior.pdf
+    icon: fa-solid fa-file-pdf
+    local: true
+  - name: Final version
+    url: https://doi.org/10.1093/isr/viv014
+    icon: fa-solid fa-scroll
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1093/isr/viv014
+    icon: ai ai-zotero
 doi: 10.1093/isr/viv014
 haiku: 
   - Study NGOs?
@@ -48,7 +51,11 @@ Figure 1 from the paper, showing a unified framework for understanding the types
 - Wendy H. Wong, *Internal Affairs: How the Structure of NGOs Transforms Human Rights* (Ithaca: Cornell University Press, 2012), doi: [`10.7591/9780801466069`](https://doi.org/10.7591/9780801466069).
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1093/isr/viv014">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{HeissJohnson:2016,

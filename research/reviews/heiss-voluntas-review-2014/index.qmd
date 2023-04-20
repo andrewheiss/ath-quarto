@@ -19,10 +19,17 @@ pub-info:
   - name: Final version
     url: https://doi.org/10.1007/s11266-014-9541-3
     icon: fa-solid fa-scroll
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1007/s11266-014-9541-3
+    icon: ai ai-zotero
 doi: 10.1007/s11266-014-9541-3
 ---
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1007/s11266-014-9541-3">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{Heiss:2015,

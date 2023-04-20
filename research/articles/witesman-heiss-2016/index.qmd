@@ -27,6 +27,9 @@ pub-info:
   - name: Code
     url: https://github.com/andrewheiss/np-collaboration
     icon: fab fa-github
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.1007/s11266-016-9684-5
+    icon: ai ai-zotero
 doi: 10.1007/s11266-016-9684-5
 haiku:
   - When money is scarce;
@@ -46,7 +49,11 @@ Figure 1: Simulation results
 ![Figure 1: Simulation results](voluntas-16_fig1.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1007/s11266-016-9684-5">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{WitesmanHeiss:2016,

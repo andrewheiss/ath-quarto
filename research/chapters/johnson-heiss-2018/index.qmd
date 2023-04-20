@@ -22,6 +22,9 @@ pub-info:
   - name: Final version
     url: https://doi.org/10.4324/9781315301914
     icon: fa-solid fa-scroll
+  - name: Add to Zotero
+    url: https://www.zotero.org/save?type=doi&q=10.4324/9781315301914
+    icon: ai ai-zotero
 doi: 10.4324/9781315301914
 haiku:
   - Stuck between “ism”s,
@@ -34,7 +37,12 @@ haiku:
 Liberal institutionalism presumes that domestic and international institutions play central roles in facilitating cooperation and peace between states. But currently, this influential approach to thinking and practice appears to be in jeopardy. The United Kingdom seeks to be the first state ever to withdraw from the European Union (EU). The United States threatens to renegotiate or leave several international arrangements that it has recently signed or long supported. Meanwhile, China hints that it would be happy to take on greater global leadership if the United States retreats from this traditional role.
 
 
-## BibTeX citation
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.4324/9781315301914">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @incollection{JohnsonHeiss:2018,

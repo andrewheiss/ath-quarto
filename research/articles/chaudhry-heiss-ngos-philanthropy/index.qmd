@@ -30,6 +30,9 @@ pub-info:
     - name: Data
       url: https://github.com/andrewheiss/ngo-crackdowns-philanthropy/tree/master/data
       icon: fa-solid fa-table
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1177/0899764020971045
+      icon: ai ai-zotero
   reference: >-
     <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a> and <strong>Andrew Heiss</strong>, “Dynamics of International Giving: How Heuristics Shape Individual Donor Preferences,” <em>Nonprofit and Voluntary Sector Quarterly</em> 50, no. 3 (June 2021): 481–505, doi: <a href="https://doi.org/10.1177/0899764020971045"><code>10.1177/0899764020971045</code></a>
   extra: >-
@@ -67,7 +70,11 @@ Figures 2 & 3: Difference in likelihood of donation across crackdown and no crac
 ![Figures 2 & 3: Difference in likelihood of donation across crackdown and no crackdown groups, conditioned by other experimental frames + difference in amount donated across crackdown and no crackdown groups, conditioned by other experimental frames](ngos-philanthropy_figs23.png)
 
 
-## BibTeX citation
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1177/0899764020971045">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
 
 ```bibtex
 @article{ChaudhryHeiss:2021,
