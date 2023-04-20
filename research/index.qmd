@@ -1,6 +1,5 @@
 ---
 title: "Research"
-description-meta: "{{< meta website.description >}}"
 listing:
   - id: articles
     contents: "articles/*/index.qmd"
@@ -36,7 +35,8 @@ include-back-link: false
 toc-location: right
 ---
 
-My research spans public policy, nonprofit management, political science, and international relations. I study human rights and international nonprofit management and I focus on authoritarian regulation of civil society and international NGO responses to administrative crackdown. I also research causal inference methods, particularly using panel data.
+My research spans public policy, nonprofit management, political science, and international relations. I study human rights and international nonprofit management and I focus on authoritarian regulation of civil society and international NGO responses to administrative crackdown. I also research causal inference methods, particularly using panel data. {{< ai blank-just-to-add-ai-dependency-to-this-page >}}
+
 
 
 ## Journal articles

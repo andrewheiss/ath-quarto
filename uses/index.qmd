@@ -13,6 +13,7 @@ People often ask me what programs I use for my writing and design. In truth, my 
 
 I try to keep this updated fairly regularly. As of April 18, 2023 this is what I'm using:
 
+
 ## Writing
 
 - I permanently ditched Word as a writing environment in 2008 after starting grad school. I do all my writing in [pandoc-flavored](http://pandoc.org/) [Markdown](https://daringfireball.net/projects/markdown/) (including e-mails and paper-and-pencil writing)—it's incredibly intuitive, imminently readable, flexible, future proof, and lets me ignore formatting and focus on content.

@@ -1,6 +1,5 @@
 ---
 title: "Teaching"
-description-meta: "{{< meta website.description >}}"
 listing:
   - id: ay_22-23
     contents: ay_22-23.yml

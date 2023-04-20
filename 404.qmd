@@ -1,6 +1,5 @@
 ---
 title: "Page not found!"
-description-meta: "{{< meta website.description >}}"
 title-block-banner: "#A52C60"
 ---
 

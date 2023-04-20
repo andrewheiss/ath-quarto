@@ -1,6 +1,5 @@
 ---
 title: "Andrew Heiss's blog"
-description-meta: "{{< meta website.description >}}"
 search: false
 listing:
   feed: true

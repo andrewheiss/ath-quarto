@@ -1,6 +1,6 @@
 ---
 title: Curriculum vitæ
-description-meta: "{{< meta website.description >}}"
+description-meta: "Andrew Heiss's CV"
 date: 2023-02-28
 title-block-banner: "#771C6D"
 published-title: CV last updated

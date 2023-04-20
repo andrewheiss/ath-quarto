@@ -1,3 +1,6 @@
+# Metadata stuff
+description-meta: "{{< meta description >}}"
+
 # Date format
 date-format: "dddd, MMMM D, YYYY"
 
