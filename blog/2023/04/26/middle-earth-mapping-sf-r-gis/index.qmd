@@ -827,7 +827,7 @@ However, the maps aren't as detailed as the ME-GIS project, and they're on a com
 
 Here I use `st_bbox()` to create a bounding box of coordinates that I then use to crop the underlying data. This is different from what we did with Europe, where we plotted the whole world map and then zoomed in on just a chunk of western Europe. Here, `st_crop()` cuts out the geographic data that doesn't fall within the box (similar to filtering).
 
-```{r numenor-map, warning=FALSE, fig.width=6.5, fig.height=6}
+```{r numenor-map, warning=FALSE, fig.width=6.5, fig.height=6, out.width="100%"}
 #| fig-cap: "Fancy map of Númenor"
 #| fig-alt: "Fancy map of Númenor"
 numenor_box <- st_bbox(c(xmin = 0.007, xmax = 0.017, ymin = -0.025, ymax = -0.015))
@@ -867,4 +867,200 @@ ggplot() +
 
 ```
 
-The map looks fantastic! But notice the scale bar in the top left corner—in this data, Númenor is only a couple thousand feet wide—less than half a mile. The distances are all way wrong. I could probably scale it up by comparing the projection distances in the Arda Maps' version of regular Middle Earth with the ME-GIS project's version of regular Middle Earth and then do some fancy math, but that goes beyond my skills. 
+The map looks fantastic! But notice the scale bar in the top left corner—in this data, Númenor is only a couple thousand feet wide—less than half a mile. The distances are all way wrong. I could probably scale it up by comparing the projection distances in the Arda Maps' version of regular Middle Earth with the ME-GIS project's version of regular Middle Earth and then do some fancy math, ~~but that goes beyond my skills~~. 
+
+# Update! Second Age maps scaled to Real World distances!
+
+Just kidding! Scaling stuff up doesn't go beyond my skills. We'll do it.
+
+We already converted the data from ME-GIS into Real World miles by doubling all the coordinates centered on Hobbiton, which became the de facto center of the world. We'll do it again here since all those calculations happened way earlier in this post:
+
+```{r convert-third-age-to-real-world}
+# Load the shapefile
+placenames <- read_sf("data/ME-GIS/Combined_Placenames.shp") %>% 
+  mutate(across(where(is.character), ~iconv(., from = "ISO-8859-1", to = "UTF-8")))
+
+# Pull out Hobbiton
+hobbiton <- placenames %>% filter(NAME == "Hobbiton")
+
+# Double all the distances
+places_ta_scaled <- placenames %>%
+  # Take the existing coordinates, subtract the doubled Hobbiton coordinates,
+  # and add the Hobbiton coordinates
+  st_set_geometry((st_geometry(.) - st_geometry(hobbiton)) * 2 + st_geometry(hobbiton)) %>%
+  st_set_crs(st_crs(placenames))
+
+# Confirm that it's 458 miles between Hobbiton and Rivendell
+hobbiton_ta <- places_ta_scaled %>% filter(NAME == "Hobbiton")
+rivendell_ta <- places_ta_scaled %>% filter(NAME == "Rivendell")
+
+# Use set_units() just for fun since st_distance returns the units as metadata
+st_distance(hobbiton_ta, rivendell_ta) %>% units::set_units("miles")
+```
+
+The Second Age data doesn't have Hobbiton in it since Hobbits didn't exist yet (you can see the [Harfoots](https://lotr.fandom.com/wiki/Harfoots), Amazon's version of proto-Hobbits, in *The Rings of Power*), but it does have Bree, which is a village near the Shire.
+
+So first, we'll find the distance between Bree and Rivendell:
+
+```{r bree-to-rivendell-ta}
+bree_ta <- places_ta_scaled %>% filter(NAME == "Bree")
+bree_to_rivendell_ta <- st_distance(bree_ta, rivendell_ta)
+bree_to_rivendell_ta %>% units::set_units("miles")
+```
+
+360 miles. Lovely.
+
+Next, let's see how far apart Bree and Rivendell are in the Arda-Maps Second Age map. We'll reload the data and convert the projection to use the same CRS as the ME-GIS map so that things are comparable.
+
+```{r find-distances-second-age}
+sa_cities <- read_sf("data/Arda-Maps/QGIS/second age/arda2/point_city.shp") %>% 
+  st_transform(st_crs(placenames))
+
+rivendell_sa <- sa_cities %>% filter(eventname == "Rivendell")
+bree_sa <- sa_cities %>% filter(eventname == "Bree")
+
+bree_to_rivendell_sa <- st_distance(bree_sa, rivendell_sa)
+bree_to_rivendell_sa %>% units::set_units("miles")
+```
+
+Hahaha, in this tiny map, it's only a sixth of a mile between Bree and Rivendell. Assuming there are 2,000 steps in a mile, that's only 333 steps, which is just a little more than what Fitbits and Apple Watches try to make you do over the course of an hour. 
+
+We need to turn this sixth of a mile into 360 miles, which involves dividing by… something. I always forget how to rescale things, so I find it helpful to write out the algebra for it:
+
+$$
+\begin{aligned}
+0.1666x &= 360 \\
+x &= \frac{360}{0.1666} \\
+x &= 2160\text{ish}
+\end{aligned}
+$$
+
+If we multiply everything in the Second Age map data by 2160ish, we should be good. First we'll get the official, more precise number (since we're missing decimals in the quick algebra above):
+
+```{r find-sa-to-ta-conversion-factor}
+sa_to_ta_conversion <- as.numeric(bree_to_rivendell_ta / bree_to_rivendell_sa)
+sa_to_ta_conversion
+```
+
+Next we'll scale up the Second Age map data, using Bree as the central reference point:
+
+```{r convert-second-age-to-real-world}
+sa_cities_scaled <- sa_cities %>% 
+  st_set_geometry((st_geometry(.) - st_geometry(bree_sa)) * sa_to_ta_conversion + st_geometry(bree_sa)) %>% 
+  st_set_crs(st_crs(placenames))
+```
+
+Finally let's make sure it worked. We're looking for 360 miles:
+
+```{r check-second-age-conversion}
+rivendell_sa_scaled <- sa_cities_scaled %>% filter(eventname == "Rivendell")
+bree_sa_scaled <- sa_cities_scaled %>% filter(eventname == "Bree")
+
+st_distance(bree_sa_scaled, rivendell_sa_scaled) %>% units::set_units("miles")
+```
+
+It worked!
+
+Now we can plot this thing. Since we're working with a different projection, the bounding box (`numenor_box`) that we previously made for cropping the shapefiles won't work. But we can be even more precise by extracting the bounding box from the Númenor outlines and then using *that* as the cropping box.
+
+Also, we'll add some more layers to the map for fun, but because this rescaling business can get repetitive and tedious, we'll make a little function to cut down on repetition.
+
+```{r load-convert-second-age-data, warning=FALSE}
+numenor_outlines <- read_sf("data/Arda-Maps/QGIS/second age/arda2/poly_outline.shp") %>% 
+  st_transform(st_crs(placenames)) %>% 
+  filter(name == "Numenor")
+
+# Extract the bounds for Númenor so we can crop everything else with it
+numenor_bbox <- st_bbox(numenor_outlines)
+
+# Little helper function to scale things from the Second Age to the real world
+scale_sa_to_real_world <- function(x) {
+  x %>% 
+    st_set_geometry((st_geometry(.) - st_geometry(bree_sa)) * as.numeric(sa_to_ta_conversion) + st_geometry(bree_sa)) %>% 
+    st_set_crs(st_crs(placenames))
+}
+
+numenor_outlines_scaled <- numenor_outlines %>% 
+  scale_sa_to_real_world()
+
+numenor_rivers_scaled <- read_sf("data/Arda-Maps/QGIS/second age/arda2/line_river.shp") %>% 
+  st_transform(st_crs(placenames)) %>% 
+  st_crop(numenor_bbox) %>% 
+  scale_sa_to_real_world()
+
+numenor_cities_scaled <- read_sf("data/Arda-Maps/QGIS/second age/arda2/point_city.shp") %>% 
+  st_transform(st_crs(placenames)) %>% 
+  st_crop(numenor_bbox) %>% 
+  scale_sa_to_real_world()
+
+numenor_forests_scaled <- read_sf("data/Arda-Maps/QGIS/second age/arda2/poly_forest.shp") %>% 
+  st_transform(st_crs(placenames)) %>% 
+  st_crop(numenor_bbox) %>% 
+  scale_sa_to_real_world()
+
+numenor_highlands_scaled <- read_sf("data/Arda-Maps/QGIS/second age/arda2/poly_highland.shp") %>% 
+  st_transform(st_crs(placenames)) %>% 
+  st_crop(numenor_bbox) %>% 
+  scale_sa_to_real_world()
+
+numenor_regions_scaled <- read_sf("data/Arda-Maps/QGIS/second age/arda2/poly_region.shp") %>% 
+  st_transform(st_crs(placenames)) %>% 
+  st_crop(numenor_bbox) %>% 
+  scale_sa_to_real_world()
+```
+
+Mapping time!
+
+```{r numenor-map-correct, warning=FALSE, fig.width=6.5, fig.height=6, out.width="100%"}
+#| fig-cap: "Correctly scaled fancy map of Númenor"
+#| fig-alt: "Correctly scaled fancy map of Númenor"
+ggplot() +
+  # Background of the island
+  geom_sf(data = numenor_outlines_scaled, linewidth = 0, fill = "#F2CB9B") +
+  geom_sf(data = numenor_forests_scaled, 
+          linewidth = 0, fill = clr_green, alpha = 0.4) +
+  geom_sf(data = numenor_highlands_scaled, 
+          linewidth = 0, fill = colorspace::darken("#F2CB9B", 0.1)) +
+  geom_sf(data = numenor_rivers_scaled, linewidth = 0.4, color = clr_blue) +
+  # Region borders
+  geom_sf(data = numenor_regions_scaled, linewidth = 0.2, linetype = "33", fill = NA) +
+  # Island borders to cover up the dotted region lines on the coast
+  geom_sf(data = numenor_outlines_scaled, linewidth = 0.25, fill = NA) +
+  geom_sf_text(data = filter(numenor_regions_scaled, eventname != "Mittalmar"), 
+               aes(label = eventname),
+               family = "Overpass Heavy", size = 5, color = "grey30") +
+  geom_sf_text(data = filter(numenor_regions_scaled, eventname == "Mittalmar"), 
+               aes(label = eventname),
+               family = "Overpass Heavy", size = 5, color = "grey30",
+               nudge_y = miles_to_meters(30)) +
+  geom_sf(data = numenor_cities_scaled) +
+  ggrepel::geom_label_repel(
+    data = numenor_cities_scaled, 
+    aes(label = eventname, geometry = geometry),
+    stat = "sf_coordinates", seed = 1234,
+    family = "Overpass ExtraBold") +
+  annotation_scale(location = "tl", bar_cols = c("grey30", "white"),
+                   text_family = "Overpass",
+                   unit_category = "imperial",
+                   width_hint = 0.3) +
+  annotation_north_arrow(
+    location = "tl", pad_y = unit(1.5, "lines"),
+    style = north_arrow_fancy_orienteering(fill = c("grey30", "white"), 
+                                           line_col = "grey30",
+                                           text_family = "Overpass")) +
+  labs(title = "Númenor") +
+  theme_void() +
+  theme(plot.background = element_rect(fill = "#bacdf7"),
+        plot.title = element_text(family = "Aniron", size = rel(2), 
+                                  hjust = 0.02))
+```
+
+We can compare it with Karen Wynn Fonstad's map of Númenor from page 43 in [*Atlas of Middle-earth*](https://www.amazon.com/Atlas-Middle-Earth-Revised-Karen-Fonstad/dp/0618126996) and the scaling all seems correct—the island is about 600 miles wide in both the book and in the data.
+
+```{r fonstad-numenor, echo=FALSE, out.width="100%"}
+#| fig-cap: "Karen Wynn Fonstad's map of Númenor"
+#| fig-alt: "Karen Wynn Fonstad's map of Númenor"
+knitr::include_graphics("img/numenor-fonstad.png")
+```
+
+Success!
