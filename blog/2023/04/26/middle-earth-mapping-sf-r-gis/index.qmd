@@ -135,7 +135,7 @@ ggplot() +
 
 ## Getting geographic data
 
-Shapefiles are everywhere. They're one of the de facto standard formats for GIS data, and most government agencies provide them for their jurisdictions ([see here for a list of some different sources](https://datavizs22.classes.andrewheiss.com/example/12-example/#shapefiles)). You can view and edit them graphically with the free and open source [QGIS](https://qgis.org/en/site/) or with the expensive and industry-standard [ArcGIS](https://www.arcgis.com/index.html) 
+Shapefiles are everywhere. They're one of the de facto standard formats for GIS data, and most government agencies provide them for their jurisdictions ([see here for a list of some different sources](https://datavizs22.classes.andrewheiss.com/example/12-example/#shapefiles)). You can view and edit them graphically with the free and open source [QGIS](https://qgis.org/en/site/) or with the expensive and industry-standard [ArcGIS](https://www.arcgis.com/index.html).
 
 We've already seen how to load shapefiles into R with `sf::read_sf()`, and that works great. But doing that requires that you go and find and download the shapefiles that you want, which can involve hunting through complicated websites. There are also lots of different R packages that let you get shapefiles directly from different websites' APIs.
 
@@ -550,7 +550,7 @@ That's correct now—it was 458 miles from the Shire to Rivendell.
 
 Now that we can work with correct distances, we can sick Middle Earth inside Real Earth to help visualize how far spread out Tolkien's world is. 
 
-## In the US
+## In the United States
 
 First, let's stick a scaled-up version of Middle Earth in the United States. For fun, we'll put the Shire in the geographic center of the US, and we'll calculate the coordinates for that with R just to show that it's possible.
 
@@ -676,7 +676,7 @@ ggplot() +
 
 ## In Europe
 
-Sticking Middle Earth in the US makes sense because I live in the US, so these relative distances make sense to me. (I'm in Georgia, which is the middle of Mordor in the maps above).
+Sticking Middle Earth in the US makes sense because I live in the US, so these relative distances are straightforward to me. (I'm in Georgia, which is the middle of Mordor in the maps above).
 
 But Tolkien was from England and lived in Oxford—at [20 Northmoor Road](https://en.wikipedia.org/wiki/Northmoor_Road) to be precise, or at [`r st_point(c(-1.2601418874304429, 51.771003605142724)) %>% st_geometry() %>% format_coords()`](https://www.google.com/maps/place/20+Northmoor+Rd,+Oxford+OX2+6UR,+UK/@51.7710103,-1.2626846,17z/) to be even more precise (I found this by going to Google Maps, right clicking on Tolkien's home, and copying the coordinates). Here's where that is:
 
@@ -725,8 +725,8 @@ ggplot() +
 We could do some fancy filtering and [use more detailed data that splits places like France into separate subdivisions](https://github.com/nvkelso/natural-earth-vector/issues/196) (i.e. one row for continental Europe France, one row for French Guiana, etc.), but that's a lot of work. So instead, we'll use `coord_sf()` to define a window so we can zoom in on just a chunk of Europe. Before, we added some arbitrary number of miles around the coordinates for Hobbiton. This time we'll [use a helpful tool from OpenStreetMap](https://www.openstreetmap.org/export#map=4/54.47/12.79) that lets you draw a bounding box on a world map to get coordinates to work with:
 
 ```{r osm-export, echo=FALSE, out.width="100%"}
-#| fig-cap: "OpenStreeMap's site for exporting bounding box coordinates"
-#| fig-alt: "OpenStreeMap's site for exporting bounding box coordinates"
+#| fig-cap: "OpenStreetMap's site for exporting bounding box coordinates"
+#| fig-alt: "OpenStreetMap's site for exporting bounding box coordinates"
 knitr::include_graphics("img/osm-export.png")
 ```
 
