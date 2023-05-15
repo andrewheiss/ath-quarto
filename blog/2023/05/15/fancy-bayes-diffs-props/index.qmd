@@ -500,7 +500,7 @@ y \sim \operatorname{Binomial}(n, \pi)
 $$
 
 1. Number of successes ($y$: the number of people responding yes to "often," or `n` in our data
-2. Probability of success ($pi$): the probability someone says yes to "often," or the thing we want to model for each country
+2. Probability of success ($\pi$): the probability someone says yes to "often," or the thing we want to model for each country
 3. Number of trials ($n$): the total number of people asked the question, or `total` in our data
 
 The number of successes and trials are just integers—they're counts—and we already know those, since they're in the data. The probability of success $\pi$ is a percentage and ranges somewhere between 0 and 1. We don't know this value, but we can estimate it with Bayesian methods by defining a prior and a likelihood, churning through a bunch of Monte Carlo Markov Chain (MCMC) simulations, and finding a posterior distribution of $\pi$.
@@ -550,7 +550,7 @@ ggplot() +
         legend.position = "top")
 ```
 
-We've already seen the data and know that the proportion of students who read comic books often is 10ish% in the United States and 30ish% in Mexico, but we'll cheat and say that we think that around 25% of students read comic books often, ± some big amount. This implies something like a Beta(2, 6) distribution (since $\frac{2}{6} = 0.25$), with lots of low possible values, but not a lot of $\pi$s are above 50%. We could narrow this down by scaling up the parameters (like Beta(20, 60) or Beta(10, 40), etc.), but leaving the prior distribution of $\pi$ wide like this allows for more possible responses (maybe 75% of students in one country read comic books often!).
+We've already seen the data and know that the proportion of students who read comic books often is 10ish% in the United States and 30ish% in Mexico, but we'll cheat and say that we think that around 25% of students read comic books often, ± some big amount. This implies something like a Beta(2, 6) distribution (since $\frac{2}{2+6} = 0.25$), with lots of low possible values, but not a lot of $\pi$s are above 50%. We could narrow this down by scaling up the parameters (like Beta(20, 60) or Beta(10, 40), etc.), but leaving the prior distribution of $\pi$ wide like this allows for more possible responses (maybe 75% of students in one country read comic books often!).
 
 ```{r plot-beta-prior}
 #| fig-cap: Prior distribution for π using Beta(2, 6)
