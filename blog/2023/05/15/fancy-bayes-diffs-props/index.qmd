@@ -1043,18 +1043,94 @@ p2 <- often_comics_model %>%
   plot_layout(heights = c(0.785, 0.03, 0.185))
 ```
 
-Until {brms} 2.19.something, there wasn't an official beta-binomial distribution for {brms}, but it was used as [the example for creating your own custom family](https://cran.r-project.org/web/packages/brms/vignettes/brms_customfamilies.html). However, when I try to use the new `family = beta_binomial()`, the results I get are wildly off from both raw Stan and from `family = binomial()` in {brms}, and I don't know why :shrug:. Someday I'll be smart enough to figure out how to use it, but for now, everything up above works great.
+### Actual beta-binomial model
 
-```{r q1-model-beta-binomial, eval=FALSE}
-# This doesn't work!
-often_comics_model <- brm(
+Until {brms} 2.17, there wasn't an official beta-binomial distribution for {brms}, but it was used as [the example for creating your own custom family](https://cran.r-project.org/web/packages/brms/vignettes/brms_customfamilies.html). It is now implemented in {brms} and allows you to define both a mean ($\mu$) and precision ($\phi$) for a Beta distribution, just like {brms}'s other Beta-related models (like zero-inflated, etc.—[see here for a lot more about those](https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/)). This means that we can model both parts of the distribution simultaneously, which is neat, since it allows us to deal with potential overdispersion in outcomes.  [Paul Bürkner's original rationale for not including it](https://discourse.mc-stan.org/t/beta-binomial-why-not-a-default-family-in-the-package/10625/2) was that a regular binomial model with a random effect for the observation id also allows you to account for overdispersion, so there's not really a need for an official beta-binomial family. [But in March 2022](https://github.com/paul-buerkner/brms/pull/1319) the `beta_binomial` family was added as an official distributional family, which is neat.
+
+We can use it here instead of `family = binomial(link = "identity")` with a few adjustments. The family uses a different mean/precision parameterization of the Beta distribution instead of the two shapes $\alpha$ and $\beta$, but we can switch between them with some algebra ([see this for more details](https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/#mean-and-precision-instead-of-shapes)):
+
+$$
+\begin{equation}
+\begin{aligned}[t]
+\text{Shape 1:} && \alpha &= \mu \phi \\
+\text{Shape 2:} && \beta &= (1 - \mu) \phi
+\end{aligned}
+\qquad\qquad\qquad
+\begin{aligned}[t]
+\text{Mean:} && \mu &= \frac{\alpha}{\alpha + \beta} \\
+\text{Precision:} && \phi &= \alpha + \beta
+\end{aligned}
+\end{equation}
+$$
+
+By default, $\mu$ is modeled on the log odds scale and $\phi$ is modeled on the log scale, but I find both of those really hard to think about, so we can use an identity link for both parameters like we did before with `binomial()` to think about counts and proportions instead. This makes it so the $\phi$ parameter measures the standard deviation of the count on the count scale, so a prior like Exponential(1 / 1000) would imply that the precision (or variance-ish) of the count could vary by mostly low numbers, but maybe up to ±5000ish, which seems reasonable, especially since the Mexico part of the survey has so many respondents:
+
+```{r plot-exponential-prior}
+#| fig-cap: Exponential(1/1000) distribution
+#| fig-alt: Exponential(1/1000) distribution
+ggplot() +
+  stat_function(fun = ~dexp(., 0.001), geom = "area", fill = "#AC3414") +
+  scale_x_continuous(labels = label_number(big.mark = ","), limits = c(0, 5000)) +
+  labs(x = "Possible values for φ", y = NULL, fill = NULL) +
+  theme_nice() +
+  theme(axis.text.y = element_blank())
+```
+
+```{r q1-model-beta-binomial, cache=TRUE}
+often_comics_model_beta_binomial <- brm(
   bf(n | trials(total) ~ 0 + country),
   data = often_comics_only,
-  family = beta_binomial(),
+  family = beta_binomial(link = "identity", link_phi = "identity"),
+  prior = c(prior(beta(2, 6), class = "b", dpar = "mu", lb = 0, ub = 1),
+            prior(exponential(0.001), class = "phi", lb = 0)),
   chains = CHAINS, warmup = WARMUP, iter = ITER, seed = BAYES_SEED,
   refresh = 0
 )
 ```
+
+::: {.callout-note}
+### Separate model for $\phi$
+
+If we wanted to be super fancy, we could define a completely separate model for the $\phi$ part of the distribution like this, but we don't need to here:
+
+```r
+often_comics_model_beta_binomial <- brm(
+  bf(n | trials(total) ~ 0 + country,
+     phi ~ 0 + country),
+  data = often_comics_only,
+  family = beta_binomial(link = "identity", link_phi = "identity"),
+  prior = c(prior(beta(2, 6), class = "b", dpar = "mu", lb = 0, ub = 1),
+            prior(exponential(0.001), dpar = "phi", lb = 0)),
+  chains = CHAINS, warmup = WARMUP, iter = ITER, seed = BAYES_SEED,
+  refresh = 0
+)
+```
+
+:::
+
+Check out the results:
+
+```{r q1-model-beta-binomial-show}
+often_comics_model_beta_binomial
+```
+
+Those coefficients are the group proportions, as expected, and we have a $\phi$ parameter representing the overall variation in counts. The proportions here are a little more uncertain than before, though, which is apparent if we plot the distributions. The distributions have a much wider range now (note that the x-axis now goes all the way up to 60%), and the densities are a lot bumpier and jankier. I don't know why though! This is weird! I'm probably doing something wrong!
+
+```{r q1-plot-model-beta-binomial}
+#| fig-cap: Posterior distributions of the proportion of students who read comic books often in the United States and Mexico
+often_comics_model_beta_binomial %>% 
+  epred_draws(newdata = often_comics_only) %>% 
+  mutate(.epred_prop = .epred / total) %>% 
+  ggplot(aes(x = .epred_prop, y = country, fill = country)) +
+  stat_halfeye() +
+  scale_x_continuous(labels = label_percent(), expand = c(0, 0.015)) +
+  scale_fill_manual(values = c(clr_usa, clr_mex)) +
+  guides(fill = "none") +
+  labs(x = "Proportion of students who read comic books often",
+       y = NULL) +
+  theme_nice()
+```
+
 
 
 ## Final answer to the question
