@@ -194,14 +194,17 @@ reading_wide <- pisaitems %>%
   mutate(id = 1:n()) %>%
   # Only keep a few columns
   select(id, country = CNT, `Comic books` = ST25Q02, Newspapers = ST25Q05) %>% 
+  # Collapse these categories
   mutate(across(c(`Comic books`, Newspapers), 
                 ~fct_collapse(
                   .,
                   "Rarely" = c("Never or almost never"),
                   "Sometimes" = c("A few times a year", "About once a month"),
                   "Often" = c("Several times a month", "Several times a week")))) %>% 
+  # Make sure the new categories are ordered correctly
   mutate(across(c(`Comic books`, Newspapers), 
                 ~fct_relevel(., c("Rarely", "Sometimes", "Often")))) %>% 
+  # Only keep the US and Mexico and get rid of the empty Canada level
   filter(country %in% c("United States", "Mexico")) %>% 
   mutate(country = fct_drop(country))
 head(reading_wide)
@@ -256,7 +259,7 @@ fancy_table
 
 This table has a lot of numbers and it's hard to immediately see what's going on, so we'll visualize it really quick to get a sense for some of the initial trends. Visualizing this is a little tricky though. It's easy enough to make a bar chart of the percentages, but doing that is a little misleading. Notice the huge differences in the numbers of respondents here—there are thousands of Mexican students and only hundreds of American students. [We should probably visualize the data in a way that accounts for these different denominators](https://clauswilke.com/dataviz/nested-proportions.html), and percentages by themselves don't do that.
 
-We can use a [mosaic plot](https://en.wikipedia.org/wiki/Mosaic_plot) (also known as a [Marimekko chart](https://datavizcatalogue.com/methods/marimekko_chart.html)) to visualize both the distribution of proportions of responses (Rarely, Sometimes, Often) and the proportions of respondents from each country (Mexico and the United States). We can use the {ggmosaic} package to create ggplot-flavored mosaic plots:
+We can use a [mosaic plot](https://en.wikipedia.org/wiki/Mosaic_plot) (also known as a [Marimekko chart](https://datavizcatalogue.com/methods/marimekko_chart.html)) to visualize both the distribution of proportions of responses (Rarely, Sometimes, Often) and the proportions of respondents from each country (Mexico and the United States). We can use the [{ggmosaic} package](https://haleyjeppson.github.io/ggmosaic/) to create ggplot-flavored mosaic plots:
 
 ::: {.callout-tip}
 ## Base R works too!
