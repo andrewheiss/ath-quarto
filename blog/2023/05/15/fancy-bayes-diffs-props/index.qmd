@@ -1239,7 +1239,7 @@ show_nice_pal(c("Often" = clr_often, "Sometimes" = clr_sometimes, "Rarely" = clr
 
 ## Bayesianly with {brms}
 
-Let's first extract the aggregated data we'll work with—newspaper frequcny in the United States only:
+Let's first extract the aggregated data we'll work with—newspaper frequency in the United States only:
 
 ```{r make-newspaper-counts-data}
 newspapers_only <- reading_counts %>% 
