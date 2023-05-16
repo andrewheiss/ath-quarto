@@ -431,7 +431,7 @@ prop.test(often_matrix) %>%
   model_parameters()
 ```
 
-And finally we have a test statistic: a $\chi^2$ value of `r q1_prop_params$Chi2`, which is huge and definitely statistically significant. In a hypothetical world where there's no difference in the proportions, the probability of seeing a difference of at least 18 percentage points is super tiny (p `r label_pvalue(prefix = c("< ", "", "> "))(q1_prop_params$p)`). We have enough evidence to confidently reject the null hypothesis and declare that the proportions of the groups are not the same. With the confidence interval, we can say that we are 95% confidence that the interval `r q1_prop_params$CI_low`–`r q1_prop_params$CI_high` captures the true population parameter. We can't say that there's a 95% chance that the true value falls in this range—we can only talk about the range.
+And finally we have a test statistic: a $\chi^2$ value of `r q1_prop_params$Chi2`, which is huge and definitely statistically significant. In a hypothetical world where there's no difference in the proportions, the probability of seeing a difference of at least 18 percentage points is super tiny (p `r label_pvalue(prefix = c("< ", "", "> "))(q1_prop_params$p)`). We have enough evidence to confidently reject the null hypothesis and declare that the proportions of the groups are not the same. With the confidence interval, we can say that we are 95% confident that the interval `r q1_prop_params$CI_low`–`r q1_prop_params$CI_high` captures the true population parameter. We can't say that there's a 95% chance that the true value falls in this range—we can only talk about the range.
 
 We can also do this without using a matrix by feeding `prop.test()` two vectors: one with counts of people who read comics often and one with counts of total respondents:
 
@@ -534,7 +534,7 @@ $$
 \frac{\alpha}{\alpha + \beta}
 $$
 
-With these two shape parameters, we can create any percentage or fraction we want. We can also control the uncertainty of the distribution by tinkering with the scale of the parameters. For instance, if we think there's a 40% chance of something happening, this could be represented with $\alpha = 4$ and $\beta = 6$, since $\frac{4}{4 + 6} = 0.4$. We could also write it as $\alpha = 40$ and $\beta = 60$, since $\frac{40}{4 + 60} = 0.4$ too. Both are centered at 40%, but Beta(40, 60) is a lot narrower and less uncertain.
+With these two shape parameters, we can create any percentage or fraction we want. We can also control the uncertainty of the distribution by tinkering with the scale of the parameters. For instance, if we think there's a 40% chance of something happening, this could be represented with $\alpha = 4$ and $\beta = 6$, since $\frac{4}{4 + 6} = 0.4$. We could also write it as $\alpha = 40$ and $\beta = 60$, since $\frac{40}{40 + 60} = 0.4$ too. Both are centered at 40%, but Beta(40, 60) is a lot narrower and less uncertain.
 
 ```{r plot-beta-example}
 #| fig-cap: Beta(4, 6) and Beta(40, 60) distributions
@@ -1335,7 +1335,7 @@ freq_newspapers_diffs %>%
   unnest(median)
 ```
 
-There's only a 60ish% chance that the difference between often and sometimes is bigger than zero, so there's probably not an actual difference between those two categories, but there's a 100% chance that the differences between sometimes and rarely and often and rarely are bigger than zero.
+There's only a 60ish% chance that the difference between `r span_col("often", clr_often)` and `r span_col("sometimes", clr_sometimes)` is bigger than zero, so there's probably not an actual difference between those two categories, but there's a 100% chance that the differences between `r span_col("sometimes", clr_sometimes)` and `r span_col("rarely", clr_rarely)` and `r span_col("often", clr_often)` and `r span_col("rarely", clr_rarely)` are bigger than zero.
 
 ## Better fill colors
 
@@ -1469,7 +1469,7 @@ Here's how I'd write about the results:
 > 
 > There is no substantial difference in proportions between those reporting reading newspapers often and sometimes. The posterior median difference is between `r newspaper_diffs$often_sometimes$ymin_nice` and `r newspaper_diffs$often_sometimes$ymax_nice` percentage points, with a median of `r newspaper_diffs$often_sometimes$y_nice` percentage points, and there's only a `r newspaper_diffs$often_sometimes$p_gt_0_nice` probability that this difference is greater than 0, which implies that the two categories are indistinguishable from each other. 
 > 
-> There *is* a clear substantial difference between the proportion reading newspapers rarely and the other two responses, though. The posterior median difference between sometimes and rarely is between `r newspaper_diffs$sometimes_rarely$ymin_nice` and `r newspaper_diffs$sometimes_rarely$ymax_nice` percentage points (median = `r newspaper_diffs$sometimes_rarely$y_nice`), while the difference between often and rarely is between `r newspaper_diffs$often_rarely$ymin_nice` and `r newspaper_diffs$often_rarely$ymax_nice` percentage points (median = `r newspaper_diffs$often_rarely$y_nice`). The probability that either of these differences is greater than 0 is 100%.
+> There *is* a clear substantial difference between the proportion reading newspapers rarely and the other two responses, though. The posterior median difference between sometimes and rarely is between `r newspaper_diffs$sometimes_rarely$ymin_nice` and `r newspaper_diffs$sometimes_rarely$ymax_nice` percentage points (median = `r newspaper_diffs$sometimes_rarely$y_nice`), while the difference between often and rarely is between `r newspaper_diffs$often_rarely$ymin_nice` and `r newspaper_diffs$often_rarely$ymax_nice` percentage points (median = `r newspaper_diffs$often_rarely$y_nice`). The probability that each of these differences is greater than 0 is 100%.
 
 ---
 
