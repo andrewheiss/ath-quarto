@@ -1,0 +1,18 @@
+{
+  "locations": [{
+    "latitudeE7": 300489450,
+    "longitudeE7": -899629451,
+    "accuracy": 9,
+    "velocity": 0,
+    "heading": 329,
+    "altitude": 1,
+    "verticalAccuracy": 4,
+    "deviceTag": 0,
+    "platformType": "IOS",
+    "serverTimestamp": "2023-06-04T01:05:58.248Z",
+    "deviceTimestamp": "2023-06-04T01:05:57.559Z",
+    "batteryCharging": false,
+    "formFactor": "PHONE",
+    "timestamp": "2023-06-04T00:52:57Z"
+  }]
+}

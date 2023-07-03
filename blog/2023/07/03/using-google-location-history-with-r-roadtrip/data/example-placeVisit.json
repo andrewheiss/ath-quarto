@@ -1,0 +1,135 @@
+{
+  "timelineObjects": [
+    {
+      "placeVisit": {
+        "location": {
+          "latitudeE7": 323281024,
+          "longitudeE7": -863373283,
+          "placeId": "ChIJQ0NgzsqAjogRISqopW4DZMc",
+          "address": "1030 W South Blvd, Montgomery, AL 36105, USA",
+          "name": "Chevron",
+          "sourceInfo": {
+            "deviceTag": 0
+          },
+          "locationConfidence": 89.41639,
+          "calibratedProbability": 80.56358
+        },
+        "duration": {
+          "startTimestamp": "2023-06-03T14:27:23.001Z",
+          "endTimestamp": "2023-06-03T14:50:24Z"
+        },
+        "placeConfidence": "MEDIUM_CONFIDENCE",
+        "childVisits": [
+          {
+            "location": {
+              "latitudeE7": 323283762,
+              "longitudeE7": -863375123,
+              "placeId": "ChIJAdDnF3aBjogR8QB5jc1-rJ4",
+              "address": "1034 W South Blvd, Montgomery, AL 36105, USA",
+              "name": "Subway Restaurant",
+              "sourceInfo": {
+                "deviceTag": 0
+              },
+              "locationConfidence": 72.2232,
+              "calibratedProbability": 75.24107,
+              "isCurrentLocation": true
+            },
+            "duration": {
+              "startTimestamp": "2023-06-03T14:34:39Z",
+              "endTimestamp": "2023-06-03T14:44:49.001Z"
+            },
+            "placeConfidence": "MEDIUM_CONFIDENCE",
+            "centerLatE7": 323284278,
+            "centerLngE7": -863374412,
+            "visitConfidence": 96,
+            "otherCandidateLocations": [
+              {
+                "latitudeE7": 323285006,
+                "longitudeE7": -863377652,
+                "placeId": "ChIJA3h1MjWHjogR80kv9D_Lntk",
+                "address": "1040 W South Blvd, Montgomery, AL 36105, USA",
+                "name": "Key West Inn - Montgomery",
+                "locationConfidence": 10.853202,
+                "calibratedProbability": 11.306708
+              },
+              {
+                "latitudeE7": 323287032,
+                "longitudeE7": -863382047,
+                "placeId": "ChIJCf-fPDWHjogRmvhj-qiWCz8",
+                "address": "1100 W South Blvd, Montgomery, AL 36105, USA",
+                "name": "Candlelight Inn & Suites",
+                "locationConfidence": 1.1935182,
+                "calibratedProbability": 1.2433898
+              },
+              {
+                "latitudeE7": 323282572,
+                "longitudeE7": -863373790,
+                "placeId": "ChIJeTmKJ_qBjogRQWiYn-W7rU4",
+                "address": "1030 W South Blvd, Montgomery, AL 36105, USA",
+                "name": "RockItCoin Bitcoin ATM",
+                "locationConfidence": 1.0211272,
+                "calibratedProbability": 1.0637956
+              },
+              {
+                "latitudeE7": 323283324,
+                "longitudeE7": -863373923,
+                "placeId": "ChIJw_Ea1MqAjogRx1NiHM_8Nzc",
+                "address": "Montgomery, AL 36108, USA",
+                "name": "Food Mart",
+                "locationConfidence": 0.7868908,
+                "calibratedProbability": 0.8197714
+              }
+            ],
+            "editConfirmationStatus": "NOT_CONFIRMED",
+            "locationConfidence": 58,
+            "placeVisitType": "SINGLE_PLACE",
+            "placeVisitLevel": 1
+          }
+        ],
+        "centerLatE7": 323284278,
+        "centerLngE7": -863374412,
+        "visitConfidence": 96,
+        "otherCandidateLocations": [
+          {
+            "latitudeE7": 323285006,
+            "longitudeE7": -863377652,
+            "placeId": "ChIJA3h1MjWHjogR80kv9D_Lntk",
+            "address": "1040 W South Blvd, Montgomery, AL 36105, USA",
+            "name": "Key West Inn - Montgomery",
+            "locationConfidence": 7.3344393,
+            "calibratedProbability": 6.6082816
+          },
+          {
+            "latitudeE7": 323276892,
+            "longitudeE7": -863322005,
+            "placeId": "ChIJ2zZ0N8iAjogRNs7GWM52KBI",
+            "address": "980 W South Blvd, Montgomery, AL 36105, USA",
+            "name": "TA Travel Center",
+            "locationConfidence": 1.8974434,
+            "calibratedProbability": 1.709584
+          },
+          {
+            "latitudeE7": 323282589,
+            "longitudeE7": -863373908,
+            "placeId": "ChIJfYb508qAjogR53NrN2W_Rlk",
+            "address": "1030 W South Blvd, Montgomery, AL 36105, USA",
+            "locationConfidence": 0.53486556,
+            "calibratedProbability": 0.48191035
+          },
+          {
+            "latitudeE7": 323283953,
+            "longitudeE7": -863373862,
+            "placeId": "ChIJE2gk1MqAjogR4SR-mt5z0bw",
+            "address": "1034 W South Blvd, Montgomery, AL 36105, USA",
+            "locationConfidence": 0.34560308,
+            "calibratedProbability": 0.3113861
+          }
+        ],
+        "editConfirmationStatus": "NOT_CONFIRMED",
+        "locationConfidence": 74,
+        "placeVisitType": "SINGLE_PLACE",
+        "placeVisitImportance": "MAIN"
+      }
+    }
+  ]
+}

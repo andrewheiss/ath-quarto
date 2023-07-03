@@ -1,0 +1,643 @@
+{
+  "timelineObjects": [
+    {
+      "activitySegment": {
+        "startLocation": {
+          "latitudeE7": 339703585,
+          "longitudeE7": -842416959,
+          "sourceInfo": {
+            "deviceTag": 0
+          }
+        },
+        "endLocation": {
+          "latitudeE7": 339786509,
+          "longitudeE7": -842006268,
+          "sourceInfo": {
+            "deviceTag": 0
+          }
+        },
+        "duration": {
+          "startTimestamp": "2023-06-01T00:15:26.999Z",
+          "endTimestamp": "2023-06-01T00:28:47Z"
+        },
+        "distance": 5483,
+        "activityType": "IN_PASSENGER_VEHICLE",
+        "confidence": "HIGH",
+        "activities": [
+          {
+            "activityType": "IN_PASSENGER_VEHICLE",
+            "probability": 91.4052665233612
+          },
+          {
+            "activityType": "STILL",
+            "probability": 6.64205327630043
+          },
+          {
+            "activityType": "MOTORCYCLING",
+            "probability": 0.9823671542108059
+          },
+          {
+            "activityType": "WALKING",
+            "probability": 0.5962094757705927
+          },
+          {
+            "activityType": "CYCLING",
+            "probability": 0.223095272667706
+          },
+          {
+            "activityType": "IN_BUS",
+            "probability": 0.04911962314508855
+          },
+          {
+            "activityType": "IN_FERRY",
+            "probability": 0.0365130981663242
+          },
+          {
+            "activityType": "RUNNING",
+            "probability": 0.03333986678626388
+          },
+          {
+            "activityType": "FLYING",
+            "probability": 0.01935226609930396
+          },
+          {
+            "activityType": "SKIING",
+            "probability": 0.007446656672982499
+          },
+          {
+            "activityType": "SAILING",
+            "probability": 0.0035761087929131463
+          },
+          {
+            "activityType": "IN_TRAIN",
+            "probability": 0.0014464368177868892
+          },
+          {
+            "activityType": "IN_SUBWAY",
+            "probability": 1.821534169721417E-4
+          },
+          {
+            "activityType": "IN_TRAM",
+            "probability": 4.218539118028275E-5
+          },
+          {
+            "activityType": "IN_VEHICLE",
+            "probability": 7.428720416591261E-8
+          }
+        ],
+        "waypointPath": {
+          "waypoints": [
+            {
+              "latE7": 339703559,
+              "lngE7": -842416839
+            },
+            {
+              "latE7": 339679756,
+              "lngE7": -842386245
+            },
+            {
+              "latE7": 339700889,
+              "lngE7": -842359008
+            },
+            {
+              "latE7": 339783020,
+              "lngE7": -842197647
+            },
+            {
+              "latE7": 339820518,
+              "lngE7": -842119369
+            },
+            {
+              "latE7": 339836654,
+              "lngE7": -842065200
+            },
+            {
+              "latE7": 339785041,
+              "lngE7": -842005691
+            }
+          ],
+          "source": "INFERRED",
+          "roadSegment": [
+            {
+              "placeId": "ChIJJXHh6fag9YgR2odjeF2B9AA",
+              "duration": "19s"
+            },
+            {
+              "placeId": "ChIJH89vxvag9YgRbk5SPc4LAPg",
+              "duration": "7s"
+            },
+            {
+              "placeId": "ChIJYxQC0Pag9YgRLOgpRIRvECo",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJtW3kKfeg9YgRimpZxAxazEw",
+              "duration": "17s"
+            },
+            {
+              "placeId": "ChIJoS1FM_eg9YgRe6jOWDm9pPI",
+              "duration": "14s"
+            },
+            {
+              "placeId": "ChIJLUbAs_Cg9YgRE9MccxI_BQ8",
+              "duration": "19s"
+            },
+            {
+              "placeId": "ChIJvTjlqPCg9YgRH-W3_f386p4",
+              "duration": "17s"
+            },
+            {
+              "placeId": "ChIJbZ_DB_qg9YgRcSFAk4qlsQw",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJsUnDBvqg9YgRgK51AyDYTLA",
+              "duration": "7s"
+            },
+            {
+              "placeId": "ChIJa9cQAvqg9YgRPHO-QU7_g_8",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJG9q8-fmg9YgRAsm5KNhX_fo",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJG9q8-fmg9YgRxxQ2ZMjQBug",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJCY5y8Pmg9YgRkGMJE0mN54I",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJrfiH8vmg9YgRQqNntwW3WlE",
+              "duration": "12s"
+            },
+            {
+              "placeId": "ChIJh4C4nvmg9YgRVqsEsKmHxIs",
+              "duration": "56s"
+            },
+            {
+              "placeId": "ChIJh4C4nvmg9YgRV6sEsKmHxIs",
+              "duration": "56s"
+            },
+            {
+              "placeId": "ChIJrfiH8vmg9YgRQ6NntwW3WlE",
+              "duration": "12s"
+            },
+            {
+              "placeId": "ChIJKeDo7vmg9YgRysB1uXB-y1o",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJPeU_6vmg9YgRZE8RDC2pL-g",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ5bSruPmg9YgRIkmfwhahvsM",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ56Qgsfmg9YgRtUPs6qmYEHM",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJT8wbrfmg9YgR51i2Wsxa908",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJt5W2Vfig9YgRdRhhjIExsjg",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJ-_-8-fig9YgRh6FKyGkoXa8",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ09V27vig9YgR69tg4bBi8Ds",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ09V27vig9YgR1FenuRU-BRE",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJhbKMvvig9YgRO9QcyJa00OE",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJAUMQrPig9YgRHZ_3hmiglTY",
+              "duration": "7s"
+            },
+            {
+              "placeId": "ChIJ3z6z8VWg9YgRwe8VU7z7yUU",
+              "duration": "10s"
+            },
+            {
+              "placeId": "ChIJOdvYlVWg9YgRwk1OoU2j_Xw",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ9WQlo1Wg9YgRSGu9_a726nM",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJOdhPplWg9YgRNLAj8X30cqE",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ35G9B1Wg9YgRZ8AR5N2gKzQ",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJwaodA1Wg9YgR-QaCYuQWowM",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJd7Ex4lSg9YgRQ6LOon5a2Co",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJLyo94VSg9YgR48pi7AuWePk",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJJaur3FSg9YgR025IpjGJEB4",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJWdVez1Sg9YgRB4HuiCIZ2B0",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJhfIoylSg9YgRH2SjvxLoP-k",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJCygqtVSg9YgRhC_Ww-F_FA8",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJN9yOS6uh9YgRSPxio_BMDDY",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ7yQHT6uh9YgR_n02jQ-srYU",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ_-gxW6uh9YgR4qSJWD7lsFI",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJ6U_xXKuh9YgRnpn8RohJFxI",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ7y1nZ6uh9YgR4HFl6L-ryw0",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJGy5RYauh9YgRgBiUkicDfco",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJwamNZKuh9YgRrVJVk-M6FSc",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJWYc7Y6uh9YgRWE4h3JuEPas",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJSRnifKuh9YgR1u0s8kYWpYU",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJg5hSdayh9YgR6MNzs4dv9yI",
+              "duration": "20s"
+            },
+            {
+              "placeId": "ChIJTVogS6mh9YgR6DQS_dmFXew",
+              "duration": "8s"
+            },
+            {
+              "placeId": "ChIJMaU6LKmh9YgRlz4SyC2wuYY",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJSxHiKamh9YgR2_RcG4e1Mts",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJVf3t1qih9YgRobHE-SYpJGg",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJ290C0aih9YgR65BGSpwoVJ0",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJv9LFz6ih9YgR6dIPCU7xAvg",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJE9hFz6ih9YgRM9bRfuW3kLA",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJo52AyKih9YgRc1mXAEV1WWw",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJq-XtpKih9YgRNJxd_yTqCCY",
+              "duration": "7s"
+            },
+            {
+              "placeId": "ChIJ_Yv6uqih9YgR29zFje92onc",
+              "duration": "12s"
+            },
+            {
+              "placeId": "ChIJ_Yv6uqih9YgR0R2ptOtYrSY",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJMfXRpKih9YgRIItFWH6XSr4",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ54agpqih9YgReIiN74qhX6M",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJ54agpqih9YgRKlMEnV1Om7A",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJ54agpqih9YgRTsp6f68KRxM",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJy9JTAqah9YgRPP8_W1oFzRA",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJy9JTAqah9YgRJvXqOxi7DY4",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJ_U45B6ah9YgR_ulDZpjxtBs",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJYwG0_KWh9YgRdNpVReo8Xnk",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJH79O76Wh9YgRhnsJL880Hjk",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJsfmMv6Wh9YgR3nIBAD4sbqI",
+              "duration": "9s"
+            },
+            {
+              "placeId": "ChIJS8OYu6Wh9YgRXd9mK9uYHuQ",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJn9Q5paWh9YgRWSLT42cxcY8",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ_4AbqaWh9YgREUXgLTKPT1s",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJnS2ZAaWh9YgR-UXZ0TjA3jc",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJfwDjAKWh9YgRdTaOKTHmwA0",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJf3OJAaWh9YgRZUtaXpmJKac",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJU4hA_aSh9YgR8b1dihH5PnI",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ09gH5KSh9YgR_1vlnlWyhSI",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ40b056Sh9YgRCUveBT2aqZQ",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJt8jYw6Sh9YgRrQsTuoxhONc",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJt8jYw6Sh9YgR9W0j1EXQVa8",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJk3S6v6Sh9YgRHorr71wj2kg",
+              "duration": "10s"
+            },
+            {
+              "placeId": "ChIJ9aH1lqSh9YgRgIaf8U4s3o4",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJufSwkKSh9YgRttpZ4l4l_b8",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJWUNJg6Sh9YgRZZs9_Phyyc4",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJJfI8g6Sh9YgRO8P2EPb2A0I",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJJfI8g6Sh9YgRyUzLQOlYsgU",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJJfI8g6Sh9YgRsbrSGTU9djQ",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJgYCaYqOh9YgR6L6NiJZTFbE",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJTV8oZKOh9YgR0vwWOLM92vQ",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJu4-paaOh9YgRDonSMS8JnbE",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ4ayKaaOh9YgRTkkNKQUz9MQ",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJNcGcaqOh9YgRFsRsdAWal34",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJeVlEPqOh9YgREOVFcjmI9ko",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJuzkfJKOh9YgRrAj-YaqJgy8",
+              "duration": "8s"
+            },
+            {
+              "placeId": "ChIJuzkfJKOh9YgRJEccA2AKZP4",
+              "duration": "0s"
+            },
+            {
+              "placeId": "ChIJIyu70KKh9YgR_qAKzRgosls",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJD_-jyaKh9YgRV1k28-Y0KAI",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJEYDEraKh9YgRPZ6uKqGXQc8",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJY7PhAZih9YgRxrY1JT25NV4",
+              "duration": "8s"
+            },
+            {
+              "placeId": "ChIJO2PFkZeh9YgRYxQ3mMer-sM",
+              "duration": "14s"
+            },
+            {
+              "placeId": "ChIJ9bW8dJeh9YgRfkn_SO2ZoHk",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJo3JPbZeh9YgRtWXEd16bnxA",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJ0e5Ca5eh9YgRTK64RhumsWs",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJqZGRapeh9YgR6sQWRRJXk4A",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJHbEUQZeh9YgRkomSBDpYvlk",
+              "duration": "2s"
+            },
+            {
+              "placeId": "ChIJQdxMRJeh9YgRQ8CIkBtwNRg",
+              "duration": "1s"
+            },
+            {
+              "placeId": "ChIJ7RWqUZeh9YgR5beLkxhRxlI",
+              "duration": "6s"
+            },
+            {
+              "placeId": "ChIJx-wnB5qh9YgRDF6RBiFSDzc",
+              "duration": "9s"
+            },
+            {
+              "placeId": "ChIJ7eOZiJqh9YgRokfQ9HDb4Fc",
+              "duration": "31s"
+            },
+            {
+              "placeId": "ChIJabUtrJqh9YgRnEBtlE34FAo",
+              "duration": "4s"
+            },
+            {
+              "placeId": "ChIJ__U8TYWh9YgRv5GSCvZdrCk",
+              "duration": "10s"
+            },
+            {
+              "placeId": "ChIJzSIESoWh9YgRVsgxJD7tg3Q",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJHQw3MIWh9YgRZQ-KXSXRQpE",
+              "duration": "9s"
+            },
+            {
+              "placeId": "ChIJ_7WNJ4Wh9YgRmWP_KEXKokQ",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ5Re-24Sh9YgRifAWGcnJJrY",
+              "duration": "3s"
+            },
+            {
+              "placeId": "ChIJ1RK2wYSh9YgRKCDCxsOIuZ0",
+              "duration": "9s"
+            },
+            {
+              "placeId": "ChIJJUDVrYSh9YgRhNHXwyT2q34",
+              "duration": "29s"
+            },
+            {
+              "placeId": "ChIJDZjThJyh9YgRr8_pUdG9bBg",
+              "duration": "31s"
+            },
+            {
+              "placeId": "ChIJ72sVcZyh9YgRl3QVabxODIE",
+              "duration": "17s"
+            },
+            {
+              "placeId": "ChIJda5485uh9YgRjP3rnRys3O8",
+              "duration": "19s"
+            }
+          ],
+          "distanceMeters": 7362.183661050239,
+          "travelMode": "DRIVE",
+          "confidence": 0.8798074806630635
+        },
+        "simplifiedRawPath": {
+          "points": [
+            {
+              "latE7": 339700737,
+              "lngE7": -842359009,
+              "accuracyMeters": 4,
+              "timestamp": "2023-06-01T00:18:27.001Z"
+            },
+            {
+              "latE7": 339820328,
+              "lngE7": -842120209,
+              "accuracyMeters": 4,
+              "timestamp": "2023-06-01T00:24:54.001Z"
+            }
+          ]
+        },
+        "parkingEvent": {
+          "location": {
+            "latitudeE7": 339788380,
+            "longitudeE7": -842003900,
+            "accuracyMetres": 64
+          },
+          "method": "END_OF_ACTIVITY_SEGMENT",
+          "locationSource": "FROM_RAW_LOCATION",
+          "timestamp": "2023-06-01T00:30:31Z"
+        }
+      }
+    }
+  ]
+}
