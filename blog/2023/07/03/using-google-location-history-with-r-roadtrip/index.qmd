@@ -16,6 +16,8 @@ categories:
 format:
   html:
     fig-cap-location: bottom
+resources: 
+  - clean-data-real.R
 ---
 
 ```{r setup, include=FALSE}
@@ -928,7 +930,7 @@ Phew, that was a lot of work getting this data all wrangled together and cleaned
 
 All the plots and tables below use the complete data from our road trip, with every day and every stop. Everything above only worked with the first four days (and even then, omitted the first 30 minutes of the first day for the sake of privacy). 
 
-[I provided truncated raw JSON files](data.zip) for the sake of illustrating how to load and process and work with this kind of location data. But I want to analyze my actual full data, so I cleaned that up separately ([with this file](clean-data-real.R)). I'll load all those complete objects here. 
+[I provided truncated raw JSON files](data.zip) for the sake of illustrating how to load and process and work with this kind of location data. But I want to analyze my actual full data, so I cleaned that up separately ([with this file](clean-data-real.R); [view at GitHub](https://github.com/andrewheiss/ath-quarto/blob/main/blog/2023/07/03/using-google-location-history-with-r-roadtrip/clean-data-real.R)). I'll load all those complete objects here. 
 
 If you're following along with my truncated data, never fear! These plots and tables will all still generally work, they'll just show the first few days and not the actual complete plots you see here.
 
