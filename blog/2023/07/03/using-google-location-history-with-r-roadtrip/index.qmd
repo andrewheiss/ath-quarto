@@ -664,7 +664,7 @@ big_long_combined_route %>%
 
 \ 
 
-The `big_long_combined_route` object we just made here isn't a data frame anymore—it's a list instead. It still works with `geom_sf()`, but because we collapsed all the points into one line, we lots lots of detail, like timestamps. We can keep some of those details if we use `group_by()` to separate lines per day (or hour or whatever grouping variable we want). For instance, earlier we created a column called `day`. Let's make a separate linestring for each day using `group_by()` and `nest()` and `map()`:
+The `big_long_combined_route` object we just made here isn't a data frame anymore—it's a list instead. It still works with `geom_sf()`, but because we collapsed all the points into one line, we lost lots of detail, like timestamps. We can keep some of those details if we use `group_by()` to separate lines per day (or hour or whatever grouping variable we want). For instance, earlier we created a column called `day`. Let's make a separate linestring for each day using `group_by()` and `nest()` and `map()`:
 
 ```{r make-linestring-by-day}
 # Combine all the points in the day into a connected linestring
