@@ -193,9 +193,6 @@ clrs <- carto_pal(name = "Prism")
 # Functions for formatting things as percentage points
 label_pp <- label_number(accuracy = 1, scale = 100, 
                          suffix = " pp.", style_negative = "minus")
-
-label_amce <- label_number(accuracy = 0.1, scale = 100, suffix = " pp.", 
-                           style_negative = "minus", style_positive = "plus")
 ```
 
 ```{r load-clean-data, warning=FALSE, message=FALSE}
