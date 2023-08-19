@@ -21,6 +21,8 @@ knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,
                       fig.width = 6, fig.height = (6 * 0.618),
                       out.width = "90%", collapse = TRUE)
 options(digits = 3, width = 90)
+
+options(modelsummary_factory_html = "gt")
 ```
 
 In the data I work with, it's really common to come across data that's measured as proportions: the percent of women in the public sector workforce, the amount of foreign aid a country receives as a percent of its GDP, the percent of religious organizations in a state's nonprofit sector, and so on. 
@@ -79,8 +81,8 @@ library(gghalves)         # Special half geoms
 library(ggbeeswarm)       # Special distribution-shaped point jittering
 library(ggrepel)          # Automatically position labels
 library(patchwork)        # Combine ggplot objects
-library(marginaleffects)  # Calculate marginal effects for frequentist models
-library(emmeans)          # Calculate marginal effects in even fancier ways
+library(scales)           # Format numbers in nice ways
+library(marginaleffects)  # Calculate marginal effects for regression models
 library(modelsummary)     # Create side-by-side regression tables
 
 set.seed(1234)  # Make everything reproducible
@@ -106,6 +108,12 @@ theme_clean <- function() {
 
 # Make labels use Barlow by default
 update_geom_defaults("label_repel", list(family = "Barlow Semi Condensed"))
+
+# Format things as percentage points
+label_pp <- label_number(accuracy = 1, scale = 100, 
+                         suffix = " pp.", style_negative = "minus")
+label_pp_tiny <- label_number(accuracy = 0.01, scale = 100, 
+                              suffix = " pp.", style_negative = "minus")
 ```
 
 V-Dem covers all countries since 1789 and includes hundreds of different variables. We'll make a subset of some of the columns here and only look at years from 2010–2020. We'll also make a subset of *that* and have a dataset for just 2015.
@@ -144,6 +152,7 @@ quota_halves <- ggplot(vdem_2015, aes(x = quota, y = prop_fem)) +
                   transformation = position_quasirandom(width = 0.1),
                   side = "l", size = 0.5, alpha = 0.5) +
   geom_half_boxplot(aes(fill = quota), side = "r") + 
+  scale_y_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.8) +
   scale_color_viridis_d(option = "plasma", end = 0.8) +
   guides(color = "none", fill = "none") +
@@ -152,6 +161,7 @@ quota_halves <- ggplot(vdem_2015, aes(x = quota, y = prop_fem)) +
 
 quota_densities <- ggplot(vdem_2015, aes(x = prop_fem, fill = quota)) +
   geom_density(alpha = 0.6) +
+  scale_x_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.8) +
   labs(x = "Proportion of women in parliament", y = "Density", fill = "Quota") +
   theme_clean() +
@@ -169,6 +179,7 @@ ggplot(vdem_2015, aes(x = polyarchy, y = prop_fem)) +
   geom_label_repel(data = filter(vdem_2015, highlight == TRUE), 
                    aes(label = country_name),
                    seed = 1234) +
+  scale_y_continuous(labels = label_percent()) +
   scale_color_manual(values = c("grey30", "#FF4136"), guide = "none") +
   labs(x = "Polyarchy (democracy)", y = "Proportion of women in parliament") +
   theme_clean()
@@ -194,12 +205,23 @@ model_ols3 <- lm(prop_fem ~ quota + polyarchy,
                  data = vdem_2015)
 ```
 
+```{r extract-model-ols, include=FALSE}
+r_model_ols <- bind_rows(
+  model1 = tidy(model_ols1),
+  model3 = tidy(model_ols3),
+  .id = "model"
+) %>% 
+  mutate(pp = round(estimate * 100, 1)) %>% 
+  split(~model + term)
+```
+
+
 ```{r model-ols-summary}
 modelsummary(list(model_ols1, model_ols2, model_ols3),
              gof_map = gof_stuff)
 ```
 
-Based on this, having a quota is associated with a 6 percentage point increase in the proportion of women MPs on average, and the coefficient is statistically significant. If we control for polyarchy, the effect changes to 6.3 percentage points. Great.
+Based on this, having a quota is associated with a `r r_model_ols$model1.quotaTRUE$pp` percentage point increase in the proportion of women MPs on average, and the coefficient is statistically significant. If we control for polyarchy, the effect changes to `r r_model_ols$model3.quotaTRUE$pp` percentage points. Great.
 
 
 ## 2: Fractional logistic regression
@@ -222,6 +244,17 @@ model_frac_logit3 <- glm(prop_fem ~ quota + polyarchy,
                          family = quasibinomial())
 ```
 
+```{r extract-model-frac-logit, include=FALSE}
+r_model_frac_logit <- bind_rows(
+  model1 = tidy(model_frac_logit1),
+  model3 = tidy(model_frac_logit3),
+  .id = "model"
+) %>% 
+  mutate(est_exp = exp(estimate)) %>% 
+  mutate(est_exp_pct = label_percent(accuracy = 1)(est_exp - 1)) %>% 
+  split(~model + term)
+```
+
 ```{r model-frac-logit-summary}
 modelsummary(list(model_frac_logit1, model_frac_logit2, model_frac_logit3),
              gof_map = gof_stuff)
@@ -231,7 +264,7 @@ Interpreting this model is a little more involved than interpreting OLS. The coe
 
 This log odds scale is weird and not very intuitive normally, so often people will convert these log odds into odds ratios by exponentiating them. I've done this my whole statistical-knowing-and-doing life. If a model provides a coefficient of 0.4, you can exponentiate that with $e^{0.4}$, resulting in an odds ratio of 1.49. You'd interpret this by saying something like "a one unit change in x increases the likelihood of y by 49%." That sounds neat and soundbite-y and you see stuff like this all the time in science reporting. But thinking about percent changes in probability is still a weird way of thinking (though admittedly less non-intuitive than thinking about logits/logged odds).
 
-For instance, here the coefficient for `quota` in Model 1 is 0.352. If we exponentiate that ($e^{0.352}$) we get 1.42. If our outcome were binary, we could say that having a quota makes it 42% more likely that the outcome would occur. But our outcome isn't binary—it's a proportion—so we need to think about changes in probabilities or proportions instead, and odds ratios make that really really hard.
+For instance, here the coefficient for `quota` in Model 1 is `r round(r_model_frac_logit$model1.quotaTRUE$estimate, 3)`. If we exponentiate that ($e^{`r r_model_frac_logit[['model1.quotaTRUE']][['estimate']]`}$) we get `r round(r_model_frac_logit$model1.quotaTRUE$est_exp, 2)`. If our outcome were binary, we could say that having a quota makes it `r r_model_frac_logit$model1.quotaTRUE$est_exp_pct` more likely that the outcome would occur. But our outcome isn't binary—it's a proportion—so we need to think about changes in probabilities or proportions instead, and odds ratios make that really really hard.
 
 Instead of odds ratios, we need to work directly with these logit-scale values. For a *phenomenally* excellent overview of binary logistic regression and how to interpret coefficients, see [Steven Miller's most excellent lab script here](http://post8000.svmiller.com/lab-scripts/logistic-regression-lab.html)—because of that post I'm now far less afraid of dealing with logit-scale coefficients!
 
@@ -252,7 +285,7 @@ logit0_intercept <- model_frac_logit0 %>%
 logit0_intercept
 ```
 
-The intercept of this intercept-only model is `r round(logit0_intercept, 3)` in logit units, whatever that means. We can convert this to a probability though:
+The intercept of this intercept-only model is `r round(logit0_intercept, 4)` in logit units, whatever that means. We can convert this to a probability though:
 
 ```{r int-only-to-probability}
 # Convert logit to a probability (or proportion in this case)
@@ -269,7 +302,7 @@ It's the same! That's so neat!
 
 Inverting logit coefficients to probabilities gets a little trickier when there are multiple moving parts, though. With OLS, each coefficient shows the marginal change in the outcome for each unit change in the explanatory variable. With logistic regression, that's not the case—we have to incorporate information from the intercept in order to get marginal effects.
 
-For example, in Model 1, the log odds coefficient for `quota` is 0.352. If we invert that with `plogis()`, we end up with a really big number:
+For example, in Model 1, the log odds coefficient for `quota` is `r r_model_frac_logit$model1.quotaTRUE$estimate`. If we invert that with `plogis()`, we end up with a really big number:
 
 ```{r frac-logit-quota-wrong}
 logit1_intercept <- model_frac_logit1 %>% 
@@ -292,15 +325,15 @@ If that were true, we could say that having a quota increases the proportion of 
 plogis(logit1_intercept + logit1_quota) - plogis(logit1_intercept)
 ```
 
-*This* is the effect of having a quota on the proportion of women MPs. Having a quota increases the proportion by about 6 percentage points, on average.
+*This* is the effect of having a quota on the proportion of women MPs. Having a quota increases the proportion by `r round((plogis(logit1_intercept + logit1_quota) - plogis(logit1_intercept)) * 100, 1)` percentage points, on average.
 
 The math of combining these different logit coefficients and converting them to probabilities gets really tricky once there are more than one covariate, like in Model 3 here where we include both quota and polyarchy. Rather than try to figure out, we can instead calculate the marginal effects of specific variables while holding others constant. In practice this entails plugging a custom hypothetical dataset into our model and estimating the predicted values of the outcome. For instance, we can create a small dataset with just two rows: in one row, `quota` is FALSE and in the other `quota` is TRUE, while we hold `polyarchy` at its mean value. The [**marginaleffects** package](https://vincentarelbundock.github.io/marginaleffects/) makes this really easy to do:
 
 ```{r frac-logit-typical}
 # Calculate the typical values for all variables in Model 3, except for quota,
 # which we'll force to be FALSE and TRUE
-data_to_predict <- typical(model = model_frac_logit3, 
-                           quota = c(FALSE, TRUE))
+data_to_predict <- datagrid(model = model_frac_logit3, 
+                            quota = c(FALSE, TRUE))
 data_to_predict
 ```
 
@@ -312,45 +345,52 @@ frac_logit_pred <- predictions(model_frac_logit3, newdata = data_to_predict)
 frac_logit_pred
 ```
 
-The `predicted` column here tells us the predicted or fitted value. When countries don't have a quota, the average proportion of women MPs is 0.189; when they do have a quota, the average predicted proportion is 0.252. That's a `r 0.252 - 0.189` percentage point difference, which is really similar to what we found from Model 1. We can plot these marginal effects too and see that the 6 percentage point difference is statistically significant:
+The `estimate` column here tells us the predicted or fitted value. When countries don't have a quota, the average proportion of women MPs is `r round(frac_logit_pred$estimate[[1]], 3)`; when they do have a quota, the average predicted proportion is `r round(frac_logit_pred$estimate[[1]], 3)`. That's a `r round((frac_logit_pred$estimate[[2]] - frac_logit_pred$estimate[[1]]) * 100, 2)` percentage point difference, which is really similar to what we found from Model 1. We can plot these marginal effects too and see that this difference is statistically significant:
 
 ```{r frac-logit-plot-predictions, warning=FALSE}
-ggplot(frac_logit_pred, aes(x = quota, y = predicted)) +
+ggplot(frac_logit_pred, aes(x = quota, y = estimate)) +
   geom_pointrange(aes(ymin = conf.low, ymax = conf.high)) +
+  scale_y_continuous(labels = label_percent(accuracy = 1)) +
   labs(x = "Quota", y = "Predicted proportion of women in parliament") +
   theme_clean()
 ```
 
-We can also compute marginal effects for polyarchy, holding `quota` at FALSE (its most common value) and ranging `polyarchy` from 0 to 100:
+We can also compute marginal effects for polyarchy, holding `quota` at FALSE (its most common value) and ranging `polyarchy` from 0 to 100. And we technically don't need to make a separate data frame first—we can use `datagrid()` inside `predictions()`:
 
 ```{r frac-logit-predict-polyarchy}
-data_to_predict <- typical(model = model_frac_logit3, 
-                           polyarchy = seq(0, 100, by = 1))
-
 frac_logit_pred <- predictions(model_frac_logit3, 
-                               newdata = data_to_predict)
+                               newdata = datagrid(polyarchy = seq(0, 100, by = 1)))
 
-ggplot(frac_logit_pred, aes(x = polyarchy, y = predicted)) + 
+ggplot(frac_logit_pred, aes(x = polyarchy, y = estimate)) + 
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), 
               alpha = 0.4, fill = "#480B6A") +
-  geom_line(size = 1, color = "#480B6A") +
+  geom_line(linewidth = 1, color = "#480B6A") +
+  scale_y_continuous(labels = label_percent()) +
   labs(x = "Polyarchy (democracy)", 
        y = "Predicted proportion of women in parliament") +
   theme_clean()
 ```
 
-The predicted proportion of women MPs increases as democracy increases, which follows from the model results. But what's the marginal effect of a one-unit increase in polyarchy? The coefficient from Model 3 was really small (0.007099 logits). We can convert this to a probability while correctly accounting for the intercept and all other coefficients with the `marginaleffects()` function:
+The predicted proportion of women MPs increases as democracy increases, which follows from the model results. But what's the marginal effect of a one-unit increase in polyarchy? The coefficient from Model 3 was really small (`r round(r_model_frac_logit$model3.polyarch$estimate, 5)` logits). We can convert this to a probability while correctly accounting for the intercept and all other coefficients with the `avg_slopes()` function:
 
 ```{r frac-logit-mfx-polyarchy}
-marginaleffects(model_frac_logit3, variables = "polyarchy") %>% 
-  tidy()
+avg_slopes(model_frac_logit3, variables = "polyarchy")
 ```
 
-The effect here is small: a one-unit change in polyarchy (i.e. moving from a 56 to a 57) is associated with a 0.00119 percentage point increase in the proportion of women MPs, on average. That's not *huge*, but a one-unit change in polyarchy also isn't huge. If a country moves 10 points from 56 to 66, for instance, there'd be a ≈10x increase in the effect (0.00119 * 10, or `r 0.00119 * 10`). This is apparent in the predicted proportion when polyarchy is set to 56 and 66: 0.2026564 - 0.1914267 = `r 0.2026564 - 0.1914267`
+```{r extract-frac-logit-mfx, include=FALSE}
+r_frac_logit_mfx <- predictions(model_frac_logit3,
+  newdata = datagrid(polyarchy = c(56, 66))) %>% 
+  mutate(polyarchy = janitor::make_clean_names(polyarchy)) %>% 
+  split(~polyarchy)
+
+```
+
+
+The effect here is still small: a one-unit change in polyarchy (i.e. moving from a 56 to a 57) is associated with a `r round(avg_slopes(model_frac_logit3, variables = "polyarchy")[["estimate"]] * 100, 3)` percentage point increase in the proportion of women MPs, on average. That's not *huge*, but a one-unit change in polyarchy also isn't huge. If a country moves 10 points from 56 to 66, for instance, there'd be a ≈10x increase in the effect (`r round(avg_slopes(model_frac_logit3, variables = "polyarchy")[["estimate"]], 5)` × 10, or `r round(avg_slopes(model_frac_logit3, variables = "polyarchy")[["estimate"]] * 10, 5)`). This is apparent in the predicted proportion when polyarchy is set to 56 and 66: `r r_frac_logit_mfx$x66$estimate` - `r r_frac_logit_mfx$x56$estimate` = `r r_frac_logit_mfx$x66$estimate - r_frac_logit_mfx$x56$estimate`
 
 ```{r frac-logit-mfx-polyarchy-2}
-marginaleffects(model_frac_logit3,
-                newdata = typical(polyarchy = c(56, 66)))
+predictions(model_frac_logit3,
+            newdata = datagrid(polyarchy = c(56, 66)))
 ```
 
 Finally, how do these fractional logistic regression coefficients compare to what we found with the linear probability model? We can look at them side-by-side:
@@ -360,10 +400,11 @@ modelsummary(list("OLS" = model_ols3,
                   "Fractional logit" = model_frac_logit3,
                   "Fractional logit<br>(marginal effects)" = marginaleffects(model_frac_logit3)),
              gof_map = gof_stuff,
+             fmt = 4,
              escape = FALSE)
 ```
 
-They're the same! Having a quota is associated with a 0.063 percentage point increase in the proportion of women MPs, on average, in both OLS and the fractional logit model. That's so neat!
+They're basically the same! Having a quota is associated with a `r round(avg_slopes(model_frac_logit3, variables = "quota")$estimate * 100, 2)` percentage point increase in the proportion of women MPs, on average, in both OLS and the fractional logit model. That's so neat!
 
 
 ## Interlude: The beta distribution and distributional regression
@@ -680,6 +721,7 @@ ggplot(data = tibble(x = 0:1), aes(x = x)) +
                 args = list(size = exp(beta_phi_intercept + beta_phi_quota), 
                             mean = plogis(beta_mu_intercept + beta_mu_quota)),
                 aes(color = quota_title)) +
+  scale_x_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.8, name = "Quota",
                        guide = guide_legend(ncol = 1, order = 1)) +
   scale_color_viridis_d(option = "plasma", end = 0.8, direction = -1, name = "",
@@ -726,6 +768,7 @@ ggplot(data = tibble(x = 0:1), aes(x = x)) +
                 args = list(size = beta_phi, 
                             mean = plogis(beta_mu_intercept + beta_mu_quota)),
                 aes(color = quota_title)) +
+  scale_x_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.8, name = "Quota",
                        guide = guide_legend(ncol = 1, order = 1)) +
   scale_color_viridis_d(option = "plasma", end = 0.8, direction = -1, name = "",
@@ -739,35 +782,29 @@ Again, the means are the same, so the average difference between having a quota 
 
 ### Average marginal effects
 
-Because beta regression coefficients are all in logit units (with the exception of the $\phi$ part), we can interpret their marginal effects just like we did with logistic regression. It's tricky to piece together all the different parts and feed them through `plogis()`, so it's best to calculate the marginal effects with hypothetical data as before.
+Because beta regression coefficients are all in logit units (with the exception of the $\phi$ part), we can interpret their marginal effects just like we did with logistic regression. It's tricky to piece together all the different parts and feed them through `plogis()`, so it's best to calculate the slope with hypothetical data as before.
 
 ```{r mfx-betareg}
-marginaleffects(model_beta,
-                newdata = typical(quota = c(FALSE, TRUE)))
+avg_slopes(model_beta,
+           newdata = datagrid(quota = c(FALSE, TRUE)))
 ```
 
-After incorporating all the moving parts of the model, we find that having a quota is associated with an increase of `r 0.0637 * 100` percentage points of the proportion of women MPs, on average, which is what we found earlier by piecing together the intercept and coefficient. If we had more covariates, this `marginaleffects()` result would be necessary, since it's tricky to incorporate all the different model pieces by hand.
-
-Sadly, notice how the results from `marginaleffects()` don't include confidence intervals. For whatever reason, `betareg` objects [don't provide standard errors when making predictions, by design](https://stats.stackexchange.com/a/230681/3025). We have a `std.error` column here because `marginaleffects()` did something separately behind the scenes to get it, but had we just used `predict()` or `broom::augment()` instead, we'd get an estimate and that's all.
-
-```{r mfx-augment-betareg}
-augment(model_beta, newdata = tibble(quota = c(FALSE, TRUE)))
-```
+After incorporating all the moving parts of the model, we find that having a quota is associated with an increase of `r avg_slopes(model_beta, newdata = datagrid(quota = c(FALSE, TRUE)))$estimate * 100` percentage points of the proportion of women MPs, on average, which is what we found earlier by piecing together the intercept and coefficient. If we had more covariates, this `avg_slopes()` approach would be necessary, since it's tricky to incorporate all the different model pieces by hand.
 
 
 ## 3b: Beta regression, Bayesian style
 
-Not having standard errors and confidence intervals with `betareg()` is kind of a bummer. Uncertainty is wonderful. We're working with distributions already with distributional regression like beta regression—it would be great if we could quantify our uncertainty more systematically.
+Uncertainty is wonderful. We're working with distributions already with distributional regression like beta regression—it would be great if we could quantify and model our uncertainty directly and treat all the parameters as distributions.
 
-Fortunately Bayesian regression lets us do just that. We can generate thousands of plausible estimates based on the combination of our prior beliefs and the likelihood of the data, and then we can explore the uncertainty and the distributions of all those estimates. Instead of trying to figure out the math behind precise `betareg()` standard errors (which the authors haven't even done, since it's hard!), we'll brute-force our way there with simulation. 
+Fortunately Bayesian regression lets us do just that. We can generate thousands of plausible estimates based on the combination of our prior beliefs and the likelihood of the data, and then we can explore the uncertainty and the distributions of all those estimates.
 
 We'll also get to interpret the results Bayesianly. [Goodbye confidence intervals; hello credible intervals.](https://evalf21.classes.andrewheiss.com/resource/bayes/#confidence-intervals-vs-credible-intervals)
 
 The [incredible **brms** package](https://paul-buerkner.github.io/brms/) has built-in support for beta regression. I won't go into details here about how to use **brms**—there are all sorts of tutorials and examples online for that ([here's a quick basic one](https://evalf21.classes.andrewheiss.com/resource/bayes/#super-short-example)). 
 
-Let's recreate the model we made with `betareg()` earlier, but now with a Bayesian flavor. The formula syntax is a little different with **brms**. Instead of using `|` to divide the $\mu$ part from the $\phi$ part, we specify two separate formulas: one for `prop_fem` for the $\mu$ part, and one for `phi` for the $\phi$ part. We'll use the default priors here (but in real life, you'd want to set them to something sensible), and we'll generate 4000 Monte Carlo Markov Chain (MCMC) samples across 4 chains.
+Let's recreate the model we made with `betareg()` earlier, but now with a Bayesian flavor. The formula syntax is a little different with **brms**. Instead of using `|` to divide the $\mu$ part from the $\phi$ part, we specify two separate formulas: one for `prop_fem` for the $\mu$ part, and one for `phi` for the $\phi$ part. We'll use the default priors here (but in real life, you'd want to set them to something sensible), and we'll generate 2,000 Monte Carlo Markov Chain (MCMC) samples across 4 chains.
 
-```{r model-bayes-beta-basic, cache=TRUE, results="hide"}
+```{r model-bayes-beta-basic, results="hide"}
 model_beta_bayes <- brm(
   bf(prop_fem ~ quota,
      phi ~ quota),
@@ -779,11 +816,12 @@ model_beta_bayes <- brm(
   # the default rstan You need to install the cmdstanr package first
   # (https://mc-stan.org/cmdstanr/) and then run cmdstanr::install_cmdstan() to
   # install cmdstan on your computer.
-  backend = "cmdstanr"
+  backend = "cmdstanr",
+  file = "model_beta_bayes"  # Save this so it doesn't have to always rerun
 )
 ```
 
-Check out the results—they're the same that we found with `betareg()`, only now we have uncertainty for each of the estimates.
+Check out the results—they're basically the same that we found with `betareg()` in `model_beta`.
 
 ```{r tidy-bayes-basic, warning=FALSE}
 tidy(model_beta_bayes, effects = "fixed")
@@ -791,7 +829,7 @@ tidy(model_beta_bayes, effects = "fixed")
 
 ### Working with the posterior
 
-We have a complete posterior distribution for each coefficient, which we can visualize in neat ways:
+The estimates are the same, but richer—we have a complete posterior distribution for each coefficient, which we can visualize in neat ways:
 
 ```{r plot-coefs-bayes-basic, warning=FALSE}
 posterior_beta <- model_beta_bayes %>% 
@@ -823,7 +861,18 @@ model_beta_bayes %>%
   median_hdi()
 ```
 
-But beyond the intercepts here, this isn't actually that helpful. The back-transformed intercept for the $\mu$ part of the regression is 0.188, which means countries without a quota have an average proportion of women MPs of 18.8%. That's all fine. The quota effect here, though, is 0.592. That does *not* mean that having a quota increases the proportion of women by 59 percentage points! In order to find the marginal effect of having a quota, we need to also incorporate the intercept. Remember when we ran `plogis(intercept + coefficient) - plogis(intercept)` earlier? We have to do that again.
+
+```{r extract-bayes-beta-coefs, include=FALSE}
+r_beta_bayes <- model_beta_bayes %>% 
+  spread_draws(`b_.*`, regex = TRUE) %>% 
+  mutate(across(starts_with("b_phi"), ~exp(.))) %>%
+  mutate(across((!starts_with(".") & !starts_with("b_phi")), ~plogis(.))) %>%
+  gather_variables() %>% 
+  median_hdi() %>% 
+  split(~.variable)
+```
+
+But beyond the intercepts here, this isn't actually that helpful. The median back-transformed intercept for the $\mu$ part of the regression is `r round(r_beta_bayes$b_Intercept$.value, 3)`, which means countries without a quota have an average proportion of women MPs of `r label_percent(accuracy = 0.1)(r_beta_bayes$b_Intercept$.value)`. That's all fine. The quota effect here, though, is `r round(r_beta_bayes$b_quotaTRUE$.value, 3)`. That does *not* mean that having a quota increases the proportion of women by `r label_comma()(r_beta_bayes$b_quotaTRUE$.value * 100)` percentage points! In order to find the marginal effect of having a quota, we need to also incorporate the intercept. Remember when we ran `plogis(intercept + coefficient) - plogis(intercept)` earlier? We have to do that again.
 
 ### Posterior average marginal effects
 
@@ -831,19 +880,32 @@ But beyond the intercepts here, this isn't actually that helpful. The back-trans
 
 Once again, the math for combining these coefficients can get hairy, especially when we're working with more than one explanatory variable, so instead of figuring out that math, we'll calculate the marginal effects across different values of `quota`.
 
-The **marginaleffects** package doesn't work with **brms** models (and [there are no plans to add support for it](https://github.com/vincentarelbundock/marginaleffects/issues/100)), but [the powerful **emmeans** package](https://cran.r-project.org/web/packages/emmeans/index.html) does, so we'll use that. The syntax is a little different, but the documentation for **emmeans** is really complete and helpful. [This website also has a bunch of worked out examples](https://errickson.net/marginsnotes/).
+~~The **marginaleffects** package doesn't work with **brms** models (and [there are no plans to add support for it](https://github.com/vincentarelbundock/marginaleffects/issues/100)), but [the powerful **emmeans** package](https://cran.r-project.org/web/packages/emmeans/index.html) does, so we'll use that. The syntax is a little different, but the documentation for **emmeans** is really complete and helpful. [This website also has a bunch of worked out examples](https://errickson.net/marginsnotes/).~~
+
+::: {.callout-tip}
+### 2023-08-18 edit
+
+The **marginaleffects** package *does* work with **brms** models now and I like its interface and its approach to estimating things a lot better than **emmeans**, so I've changed all the code here to use it instead. If you want to see the **emmeans** version of everything, [look at this past version at GitHub](https://github.com/andrewheiss/ath-quarto/blob/d8628ba05ee4e4dbec3c571e0656461e2f737594/blog/2021/11/08/beta-regression-guide/index.qmd#L834).
+
+Also, I'm pretty loosey-goosey about the term "marginal effect" throughout this post because this was early in my journey to actually understanding what all these different estimands are. See [my "Marginalia" post](https://www.andrewheiss.com/blog/2022/05/20/marginalia/), published a few months after this one, for a ton more about what "marginal effects" actually mean.
+:::
 
 We can calculate the pairwise marginal effects across different values of `quota`, which conveniently shows us the difference, or the marginal effect of having a quota:
 
 ```{r mfx-beta-bayes}
-emmeans(model_beta_bayes, ~ quota,
-        regrid = "response") %>% 
-  contrast(method = "revpairwise")
+model_beta_bayes %>% 
+  avg_comparisons(variables = "quota")
 ```
 
-This summary information is helpful—we have our difference in predicted outcomes of 0.0636, which is roughly what we found in earlier models. We also have a 95% highest posterior density interval for the difference. 
+This summary information is helpful—we have our difference in predicted outcomes of `r avg_comparisons(model_beta_bayes, variables = "quota")$estimate`, which is roughly what we found in earlier models. We also have a 95% highest posterior density interval for the difference. 
 
 But it would be great if we could visualize these predictions! What do the posteriors for quota and non-quota countries look like, and what does the distribution of differences look like? We can work with the original model and MCMC chains to visualize this, letting **brms** take care of the hard work of predicting the coefficients we need and back-transforming them into probabilities.
+
+::: {.callout-note}
+### marginaleffects
+
+**marginaleffects** can also handle all this with its [`comparisons()`](https://marginaleffects.com/articles/comparisons.html) and [`hypotheses()`](https://marginaleffects.com/articles/hypothesis.html) functions—[even with Bayesian models](https://marginaleffects.com/articles/brms.html)!
+:::
 
 We'll use `epred_draws()` from **tidybayes** to plug in a hypothetical dataset and generate predictions, as we did with previous models. Only this time, instead of getting a single predicted value for each level of `quota`, we'll get 4,000. The `epred_draws()` (like all **tidybayes** functions) returns a long tidy data frame, so it's really easy to plot with ggplot:
 
@@ -854,6 +916,7 @@ beta_bayes_pred <- model_beta_bayes %>%
 
 ggplot(beta_bayes_pred, aes(x = .epred, y = quota, fill = quota)) +
   stat_halfeye(.width = c(0.8, 0.95), point_interval = "median_hdi") +
+  scale_x_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.8) +
   guides(fill = "none") +
   labs(x = "Predicted proportion of women in parliament", y = NULL,
@@ -863,18 +926,18 @@ ggplot(beta_bayes_pred, aes(x = .epred, y = quota, fill = quota)) +
 
 That's super neat! We can easily see that countries with quotas have a higher predicted proportion of women in parliament, and we can see the uncertainty in those estimates. We can also work with these posterior predictions to calculate the difference in proportions, or the marginal effect of having a quota, which is the main thing we're interested in.
 
-Because the predicted data is currently long, we need to make it wider so that there are separate columns for `TRUE` and `FALSE` predictions. Then we can make a new column that calculates the difference and plot that:
+We can use `compare_levels()` from **tidybayes** to calculate the difference between these two posteriors:
 
 ```{r plot-mfx-beta-bayes}
-beta_bayes_pred_wide <- beta_bayes_pred %>% 
-  ungroup() %>%
-  select(-.row) %>% 
-  pivot_wider(names_from = "quota", values_from = ".epred") %>% 
-  mutate(quota_effect = `TRUE` - `FALSE`)
+beta_bayes_pred_diff <- beta_bayes_pred %>% 
+  compare_levels(variable = .epred, by = quota)
 
-ggplot(beta_bayes_pred_wide, aes(x = quota_effect)) +
+beta_bayes_pred_diff %>% median_hdi()
+
+ggplot(beta_bayes_pred_diff, aes(x = .epred)) +
   stat_halfeye(.width = c(0.8, 0.95), point_interval = "median_hdi",
                fill = "#bc3032") +
+  scale_x_continuous(labels = label_pp) +
   labs(x = "Average marginal effect of having a gender-based\nquota on the proportion of women in parliament", 
        y = NULL, caption = "80% and 95% credible intervals shown in black") +
   theme_clean()
@@ -886,8 +949,8 @@ Perfect! The median marginal effect of having a quota is 6 percentage points, bu
 
 The same approach works for continuous predictors too, just like with previous methods. Let's build a model that explains both the mean and the precision with `quota` and `polyarchy`. We don't necessarily have to model the precision with the same variables that we use for the mean—that can be a completely separate process—but we'll do it just for fun.
 
-```{r model-bayes-beta-complex, cache=TRUE, results="hide"}
-# We need to specify inits here because the beta precision parameter can never
+```{r model-bayes-beta-complex, results="hide"}
+# We need to specify init here because the beta precision parameter can never
 # be negative, but Stan will generate random initial values from -2 to 2, even
 # for beta's precision, which leads to rejected chains and slower performance.
 # For even fancier init handling, see Solomon Kurz's post here:
@@ -897,10 +960,11 @@ model_beta_bayes_1 <- brm(
      phi ~ quota + polyarchy),
   data = vdem_2015_fake0,
   family = Beta(),
-  inits = "0",
+  init = 0,
   chains = 4, iter = 2000, warmup = 1000,
   cores = 4, seed = 1234, 
-  backend = "cmdstanr"
+  backend = "cmdstanr",
+  file = "model_beta_bayes_1"
 )
 ```
 
@@ -914,6 +978,7 @@ beta_bayes_pred_1 <- model_beta_bayes_1 %>%
 
 ggplot(beta_bayes_pred_1, aes(x = polyarchy, y = .epred)) +
   stat_lineribbon() + 
+  scale_y_continuous(labels = label_percent()) +
   scale_fill_brewer(palette = "Purples") +
   labs(x = "Polyarchy (democracy)", y = "Predicted proportion of women MPs",
        fill = "Credible interval") +
@@ -921,45 +986,46 @@ ggplot(beta_bayes_pred_1, aes(x = polyarchy, y = .epred)) +
   theme(legend.position = "bottom")
 ```
 
-The predicted proportion of women MPs increases as democracy increases, as we've seen before. Note how the slope here isn't constant, though—the line is slightly curved. That's because this is a nonlinear regression model, making it so the marginal effect of democracy is different depending on its level. We can see this if we look at the instantaneous slope (or first derivative) at different values of polyarchy. **emmeans** makes this really easy with the `emtrends()` function. If we ask it for the slope of the line, it will provide it at the average value of polyarchy, or 53.5:
+The predicted proportion of women MPs increases as democracy increases, as we've seen before. Note how the slope here isn't constant, though—the line is slightly curved. That's because this is a nonlinear regression model, making it so the marginal effect of democracy is different depending on its level. We can see this if we look at the instantaneous slope (or first derivative) at different values of polyarchy. **marginaleffects** makes this really easy with the `aavg_slopes()` function. If we ask it for the slope of the line, it will provide it at the average value of polyarchy, or 53.5:
 
 ```{r beta-bayes-polyarchy-mean}
-emtrends(model_beta_bayes_1, ~ polyarchy, var = "polyarchy", 
-         regrid = "response")
+avg_slopes(model_beta_bayes_1, variables = "polyarchy")
 ```
 
-We can also see the overall average trend if we use `~ 1` instead of `~ polyarchy`:
-
-```{r beta-bayes-polyarchy-overall}
-emtrends(model_beta_bayes_1, ~ 1, var = "polyarchy", 
-         regrid = "response")
-```
-
-Our effect is thus 0.00124, or 0.124 percentage points, but only for countries in the middle range of polyarchy. The slope is shallower and steeper depending on the level of democracy. We can check the slope (or effect) at different hypothetical levels:
+Our effect is thus `r avg_slopes(model_beta_bayes_1, variables = "polyarchy")$estimate`, or `r round(avg_slopes(model_beta_bayes_1, variables = "polyarchy")$estimate * 100, 3)` percentage points, but only for countries in the middle range of polyarchy. The slope is shallower and steeper depending on the level of democracy. We can check the slope (or effect) at different hypothetical levels:
 
 ```{r beta-bayes-polyarchy-3}
-emtrends(model_beta_bayes_1, ~ polyarchy, var = "polyarchy",
-         at = list(polyarchy = c(20, 50, 80)),
-         regrid = "response")
+slopes(model_beta_bayes_1, 
+       variables = "polyarchy",
+       newdata = datagrid(polyarchy = c(20, 50, 80)))
 ```
 
-Neat! For observations with low democracy scores like 20, a one-unit increase in polyarchy is associated with a 0.107 percentage point increase in the proportion of women MPs, while countries with high scores like 80 see a 0.137 percentage point increase.
+```{r extract-beta-bayes-slopes, include=FALSE}
+r_beta_bayes_slopes <- slopes(model_beta_bayes_1, 
+  variables = "polyarchy",
+  newdata = datagrid(polyarchy = c(20, 50, 80))) %>% 
+  mutate(polyarchy = janitor::make_clean_names(polyarchy)) %>% 
+  mutate(pp = estimate * 100) %>% 
+  split(~polyarchy)
+```
 
-We can visualize the distribution of these marginal effects too by using `emtrends()` to calculate the instantaneous slopes across all the MCMC chains, and then using `gather_emmeans_draws()` from **tidybayes** to convert these marginal effects into tidy data.
+Neat! For observations with low democracy scores like 20, a one-unit increase in polyarchy is associated with a `r round(r_beta_bayes_slopes$x20$pp, 3)` percentage point increase in the proportion of women MPs, while countries with high scores like 80 see a `r round(r_beta_bayes_slopes$x80$pp, 3)` percentage point increase.
 
-(Side note: You could technically do this without **emmeans**. The way **emmeans** calculates the instantaneous slope is by finding the predicted average for some value, finding the predicted average for that same value plus a *tiny* amount extra (called delta), subtracting the two predictions, and dividing by delta. [There's a long discussion at the **brms** repository](https://github.com/paul-buerkner/brms/issues/552) about potentially adding native support for this to **brms**, but it settled on not doing it, since ultimately **tidybayes** + **emmeans** lets you do this. If you really didn't want to use **emmeans**, though, you could generate predictions for `polyarchy = 20` and `polyarchy = 20.001`, subtract them by hand, and then divide by 0.001. That's miserable though—don't do it. Use **emmeans** instead.)
+We can visualize the distribution of these marginal effects too by using `slopes()` to calculate the instantaneous slopes across all the MCMC chains, and then using `posteriordraws()` to extract the draws as tidy, plottable data.
+
+(Side note: You could technically do this without **marginaleffects**. The way **marginaleffects** calculates the instantaneous slope is by finding the predicted average for some value, finding the predicted average for that same value plus a *tiny* amount extra, subtracting the two predictions, and dividing by that tiny extra amount. If you really didn't want to use **marginaleffects**, you could generate predictions for `polyarchy = 20` and `polyarchy = 20.001`, subtract them by hand, and then divide by 0.001. That's miserable though—don't do it. Use **marginaleffects** instead.)
 
 ```{r plot-ame-beta-bayes}
 ame_beta_bayes_1 <- model_beta_bayes_1 %>% 
-  emtrends(~ polyarchy, var = "polyarchy",
-           at = list(polyarchy = c(20, 50, 80)),
-           regrid = "response") %>% 
-  gather_emmeans_draws()
+  slopes(variables = "polyarchy",
+         newdata = datagrid(polyarchy = c(20, 50, 80))) %>% 
+  posterior_draws()
 
-ggplot(ame_beta_bayes_1, aes(x = .value, fill = factor(polyarchy))) +
+ggplot(ame_beta_bayes_1, aes(x = draw, fill = factor(polyarchy))) +
   geom_vline(xintercept = 0) +
   stat_halfeye(.width = c(0.8, 0.95), point_interval = "median_hdi",
                slab_alpha = 0.75) +
+  scale_x_continuous(labels = label_pp_tiny) +
   scale_fill_viridis_d(option = "viridis", end = 0.6) +
   labs(x = "Average marginal effect of polyarchy (democracy)", 
        y = "Density", fill = "Polyarchy",
@@ -998,7 +1064,7 @@ The only difference between regular beta regression and zero-inflated regression
 
 To help with the intuition, we'll first run a model where we don't actually define a model for `zi`—it'll just return the intercept for the $\alpha$ parameter.
 
-```{r model-bayes-zoi-int-only, cache=TRUE, results="hide"}
+```{r model-bayes-zoi-int-only, results="hide"}
 model_beta_zi_int_only <- brm(
   bf(prop_fem ~ quota,
      phi ~ quota,
@@ -1007,7 +1073,8 @@ model_beta_zi_int_only <- brm(
   family = zero_inflated_beta(),
   chains = 4, iter = 2000, warmup = 1000,
   cores = 4, seed = 1234,
-  backend = "cmdstanr"
+  backend = "cmdstanr",
+  file = "model_beta_zi_int_only"
 )
 ```
 
@@ -1029,7 +1096,7 @@ zi_intercept
 plogis(zi_intercept)
 ```
 
-After transforming the intercept to a probability/proportion, we can see that it's 1.73%—exactly the same as the proportion of zeros in the data!
+After transforming the intercept to a probability/proportion, we can see that it's `r label_percent(accuracy = 0.01)(plogis(zi_intercept))`—basically the same as the proportion of zeros in the data!
 
 Right now, all we've modeled is the overall proportion of 0s. We haven't modeled what determines those zeros. We can see that if we plot the posterior predictions for `prop_fem` across `quota`, highlighting predicted values that are 0. In general, ≈2% of the predicted outcomes should be zero, and since we didn't really model `zi`, the 0s should be equally spread across the different levels of `quota`. To visualize this we'll use a histogram instead of a density plot so that we can better see the count of 0s. We'll also cheat a little and make the 0s a negative number so that the histogram bin for the 0s appears outside of the main 0–1 range.
 
@@ -1043,6 +1110,7 @@ ggplot(beta_zi_pred_int, aes(x = .prediction)) +
   geom_histogram(aes(fill = is_zero), binwidth = 0.025, 
                  boundary = 0, color = "white") +
   geom_vline(xintercept = 0) +
+  scale_x_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.5,
                        guide = guide_legend(reverse = TRUE)) +
   labs(x = "Predicted proportion of women in parliament", 
@@ -1056,7 +1124,7 @@ ggplot(beta_zi_pred_int, aes(x = .prediction)) +
 
 The process for deciding 0/not 0 is probably determined by different political and social factors, though. It's likely that having a quota, for instance, should increase the probability of having at least one woman. There are probably a host of other factors—if we were doing this in real life, we could fully specify a model that explains the no women vs. at-least-one-woman split. For now, we'll just use `quota`, though (in part because there are actually only 3 zeros!). This model takes a little longer to run because of all the moving parts:
 
-```{r model-bayes-zi, cache=TRUE, results="hide"}
+```{r model-bayes-zi, results="hide"}
 model_beta_zi <- brm(
   bf(prop_fem ~ quota,
      phi ~ quota,
@@ -1065,7 +1133,8 @@ model_beta_zi <- brm(
   family = zero_inflated_beta(),
   chains = 4, iter = 2000, warmup = 1000,
   cores = 4, seed = 1234,
-  backend = "cmdstanr"
+  backend = "cmdstanr",
+  file = "model_beta_zi"
 )
 ```
 
@@ -1087,7 +1156,7 @@ zi_quota <- tidy(model_beta_zi, effects = "fixed") %>%
 plogis(zi_intercept + zi_quota) - plogis(zi_intercept)
 ```
 
-Based on this, having a quota reduces the proportion of 0s in the data by 2.7 percentage points. Unsurprisingly, we can also see this in the posterior predictions. We can look at the predicted proportion of 0s across the two levels of `quota` to find the marginal effect of having a quota on the 0/not 0 split. To do this with **tidybayes**, we can use the `dpar` argument in `epred_draws()` to also calculated the predicted zero-inflation part of the model (this is omitted by default). Here's what that looks like:
+Based on this, having a quota reduces the proportion of 0s in the data by `r round(plogis(zi_intercept + zi_quota) - plogis(zi_intercept), 4) * 100` percentage points. Unsurprisingly, we can also see this in the posterior predictions. We can look at the predicted proportion of 0s across the two levels of `quota` to find the marginal effect of having a quota on the 0/not 0 split. To do this with **tidybayes**, we can use the `dpar` argument in `epred_draws()` to also calculated the predicted zero-inflation part of the model (this is omitted by default). Here's what that looks like:
 
 ```{r calc-pred-zi-mfx}
 pred_beta_zi <- model_beta_zi %>% 
@@ -1099,26 +1168,27 @@ pred_beta_zi <- model_beta_zi %>%
 head(pred_beta_zi)
 
 # Look at the average zero-inflation probability across quota
-pred_beta_zi %>% 
+pred_beta_zi %>%
   group_by(quota) %>% 
-  summarize(avg_zi = mean(zi)) %>% 
-  mutate(diff = avg_zi - lag(avg_zi))
+  median_hdci(zi)
+
+pred_beta_zi %>% 
+  compare_levels(variable = zi, by = quota) %>% 
+  median_hdci()
 ```
 
-Without even plotting this, we can see a neat trend. When there's not a quota, ≈2.5% of the the predicted values are 0; when there is a quota, almost none of the predicted values are 0. Having a quota almost completely eliminates the possibility of having no women MPs. It's the same marginal effect that we found with `plogis()`—the proportion of zeros drops by 2.7 percentage points when there's a quota.
+Without even plotting this, we can see a neat trend. When there's not a quota, ≈2–3% of the the predicted values are 0; when there is a quota, almost none of the predicted values are 0. Having a quota almost completely eliminates the possibility of having no women MPs. It's the same marginal effect that we found with `plogis()`—the proportion of zeros drops by `r round(plogis(zi_intercept + zi_quota) - plogis(zi_intercept), 3) * 100` percentage points when there's a quota.
 
 We can visualize this uncertainty by plotting the posterior predictions. We could either plot two distributions (for `quota` being `TRUE` or `FALSE`), or we can calculate the difference between quota/no quota to find the average marginal effect of having a quota on the proportion of 0s in the data:
 
 ```{r plot-pred-mfx-zi}
 mfx_quota_zi <- pred_beta_zi %>% 
-  ungroup() %>% 
-  select(-.row, -.epred, -.chain, -.iteration) %>% 
-  pivot_wider(names_from = "quota", values_from = "zi") %>% 
-  mutate(zi_quota_effect = `TRUE` - `FALSE`)
+  compare_levels(variable = zi, by = quota)
 
-ggplot(mfx_quota_zi, aes(x = zi_quota_effect)) +
+ggplot(mfx_quota_zi, aes(x = zi)) +
   stat_halfeye(.width = c(0.8, 0.95), point_interval = "median_hdi",
                fill = "#fb9e07") +
+  scale_x_continuous(labels = label_pp) +
   labs(x = "Average marginal effect of having a gender-based quota\non the proportion of countries with zero women in parliament", 
        y = NULL, caption = "80% and 95% credible intervals shown in black") +
   theme_clean()
@@ -1136,6 +1206,7 @@ ggplot(beta_zi_pred, aes(x = .prediction)) +
   geom_histogram(aes(fill = is_zero), binwidth = 0.025, 
                  boundary = 0, color = "white") +
   geom_vline(xintercept = 0) +
+  scale_x_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.5,
                        guide = guide_legend(reverse = TRUE)) +
   labs(x = "Predicted proportion of women in parliament", 
@@ -1151,19 +1222,19 @@ Again, I think it's so cool that we can explore all this uncertainty for specifi
 
 ### Average marginal effects, incorporating the zero process
 
-The main thing we're interested in here, though, is the average marginal effect of having a quota on the proportion of women in parliament, not just the 0/not 0 process. Since we've incorporated `quota` in all the different parts of the model (the $\mu$, the $\phi$, and the zero-inflated $\alpha$), we should definitely once again simulate this value using **tidybayes** and **emmeans**—trying to get all the coefficients put together manually is going to be too tricky.
+The main thing we're interested in here, though, is the average marginal effect of having a quota on the proportion of women in parliament, not just the 0/not 0 process. Since we've incorporated `quota` in all the different parts of the model (the $\mu$, the $\phi$, and the zero-inflated $\alpha$), we should definitely once again simulate this value using **marginaleffects**—trying to get all the coefficients put together manually is going to be too tricky.
 
 ```{r plot-ame-quota-zi}
 ame_beta_zi <- model_beta_zi %>%
-  emmeans(~ quota, regrid = "response") %>% 
-  contrast(method = "revpairwise") %>% 
-  gather_emmeans_draws()
+  avg_comparisons(variables = "quota") %>% 
+  posterior_draws()
 
-ame_beta_zi %>% median_hdi()
+ame_beta_zi %>% median_hdi(draw)
 
-ggplot(ame_beta_zi, aes(x = .value)) +
+ggplot(ame_beta_zi, aes(x = draw)) +
   stat_halfeye(.width = c(0.8, 0.95), point_interval = "median_hdi",
                fill = "#bc3032") +
+  scale_x_continuous(labels = label_pp) +
   labs(x = "Average marginal effect of having a gender-based\nquota on the proportion of women in parliament", y = NULL,
        caption = "80% and 95% credible intervals shown in black") +
   theme_clean()
@@ -1198,7 +1269,7 @@ brm(
 )
 ```
 
-Pulling out all these different parameters, plotting their distributions, and estimating their average marginal effects looks exactly the same as what we did earlier with the zero-inflated model—all the **brms**, **tidybayes**, and **emmeans** functions we used for marginal effects and fancy plots work the same. All the coefficients are on the logit scale, except $\phi$, which is on the log scale. 
+Pulling out all these different parameters, plotting their distributions, and estimating their average marginal effects looks exactly the same as what we did earlier with the zero-inflated model—all the **brms**, **tidybayes**, and **marginaleffects** functions we used for marginal effects and fancy plots work the same. All the coefficients are on the logit scale, except $\phi$, which is on the log scale. 
 
 ### Special case #2: One-inflated beta regression
 
@@ -1243,7 +1314,7 @@ tibble(x = seq(-8, 8, by = 0.1)) %>%
 
 To help speed up the model (and on philosophical grounds, since we know prior information about these model coefficients), we should tell **brms** that the logit-scale parameters in the model aren't ever going to get huge.
 
-To do this, we first need to define the formula for our fancy complex model. I added a bunch of plausible covariates to different portions of the model, along with random effects for year and region. In real life this should all be driven by theory.
+To do this, we first need to define the formula for our fancy complex model. I added a bunch of plausible covariates to different portions of the model, along with random effects for region. In real life this should all be driven by theory.
 
 ```{r final-formula}
 vdem_clean <- vdem_clean %>% 
@@ -1281,7 +1352,7 @@ You can see that everything with class `b` (for β coefficient in a regression m
 
 ```{r plot-narrow-prior, width=3}
 ggplot(data = tibble(x = -4:4), aes(x = x)) +
-  geom_function(fun = dnorm, args = list(mean = 0, sd = 1), size = 1) +
+  geom_function(fun = dnorm, args = list(mean = 0, sd = 1), linewidth = 1) +
   theme_clean()
 ```
 
@@ -1294,29 +1365,30 @@ priors <- c(set_prior("student_t(3, 0, 2.5)", class = "Intercept"),
 
 ### Run the model
 
-Let's run the model! This will probably take a (long!) while to run. On my new 2021 MacBook Pro with a 10-core M1 Max CPU, running 4 chains with two CPU cores per chain (with **cmdstanr**'s [support for within-chain threading](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html)) takes about 3 minutes. It probably takes a ***lot*** longer on a less powerful machine. To help Stan with estimation, I also set `inits` to help with some of the parameters of the beta distribution, and increased `adapt_delta` and `max_treedepth` a little. I only knew to do this because Stan complained when I used the defaults and told me to increase them :)
+Let's run the model! This will probably take a (long!) while to run. On my new 2021 MacBook Pro with a 10-core M1 Max CPU, running 4 chains with two CPU cores per chain (with **cmdstanr**'s [support for within-chain threading](https://cran.r-project.org/web/packages/brms/vignettes/brms_threading.html)) takes about 6 minutes. It probably takes a ***lot*** longer on a less powerful machine. To help Stan with estimation, I also set `init` to help with some of the parameters of the beta distribution, and increased `adapt_delta` and `max_treedepth` a little. I only knew to do this because Stan complained when I used the defaults and told me to increase them :)
 
-```{r model-fancy-bayes, cache=TRUE, results="hide", warning=FALSE}
+```{r model-fancy-bayes, results="hide", warning=FALSE}
 fancy_model <- brm(
   fancy_formula,
   data = vdem_clean,
   family = zero_inflated_beta(),
   prior = priors,
-  inits = "0",
-  control = list(adapt_delta = 0.91,
-                 max_treedepth = 11),
+  init = 0,
+  control = list(adapt_delta = 0.97,
+                 max_treedepth = 12),
   chains = 4, iter = 2000, warmup = 1000,
   cores = 4, seed = 1234, 
   threads = threading(2),
-  backend = "cmdstanr"
+  backend = "cmdstanr",
+  file = "fancy_model"
 )
 ```
 
-There are a handful of divergent chains, and one that hit the maximum treedepth when exploring the posterior, but since this isn't an actual model that I'd use in a publication, I'm not too worried. In real life, I'd increase the `adapt_delta` or `max_treedepth` parameters even more or do some other fine tuning, but we'll just live with the warnings for now.
+There are a handful of divergent chains but since this isn't an actual model that I'd use in a publication, I'm not too worried. In real life, I'd increase the `adapt_delta` or `max_treedepth` parameters even more or do some other fine tuning, but we'll just live with the warnings for now.
 
 ### Analyze and plot the results
 
-We now have a fully specified multilevel model with all sorts of rich moving parts: we account for the mean and precision of the beta distribution *and* we account for the zero-inflation process, all with different covariates with nested levels for year and region. Here are the full results, with medians and 95% credible intervals for all the different coefficients:
+We now have a fully specified multilevel model with all sorts of rich moving parts: we account for the mean and precision of the beta distribution *and* we account for the zero-inflation process, all with different covariates with region-specific offsets. Here are the full results, with medians and 95% credible intervals for all the different coefficients:
 
 ```{r show-fancy-model, warning=FALSE}
 tidy(fancy_model)
@@ -1326,41 +1398,57 @@ We can't really interpret any of these coefficients directly, since (1) they're 
 
 We'll focus on finding the marginal effect of `quota`, since that's the main question we've been exploring throughout this post (and it was the subject of the original @TrippKang:2008 paper). For fun, we'll also look at `polyarchy`, since it's a continuous variable.
 
-The combination of **tidybayes** and **emmeans** makes it really easy to get posterior predictions of the difference between quota and no quota. We need to set a couple extra arguments in `emmeans()`, which then get passed on to **brms**'s predicition functions. First, we have to tell it to return predictions from the expected values of the posterior (i.e. accounting for all the moving parts; regular prediction just looks at the coefficient in isolation) with `epred = TRUE` (doing this automatically returns predictions on the response scale (i.e. probabilities), so we can remove `regrid = "response"`). Next we need to tell it which of the group-levelrandom effects to incorporate into the predictions with the `re_formula` argument. By default, no group-level effects are included. If we use `re_formula = NULL`, all group-level effects (i.e. year and region) will be included.
+As before, **marginaleffects** makes it really easy to get posterior predictions of the difference between quota and no quota with `avg_comparisons()`
+
+::: {.callout-note}
+### More about these epreds and random effects
+
+A year after writing this post, I wrote a couple other guides about the [differences between posterior predictions, linear predictions, and epreds](https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors/) + [different ways of handling random effects in predictions](https://www.andrewheiss.com/blog/2022/11/29/conditional-marginal-marginaleffects/). Check those out for more details.
+:::
 
 ```{r plot-ame-quota-fancy}
 ame_fancy_zi_quota <- fancy_model %>%
-  emmeans(~ quota, 
-          epred = TRUE,
-          re_formula = NULL) %>% 
-  contrast(method = "revpairwise") %>% 
-  gather_emmeans_draws()
+  avg_comparisons(variables = "quota") %>% 
+  posterior_draws()
 
-ame_fancy_zi_quota %>% median_hdi()
+ame_fancy_zi_quota %>% median_hdi(draw)
 
-ggplot(ame_fancy_zi_quota, aes(x = .value)) +
+ggplot(ame_fancy_zi_quota, aes(x = draw)) +
   stat_halfeye(.width = c(0.8, 0.95), point_interval = "median_hdi",
                fill = "#bc3032") +
+  scale_x_continuous(labels = label_pp) +
   labs(x = "Average marginal effect of having a gender-based\nquota on the proportion of women in parliament", y = NULL,
        caption = "80% and 95% credible intervals shown in black") +
   theme_clean()
 ```
 
-After accounting for democracy, corruption, respect for civil liberties, year, and region, the proportion of women MPs in countries with a parliamentary gender quota is 7.7 percentage points higher than in countries without a quota, on average, with a 95% credible interval ranging from 6.7 to 8.7 percentage points.
+```{r extract-fancy}
+r_fancy <- ame_fancy_zi_quota %>% median_hdi(draw)
+```
 
-For fun, we can look at how the predicted outcome changes across both `polyarchy` and `quota` simultaneously. Because we didn't use any interaction terms, the slope will be the same across both levels of `quota`, but the plot still looks neat. Weirdly, due to the constellation of controls we included in the model, the predicted proportion of women MPs *decreases* with more democracy. But that's not super important—if we were really only interested in the quota effect and we had included a sufficient set of variables to close backdoor paths, the coefficients for all other variables shouldn't be interpreted [@KeeleStevensonElwert:2020]. We'll pretend that's the case here—this code mostly just shows how you can do all sorts of neat stuff with `emmeans()`.
+
+After accounting for democracy, corruption, respect for civil liberties, year, and region, the proportion of women MPs in countries with a parliamentary gender quota is `r round(r_fancy$draw * 100, 1)` percentage points higher than in countries without a quota, on average, with a 95% credible interval ranging from `r round(r_fancy$.lower * 100, 1)` to `r round(r_fancy$.upper * 100, 1)` percentage points.
+
+For fun, we can look at how the predicted outcome changes across both `polyarchy` and `quota` simultaneously (and for fun we'll do it with **marginaleffects**, though it's also doable with `tidybayes::epred_draws() %>% compare_levels()`). Because we didn't use any interaction terms, the slope will be the same across both levels of `quota`, but the plot still looks neat. Weirdly, due to the constellation of controls we included in the model, the predicted proportion of women MPs *decreases* with more democracy. But that's not super important—if we were really only interested in the quota effect and we had included a sufficient set of variables to close backdoor paths, the coefficients for all other variables shouldn't be interpreted [@KeeleStevensonElwert:2020]. We'll pretend that's the case here—this code mostly just shows how you can do all sorts of neat stuff with **marginaleffects**.
 
 ```{r plot-ame-quota-polyarchy-fancy, cache=TRUE, warning=FALSE}
 ame_fancy_zi_polyarchy_quota <- fancy_model %>% 
-  emmeans(~ quota + polyarchy,
-          at = list(polyarchy = seq(0, 1, by = 0.1)),
-          epred = TRUE,
-          re_formula = NULL) %>% 
-  gather_emmeans_draws()
+  predictions(newdata = datagrid(quota = unique,
+                                 polyarchy = seq(0, 1, by = 0.1))) %>% 
+  posterior_draws() %>% 
+  # Scale polyarchy back up for plotting
+  mutate(polyarchy = polyarchy * 100)
+
+# With tidybayes instead
+# ame_fancy_zi_polyarchy_quota <- fancy_model %>%
+#   epred_draws(newdata = datagrid(model = fancy_model, 
+#                                  quota = unique, 
+#                                  polyarchy = seq(0, 1, by = 0.1)))
 
 ggplot(ame_fancy_zi_polyarchy_quota,
-       aes(x = polyarchy, y = .value, color = quota, fill = quota)) +
+       aes(x = polyarchy, y = draw, color = quota, fill = quota)) +
   stat_lineribbon(aes(fill_ramp = stat(level))) +
+  scale_y_continuous(labels = label_percent()) +
   scale_fill_viridis_d(option = "plasma", end = 0.8) +
   scale_color_viridis_d(option = "plasma", end = 0.8) +
   scale_fill_ramp_discrete(range = c(0.2, 0.7)) +
