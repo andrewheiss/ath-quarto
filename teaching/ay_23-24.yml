@@ -1,0 +1,9 @@
+- title: Data Visualization with R
+  description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
+  university: Georgia State University
+  number: PMAP 8551/4551
+  url: https://datavizf23.classes.andrewheiss.com/
+  logo: logos/datavizm20.png
+  semester:
+  - name: Fall 2023 (asynchronous online)
+    url: https://datavizf23.classes.andrewheiss.com/
