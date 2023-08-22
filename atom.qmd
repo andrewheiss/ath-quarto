@@ -2,8 +2,14 @@
 title: "Andrew Heiss's blog"
 search: false
 listing:
-  feed: true
+  sort: "date desc"
+  feed: 
+    title: "Andrew Heiss's blog"
+    description: "Andrew Heiss's blog"
+    items: 5
+    type: full
+    language: en
   contents:
     - "blog/**/index.qmd"
-    - "blog/**/index.qmd"
+    - "!blog/index.qmd"
 ---
