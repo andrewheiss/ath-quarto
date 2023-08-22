@@ -6,7 +6,7 @@ listing:
   feed: 
     title: "Andrew Heiss's blog"
     description: "Andrew Heiss's blog"
-    items: 5
+    items: 40
     type: full
     language: en
   contents:
