@@ -9,6 +9,8 @@ categories:
 format:
   html:
     toc-depth: 4
+doi: 10.59350/3bzxm-ecg70
+citation: true
 ---
 
 *This is written for instructors in the Department of Public Management and Policy at the Andrew Young School of Policy Studies at Georgia State University, but it's hopefully widely applicable too.*

@@ -14,6 +14,8 @@ categories:
 format:
   html:
     toc-depth: 4
+doi: 10.59350/7p1a4-0tw75
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -422,9 +424,9 @@ Here are two normal distributions defined by different means and standard deviat
 ```{r plot-dist-normal-example}
 ggplot(data = tibble(x = seq(-10, 20)), aes(x = x)) +
   geom_function(fun = dnorm, args = list(mean = 5, sd = 4),
-                aes(color = "Normal(mean = 5, sd = 4)"), size = 1) +
+                aes(color = "Normal(mean = 5, sd = 4)"), linewidth = 1) +
   geom_function(fun = dnorm, args = list(mean = 10, sd = 2),
-                aes(color = "Normal(mean = 10, sd = 2)"), size = 1) +
+                aes(color = "Normal(mean = 10, sd = 2)"), linewidth = 1) +
   scale_color_viridis_d(option = "plasma", end = 0.8, name = "") +
   theme_clean() +
   theme(legend.position = "bottom")

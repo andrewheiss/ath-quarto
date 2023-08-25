@@ -21,6 +21,8 @@ format:
 bibliography: references.json
 resources:
   - "img/parks-rec-ols.mp4"
+doi: 10.59350/2mz75-rrc46
+citation: true
 ---
 
 ```{r setup, include=FALSE}

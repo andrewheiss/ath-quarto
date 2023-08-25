@@ -17,6 +17,8 @@ categories:
 format:
   html: 
     code-fold: show
+doi: 10.59350/ccrtd-z3s22
+citation: true
 ---
 
 ```{r setup, include=FALSE}

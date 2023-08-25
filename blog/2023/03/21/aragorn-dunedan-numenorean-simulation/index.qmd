@@ -13,6 +13,8 @@ categories:
 format:
   html: 
     code-fold: true
+doi: 10.59350/e0855-b1171
+citation: true
 references:
 - id: "Tolkien:2012"
   author:

@@ -89,7 +89,7 @@ First, we'll use a ridge plot (or overlapping density plots) to see if there's a
 ```{r diff-ridges, message=FALSE, fig.cap="Distribution of female employment in public and private sectors"}
 ggplot(wwbi_2012, aes(x = proportion, y = sector, fill = sector)) +
   stat_density_ridges(quantile_lines = TRUE, quantiles = 2, scale = 3, color = "white") + 
-  scale_fill_manual(values = c("#98823c", "#9a5ea1"), guide = FALSE) + 
+  scale_fill_manual(values = c("#98823c", "#9a5ea1"), guide = "none") + 
   scale_x_continuous(labels = percent_format(accuracy = 1)) +
   labs(x = "Percent of women employed in the sector", y = NULL) +
   theme_minimal() +
@@ -124,7 +124,7 @@ pub_private_null <- wwbi_2012 %>%
 # object, so we can continue to add ggplot layers to enhance and clean the plot
 pub_private_null %>%
   visualize() + 
-  geom_vline(xintercept = diff_prop$stat, color = "#FF4136", size = 1) +
+  geom_vline(xintercept = diff_prop$stat, color = "#FF4136", linewidth = 1) +
   labs(x = "Difference in median proportion\n(Women in private sector − women in public sector)",
        y = "Count",
        subtitle = "Red line shows observed difference in median proportions") +

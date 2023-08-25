@@ -11,6 +11,8 @@ categories:
   - data visualization
   - econometrics
   - panel data
+doi: 10.59350/yrbym-m0y62
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -172,7 +174,7 @@ We can visualize the distribution of weights too:
 ggplot(fake_data_with_weights, aes(x = treatment_weight)) +
   geom_histogram(binwidth = 0.00005, color = "white",
                  boundary = 0, fill = "#F6C848") +
-  geom_vline(xintercept = 0, color = "#FF2E00", size = 1) +
+  geom_vline(xintercept = 0, color = "#FF2E00", linewidth = 1) +
   labs(x = "Residualized treatment weight", y = "Count") +
   scale_x_continuous(labels = comma_format()) +
   theme_clean() +

@@ -11,6 +11,8 @@ categories:
 format:
   html:
     code-tools: false
+doi: 10.59350/qvp0m-tr543
+citation: true
 ---
 
 ::: {.callout-tip}

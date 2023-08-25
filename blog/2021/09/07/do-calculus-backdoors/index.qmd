@@ -10,6 +10,8 @@ categories:
   - causal inference
   - do calculus
 html-math-method: katex
+doi: 10.59350/fqkhz-kq526
+citation: true
 ---
 
 ```{r knitr-options, include=FALSE}

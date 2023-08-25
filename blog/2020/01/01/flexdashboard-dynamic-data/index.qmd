@@ -8,6 +8,8 @@ categories:
   - shiny
   - r
   - google sheets
+doi: 10.59350/8vtys-s0p68
+citation: true
 ---
 
 Now that I'm on the tenure track, I've been looking for a way to keep track of my different research projects so I can get them all finished and published. [Matt Lebo's "Managing Your Research Pipeline"](https://doi.org/10.1017/S1049096516000160) presents a neat way of quantifying and tracking the progress of your research, and I recently adopted it for my own stuff. I even made a fancy [R Markdown](https://rmarkdown.rstudio.com/) + [**flexdashboard**](https://rmarkdown.rstudio.com/flexdashboard/) [dashboard to show the status of the pipeline](https://twitter.com/andrewheiss/status/1201892963451842562) interactively. I manage the data for the dashboard in a Google Sheet, knit the dashboard, and create an HTML file with the latest statistics.

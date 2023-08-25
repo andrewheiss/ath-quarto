@@ -10,6 +10,8 @@ categories:
   - do calculus
   - inverse probability weighting
 image: index_files/figure-html/dag-binary-1.png
+doi: 10.59350/1svkc-rkv91
+citation: true
 ---
 
 ```{r, include=FALSE}

@@ -18,6 +18,8 @@ format:
     code-fold: false
     fig-cap-location: bottom
     shift-heading-level-by: 1
+doi: 10.59350/xwnfm-x1827
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -873,8 +875,8 @@ marginaleffects(
   type = "link",
   newdata = datagrid(TX = 0)
 ) %>% 
-  mutate(across(c(dydx, conf.low, conf.high), ~exp(.))) %>% 
-  select(rowid, type, term, dydx, conf.low, conf.high)
+  mutate(across(c(estimate, conf.low, conf.high), ~exp(.))) %>% 
+  select(rowid, term, estimate, conf.low, conf.high)
 ```
 
 We can visualize the odds-ratio-scale posterior for fun:

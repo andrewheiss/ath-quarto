@@ -1,4 +1,4 @@
-// generated with brms 2.18.0
+// generated with brms 2.19.0
 functions {
 }
 data {

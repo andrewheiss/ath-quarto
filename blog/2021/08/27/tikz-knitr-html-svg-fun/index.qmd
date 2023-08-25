@@ -8,6 +8,8 @@ categories:
   - tidyverse
   - R markdown
   - tikz
+doi: 10.59350/6qevp-87j81
+citation: true
 ---
 
 ```{r setup, include=FALSE}

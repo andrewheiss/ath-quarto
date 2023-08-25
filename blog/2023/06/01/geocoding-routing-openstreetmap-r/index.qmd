@@ -17,6 +17,8 @@ format:
   html:
     reference-location: margin
     code-fold: show
+doi: 10.59350/rgwda-0tv16
+citation: true
 ---
 
 ```{r setup, include=FALSE}

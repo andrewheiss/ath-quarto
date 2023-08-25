@@ -15,6 +15,8 @@ format:
     toc-depth: 4
 resources:
   - video/*
+doi: 10.59350/40xaj-4e562
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -78,7 +80,7 @@ knitr::include_graphics("images/original-tweet.png")
 
 And then I didn't.
 
-So here I am, 7 months later, publicly figuring out the differences between regression coefficients, regression predictions, [**marginaleffects**](https://vincentarelbundock.github.io/marginaleffects/), [**emmeans**](https://cran.r-project.org/web/packages/emmeans/index.html), marginal slopes, average marginal effects, marginal effects at the mean, and all these other "marginal" things that researchers and data scientists use.
+So here I am, 7 months later, publicly figuring out the differences between regression coefficients, regression predictions, [**marginaleffects**](https://marginaleffects.com/), [**emmeans**](https://cran.r-project.org/web/packages/emmeans/index.html), marginal slopes, average marginal effects, marginal effects at the mean, and all these other "marginal" things that researchers and data scientists use.
 
 This guide is highly didactic and slowly builds up the concept of marginal effects as slopes and partial derivatives. [The tl;dr section at the end](#tldr-overall-summary-of-all-these-marginal-effects-approaches) has a useful summary of everything here, with a table showing all the different approaches to marginal effects with corresponding **marginaleffects** and **emmeans** code, as well as some diagrams outlining the two packages' different approaches to averaging. Hopefully it's useful—it is for me!
 
@@ -180,13 +182,13 @@ $$
 a_line <- function(x) (2 * x) - 1
 
 ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_function(fun = a_line, size = 1, color = clrs[2]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_function(fun = a_line, linewidth = 1, color = clrs[2]) +
   scale_x_continuous(breaks = -2:5, limits = c(-1, 3)) +
   scale_y_continuous(breaks = -3:9) +
-  annotate(geom = "segment", x = 1, y = 1.3, xend = 1, yend = 3, color = clrs[4], size = 0.5) +
-  annotate(geom = "segment", x = 1, y = 3, xend = 1.8, yend = 3, color = clrs[4], size = 0.5) +
+  annotate(geom = "segment", x = 1, y = 1.3, xend = 1, yend = 3, color = clrs[4], linewidth = 0.5) +
+  annotate(geom = "segment", x = 1, y = 3, xend = 1.8, yend = 3, color = clrs[4], linewidth = 0.5) +
   annotate(geom = "richtext", x = 1.4, y = 3.1, label = "Slope: **2**", vjust = 0) +
   labs(x = "x", y = "y") +
   coord_equal() +
@@ -222,9 +224,9 @@ slope_annotations <- tibble(x = c(-0.25, 1.2, 2.4)) |>
                            "Slope (dy/dx): **{2}**"))
 
 ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_function(fun = a_line, size = 1, color = clrs[2]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_function(fun = a_line, linewidth = 1, color = clrs[2]) +
   geom_point(data = slope_annotations, aes(x = x, y = y)) +
   geom_richtext(data = slope_annotations, 
                 aes(x = x, y = y, label = nice_label),
@@ -243,9 +245,9 @@ The power rule seems super basic for equations with non-exponentiated $x$s, but 
 a_parabola <- function(x) (-0.5 * x^2) + (5 * x) + 5
 
 ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_function(fun = a_parabola, size = 1, color = clrs[2]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_function(fun = a_parabola, linewidth = 1, color = clrs[2]) +
   xlim(-5, 15) +
   labs(x = "x", y = "y") +
   coord_cartesian(ylim = c(-5, 20)) +
@@ -279,12 +281,12 @@ slope_annotations <- tibble(
          nice_slope = glue("Slope (dy/dx)<br><span style='font-size:12pt;color:{clrs[4]}'>**{slope}**</span>"))
 
 ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_function(fun = a_parabola, size = 1, color = clrs[2]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_function(fun = a_parabola, linewidth = 1, color = clrs[2]) +
   geom_abline(data = slope_annotations,
               aes(slope = slope, intercept = intercept),
-              size = 0.5, color = clrs[4], linetype = "21") +
+              linewidth = 0.5, color = clrs[4], linetype = "21") +
   geom_point(data = slope_annotations, aes(x = x, y = y),
              size = 3, color = clrs[4]) +
   geom_richtext(data = slope_annotations, aes(x = x, y = y, label = nice_slope),
@@ -307,12 +309,12 @@ lotsa_lines <- tibble(
          nice_slope = glue("Slope (dy/dx)<br><span style='font-size:12pt;color:{clrs[4]}'>**{nice_number(slope)}**</span>"))
 
 parabola_slope <- ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_function(fun = a_parabola, size = 1, color = clrs[2]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_function(fun = a_parabola, linewidth = 1, color = clrs[2]) +
   geom_abline(data = lotsa_lines,
               aes(slope = slope, intercept = intercept),
-              size = 0.5, color = clrs[4], linetype = "21") +
+              linewidth = 0.5, color = clrs[4], linetype = "21") +
   geom_point(data = lotsa_lines, aes(x = x, y = y),
              size = 3, color = clrs[4]) +
   geom_richtext(data = lotsa_lines, aes(x = x, y = y, label = nice_slope),
@@ -356,9 +358,9 @@ Here's what that looks like:
 u_cookies <- function(x) (-0.5 * x^2) + (5 * x)
 
 ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_function(fun = u_cookies, size = 1, color = clrs[2]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_function(fun = u_cookies, linewidth = 1, color = clrs[2]) +
   scale_x_continuous(breaks = seq(0, 12, 2), limits = c(0, 12)) +
   labs(x = "Cookies", y = "Utility (happiness points)") +
   theme_mfx()
@@ -385,11 +387,11 @@ Let's plot this really quick too:
 mu_cookies <- function(x) -x + 5
 
 ggplot() +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
-  geom_vline(xintercept = 5, size = 0.5, 
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_vline(xintercept = 5, linewidth = 0.5, 
              linetype = "21", color = clrs[3]) +
-  geom_function(fun = mu_cookies, size = 1, color = clrs[5]) +
+  geom_function(fun = mu_cookies, linewidth = 1, color = clrs[5]) +
   scale_x_continuous(breaks = seq(0, 12, 2), limits = c(0, 12)) +
   labs(x = "Cookies", y = "Marginal utility (additional happiness points)") +
   theme_mfx()
@@ -440,12 +442,12 @@ cookie_labels <- tribble(
   mutate(name_nice = factor(name, labels = rev(levels(cookie_plot_data$name_nice))))
 
 cookie_mfx <- ggplot(cookie_plot_data, aes(x = cookies, y = value)) +
-  geom_vline(xintercept = 0, size = 0.5, color = "grey50") +
-  geom_hline(yintercept = 0, size = 0.5, color = "grey50") +
+  geom_vline(xintercept = 0, linewidth = 0.5, color = "grey50") +
+  geom_hline(yintercept = 0, linewidth = 0.5, color = "grey50") +
   geom_line(data = cookie_plot_lines, aes(x = x, y = value, color = name_nice),
-            size = 1) +
+            linewidth = 1) +
   geom_abline(aes(slope = slope, intercept = intercept_real),
-              size = 0.25, color = clrs[4], linetype = "21") +
+              linewidth = 0.25, color = clrs[4], linetype = "21") +
   geom_point(size = 3, color = clrs[4]) +
   geom_richtext(data = cookie_labels, aes(x = x, label = equation, color = name_nice), hjust = 0,
                 fill = NA, label.color = NA,
@@ -647,7 +649,7 @@ plot_corruption <- corruption |>
 
 ggplot(plot_corruption, aes(x = civil_liberties, y = public_sector_corruption)) +
   geom_point(aes(color = highlight)) +
-  stat_smooth(method = "lm", formula = y ~ x, size = 1, color = clrs[1]) +
+  stat_smooth(method = "lm", formula = y ~ x, linewidth = 1, color = clrs[1]) +
   geom_label_repel(data = filter(plot_corruption, highlight == TRUE), 
                    aes(label = country_name), seed = 1234) +
   scale_color_manual(values = c("grey30", clrs[3]), guide = "none") +
@@ -697,7 +699,7 @@ Let's see what happens when we add curves. We'll add a polynomial term, includin
 ```{r plot-civlib-corruption-sq}
 ggplot(plot_corruption, aes(x = civil_liberties, y = public_sector_corruption)) +
   geom_point(aes(color = highlight)) +
-  stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 1, color = clrs[2]) +
+  stat_smooth(method = "lm", formula = y ~ x + I(x^2), linewidth = 1, color = clrs[2]) +
   geom_label_repel(data = filter(plot_corruption, highlight == TRUE), 
                    aes(label = country_name), seed = 1234) +
   scale_color_manual(values = c("grey30", clrs[3]), guide = "none") +
@@ -768,9 +770,9 @@ tangents <- model_sq |>
 
 ggplot(corruption, aes(x = civil_liberties, y = public_sector_corruption)) +
   geom_point(color = "grey30") +
-  stat_smooth(method = "lm", formula = y ~ x + I(x^2), size = 1, se = FALSE, color = clrs[4]) +
+  stat_smooth(method = "lm", formula = y ~ x + I(x^2), linewidth = 1, se = FALSE, color = clrs[4]) +
   geom_abline(data = tangents, aes(slope = slope, intercept = intercept), 
-              size = 0.5, color = clrs[2], linetype = "21") +
+              linewidth = 0.5, color = clrs[2], linetype = "21") +
   geom_point(data = tangents, aes(x = civil_liberties, y = .fitted), size = 4, shape = 18, color = clrs[2]) +
   geom_richtext(data = tangents, aes(x = civil_liberties, y = .fitted, label = nice_label), nudge_y = -7) +
   labs(x = "Civil liberties index", y = "Public sector corruption index") +
@@ -779,12 +781,12 @@ ggplot(corruption, aes(x = civil_liberties, y = public_sector_corruption)) +
 
 Doing the calculus by hand here is tedious though, especially once we start working with even more covariates in a model. Plus we don't have any information about uncertainty, like standard errors and confidence intervals. There are official mathy ways to figure those out by hand, but who even wants to do that. Fortunately there are two different packages that let us find marginal slopes automatically, with important differences in their procedures, which we'll explore in detail below. But before looking at their differences, let's first see how they work.
 
-First, we can use the `marginaleffects()` function from **marginaleffects** to see the slope (the `dydx` column here) at various levels of civil liberties. We'll look at the mechanics of this function in more detail in the next section—for now we'll just plug in our three values of civil liberties and see what happens. We'll also set the `eps` argument: behind the scenes, `marginaleffects()` doesn't actually do the by-hand calculus of piecing together first derivatives—instead, it calculates the fitted value of corruption when civil liberties is a value, calculates the fitted value of corruption when civil liberties is that same value plus a tiny bit more, and then subtracts them. The `eps` value controls that tiny amount. In this case, it'll calculate the predictions for `civil_liberties = 25` and `civil_liberties = 25.001` and then find the slope of the tiny tangent line between those two points. It's a neat little mathy trick to avoid calculus.
+First, we can use the `slopes()` function from **marginaleffects** to see the slope (the `estimate` column here) at various levels of civil liberties. We'll look at the mechanics of this function in more detail in the next section—for now we'll just plug in our three values of civil liberties and see what happens. We'll also set the `eps` argument: behind the scenes, `slopes()` doesn't actually do the by-hand calculus of piecing together first derivatives—instead, it calculates the fitted value of corruption when civil liberties is a value, calculates the fitted value of corruption when civil liberties is that same value plus a tiny bit more, and then subtracts them. The `eps` value controls that tiny amount. In this case, it'll calculate the predictions for `civil_liberties = 25` and `civil_liberties = 25.001` and then find the slope of the tiny tangent line between those two points. It's a neat little mathy trick to avoid calculus.
 
 ```{r show-mfx-sq-mfx}
 model_sq |> 
-  marginaleffects(newdata = datagrid(civil_liberties = c(25, 55, 80)),
-                  eps = 0.001)
+  slopes(newdata = datagrid(civil_liberties = c(25, 55, 80)),
+         eps = 0.001)
 ```
 
 Second, we can use the `emtrends()` function from **emmeans** to also see the slope (the `civil_liberties.trend` column here) at various levels of civil liberties. The syntax is different (note the `delta.var` argument instead of `eps`), but the results are essentially the same:
@@ -796,7 +798,7 @@ model_sq |>
            delta.var = 0.001)
 ```
 
-Both `marginaleffects()` and `emtrends()` also helpfully provide uncertainty, with standard errors and confidence intervals, with a lot of super fancy math behind the scenes to make it all work. `marginaleffects()` provides p-values automatically; if you want p-values from `emtrends()` you need to wrap it in `test()`:
+Both `slopes()` and `emtrends()` also helpfully provide uncertainty, with standard errors and confidence intervals, with a lot of super fancy math behind the scenes to make it all work. `slopes()` provides p-values automatically; if you want p-values from `emtrends()` you need to wrap it in `test()`:
 
 ```{r show-mf-sq-emtrends-pvalue}
 model_sq |> 
@@ -806,30 +808,30 @@ model_sq |>
   test()
 ```
 
-Another neat thing about these more automatic functions is that we can use them to create a marginal effects plot, placing the value of the slope on the y-axis rather than the fitted value of public corruption. **marginaleffects** helpfully has `plot_cme()` that will plot the values of `dydx` across the whole range of civil liberties automatically. Alternatively, if we want full control over the plot, we can use either `marginaleffects()` or `emtrends()` to create a data frame that we can plot ourselves with ggplot:
+Another neat thing about these more automatic functions is that we can use them to create a marginal effects plot, placing the value of the slope on the y-axis rather than the fitted value of public corruption. **marginaleffects** helpfully has `plot_slopes()` that will plot the values of `estimate` across the whole range of civil liberties automatically. Alternatively, if we want full control over the plot, we can use either `slopes()` or `emtrends()` to create a data frame that we can plot ourselves with ggplot:
 
 ```{r plot-cmes, fig.width=12, fig.height=5, out.width="100%"}
 #| column: page-inset-right
-# Automatic plot from marginaleffects::plot_cme()
-mfx_marginaleffects_auto <- plot_cme(model_sq, 
-                                     effect = "civil_liberties", 
-                                     condition = "civil_liberties") +
+# Automatic plot from marginaleffects::plot_slopes()
+mfx_marginaleffects_auto <- plot_slopes(model_sq, 
+                                        variables = "civil_liberties", 
+                                        condition = "civil_liberties") +
   labs(x = "Civil liberties", y = "Marginal effect of civil liberties on public sector corruption",
-       subtitle = "Created automatically with marginaleffects::plot_cme()") +
+       subtitle = "Created automatically with marginaleffects::plot_slopes()") +
   theme_mfx()
 
-# Piece all the geoms together manually with results from marginaleffects::marginaleffects()
+# Piece all the geoms together manually with results from marginaleffects::slopes()
 mfx_marginaleffects <- model_sq |> 
-  marginaleffects(newdata = datagrid(civil_liberties = 
-                                       seq(min(corruption$civil_liberties), 
-                                           max(corruption$civil_liberties), 0.1)),
+  slopes(newdata = datagrid(civil_liberties = 
+                              seq(min(corruption$civil_liberties), 
+                                 max(corruption$civil_liberties), 0.1)),
                   eps = 0.001) |> 
-  ggplot(aes(x = civil_liberties, y = dydx)) +
-  geom_vline(xintercept = 42, color = clrs[3], size = 0.5, linetype = "24") +
+  ggplot(aes(x = civil_liberties, y = estimate)) +
+  geom_vline(xintercept = 42, color = clrs[3], linewidth = 0.5, linetype = "24") +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high), alpha = 0.1, fill = clrs[1]) +
-  geom_line(size = 1, color = clrs[1]) +
+  geom_line(linewidth = 1, color = clrs[1]) +
   labs(x = "Civil liberties", y = "Marginal effect of civil liberties on public sector corruption",
-       subtitle = "Calculated with marginaleffects()") +
+       subtitle = "Calculated with slopes()") +
   theme_mfx()
 
 # Piece all the geoms together manually with results from emmeans::emtrends()
@@ -841,9 +843,9 @@ mfx_emtrends <- model_sq |>
            delta.var = 0.001) |> 
   as_tibble() |> 
   ggplot(aes(x = civil_liberties, y = civil_liberties.trend)) +
-  geom_vline(xintercept = 42, color = clrs[3], size = 0.5, linetype = "24") +
+  geom_vline(xintercept = 42, color = clrs[3], linewidth = 0.5, linetype = "24") +
   geom_ribbon(aes(ymin = lower.CL, ymax = upper.CL), alpha = 0.1, fill = clrs[1]) +
-  geom_line(size = 1, color = clrs[1]) +
+  geom_line(linewidth = 1, color = clrs[1]) +
   labs(x = "Civil liberties", y = "Marginal effect of civil liberties on public sector corruption",
        subtitle = "Calculated with emtrends()") +
   theme_mfx()
@@ -858,7 +860,7 @@ This kind of plot is useful since it shows precisely how the effect changes acro
 
 Finding marginal effects for lines like $y = 2x - 1$ and $y = -0.5x^2 + 5x + 5$ with calculus is fairly easy since there's no uncertainty involved. Finding marginal effects for fitted lines from a regression model, on the other hand, is more complicated because uncertainty abounds. The estimated partial slopes all have standard errors and measures of statistical significance attached to them. The slope of civil liberties at 55 is `r nice_number(civ_lib_slope(55))`, but it could be higher and it could be lower. Could it even possibly be zero? Maybe! (But most likely not; the p-value that we saw above is less than 0.001, so there's only a sliver of a chance of seeing a slope like `r nice_number(civ_lib_slope(55))` in a world where it is actually 0ish).
 
-We deal with the uncertainty of these marginal effects by taking averages, which is why we talk about "average marginal effects" when interpreting these effects. So far, `marginaleffects::marginaleffects()` and `emmeans::emtrends()` have given identical results. But behind the scenes, these packages take two different approaches to calculating these marginal averages. The difference is very subtle, but incredibly important.
+We deal with the uncertainty of these marginal effects by taking averages, which is why we talk about "average marginal effects" when interpreting these effects. So far, `marginaleffects::slopes()` and `emmeans::emtrends()` have given identical results. But behind the scenes, these packages take two different approaches to calculating these marginal averages. The difference is very subtle, but incredibly important.
 
 Let's look at how these two packages calculate their marginal effects by default.
 
@@ -871,32 +873,38 @@ By default, **marginaleffects** calculates the *average marginal effect* (AME) f
 knitr::include_graphics("images/flow-ame@3x.png")
 ```
 
-It first plugs each row of the original dataset into the model and generates predictions for each row. It then uses fancy math (i.e. adding 0.001) to calculate the instantaneous slope for each row and stores each individual slope in the `dydx` column here:
+It first plugs each row of the original dataset into the model and generates predictions for each row. It then uses fancy math (i.e. adding 0.001) to calculate the instantaneous slope for each row and stores each individual slope in the `estimate` column here:
 
 ```{r ame-mfx-1}
-mfx_sq <- marginaleffects(model_sq)
+mfx_sq <- slopes(model_sq)
 head(mfx_sq)
 ```
 
-It finally calculates the average of the `dydx` column. We can do that ourselves:
+It finally calculates the average of the `estimate` column. We can do that ourselves:
 
 ```{r ame-mfx-2}
 mfx_sq |> 
   group_by(term) |> 
-  summarize(avg_dydx = mean(dydx))
+  summarize(avg_slope = mean(estimate))
 ```
 
-Or we can feed a `marginaleffects` object to `summary()` or `tidy()`, which will calculate the correct uncertainty statistics, like the standard errors:
+Or we can feed a `marginaleffects` object to `summary()`, which will calculate the correct uncertainty statistics, like the standard errors:
 
 ```{r ame-mfx-3}
 summary(mfx_sq)
 ```
 
-Note that the average marginal effect here isn't the same as what we saw before when we set civil liberties to different values. In this case, the effect is averaged across the whole range of civil liberties—one single grand average mean. It shows that in general, the overall average slope of the fitted line is `r nice_number(mean(mfx_sq$dydx))`. 
+Alternatively, we can use `avg_slopes()` instead of `slopes(...) |> summary()` to do the averaging automatically:
+
+```{r ame-mfx-avg-slopes}
+avg_slopes(model_sq)
+```
+
+Note that the average marginal effect here isn't the same as what we saw before when we set civil liberties to different values. In this case, the effect is averaged across the whole range of civil liberties—one single grand average mean. It shows that in general, the overall average slope of the fitted line is `r nice_number(mean(mfx_sq$estimate))`. 
 
 Don't worry about the number too much here—we're just exploring the underlying process of calculating this average marginal effect. In general, as the image shows above, for average marginal effects, we take the full original data, feed it to the model, generate fitted values for each original row, and then collapse the results into a single value.
 
-The main advantage of doing this is that each `dydx` prediction uses values that exist in the actual data. The first `dydx` slope estimate is for Mexico in 2020 and is based on Mexico's actual value of `civil_liberties` (and any other covariates if we had included any others in the model). It's thus more reflective of reality.
+The main advantage of doing this is that each `estimate` prediction uses values that exist in the actual data. The first `estimate` slope estimate is for Mexico in 2020 and is based on Mexico's actual value of `civil_liberties` (and any other covariates if we had included any others in the model). It's thus more reflective of reality.
 
 ### Marginal effects at the mean (the default in **emmeans**)
 
@@ -932,19 +940,18 @@ We then subtract the two and divide by 0.001 to get the final marginal effect at
 (civ_lib_fitted[2,2] - civ_lib_fitted[1,2]) / 0.001
 ```
 
-That doesn't give us any standard errors or uncertainty or anything, so it's better to use `emtrends()` or `marginaleffects()`. `emtrends()` calculates this MEM automatically:
+That doesn't give us any standard errors or uncertainty or anything, so it's better to use `emtrends()` or `slopes()`. `emtrends()` calculates this MEM automatically:
 
 ```{r mem-mfx-3}
 model_sq |> 
   emtrends(~ civil_liberties, var = "civil_liberties", delta.var = 0.001)
 ```
 
-We can also calculate the MEM with `marginaleffects()` if we include the `newdata = "mean"` argument, which will automatically shrink the original data down into average or typical values:
+We can also calculate the MEM with `avg_slopes()` if we include the `newdata = "mean"` argument, which will automatically shrink the original data down into average or typical values:
 
 ```{r mem-mfx-4}
 model_sq |> 
-  marginaleffects(newdata = "mean") |> 
-  summary()
+  avg_slopes(newdata = "mean")
 ```
 
 The disadvantage of this approach is that no actual country has a `civil_liberties` score of exactly `r avg_civ_lib`. If we had other covariates in the model, no country would have exactly the average of every variable. The marginal effect is thus calculated based on a hypothetical country that might not possibly exist in real life.
@@ -952,7 +959,7 @@ The disadvantage of this approach is that no actual country has a `civil_liberti
 
 ## Where this subtle difference really matters
 
-So far, comparing average marginal effects (AME) with marginal effects at the mean (MEM) hasn't been that useful, since both `marginaleffects()` and `emtrends()` provided nearly identical results with our simple model with civil liberties squared. That's because nothing that strange is going on in the model—there are no additional explanatory variables, no interactions or logs, and we're using OLS and not anything fancy like logistic regression or beta regression.
+So far, comparing average marginal effects (AME) with marginal effects at the mean (MEM) hasn't been that useful, since both `slopes()` and `emtrends()` provided nearly identical results with our simple model with civil liberties squared. That's because nothing that strange is going on in the model—there are no additional explanatory variables, no interactions or logs, and we're using OLS and not anything fancy like logistic regression or beta regression.
 
 Things change once we leave the land of OLS.
 
@@ -999,20 +1006,18 @@ m_logit <- tidy(model_logit) |>
 
 The coefficients here are on a different scale and are measured in log odds units (or logits), not probabilities or percentage points. That means we can't use those coefficients directly. We can't say things like "a one-unit increase in public sector corruption is associated with a `r m_logit$public_sector_corruption$est` percentage point decrease in the probability of having a disclosure law." That's wrong! We have to convert those logit scale coefficients to a probability scale instead. We can do this mathematically by combining both the intercept and the coefficient using `plogis(intercept + coefficient) - plogis(intercept)`, but that's generally not recommended, especially when there are other coefficients (see [this section on logistic regression for more details](https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/#2-fractional-logistic-regression)). Additionally, manually combining intercepts and coefficients won't give us standard errors or any other kind of uncertainty. 
 
-Instead, we can calculate the average slope of the logistic regression fit using either `marginaleffects()` or `emtrends()`.
+Instead, we can calculate the average slope of the logistic regression fit using either `slopes()` or `emtrends()`.
 
-First we'll use `marginaleffects()`. Remember that it calculates the *average marginal effect* (AME) by plugging each row of the original data into the model, generating predictions and instantaneous slopes for each row, and then averaging the `dydx` column. Each row contains actual observed data, so the predictions arguably reflect variation in reality. `marginaleffects()` helpfully converts the AME into percentage points (note that it says "Prediction type: response"), so we can interpret the value directly.
+First we'll use `avg_slopes()`. Remember that it calculates the *average marginal effect* (AME) by plugging each row of the original data into the model, generating predictions and instantaneous slopes for each row, and then averaging the `estimate` column. Each row contains actual observed data, so the predictions arguably reflect variation in reality. `avg_slopes()` helpfully converts the AME into percentage points, so we can interpret the value directly.
 
 ```{r show-mfx-donations-corruption-mfx}
 model_logit |> 
-  marginaleffects() |> 
-  summary()
+  avg_slopes()
 ```
 
 ```{r extract-mfx-donations-corruption-mfx, include=FALSE}
 m_logit_mfx <- model_logit |> 
-  marginaleffects() |> 
-  tidy() |> 
+  avg_slopes() |> 
   mutate(term = janitor::make_clean_names(term),
          est_pct_pt = nice_number(estimate * 100),
          est = label_number(accuracy = 0.0001, style_negative = "minus")(estimate)) |> 
@@ -1029,8 +1034,8 @@ model_logit |>
            var = "public_sector_corruption", 
            regrid = "response")
 
-# marginaleffects() will show the same MEM result with `newdata = "mean"`
-# marginaleffects(model_logit, newdata = "mean") |> summary()
+# avg_slopes() will show the same MEM result with `newdata = "mean"`
+# avg_slopes(model_logit, newdata = "mean")
 ```
 
 ```{r extract-mfx-donations-corruption-emtrends, include=FALSE}
@@ -1044,15 +1049,14 @@ m_logit_mfx <- model_logit |>
          avg = nice_number(public_sector_corruption))
 ```
 
-When we plug the average public sector corruption (`r m_logit_mfx$avg`) into the model, we get an MEM of `r m_logit_mfx$est`, which means that on average, a one-point increase in the public sector corruption index is associated with a `r m_logit_mfx$est_pct_pt` percentage point decrease in the probability of a country having a disclosure law. That's different (and bigger!) than the AME we found with `marginaleffects()`!
+When we plug the average public sector corruption (`r m_logit_mfx$avg`) into the model, we get an MEM of `r m_logit_mfx$est`, which means that on average, a one-point increase in the public sector corruption index is associated with a `r m_logit_mfx$est_pct_pt` percentage point decrease in the probability of a country having a disclosure law. That's different (and bigger!) than the AME we found with `slopes()`!
 
 Let's plot these marginal effects and their uncertainty to see how much they differ:
 
 ```{r plot-mfx-ame-mem-basic, fig.height=2}
-# Get tidied results from marginaleffects()
+# Get tidied results from slopes()
 plot_ame <- model_logit |> 
-  marginaleffects() |> 
-  tidy()
+  avg_slopes()
 
 # Get tidied results from emtrends()
 plot_mem <- model_logit |> 
@@ -1067,7 +1071,7 @@ plot_effects <- bind_rows("AME" = plot_ame, "MEM" = plot_mem, .id = "type") |>
   mutate(nice_slope = nice_number(estimate * 100))
 
 ggplot(plot_effects, aes(x = estimate * 100, y = fct_rev(type), color = type)) +
-  geom_vline(xintercept = 0, size = 0.5, linetype = "24", color = clrs[1]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, linetype = "24", color = clrs[1]) +
   geom_pointrange(aes(xmin = conf.low * 100, xmax = conf.high * 100)) +
   geom_label(aes(label = nice_slope), nudge_y = 0.3) +
   labs(x = "Marginal effect (percentage points)", y = NULL) +
@@ -1077,7 +1081,7 @@ ggplot(plot_effects, aes(x = estimate * 100, y = fct_rev(type), color = type)) +
 
 That's fascinating! The confidence interval around the AME is really small compared to the MEM, likely because the AME estimate comes from the average of `r nrow(corruption)` values, while the MEM is the prediction of a single value. Additionally, while both estimates hover around a 1 percentage point decrease, the AME is larger than −1 while the MEM is smaller.
 
-For fun, let's make a super fancy logistic regression model with a quadratic term and an interaction. We'll compare the AME and MEM for public sector corruption again. This is where either `marginaleffects()` or `emtrends()` is incredibly helpful—correctly combining all the necessary coefficients, given that corruption is both squared and interacted, and given that there are other variables to worry about, would be really hard.
+For fun, let's make a super fancy logistic regression model with a quadratic term and an interaction. We'll compare the AME and MEM for public sector corruption again. This is where either `slopes()` or `emtrends()` is incredibly helpful—correctly combining all the necessary coefficients, given that corruption is both squared and interacted, and given that there are other variables to worry about, would be really hard.
 
 ```{r model-logit-fancy}
 model_logit_fancy <- glm(
@@ -1092,11 +1096,10 @@ Here are the average marginal effects (AME) (again, each original row is plugged
 
 ```{r show-mfx-logit-fancy}
 model_logit_fancy |> 
-  marginaleffects() |> 
-  summary()
+  avg_slopes()
 ```
 
-And here are the marginal effects at the mean (MEM) (again, the average values for each covariate are plugged into the model). Using `emtrends()` results in a note about interactions, so we'll use `marginaleffects(..., newdata = "mean")` instead:
+And here are the marginal effects at the mean (MEM) (again, the average values for each covariate are plugged into the model). Using `emtrends()` results in a note about interactions, so we'll use `avg_slopes(..., newdata = "mean")` instead:
 
 ```{r show-mfx-logit-fancy-mem}
 model_logit_fancy |> 
@@ -1104,22 +1107,19 @@ model_logit_fancy |>
            var = "public_sector_corruption", 
            regrid = "response")
 
-# This uses marginaleffects() to find the MEM instead
+# This uses avg_slopes() to find the MEM instead
 model_logit_fancy |> 
-  marginaleffects(newdata = "mean") |> 
-  summary()
+  avg_slopes(newdata = "mean")
 ```
 
 Now that we're working with multiple covariates, we have instantaneous marginal effects for each regression term, which is neat. We only care about corruption here, so let's extract the slopes and plot them:
 
 ```{r plot-mfx-ame-mem-fancy, fig.height=2}
 plot_ame_fancy <- model_logit_fancy |> 
-  marginaleffects() |> 
-  tidy()
+  avg_slopes()
 
 plot_mem_fancy <- model_logit_fancy |> 
-  marginaleffects(newdata = "mean") |> 
-  tidy()
+  avg_slopes(newdata = "mean")
 
 # Combine the two tidy data frames for plotting
 plot_effects <- bind_rows("AME" = plot_ame_fancy, "MEM" = plot_mem_fancy, .id = "type") |> 
@@ -1127,7 +1127,7 @@ plot_effects <- bind_rows("AME" = plot_ame_fancy, "MEM" = plot_mem_fancy, .id = 
   mutate(nice_slope = nice_number(estimate * 100))
 
 ggplot(plot_effects, aes(x = estimate * 100, y = fct_rev(type), color = type)) +
-  geom_vline(xintercept = 0, size = 0.5, linetype = "24", color = clrs[1]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, linetype = "24", color = clrs[1]) +
   geom_pointrange(aes(xmin = conf.low * 100, xmax = conf.high * 100)) +
   geom_label(aes(label = nice_slope), nudge_y = 0.3) +
   labs(x = "Marginal effect (percentage points)", y = NULL) +
@@ -1158,29 +1158,29 @@ The choice of marginal effect averaging thus matters a lot!
 
 To make life even more exciting, we're not limited to just average marginal effects (AMEs) or marginal effects at the mean (MEMs). Additionally, if we think back to the slider/switch/mixing board analogy, all we've really done so far with our logistic regression model is move one slider (`public_sector_corruption`) up and down. What happens if we move other switches and sliders at the same time? (i.e. the marginal effect of corruption at specific values of corruption, or across different regions, or at different levels of GDP per capita and polyarchy)
 
-We can use both `marginaleffects()` and `emtrends()`/`emmeans()` to play with our model's full mixing board. We'll continue to use the logistic regression model as an example since it's sensitive to the order of averaging.
+We can use both `slopes()` and `emtrends()`/`emmeans()` to play with our model's full mixing board. We'll continue to use the logistic regression model as an example since it's sensitive to the order of averaging.
 
 
 ### Group average marginal effects
 
-If we have categorical covariates in our model like `region`, we can find the average marginal effect (AME) of continuous predictors across those different groups. This is fairly straightforward when working with `marginaleffects()` because of its approach to averaging. Remember that with the AME, each original row gets its own fitted value and each individual slope, which we can then average and collapse into a single row. Group characteristics like region are maintained after calculating predictions, so we can calculate group averages of the individual slopes. This outlines the process:
+If we have categorical covariates in our model like `region`, we can find the average marginal effect (AME) of continuous predictors across those different groups. This is fairly straightforward when working with `slopes()` because of its approach to averaging. Remember that with the AME, each original row gets its own fitted value and each individual slope, which we can then average and collapse into a single row. Group characteristics like region are maintained after calculating predictions, so we can calculate group averages of the individual slopes. This outlines the process:
 
 ```{r flow-game, echo=FALSE, out.width="100%", fig.align="center"}
 #| column: page-inset-right
 knitr::include_graphics("images/flow-game@3x.png")
 ```
 
-Because we're working with the AME, we have a `dydx` column with instantaneous slopes for each row in the original data:
+Because we're working with the AME, we have an `estimate` column with instantaneous slopes for each row in the original data:
 
 ```{r game-mfx}
 # We'll specify variables = "public_sector_corruption" here to filter the
 # marginal effects results. If we don't we'll get dozens of separate marginal
-# effects later when using summary() or tidy(), for each of the coefficients,
-# interactions, and cross-region contrasts
+# effects later when using summary() for each of the coefficients, interactions,
+# and cross-region contrasts
 mfx_logit_fancy <- model_logit_fancy |> 
-  marginaleffects(variables = "public_sector_corruption")
+  slopes(variables = "public_sector_corruption")
 
-# Original data frame + estimated dydx for each row
+# Original data frame + estimated slope for each row
 head(mfx_logit_fancy)
 ```
 
@@ -1189,22 +1189,21 @@ All the original columns are still there, which means we can collapse the result
 ```{r game-mfx-manual}
 mfx_logit_fancy |> 
   group_by(region) |> 
-  summarize(region_ame = mean(dydx))
+  summarize(region_ame = mean(estimate))
 ```
 
-We can also use summarizing methods built in to **marginaleffects** by using the `by` argument in `marginaleffects()`. This is the better option, since it does some tricky standard error calculations behind the scenes:
+We can also use summarizing methods built in to **marginaleffects** by using the `by` argument in `slopes()`. This is the better option, since it does some tricky standard error calculations behind the scenes:
 
 ```{r game-mfx-tidy}
 model_logit_fancy |> 
-  marginaleffects(variables = "public_sector_corruption",
-                  by = "region")
+  slopes(variables = "public_sector_corruption",
+         by = "region")
 ```
 
 ```{r extract-game-mfx, include=FALSE}
 m_logit_fancy_mfx <- model_logit_fancy |> 
-  marginaleffects(variables = "public_sector_corruption",
-                  by = "region") |> 
-  tidy() |> 
+  slopes(variables = "public_sector_corruption",
+         by = "region") |> 
   mutate(term = janitor::make_clean_names(term),
          est = label_number(accuracy = 0.0001, style_negative = "minus")(estimate),
          est_pct_pt = nice_number(estimate * 100),
@@ -1222,14 +1221,13 @@ model_logit_fancy |>
            var = "public_sector_corruption", regrid = "response")
 ```
 
-We can replicate the results from `emtrends()` with `marginaleffects()` if we plug in average or representative values (more on that in the next section), since that follows the same averaging order as **emmeans** (i.e. plugging averages into the model)
+We can replicate the results from `emtrends()` with `avg_slopes()` if we plug in average or representative values (more on that in the next section), since that follows the same averaging order as **emmeans** (i.e. plugging averages into the model)
 
 ```{r game-mfx-mem}
 model_logit_fancy |> 
-  marginaleffects(variables = "public_sector_corruption",
-                  newdata = datagrid(region = levels(corruption$region)),
-                  by = "region") |> 
-  summary()
+  avg_slopes(variables = "public_sector_corruption",
+             newdata = datagrid(region = levels(corruption$region)),
+             by = "region")
 ```
 
 
@@ -1295,9 +1293,9 @@ Now that we have a hypothetical data grid of sliders and switches set to specifi
 
 ```{r show-mer-mfx}
 model_logit_fancy |> 
-  marginaleffects(variables = "public_sector_corruption",
-                  newdata = datagrid(public_sector_corruption = c(20, 80),
-                                     region = regions_to_use))
+  slopes(variables = "public_sector_corruption",
+         newdata = datagrid(public_sector_corruption = c(20, 80),
+                            region = regions_to_use))
 ```
 
 ```{r show-mer-emtrends}
@@ -1312,7 +1310,7 @@ We have a ton of marginal effects here, but this is all starting to get really c
 
 Plotting these regression lines is tricky because we're no longer working with a single variable on the x-axis. Instead, we need to generate predicted values of the regression outcome across a range of one $x$ while holding all the other variables constant. This is exactly what we've been doing to get marginal effects, only now instead of getting slopes as the output, we want fitted values. Both **marginaleffects** and **emmeans** make this easy.
 
-In the **marginaleffects** world, we can use `predictions()`. Instead of a `dydx` column for the slope, we have a `predicted` column for the fitted value from the model:
+In the **marginaleffects** world, we can use `predictions()`. The `estimate` column now shows the fitted value instead of the slope:
 
 ```{r predict-mfx}
 model_logit_fancy |> 
@@ -1342,7 +1340,7 @@ logit_predictions <- model_logit_fancy |>
   as_tibble()
 
 ggplot(logit_predictions, aes(x = public_sector_corruption, y = prob, color = region)) +
-  geom_line(size = 1) +
+  geom_line(linewidth = 1) +
   labs(x = "Public sector corruption", y = "Predicted probability of having\na campaign finance disclosure law", color = NULL) +
   scale_y_continuous(labels = percent_format()) +
   scale_color_manual(values = c(clrs, "grey30")) +
@@ -1350,10 +1348,10 @@ ggplot(logit_predictions, aes(x = public_sector_corruption, y = prob, color = re
   theme(legend.position = "bottom")
 ```
 
-(Alternatively, you can use **marginaleffects**'s built-in `plot_cap()` to make this plot with one line of code):
+(Alternatively, you can use **marginaleffects**'s built-in `plot_predictions()` to make this plot with one line of code):
 
 ```{r example-plot-cap, eval=FALSE}
-plot_cap(model_logit_fancy, condition = c("public_sector_corruption", "region"))
+plot_predictions(model_logit_fancy, condition = c("public_sector_corruption", "region"))
 ```
 
 That's such a cool plot! Each region has a different shape of predicted probabilities across public sector corruption. 
@@ -1380,11 +1378,11 @@ slopes_to_plot <- logit_predictions |>
          nice_slope = glue("Slope: {round_slope} pct pts"))
 
 ggplot(logit_predictions, aes(x = public_sector_corruption, y = prob, color = region)) +
-  geom_line(size = 1) +
+  geom_line(linewidth = 1) +
   geom_point(data = slopes_to_plot, size = 2, show.legend = FALSE) +
   geom_abline(data = slopes_to_plot, 
               aes(slope = public_sector_corruption.trend, intercept = intercept, color = region), 
-              size = 0.5, linetype = "21", show.legend = FALSE) +
+              linewidth = 0.5, linetype = "21", show.legend = FALSE) +
   geom_label_repel(data = slopes_to_plot, aes(label = nice_slope),
                    fontface = "bold", seed = 123, show.legend = FALSE,
                    size = 3, direction = "y") +
@@ -1414,7 +1412,7 @@ AHH this is delightful! This helps us understand and visualize all these margina
 
 ```{r plot-logit-mfx-coef-plot, height=3.5}
 ggplot(logit_slopes, aes(x = public_sector_corruption.trend * 100, y = region, color = region)) +
-  geom_vline(xintercept = 0, size = 0.5, linetype = "24", color = clrs[5]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, linetype = "24", color = clrs[5]) +
   geom_pointrange(aes(xmin = asymp.LCL * 100, xmax = asymp.UCL * 100)) +
   scale_color_manual(values = c(clrs[4], clrs[1], clrs[2]), guide = "none") +
   labs(x = "Marginal effect (percentage points)", y = NULL) +
@@ -1499,15 +1497,15 @@ cfct_data[c(1:5, nrow(corruption) + 1:5), ]
 
 That's neat! These 5 countries all have their original values of polyarchy, GDP per capita, and region, but have their public sector corruption indexes set to 20 (in the first copy) and 80 (in the second copy).
 
-We can feed this stacked data to `marginaleffects()` to get an instantaneous slope (`dydx`) for each row:
+We can feed this stacked data to `slopes()` to get an instantaneous slope (`estimate`) for each row:
 
 ```{r mfx-cfct}
 # Specify variables = "public_sector_corruption" so that it doesn't calculate
-# marginal effects and contrasts for all the other covariates
+# slopes and contrasts for all the other covariates
 mfx_cfct <- model_logit_fancy |> 
-  marginaleffects(newdata = datagrid(public_sector_corruption = c(20, 80),
-                                     grid_type = "counterfactual"),
-                  variables = "public_sector_corruption")
+  slopes(newdata = datagrid(public_sector_corruption = c(20, 80),
+                            grid_type = "counterfactual"),
+         variables = "public_sector_corruption")
 
 head(mfx_cfct)
 ```
@@ -1517,17 +1515,17 @@ Finally we can calculate group averages for each of the levels of `public_sector
 ```{r mfx-cfct-dplyr}
 mfx_cfct |> 
   group_by(public_sector_corruption) |> 
-  summarize(avg_dydx = mean(dydx))
+  summarize(avg_slope = mean(estimate))
 ```
 
 Or we can let **marginaleffects** deal with the averaging so that we can get standard errors and confidence intervals:
 
 ```{r mfx-cfct-mfx}
 model_logit_fancy |> 
-  marginaleffects(newdata = datagrid(public_sector_corruption = c(20, 80),
-                                     grid_type = "counterfactual"),
-                  variables = "public_sector_corruption",
-                  by = "public_sector_corruption")
+  avg_slopes(newdata = datagrid(public_sector_corruption = c(20, 80),
+                                grid_type = "counterfactual"),
+             variables = "public_sector_corruption",
+             by = "public_sector_corruption")
 ```
 
 We can also calculate group averages across each region to get region-specific AME-flavored effects:
@@ -1536,36 +1534,34 @@ We can also calculate group averages across each region to get region-specific A
 mfx_cfct |> 
   filter(region %in% regions_to_use) |> 
   group_by(public_sector_corruption, region) |> 
-  summarize(avg_dydx = mean(dydx))
+  summarize(avg_slope = mean(estimate))
 ```
 
 Or again, we can get standard errors and confidence intervals:
 
 ```{r mfx-cfct-game-mfx}
 model_logit_fancy |> 
-  marginaleffects(newdata = datagrid(public_sector_corruption = c(20, 80),
-                                     grid_type = "counterfactual"),
-                  variables = "public_sector_corruption",
-                  by = c("public_sector_corruption", "region"))
+  avg_slopes(newdata = datagrid(public_sector_corruption = c(20, 80),
+                                grid_type = "counterfactual"),
+             variables = "public_sector_corruption",
+             by = c("public_sector_corruption", "region"))
 ```
 
 Let's compare these counterfactual marginal effects with the region-specific marginal effects at representative values that we calculated earlier:
 
 ```{r plot-cfx-coef-plot, warning=FALSE, height=3.5}
 ame_flavored <- model_logit_fancy |> 
-  marginaleffects(newdata = datagrid(public_sector_corruption = c(20, 80),
-                                     grid_type = "counterfactual"),
-                  variables = "public_sector_corruption",
-                  by = c("public_sector_corruption", "region")) |> 
-  tidy() |> 
+  slopes(newdata = datagrid(public_sector_corruption = c(20, 80),
+                            grid_type = "counterfactual"),
+         variables = "public_sector_corruption",
+         by = c("public_sector_corruption", "region")) |> 
   filter(region %in% regions_to_use)
 
 mem_flavored <- model_logit_fancy |> 
-  marginaleffects(newdata = datagrid(public_sector_corruption = c(20, 80),
-                                     region = regions_to_use),
-                  variables = "public_sector_corruption",
-                  by = c("public_sector_corruption", "region")) |> 
-  tidy()
+  slopes(newdata = datagrid(public_sector_corruption = c(20, 80),
+                            region = regions_to_use),
+         variables = "public_sector_corruption",
+         by = c("public_sector_corruption", "region"))
 
 mfx_to_plot <- bind_rows(`Counterfactual stacked data` = ame_flavored, 
                          `Average values` = mem_flavored, 
@@ -1574,7 +1570,7 @@ mfx_to_plot <- bind_rows(`Counterfactual stacked data` = ame_flavored,
 
 ggplot(mfx_to_plot, aes(x = estimate * 100, y = region, color = region, 
                         linetype = approach, shape = approach)) +
-  geom_vline(xintercept = 0, size = 0.5, linetype = "24", color = clrs[5]) +
+  geom_vline(xintercept = 0, linewidth = 0.5, linetype = "24", color = clrs[5]) +
   geom_pointrange(aes(xmin = conf.low * 100, xmax = conf.high * 100),
                   position = position_dodge(width = -0.6)) +
   scale_color_manual(values = c(clrs[4], clrs[1], clrs[2]), guide = "none") +
@@ -1595,10 +1591,10 @@ But regression lends itself well to group means, and predictions and fitted valu
 
 We've already seen two different functions for generating predictions when we plotted the predicted probabilities of having a disclosure law for each region: `marginaleffects::predictions()` and `emmeans::emmeans()`.
 
-I won't go into a ton of detail here about the differences between the two approaches to predictions and contrasts, mostly because pretty much everything we've looked at so far applies to both. Instead, you should look at Vincent's excellent vignettes for **marginalmeans**:
+I won't go into a ton of detail here about the differences between the two approaches to predictions and contrasts, mostly because pretty much everything we've looked at so far applies to both. Instead, you should look at Vincent's excellent vignettes for **marginaleffects**:
 
-- [Adjusted predictions](https://vincentarelbundock.github.io/marginaleffects/articles/mfx01_predictions.html)
-- [Contrasts](https://vincentarelbundock.github.io/marginaleffects/articles/mfx02_contrasts.html)
+- [Predictions](https://marginaleffects.com/articles/predictions.html)
+- [Comparisons](https://marginaleffects.com/articles/comparisons.html)
 
 And the equally excellent vignettes for **emmeans**:
 
@@ -1607,9 +1603,9 @@ And the equally excellent vignettes for **emmeans**:
 
 You should also check out [this Twitter thread tutorial](https://twitter.com/alexpghayes/status/1282869973006909441) by [Alex Hayes](https://www.alexpghayes.com/) on categorical contrasts and means—it's a fantastic illustration of this same process.
 
-In general, the two packages follow the same overall approach that we've seen with `marginaleffects()` and `emtrends()`:
+In general, the two packages follow the same overall approach that we've seen with `slopes()` and `emtrends()`:
 
-- Prediction and contrast functions in **marginaleffects** try to calculate predictions and averages for each row, then collapses them to single average values (either globally or for specific groups). This approach is AME-flavored (though **marginaleffects** can also do MEM-flavored operations and average first).
+- Prediction and comparison functions in **marginaleffects** try to calculate predictions and averages for each row, then collapses them to single average values (either globally or for specific groups). This approach is AME-flavored (though **marginaleffects** can also do MEM-flavored operations and average first).
 - Prediction and contrast functions in **emmeans** collapse values into averages first, then feeds those average values into the model to generate average predictions and means (either globally or for specific groups). This approach is MEM-flavored.
 
 
@@ -1629,13 +1625,13 @@ library(kableExtra)
 
 wrap_r <- function(x) glue('<pre class="r smaller"><code>{x}</code></pre>')
 
-cfct <- r"{marginaleffects(
+cfct <- r"{slopes(
    model, 
    newdata = datagrid(some_x = c(10, 20), 
    grid_type = "counterfactual")
 )}"
 
-mer_mfx <- r"{marginaleffects(
+mer_mfx <- r"{slopes(
    model, 
    newdata = datagrid(some_x = c(10, 20))
 )}"
@@ -1647,9 +1643,9 @@ mer_emmeans <- r"{emtrends(
 
 tribble(
   ~Type, ~Process, ~marginaleffects, ~emmeans,
-  "Average marginal effects (AME)", "Generate predictions for each row of the original data, then collapse to averages", wrap_r("marginaleffects(model)"), "Not supported",
-  "Group average marginal effects (G-AME)", "Generate predictions for each row of the original data, then collapse to grouped averages", wrap_r('marginaleffects(model, by = "some_group")'), "Not supported",
-  "Marginal effects at the mean (MEM)", "Collapse data to averages, then generate predictions using those averages", wrap_r('marginaleffects(model, newdata = "mean")'), wrap_r('emtrends(model, ...)'),
+  "Average marginal effects (AME)", "Generate predictions for each row of the original data, then collapse to averages", wrap_r("avg_slopes(model)"), "Not supported",
+  "Group average marginal effects (G-AME)", "Generate predictions for each row of the original data, then collapse to grouped averages", wrap_r('avg_slopes(model, by = "some_group")'), "Not supported",
+  "Marginal effects at the mean (MEM)", "Collapse data to averages, then generate predictions using those averages", wrap_r('avg_slopes(model, newdata = "mean")'), wrap_r('emtrends(model, ...)'),
   "Marginal effects at user-specified or representative values (MER)", "Create a grid of specific and average or typical values, then generate predictions", wrap_r(mer_mfx), wrap_r(mer_emmeans),
   "Average marginal effects at counterfactual user-specified values", "Create multiple copies of the original data with some columns set to specific values, then generate predictions for each row of each copy of the original data, then collapse to averages", wrap_r(cfct), "Not supported"
 ) |> 

@@ -6,6 +6,8 @@ categories:
   - pandoc
   - macos
 image: workflow-best.png
+doi: 10.59350/y07h7-cn637
+citation: true
 ---
 
 GSU uses Microsoft's Office365 for e-mail, which is fine. My previous institutions—Duke and BYU—both use it too, and it's pretty standard. GSU also enforces 2-factor authentication (2FA) with Duo, which is also fine. Everybody should use some sort of 2FA for all their important accounts!

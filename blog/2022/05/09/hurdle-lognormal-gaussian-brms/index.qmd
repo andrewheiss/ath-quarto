@@ -16,6 +16,8 @@ tags:
 format: 
   html:
     toc-depth: 4
+doi: 10.59350/ety2j-09566
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -976,7 +978,7 @@ model_gdp_hurdle_panel |>
           at = list(year = c(0, 55), 
                     continent = unique(gapminder$continent),
                     lifeExp = seq(30, 80, 1)),
-          epred = TRUE, re_formula = NULL) |> 
+          epred = TRUE, re_formula = NULL, allow_new_levels = TRUE) |> 
   gather_emmeans_draws() |> 
   mutate(year = year + 1952) |> 
   ggplot(aes(x = lifeExp, y = .value)) +
@@ -1004,7 +1006,7 @@ mfx_gdp_hurdle_panel_log <- model_gdp_hurdle_panel |>
            var = "lifeExp",
            at = list(year = 0, continent = unique(gapminder$continent),
                      lifeExp = c(40, 70)),
-           re_formula = NULL) |> 
+           re_formula = NULL, allow_new_levels = TRUE) |> 
   as_tibble() |> 
   mutate(years = xfun::numbers_to_words(lifeExp)) |> 
   split(~ years + continent)
@@ -1014,7 +1016,7 @@ mfx_gdp_hurdle_panel_nolog <- model_gdp_hurdle_panel |>
            var = "lifeExp",
            at = list(year = 0, continent = unique(gapminder$continent),
                      lifeExp = c(40, 70)),
-           re_formula = NULL, epred = TRUE) |> 
+           re_formula = NULL, epred = TRUE, allow_new_levels = TRUE) |> 
   as_tibble() |> 
   mutate(years = xfun::numbers_to_words(lifeExp)) |> 
   split(~ years + continent)
@@ -1028,7 +1030,7 @@ ame_model_gdp_hurdle_panel_log <- model_gdp_hurdle_panel |>
            var = "lifeExp",
            at = list(year = 0, continent = unique(gapminder$continent),
                      lifeExp = c(40, 70)),
-           re_formula = NULL)
+           re_formula = NULL, allow_new_levels = TRUE)
 ame_model_gdp_hurdle_panel_log
 
 ame_model_gdp_hurdle_panel_log |> 
@@ -1054,7 +1056,7 @@ ame_model_gdp_hurdle_panel_nolog <- model_gdp_hurdle_panel |>
            var = "lifeExp",
            at = list(year = 0, continent = unique(gapminder$continent),
                      lifeExp = c(40, 70)),
-           re_formula = NULL, epred = TRUE)
+           re_formula = NULL, epred = TRUE, allow_new_levels = TRUE)
 ame_model_gdp_hurdle_panel_nolog
 
 ame_model_gdp_hurdle_panel_nolog |> 
@@ -1078,7 +1080,7 @@ ame_model_gdp_hurdle_panel_nolog_fancy <- model_gdp_hurdle_panel |>
            var = "lifeExp",
            at = list(year = c(0, 55), continent = unique(gapminder$continent),
                      lifeExp = seq(40, 70, 2)),
-           epred = TRUE, re_formula = NULL)
+           epred = TRUE, re_formula = NULL, allow_new_levels = TRUE)
 
 ame_model_gdp_hurdle_panel_nolog_fancy |> 
   gather_emmeans_draws() |> 

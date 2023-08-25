@@ -9,6 +9,8 @@ categories:
   - regression
   - statistics
   - data visualization
+doi: 10.59350/t57vy-p5115
+citation: true
 ---
 
 ```{r setup, include=FALSE}

@@ -20,6 +20,8 @@ format:
   html:
     reference-location: margin
     code-fold: show
+doi: 10.59350/kw2gj-kw740
+citation: true
 ---
 
 ```{r setup, include=FALSE}

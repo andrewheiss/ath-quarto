@@ -11,6 +11,8 @@ categories:
   - r
   - statistics
   - regression
+doi: 10.59350/qba9a-b3561
+citation: true
 ---
 
 ```{r setup, include=FALSE}

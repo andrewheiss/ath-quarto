@@ -10,6 +10,8 @@ categories:
   - do calculus
   - inverse probability weighting
 image: blackwell-glynn-fig-2.png
+doi: 10.59350/48w1z-xen07
+citation: true
 ---
 
 ```{r, include=FALSE}

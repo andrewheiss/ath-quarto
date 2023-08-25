@@ -20,6 +20,8 @@ format:
   html:
     fig-cap-location: bottom
 bibliography: references.json
+doi: 10.59350/xgwjy-dyj66
+citation: true
 ---
 
 ```{r setup, include=FALSE}

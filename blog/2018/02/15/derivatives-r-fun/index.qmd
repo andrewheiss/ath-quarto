@@ -57,8 +57,8 @@ Plotting these functions is easy with `geom_function()`:
 
 ```{r plot-functions}
 ggplot(data = tibble(x = 0:10), aes(x = x)) +
-  geom_function(fun = cost, size = 1, aes(color = "Total cost")) +
-  geom_function(fun = revenue, size = 1, aes(color = "Total revenue")) +
+  geom_function(fun = cost, linewidth = 1, aes(color = "Total cost")) +
+  geom_function(fun = revenue, linewidth = 1, aes(color = "Total revenue")) +
   labs(x = "Quantity", y = "Price") +
   scale_y_continuous(labels = scales::dollar) +
   scale_color_manual(values = c("Total cost" = "red", "Total revenue" = "blue"),
@@ -78,8 +78,8 @@ We can also plot these:
 
 ```{r plot-marginal-functions}
 ggplot(data = tibble(x = 0:10), aes(x = x)) +
-  geom_function(fun = mc, size = 1, aes(color = "Marginal cost")) +
-  geom_function(fun = mr, size = 1, aes(color = "Marginal revenue")) +
+  geom_function(fun = mc, linewidth = 1, aes(color = "Marginal cost")) +
+  geom_function(fun = mr, linewidth = 1, aes(color = "Marginal revenue")) +
   labs(x = "Quantity", y = "Price") +
   scale_y_continuous(labels = scales::dollar) +
   scale_color_manual(values = c("Marginal cost" = "red", "Marginal revenue" = "blue"),
@@ -137,7 +137,7 @@ costs_revenues_plot <- costs_revenues %>%
   gather(Variable, Price, -Quantity)
 
 ggplot(costs_revenues_plot, aes(x = Quantity, y = Price, color = Variable)) +
-  geom_line(size = 1) +
+  geom_line(linewidth = 1) +
   scale_y_continuous(labels = scales::dollar) +
   scale_color_manual(values = c("red", "blue")) +
   theme_light() +
@@ -180,9 +180,9 @@ We can plot these empirically-approximated marginal functions and see that they 
 
 ```{r plot-empirical-marginal-functions}
 ggplot(data = tibble(x = 0:10), aes(x = x)) +
-  geom_function(fun = cost_empirical, size = 1, args = list(deriv = 1),
+  geom_function(fun = cost_empirical, linewidth = 1, args = list(deriv = 1),
                 aes(color = "Marginal cost")) +
-  geom_function(fun = revenue_empirical, size = 1, args = list(deriv = 1),
+  geom_function(fun = revenue_empirical, linewidth = 1, args = list(deriv = 1),
                 aes(color = "Marginal revenue")) +
   labs(x = "Quantity", y = "Price") +
   scale_y_continuous(labels = scales::dollar) +
@@ -223,11 +223,11 @@ We can plot all of these things together:
 
 ```{r plot-all-empirical}
 ggplot(data = tibble(x = 0:10), aes(x = x)) +
-  geom_function(fun = demand_empricial_spline, size = 1,
+  geom_function(fun = demand_empricial_spline, linewidth = 1,
                 aes(color = "Demand")) +
-  geom_function(fun = cost_empirical, size = 1, args = list(deriv = 1),
+  geom_function(fun = cost_empirical, linewidth = 1, args = list(deriv = 1),
                 aes(color = "Marginal cost")) +
-  geom_function(fun = revenue_empirical, size = 1, args = list(deriv = 1),
+  geom_function(fun = revenue_empirical, linewidth = 1, args = list(deriv = 1),
                 aes(color = "Marginal revenue")) +
   geom_vline(xintercept = optimal_q_empirical$root, 
              color = "grey50", linetype = "dashed") +

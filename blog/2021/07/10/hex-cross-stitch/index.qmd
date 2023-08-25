@@ -8,6 +8,8 @@ categories:
   - cross stitch
   - pandemic boredom
   - data science
+doi: 10.59350/ha58q-xzf62
+citation: true
 ---
 
 ::: {.callout-tip}

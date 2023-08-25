@@ -10,6 +10,8 @@ categories:
   - DAGs
   - do calculus
   - inverse probability weighting
+doi: 10.59350/yqs5b-36r77
+citation: true
 ---
 
 ```{r, include=FALSE}

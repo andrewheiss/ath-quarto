@@ -18,6 +18,8 @@ format:
     fig-cap-location: bottom
 resources: 
   - clean-data-real.R
+doi: 10.59350/24rwv-k9n62
+citation: true
 ---
 
 ```{r setup, include=FALSE}

@@ -9,6 +9,8 @@ tags:
   - rmarkdown
   - markdown
   - make
+doi: 10.59350/t1hra-4a041
+citation: true
 ---
 
 

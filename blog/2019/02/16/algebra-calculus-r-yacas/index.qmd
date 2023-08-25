@@ -9,6 +9,8 @@ categories:
   - yacas
   - economics
 image: complete-example-1.png
+doi: 10.59350/ass44-ypk45
+citation: true
 ---
 
 <span class="small">([See this notebook on GitHub](https://github.com/andrewheiss/algebra-calculus-r-yacas))</span>

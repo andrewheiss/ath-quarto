@@ -8,6 +8,8 @@ categories:
   - cross stitch
   - pandemic boredom
   - bayes
+doi: 10.59350/pdqkh-czk27
+citation: true
 ---
 
 ::: {.callout-tip}

@@ -16,6 +16,8 @@ categories:
 format:
   html:
     toc-depth: 4
+doi: 10.59350/wbn93-edb02
+citation: true
 ---
 
 ```{r setup, include=FALSE}

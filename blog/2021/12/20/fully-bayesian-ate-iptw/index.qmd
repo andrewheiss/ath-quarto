@@ -16,6 +16,8 @@ categories:
   - bayes
   - brms
   - stan
+doi: 10.59350/gyvjk-hrx68
+citation: true
 ---
 
 ```{css, echo=FALSE}

@@ -13,6 +13,8 @@ categories:
   - ggplot
   - gis
   - maps
+doi: 10.59350/bsctw-0a955
+citation: true
 ---
 
 ```{r setup, include=FALSE}

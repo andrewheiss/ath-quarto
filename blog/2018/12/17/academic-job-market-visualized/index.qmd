@@ -7,6 +7,8 @@ categories:
   - ggplot
   - dataviz
   - jobs
+doi: 10.59350/szk3h-v8674
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -392,7 +394,7 @@ countries_applied_map <- ggplot() +
   coord_sf(crs = st_crs("ESRI:54030"), datum = NA) +
   scale_color_manual(values = unlist(cols_year), name = NULL) +
   scale_fill_manual(values = c("#d3b3d7"), na.value = "grey95", 
-                    name = NULL, guide = FALSE) +
+                    name = NULL, guide = "none") +
   theme_job_market_map()
 countries_applied_map
 ```

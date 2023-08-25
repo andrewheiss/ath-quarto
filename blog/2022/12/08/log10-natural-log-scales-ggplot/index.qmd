@@ -8,6 +8,8 @@ categories:
   - tidyverse
   - ggplot
   - data visualization
+doi: 10.59350/b4gjd-50c81
+citation: true
 ---
 
 ```{r setup, include=FALSE}
@@ -16,7 +18,7 @@ knitr::opts_chunk$set(fig.width = 6, fig.height = 3.8,
                       out.width = "85%", collapse = TRUE)
 ```
 
-I always forget how to deal with logged values in ggplot—particularly things that use the natural log. The [{scales} package](https://scales.r-lib.org/) was invented in part to allow users to adjust axes and scales in plots, including adjusting axes to account for logged values, but three have been some new developments in {scales} that have made existing answers (like [this one on StackOverflow](https://stackoverflow.com/a/43710602/120898)) somewhat obsolete (e.g. the `trans_breaks()` and `trans_format()` functions used there are superceded and deprecated). 
+I always forget how to deal with logged values in ggplot—particularly things that use the natural log. The [{scales} package](https://scales.r-lib.org/) was invented in part to allow users to adjust axes and scales in plots, including adjusting axes to account for logged values, but there have been some new developments in {scales} that have made existing answers (like [this one on StackOverflow](https://stackoverflow.com/a/43710602/120898)) somewhat obsolete (e.g. the `trans_breaks()` and `trans_format()` functions used there are superceded and deprecated). 
 
 So here's a quick overview of how to use 2022-era {scales} to adjust axis breaks and labels to use both base 10 logs and natural logs. I'll use data from the Gapminder project, since it has a nice exponentially-distributed measure of GDP per capita.
 

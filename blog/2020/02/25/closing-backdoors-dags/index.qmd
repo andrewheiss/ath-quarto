@@ -10,6 +10,8 @@ tags:
   - DAGs
   - causal inference
   - do calculus
+doi: 10.59350/z5y4e-jgk85
+citation: true
 ---
 
 <span class="small">([See this notebook on GitHub](https://github.com/andrewheiss/closing-backdoors-dags))</span>

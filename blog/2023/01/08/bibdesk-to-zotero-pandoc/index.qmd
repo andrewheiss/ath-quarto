@@ -13,6 +13,8 @@ categories:
   - citations
   - pandoc
   - zotero
+doi: 10.59350/cwrq4-m7h10
+citation: true
 ---
 
 ```{r setup, include=FALSE}

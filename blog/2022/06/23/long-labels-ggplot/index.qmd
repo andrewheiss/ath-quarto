@@ -8,6 +8,8 @@ categories:
   - tidyverse
   - ggplot
   - data visualization
+doi: 10.59350/x7xtj-3dh31
+citation: true
 ---
 
 ```{r setup, include=FALSE}
