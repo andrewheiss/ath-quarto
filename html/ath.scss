@@ -326,6 +326,22 @@ pre.text, pre.sourceCode, .cell-output pre {
                 cursor: pointer;
             }
         }
+               
+        .post-doi {
+            font-weight: 300;
+            font-size: 0.85em;
+            margin: 0.5em 0;
+            text-align: right;
+            
+            .doi-icon {
+                width: 1.1em;
+                padding-bottom: 1px;
+            }
+            
+            a {
+                color: $gray-600;
+            }
+        }
     }
 }
 
@@ -340,6 +356,20 @@ pre.text, pre.sourceCode, .cell-output pre {
             font-size: 0.65em;
             opacity: 1;
         }
+    }
+    
+    .quarto-title-author-orcid img {
+        margin-bottom: -3px;
+    }
+    
+    .quarto-title-meta-contents .doi::before {
+        content: "";
+        background-image: url(/files/doi.svg);
+        background-size: 1.1em;
+        display: inline-block;
+        width: 1.1em;
+        height: 1.1em;
+        margin-bottom: -3px;
     }
 }
 

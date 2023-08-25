@@ -19,6 +19,10 @@
             <% } %>
 
             <p class="description listing-description"><%= post.description %></p>
+            
+            <% if (post.doi) { %>
+            <p class="post-doi"><img src="/files/doi.svg" class="doi-icon img-fluid" alt="DOI"/> <a href="https://doi.org/<%= post.doi %>" target="_blank" rel="noopener noreferrer"><%= post.doi %></a></p>
+            <% } %>
         </div>
         <% if (post.image) { %>
         <div class="thumbnail">
