@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2023-09-06
+date: 2023-09-19
 description-meta: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -11,7 +11,7 @@ toc-title: "Contents"
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of September 6, 2023 this is what I'm using:
+I try to keep this updated fairly regularly. As of September 19, 2023 this is what I'm using:
 
 
 ## Writing
