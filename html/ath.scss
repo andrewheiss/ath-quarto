@@ -142,6 +142,7 @@ pre.text, pre.sourceCode, .cell-output pre {
 #TOC {
     font-family: $toc-font-family;
     padding-bottom: 0.1em;
+    font-weight: 300;
 
     .active {
         font-weight: 400;
@@ -157,6 +158,7 @@ pre.text, pre.sourceCode, .cell-output pre {
     padding-bottom: 0.25rem;
 }
 
+// Blog categories
 #quarto-margin-sidebar {
     .quarto-listing-category-title {
         margin-left: 0.5em;
