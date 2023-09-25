@@ -1,6 +1,6 @@
 ---
 title: "Hello there!"
-pagetitle: "{{< meta website.title >}}"
+pagetitle: "Andrew Heiss"
 main-photo: /files/profiles/andrew-heiss-2022.jpg
 main-photo-square: /files/profiles/andrew-heiss-2022-square.jpg
 title-block-banner: "#CF4446"

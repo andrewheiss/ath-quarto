@@ -30,12 +30,11 @@ csl: files/bib/chicago-author-date.csl
 
 # Metadata stuff
 pagetitle: "{{< meta title >}} | Andrew Heiss"
-description-meta: "Andrew Heiss is an assistant professor at Georgia State University, researching international NGOs and teaching data science & economics."
 author-meta: "Andrew Heiss"
 
 website:
   title: "Andrew Heiss"
-  description: "{{< meta description-meta >}}"
+  description: "Andrew Heiss is an assistant professor at Georgia State University, researching international NGOs and teaching data science & economics."
   favicon: "/files/favicon-512.png"
   site-url: "https://www.andrewheiss.com"
   repo-url: "https://github.com/andrewheiss/ath-quarto"
@@ -44,14 +43,12 @@ website:
 
   twitter-card: 
     image: "/files/profiles/twitter-card-large.png"
-    description: "{{< meta description-meta >}}"
     card-style: summary_large_image
     creator: "@andrewheiss"
     site: "@andrewheiss"
 
   open-graph: 
     image: "/files/profiles/twitter-card-large.png"
-    description: "{{< meta description-meta >}}"
     locale: en_US
   
   navbar:
@@ -82,13 +79,17 @@ website:
       - icon: envelope
         aria-label: email
         href: "mailto:aheiss@gsu.edu"
-      - icon: twitter
-        aria-label: twitter
-        href: https://twitter.com/andrewheiss
+      - icon: square-fill
+        aria-label: bluesky
+        href: https://bsky.app/profile/andrew.heiss.phd
         rel: me
       - icon: mastodon
         aria-label: mastodon
         href: https://fediscience.org/users/andrew/
+        rel: me
+      - icon: twitter
+        aria-label: twitter
+        href: https://twitter.com/andrewheiss
         rel: me
       - icon: github
         aria-label: github

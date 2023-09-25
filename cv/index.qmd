@@ -1,6 +1,6 @@
 ---
 title: Curriculum vitæ
-description-meta: "Andrew Heiss's CV"
+description: "Andrew Heiss's CV"
 date: 2023-02-28
 title-block-banner: "#771C6D"
 published-title: CV last updated
@@ -8,6 +8,12 @@ engine: knitr
 cv:
   pdf: "2023-02-28_andrew-heiss-cv.pdf"
 ---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
 
 ```{css echo=FALSE}
 .embed-container {

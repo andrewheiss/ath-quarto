@@ -1,7 +1,7 @@
 ---
 title: "Blog"
 author: ""
-description-meta: "Andrew Heiss's blog"
+description: "Andrew Heiss's blog"
 listing:
   - id: posts_2023
     contents: "2023/**/index.qmd"
@@ -72,7 +72,14 @@ toc-location: right
 date-format: "MMMM D, YYYY"
 code-tools: false
 comments: false
+engine: knitr
 ---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
 
 ## 2023
 

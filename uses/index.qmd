@@ -1,13 +1,20 @@
 ---
 title: What I use
 date: 2023-09-19
-description-meta: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
+description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
 toc: true
 toc-location: left
 toc-title: "Contents"
+engine: knitr
 ---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
