@@ -73,37 +73,28 @@ website:
         file: uses/index.qmd
     
     right:
-      - icon: rss
-        aria-label: rss
+      - text: "{{< iconify bi rss size=1.1em title='RSS' >}}"
         href: atom.xml
-      - icon: envelope
-        aria-label: email
+      - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}}"
         href: "mailto:aheiss@gsu.edu"
-      - icon: square-fill
-        aria-label: bluesky
+      - text: "{{< iconify ph butterfly-bold size=1.2em title='Bluesky' >}}"
         href: https://bsky.app/profile/andrew.heiss.phd
         rel: me
-      - icon: mastodon
-        aria-label: mastodon
+      - text: "{{< iconify bi mastodon size=1.1em title='Mastodon' >}}"
         href: https://fediscience.org/users/andrew/
         rel: me
-      - icon: twitter
-        aria-label: twitter
-        href: https://twitter.com/andrewheiss
+      - text: "{{< iconify bi threads size=1em title='Threads' >}}"
+        href: https://www.threads.net/%40andrewheiss
         rel: me
-      - icon: github
-        aria-label: github
+      - text: "{{< iconify bi github size=1.1em title='GitHub' >}}"
         href: https://github.com/andrewheiss
         rel: me
-      - icon: youtube
-        aria-label: youtube
+      - text: "{{< iconify bi youtube size=1.1em title='YouTube' >}}"
         href: https://www.youtube.com/andrewheiss
         rel: me
-      - icon: postage-heart-fill
-        aria-label: family
+      - text: "{{< iconify fa6-brands blogger size=1.15em title='Blogger' >}}"
         href: https://www.heissatopia.com/
-      - icon: linkedin
-        aria-label: linkedin
+      - text: "{{< iconify bi linkedin size=1.1em title='LinkedIn' >}}"
         href: https://www.linkedin.com/in/andrewheiss
         rel: me
   
