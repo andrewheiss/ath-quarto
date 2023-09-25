@@ -121,6 +121,8 @@ format:
   html:
     theme: 
       - html/ath.scss
+    grid: 
+      body-width: 900px
     toc: false
     code-link: true
     anchor-sections: true
