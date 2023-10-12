@@ -899,7 +899,7 @@ often_comics_only
 
 Since we have columns for `n`, `total`, and `country`, we can run an aggregated binomial logistic regression model like this:
 
-```{r q1-model-logit, cache=TRUE}
+```{r q1-model-logit, cache=TRUE, warning=FALSE}
 often_comics_model_logit <- brm(
   bf(n | trials(total) ~ country),
   data = often_comics_only,
