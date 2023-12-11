@@ -28,6 +28,10 @@ format:
           .iframe-parent {
             height: 600px;
           }
+          
+          .img-border img {
+             border: 1px #cccccc solid;
+          }
           </style>
 ---
 
@@ -48,7 +52,7 @@ For years, my approach to making an appendix has been to use two separate Markdo
 
 That's nice and straightforward and easy. I get two separate documents in the end, [like this project](https://stats.andrewheiss.com/cautioning-canary/):
 
-![Multiple outputs for separate documents](img/multiple-outputs.png){width=100%}
+![Multiple outputs for separate documents](img/multiple-outputs.png){width=80% .img-border}
 
 Using separate files also lets me find the word count for the manuscript without needing to account for the appendix (like with my [Quarto word count extension](https://github.com/andrewheiss/quarto-wordcount)).
 
@@ -64,7 +68,7 @@ See @fig-results and @tbl-details for the results.
 
 Those numbers are automatically incremented, so it might say "Figure 4" if you have images earlier in the document. The numbers can have hyperlinks added to them so you can jump to the corresponding figure or table, and if you're using rendering to HTML with Quarto, you also get a neat little preview popup when you hover over the link:
 
-![Popup hover preview](img/hover-reference.png){width=100%}
+![Popup hover preview](img/hover-reference.png){width=80% .img-border}
 
 However, you cannot cross reference content that is in a separate file. For instance, if I'm writing in `manuscript.qmd` and I have a table in `appendix.qmd` named `tbl-extra-details`, if I write this:
 
@@ -158,7 +162,7 @@ bibliography:
 
 This makes Quarto mad (see [this](https://github.com/pandoc-ext/multibib/issues/9) and [this](https://github.com/quarto-dev/quarto-cli/discussions/7642)):
 
-![YAML validation error](img/validation-error.png){width=100%}
+![YAML validation error](img/validation-error.png){width=60%}
 
 This is because Quarto enforces a strict schema for all its YAML settings and tries to make you input correct data for the different settings. It also makes it so that tab completion of the different settings works really well. It's a Good Thing. Technically, Quarto wants the `bibliography` setting to be a string, or the name of a file with the references. It doesn't want to work with a list of strings.
 
