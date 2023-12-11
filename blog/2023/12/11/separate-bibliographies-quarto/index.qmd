@@ -17,8 +17,8 @@ categories:
 resources:
   - "example/**"
   - "img/*"
-# doi: 10.59350/64j0k-26134
-# citation: true
+doi: 10.59350/5dvez-q6817
+citation: true
 
 format:
   html:
