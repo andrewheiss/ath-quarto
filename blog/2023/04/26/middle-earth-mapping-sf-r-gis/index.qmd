@@ -526,7 +526,7 @@ rivendell <- places %>% filter(NAME == "Rivendell")
 st_distance(hobbiton, rivendell) %>% meters_to_miles()
 ```
 
-According to Karen Wynn Fonstad's [*Atlas of Middle-earth*](https://www.amazon.com/Atlas-Middle-Earth-Revised-Karen-Fonstad/dp/0618126996), though, [this should be 458 miles](Karen Wynn Fonstad), which is exactly double the amount we just found! Somehow the distances between everything in the shapefiles are halved from regular-Earth miles. 
+According to Karen Wynn Fonstad's [*Atlas of Middle-earth*](https://www.amazon.com/Atlas-Middle-Earth-Revised-Karen-Fonstad/dp/0618126996), though, this should be [458 miles](https://www.councilofelrond.com/craft/follow-the-fellowship-walk-to-rivendell-and-beyond/), which is exactly double the amount we just found! Somehow the distances between everything in the shapefiles are halved from regular-Earth miles. 
 
 To fix this we can double the distance between Hobbiton and everything else in the dataset, expanding the data from Hobbiton, which now acts like the center of the world
 
