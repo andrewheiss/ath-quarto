@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2023-12-11
+date: 2024-01-12
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -8,6 +8,7 @@ toc: true
 toc-location: left
 toc-title: "Contents"
 engine: knitr
+freeze: false
 ---
 
 ```{css, echo=FALSE}
@@ -18,7 +19,7 @@ engine: knitr
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of December 11, 2023 this is what I'm using:
+I try to keep this updated fairly regularly. As of January 12, 2024 this is what I'm using:
 
 
 ## Writing
