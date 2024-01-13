@@ -1,0 +1,100 @@
+---
+title: "DIY API with Make and {plumber}"
+date: 2024-01-12
+description: "Use Make and {plumber} to create your own API and show live data in Quarto with R and Observable JS"
+image: "img/card.png"
+twitter-card:
+  image: "img/card.png"
+open-graph:
+  image: "img/card.png"
+categories:
+  - r
+  - tidyverse
+  - quarto
+  - observablejs
+  - plumber
+  - api
+  - make
+  - goals
+resources:
+  - "_book/**"
+  - "img/*"
+doi: 10.59350/pe5s8-e0f47
+---
+
+::: {.callout-important}
+## Complete tutorial and code
+
+<a href="_book/" target="_blank" rel="noopener">See the full tutorial here.</a> You can also see [the tutorial's code here](https://github.com/andrewheiss/diy-api-plumber-quarto-ojs) and the [code for the final API here](https://github.com/andrewheiss/basic-plumber-api).
+:::
+
+For years, I've tracked all sorts of data about myself (and my family) through Google Forms, [Airtable](https://www.airtable.com/), and devices like Fitbits to keep track of all sorts of things: personal goals, progress of research projects, current health status, books read, and so on.
+
+It's nice to have all this data, but it's hard to use it all immediately. I often look at it at the end of the year, or every few months, or whatever, but having an instant snapshot is helpful too. That's why people invented data dashboards, after all.
+
+I like R a lot, and R has the ability to make dashboards, like with [{flexdashboard}](https://pkgs.rstudio.com/flexdashboard/) and [Shiny](https://shiny.posit.co/). I've made several dashboards for tracking things like health and reading and research—[I even have a blog post about making one with {flexdashboard}](https://www.andrewheiss.com/blog/2020/01/01/flexdashboard-dynamic-data/)!
+
+But I've always run into issues with getting live data. With {flexdashboard}, you can make it grab the most recent version of the data you're interested in *when you knit the document*, but then to update the graphs and tables in the document, you have to re-knit it. With Shiny, there are ways to dynamically grab the latest data, but then you have to run a whole Shiny server, and that's hard and costs money *and* it's slow—it can sometimes take a few minutes to reanimate a hibernating Shiny app!
+
+However, nowadays it's possible to use [Observable JS](https://quarto.org/docs/computations/ojs.html) chunks in Quarto that automatically grab live data from the internet and display it, like this:
+
+```{ojs}
+//| echo: fenced
+//| code-fold: true
+//| code-summary: "Show the OJS code"
+d3 = require('d3')
+
+viewof year_to_show = Inputs.radio(["2023", "2024"], {value: "2023", label: "Year to show"})
+
+books = await d3.json(
+  "https://api.andrewheiss.com/books_simple?year=" + year_to_show
+)
+
+book_noun = (books.count[0] === 1 ? " book read" : " books read")
+
+Plot.plot({
+  title: books.count[0] + book_noun + " in " + year_to_show,
+  y: {
+    label: "Books read",
+    grid: false,
+    percent: false
+  },
+  x: {
+    label: "Month",
+    domain: books.monthly_count.map(d => d.read_month_fct),
+  },
+  marks: [
+    Plot.ruleY([0]),
+    Plot.axisX({label: null, ticks: null}),
+    Plot.axisY({label: null, ticks: null}),
+
+    Plot.barY(books.monthly_count, {
+      x: "read_month_fct", 
+      y: "count", 
+      fill: "#f3752f",
+      tip: {
+        format: {
+          x: true,
+          y: true
+        }
+      }
+    })
+  ]
+})
+```
+
+And now that [Quarto supports dashboards](https://quarto.org/docs/dashboards/), you can create entire Shiny-like dashboards that can load and display data without needing a Shiny server. [Like this one!](_book/dashboard/)
+
+The trickiest part of all this, though, is getting data from all around the internet (Google Sheets, Airtable databases, RSS feeds, Fitbit, etc.) into an easily accessible, clean, and usable format that you can feed into things like Observable plots or R.
+
+Fortunately there's a good (and really neat!) solution for this! You can use the [{plumber} R package](https://www.rplumber.io/) to create your own API that you can use to grab and clean data from all around the internet. And to simplify life, you can use other services like [Make.com](https://www.make.com/en) to deal with the hard work of regularly checking in on different parts of the internet (checking RSS feeds, reading Google/Airtable data, logging into services like Fitbit).
+
+In the end, you can have a server like `api.yourname.com` and access JSON, CSV, or .rds data like `api.yourname.com/books?start_date=2024-01-01`. You can then use that in an R file, in a Python script, or in a Quarto document with Observable JS. It's magical!
+
+To explain and illustrate this whole process, I started out writing a blog post, but it got long and complex, so I wrote a literal book instead. 
+
+<a href="_book/" target="_blank" rel="noopener">Access it here for a full tutorial.</a>
+
+::: {.column-page-inset}
+![Overview of the process](_book/assets/out/overview.svg)
+:::
