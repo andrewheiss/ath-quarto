@@ -1,3 +1,13 @@
+- title: Program Evaluation for Public Service
+  description: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+  university: Georgia State University
+  number: PMAP 8521
+  url: https://evalsp24.classes.andrewheiss.com/
+  logo: logos/evalsp20.png
+  semester:
+  - name: Spring 2024
+    url: https://evalsp24.classes.andrewheiss.com/
+
 - title: Data Visualization with R
   description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
   university: Georgia State University
