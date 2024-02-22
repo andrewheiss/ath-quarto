@@ -599,7 +599,7 @@ V-Dem and the World Bank have hundreds of different variables, but we only need 
   > - 5: Western Europe and North America (including Cyprus, Australia and New Zealand)
   > - 6: Asia and Pacific (excluding Australia and New Zealand)
 
-```{r get-clean-data, cache=TRUE, R.options = list(width=90)}
+```{r get-clean-data, cache=TRUE, R.options = list(width=90), eval=FALSE}
 # Get data from the World Bank's API
 wdi_raw <- WDI(country = "all", 
                indicator = c(population = "SP.POP.TOTL",
@@ -637,6 +637,21 @@ corruption <- vdem_2020 |>
   left_join(wdi_2020, by = c("country_text_id" = "iso3c")) |> 
   drop_na(gdp_percapita)
 
+glimpse(corruption)
+```
+
+::: {.callout-warning}
+### Static data!
+
+When I wrote this in May 2022, I based it on the data that both the World Bank and V-Dem had available at that time. In the months since then, they've revised their data. If you run all this code now (I'm writing this in February 2024), you'll get slightly different results because of these revisions. For instance, when this ran in 2022, the World Bank reported that Mexico's log GDP per capita in 2020 was 9.10; when running this in 2024, it reports that it was 9.13. This is a minor difference, but all these minor differences change the results slightly. The code in this chunk above still runs just fine, you'll just get slightly different data, and thus slightly different results.
+
+So, in the interest of reproducibility, you should download and load this `.RData` file that contains `wdi_raw`, `wdi_2020`, `vdem_2020`, and `corruption` from when I wrote this in 2022.
+
+- [`data_2022.RData`](data_2022.Rdata)
+:::
+
+```{r load-clean-data, R.options = list(width=90)}
+load("data_2022.RData")
 glimpse(corruption)
 ```
 
@@ -1423,6 +1438,12 @@ ggplot(logit_slopes, aes(x = public_sector_corruption.trend * 100, y = region, c
 
 ### Average marginal effects at counterfactual user-specified values
 
+::: {.callout-note}
+### Counterfactual grids in emmeans
+
+When I first wrote this in 2022, **emmeans** did not have support for counterfactual grids, but **marginaleffects** did, so here I only show this example with **marginaleffects**. Later in 2022, however, [**emmeans** added a `counterfactuals` argument to `ref_grid()`](https://cran.r-project.org/web/packages/emmeans/vignettes/messy-data.html#counterfact), so you can actually calculate these same average marginal effects at counterfactual user-specified values with both **marginaleffects** and **emmeans** now.
+:::
+
 Calculating marginal effects at representative values is useful and widespread—plugging different values into the model while holding others constant is the best way to see how all the different moving parts of a model work, especially when there interactions, exponents, or non-linear outcomes. We're using the full mixing panel here!
 
 However, creating a hypothetical data or reference grid creates hypothetical observations that might never exist in real life. This was the main difference behind the average marginal effect (AME) and the marginal effect at the mean (MEM) that we looked at earlier. Passing average covariate values into a model creates average predictions, but those averages might not reflect reality.
@@ -1626,33 +1647,40 @@ library(kableExtra)
 wrap_r <- function(x) glue('<pre class="r smaller"><code>{x}</code></pre>')
 
 cfct <- r"{slopes(
-   model, 
-   newdata = datagrid(some_x = c(10, 20), 
-   grid_type = "counterfactual")
+  model,
+  newdata = datagrid(
+    some_x = c(10, 20),
+    grid_type = "counterfactual"
+  )
+)}"
+
+cfct_emmeans <- r"{emtrends(
+  model, "some_x",
+  counterfactuals = "some_x"
 )}"
 
 mer_mfx <- r"{slopes(
-   model, 
-   newdata = datagrid(some_x = c(10, 20))
+  model,
+  newdata = datagrid(some_x = c(10, 20))
 )}"
 
 mer_emmeans <- r"{emtrends(
-   model, ..., 
-   at = list(some_x = c(10, 20))
+  model, ...,
+  at = list(some_x = c(10, 20))
 )}"
 
 tribble(
   ~Type, ~Process, ~marginaleffects, ~emmeans,
   "Average marginal effects (AME)", "Generate predictions for each row of the original data, then collapse to averages", wrap_r("avg_slopes(model)"), "Not supported",
   "Group average marginal effects (G-AME)", "Generate predictions for each row of the original data, then collapse to grouped averages", wrap_r('avg_slopes(model, by = "some_group")'), "Not supported",
-  "Marginal effects at the mean (MEM)", "Collapse data to averages, then generate predictions using those averages", wrap_r('avg_slopes(model, newdata = "mean")'), wrap_r('emtrends(model, ...)'),
+  "Marginal effects at the mean (MEM)", "Collapse data to averages, then generate predictions using those averages", wrap_r('avg_slopes(model, newdata = "mean")'), wrap_r("emtrends(model, ...)"),
   "Marginal effects at user-specified or representative values (MER)", "Create a grid of specific and average or typical values, then generate predictions", wrap_r(mer_mfx), wrap_r(mer_emmeans),
-  "Average marginal effects at counterfactual user-specified values", "Create multiple copies of the original data with some columns set to specific values, then generate predictions for each row of each copy of the original data, then collapse to averages", wrap_r(cfct), "Not supported"
-) |> 
-  kbl(table.attr = "style='font-size:80%;'", escape = FALSE) |> 
-  kable_styling() |> 
-  column_spec(1, width = "15%") |> 
-  column_spec(2, width = "25%") |> 
+  "Average marginal effects at counterfactual user-specified values", "Create multiple copies of the original data with some columns set to specific values, then generate predictions for each row of each copy of the original data, then collapse to averages", wrap_r(cfct), wrap_r(cfct_emmeans)
+) |>
+  kbl(table.attr = "style='font-size:80%;'", escape = FALSE) |>
+  kable_styling() |>
+  column_spec(1, width = "15%") |>
+  column_spec(2, width = "25%") |>
   column_spec(3:4, width = "30%")
 ```
 
