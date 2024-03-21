@@ -1,0 +1,354 @@
+[
+	{
+		"id": "Huntington-Klein:2022",
+		"type": "article-journal",
+		"container-title": "Journal of Economic Methodology",
+		"DOI": "10.1080/1350178X.2022.2088085",
+		"issue": "4",
+		"note": "tex.date-added: 2023-01-06 08:56:48 -0500\ntex.date-modified: 2023-01-06 09:16:41 -0500",
+		"page": "326–334",
+		"title": "Pearl before economists: The Book of Why and empirical economics",
+		"volume": "29",
+		"author": [
+			{
+				"family": "Huntington-Klein",
+				"given": "Nick"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "HernanRobins:2024",
+		"type": "book",
+		"event-place": "Boca Raton, Florida",
+		"note": "tex.date-added: 2023-01-06 13:42:36 -0500\ntex.date-modified: 2023-01-06 13:42:36 -0500",
+		"publisher": "Chapman and Hall / CRC",
+		"publisher-place": "Boca Raton, Florida",
+		"title": "Causal Inference: What If",
+		"URL": "https://www.hsph.harvard.edu/miguel-hernan/causal-inference-book/",
+		"author": [
+			{
+				"family": "Hernán",
+				"given": "Miguel A."
+			},
+			{
+				"family": "Robins",
+				"given": "James M."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2024"
+				]
+			]
+		}
+	},
+	{
+		"id": "CanigliaMurray:2020",
+		"type": "article-journal",
+		"container-title": "Current Epidemiology Reports",
+		"DOI": "10.1007/s40471-020-00245-2",
+		"note": "tex.date-added: 2020-11-30 13:57:53 -0500\ntex.date-modified: 2023-01-06 13:33:39 -0500\ntex.rating: 3\ntex.read: 1",
+		"title": "Difference-in-difference in the time of cholera: A gentle introduction for epidemiologists",
+		"URL": "https://doi.org/10.1007/s40471-020-00245-2",
+		"author": [
+			{
+				"family": "Caniglia",
+				"given": "Ellen C."
+			},
+			{
+				"family": "Murray",
+				"given": "Eleanor J."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "McElreath:2020",
+		"type": "book",
+		"edition": "2",
+		"event-place": "Boca Raton, Florida",
+		"note": "tex.date-added: 2020-04-26 15:08:11 -0400\ntex.date-modified: 2021-05-04 14:04:00 -0400",
+		"publisher": "Chapman and Hall / CRC",
+		"publisher-place": "Boca Raton, Florida",
+		"title": "Statistical rethinking: A Bayesian course with examples in R and Stan",
+		"author": [
+			{
+				"family": "McElreath",
+				"given": "Richard"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "Heiss:2021",
+		"type": "chapter",
+		"container-title": "R for Political Data Science: A Practical Guide",
+		"edition": "1",
+		"event-place": "Boca Raton, Florida",
+		"ISBN": "978-1-00-301062-3",
+		"note": "DOI: 10.1201/9781003010623\nsection: 10",
+		"page": "235–274",
+		"publisher": "Chapman and Hall/CRC",
+		"publisher-place": "Boca Raton, Florida",
+		"title": "Causal Inference",
+		"author": [
+			{
+				"family": "Heiss",
+				"given": "Andrew"
+			}
+		],
+		"editor": [
+			{
+				"family": "Urdinez",
+				"given": "Francisco"
+			},
+			{
+				"family": "Cruz",
+				"given": "Andrés"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					2,
+					22
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "PearlMackenzie:2020",
+		"type": "book",
+		"event-place": "New York",
+		"ISBN": "978-0-465-09760-9",
+		"language": "eng",
+		"number-of-pages": "418",
+		"publisher": "Basic Books",
+		"publisher-place": "New York",
+		"source": "K10plus ISBN",
+		"title": "The book of why: The new science of cause and effect",
+		"author": [
+			{
+				"family": "Pearl",
+				"given": "Judea"
+			},
+			{
+				"family": "Mackenzie",
+				"given": "Dana"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "GreiferStuart:2023",
+		"type": "article",
+		"abstract": "Matching and weighting methods for observational studies involve the choice of an estimand, the causal effect with reference to a specific target population. Commonly used estimands include the average treatment effect in the treated (ATT), the average treatment effect in the untreated (ATU), the average treatment effect in the population (ATE), and the average treatment effect in the overlap (i.e., equipoise population; ATO). Each estimand has its own assumptions, interpretation, and statistical methods that can be used to estimate it. This article provides guidance on selecting and interpreting an estimand to help medical researchers correctly implement statistical methods used to estimate causal effects in observational studies and to help audiences correctly interpret the results and limitations of these studies. The interpretations of the estimands resulting from regression and instrumental variable analyses are also discussed. Choosing an estimand carefully is essential for making valid inferences from the analysis of observational data and ensuring results are replicable and useful for practitioners.",
+		"DOI": "10.48550/arXiv.2106.10577",
+		"note": "arXiv:2106.10577 [stat]",
+		"number": "arXiv:2106.10577",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Choosing the causal estimand for propensity score analysis of observational studies",
+		"URL": "http://arxiv.org/abs/2106.10577",
+		"author": [
+			{
+				"family": "Greifer",
+				"given": "Noah"
+			},
+			{
+				"family": "Stuart",
+				"given": "Elizabeth A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					17
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2023",
+					7,
+					11
+				]
+			]
+		}
+	},
+	{
+		"id": "Cunningham:2021",
+		"type": "book",
+		"event-place": "New Haven London",
+		"ISBN": "978-0-300-25168-5",
+		"language": "eng",
+		"number-of-pages": "572",
+		"publisher": "Yale University Press",
+		"publisher-place": "New Haven London",
+		"title": "Causal inference: The mixtape",
+		"URL": "https://mixtape.scunning.com/",
+		"author": [
+			{
+				"family": "Cunningham",
+				"given": "Scott"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "Huntington-Klein:2021",
+		"type": "book",
+		"event-place": "Boca Raton, Florida",
+		"note": "Doi-real: 10.1201/9781003226055",
+		"publisher": "Chapman and Hall / CRC",
+		"publisher-place": "Boca Raton, Florida",
+		"title": "The effect: An introduction to research design and causality",
+		"URL": "https://theeffectbook.net/",
+		"author": [
+			{
+				"family": "Huntington-Klein",
+				"given": "Nick"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "MorganWinship:2014",
+		"type": "book",
+		"abstract": "In this second edition of Counterfactuals and Causal Inference, completely revised and expanded, the essential features of the counterfactual approach to observational data analysis are presented with examples from the social, demographic, and health sciences. Alternative estimation techniques are first introduced using both the potential outcome model and causal graphs; after which, conditioning techniques, such as matching and regression, are presented from a potential outcomes perspective. For research scenarios in which important determinants of causal exposure are unobserved, alternative techniques, such as instrumental variable estimators, longitudinal methods, and estimation via causal mechanisms, are then presented. The importance of causal effect heterogeneity is stressed throughout the book, and the need for deep causal explanation via mechanisms is discussed.",
+		"edition": "2",
+		"ISBN": "978-1-107-06507-9",
+		"note": "DOI: 10.1017/CBO9781107587991",
+		"publisher": "Cambridge University Press",
+		"source": "DOI.org (Crossref)",
+		"title": "Counterfactuals and causal inference: Methods and principles for social research",
+		"URL": "https://www.cambridge.org/core/product/identifier/9781107587991/type/book",
+		"author": [
+			{
+				"family": "Morgan",
+				"given": "Stephen L."
+			},
+			{
+				"family": "Winship",
+				"given": "Christopher"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					20
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2014",
+					11,
+					17
+				]
+			]
+		}
+	},
+	{
+		"id": "HoImaiKing:2007",
+		"type": "article-journal",
+		"abstract": "Although published works rarely include causal estimates from more than a few model specifications, authors usually choose the presented estimates from numerous trial runs readers never see. Given the often large variation in estimates across choices of control variables, functional forms, and other modeling assumptions, how can researchers ensure that the few estimates presented are accurate or representative? How do readers know that publications are not merely demonstrations that it is\n              possible\n              to find a specification that fits the author's favorite hypothesis? And how do we evaluate or even define statistical properties like unbiasedness or mean squared error when no unique model or estimator even exists? Matching methods, which offer the promise of causal inference with fewer assumptions, constitute one possible way forward, but crucial results in this fast-growing methodological literature are often grossly misinterpreted. We explain how to avoid these misinterpretations and propose a unified approach that makes it possible for researchers to preprocess data with matching (such as with the easy-to-use software we offer) and then to apply the best parametric techniques they would have used anyway. This procedure makes parametric models produce more accurate and considerably less model-dependent causal inferences.",
+		"container-title": "Political Analysis",
+		"DOI": "10.1093/pan/mpl013",
+		"ISSN": "1047-1987, 1476-4989",
+		"issue": "3",
+		"journalAbbreviation": "Polit. anal.",
+		"language": "en",
+		"page": "199-236",
+		"source": "DOI.org (Crossref)",
+		"title": "Matching as nonparametric preprocessing for reducing model dependence in parametric causal inference",
+		"URL": "https://www.cambridge.org/core/product/identifier/S1047198700006483/type/journal_article",
+		"volume": "15",
+		"author": [
+			{
+				"family": "Ho",
+				"given": "Daniel E."
+			},
+			{
+				"family": "Imai",
+				"given": "Kosuke"
+			},
+			{
+				"family": "King",
+				"given": "Gary"
+			},
+			{
+				"family": "Stuart",
+				"given": "Elizabeth A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2024",
+					3,
+					20
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2007"
+				]
+			]
+		}
+	}
+]
