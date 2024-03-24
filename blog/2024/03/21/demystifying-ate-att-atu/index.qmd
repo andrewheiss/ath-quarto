@@ -17,6 +17,9 @@ resources:
   - "mosquito_nets_v2.csv"
 bibliography: references.json
 csl: chicago-author-date.csl
+format:
+  html: 
+    shift-heading-level-by: 1
 include-before-body:
   text: |
     <style>
@@ -28,7 +31,7 @@ include-before-body:
         text-align: left !important;
       }
     </style>
-# doi: 10.59350/pe5s8-e0f47
+doi: 10.59350/c9z3a-rcq16
 ---
 
 ```{r}
