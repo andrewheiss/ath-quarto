@@ -61,7 +61,7 @@ In [my causal inference class](https://evalsp24.classes.andrewheiss.com/), I spe
 1. What would happen if they receive the intervention or treatment, and 
 2. What would happen if they do not receive the treatment
 
-These two outcomes are *potential outcomes*. Both are plausible, but only one will happen in real life. These potential outcomes lead to a bunch of different causal estimands we might be interested in in, like the average treatment effect.
+These two outcomes are *potential outcomes*. Both are plausible, but only one will happen in real life. These potential outcomes lead to a bunch of different causal estimands we might be interested in, like the average treatment effect.
 
 I give such short shrift to potential outcomes largely because the bulk of the class approaches the idea of causal inference through Judea Pearl-style DAGs instead of potential outcomes. It's a strange arrangement that I've stumbled into: the potential outcomes approach is incredibly popular and widespread in social sciences (particularly in economics), while causal models and DAGs are more popular in fields like epidemiology. For unfathomable reasons, there's a weird animosity between these two worlds. Judea Pearl regularly needles social scientists on Twitter for not using DAGs and clinging to potential outcomes, while Nobel-winning econometricians decry DAGs. It's weird.[^dag-econ]
 
