@@ -1,0 +1,493 @@
+---
+title: "Visualizing {dplyr}'s mutate(), summarize(), group_by(), and ungroup() with animations"
+date: 2024-04-04
+description: "Visually explore how {dplyr}'s more complex core functions work together to wrangle data"
+image: "downloads/PNG/grp-summarize-02@4x.png"
+twitter-card:
+  image: "downloads/PNG/grp-summarize-02@4x.png"
+open-graph:
+  image: "downloads/PNG/grp-summarize-02@4x.png"
+categories:
+  - r
+  - tidyverse
+  - dplyr
+  - animations
+resources:
+  - "downloads/**"
+format:
+  html: 
+    shift-heading-level-by: 1
+doi: 10.59350/d2sz4-w4e25
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.height = 6 * 0.618,
+  fig.retina = 3,
+  dev = "ragg_png",
+  fig.align = "center",
+  out.width = "90%",
+  collapse = TRUE,
+  cache.extra = 1234  # Change number to invalidate cache
+)
+
+options(
+  digits = 4,
+  width = 300
+)
+```
+
+
+I've used Garrick Aden-Buie's [tidyexplain](https://www.garrickadenbuie.com/project/tidyexplain/) animations since he first made them in 2018. They're incredibly useful for teaching—being able to see which rows [`left_join()`](https://www.garrickadenbuie.com/project/tidyexplain/#left-join) includes when merging two datasets, or [which cells end up where when pivoting longer or pivoting wider](https://www.garrickadenbuie.com/project/tidyexplain/#pivot-wider-and-longer) is so valuable. [Check them all out](https://www.garrickadenbuie.com/project/tidyexplain/)—they're so fantastic:
+
+![`left_join()` animation by Garrick Aden-Buie](img/left-join.gif){.center}
+
+One set of animations that I've always wished existed but doesn't is how {dplyr}'s `mutate()`, `summarize()`, `group_by()`, and `summarize()` work. Unlike other more straightforward {dplyr} functions like `filter()` and `select()`, these mutating/summarizing/grouping functions often involve multiple behind-the-scenes steps that are hard to see. There's even an official term for this kind of workflow: [split/apply/combine](https://vita.had.co.nz/papers/plyr.pdf).
+
+When I teach about `group_by() |> summarize()`, I end up waving my arms around a lot to explain how `group_by()` puts rows into smaller, invisible datasets behind the scenes. This works, I guess, but I still find that it can be hard for people to conceptualize. It gets even trickier when explaining how {dplyr} keeps some grouping structures intact after summarizing and what exactly `ungroup()` does.
+
+So, I finally buckled down and made my own tidyexplain-esque animations with Adobe Illustrator and After Effects.^[I tried doing it with R and {gganimate} [like the original tidyexplain animations](https://github.com/gadenbuie/tidyexplain), but it was too hard to do with all the multiple grouping, summarizing, and recombining steps—so these are all artisanally handcrafted animations.]
+
+::: {.callout-tip #downloads}
+## Downloads
+
+You can download versions of all seven animations here:
+
+- `mutate()`: [MP4](downloads/Video/grp-mutate.mp4), [GIF](downloads/GIF/grp-mutate.gif), [static PDF](downloads/PDF/grp-mutate.pdf), [static SVG](downloads/SVG/grp-mutate.svg), [static PNG](downloads/PNG/grp-mutate@4x.png)
+- `summarize()`: [MP4](downloads/Video/grp-summarize-00.mp4), [GIF](downloads/GIF/grp-summarize-00.gif), [static PDF](downloads/PDF/grp-summarize-00.pdf), [static SVG](downloads/SVG/grp-summarize-00.svg), [static PNG](downloads/PNG/grp-summarize-00@4x.png)
+- `group_by() |> ungroup()`: [MP4](downloads/Video/grp-ungroup.mp4), [GIF](downloads/GIF/grp-ungroup.gif), [static PDF](downloads/PDF/grp-ungroup.pdf), [static SVG](downloads/SVG/grp-ungroup.svg), [static PNG](downloads/PNG/grp-ungroup@4x.png)
+- `group_by() |> mutate()`: [MP4](downloads/Video/grp-mutate.mp4), [GIF](downloads/GIF/grp-mutate.gif), [static PDF](downloads/PDF/grp-mutate.pdf), [static SVG](downloads/SVG/grp-mutate.svg), [static PNG](downloads/PNG/grp-mutate@4x.png)
+- `group_by(cat1) |> summarize()`: [MP4](downloads/Video/grp-summarize-01.mp4), [GIF](downloads/GIF/grp-summarize-01.gif), [static PDF](downloads/PDF/grp-summarize-01.pdf), [static SVG](downloads/SVG/grp-summarize-01.svg), [static PNG](downloads/PNG/grp-summarize-01@4x.png)
+- `group_by(cat2) |> summarize()`: [MP4](downloads/Video/grp-summarize-02.mp4), [GIF](downloads/GIF/grp-summarize-02.gif), [static PDF](downloads/PDF/grp-summarize-02.pdf), [static SVG](downloads/SVG/grp-summarize-02.svg), [static PNG](downloads/PNG/grp-summarize-02@4x.png)
+- `group_by(cat1, cat2) |> summarize()`: [MP4](downloads/Video/grp-summarize-03.mp4), [GIF](downloads/GIF/grp-summarize-03.gif), [static PDF](downloads/PDF/grp-summarize-03.pdf), [static SVG](downloads/SVG/grp-summarize-03.svg), [static PNG](downloads/PNG/grp-summarize-03@4x.png)
+
+And for fun, here are all the original files:
+
+- [Original Illustrator files](downloads/illustrator-files.zip)
+- [Original After Effects files](downloads/group_by-summarize-animations.zip)
+
+They're Creative Commons-licensed—do whatever you want with them!
+:::
+
+In this post, we'll use these animations to explain each of these concepts and apply them to data from [{palmerpenguins}](https://allisonhorst.github.io/palmerpenguins/). Let's load some packages and data first:
+
+```{r}
+#| label: load-packages-data
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+
+penguins <- penguins |> drop_na()
+```
+
+
+# Adding new columns with `mutate()`
+
+The `mutate()` function in {dplyr} adds new columns. It's not destructive—all our existing data will still be there after you add new columns^[Unless we use an existing column name inside `mutate()`, in which case that column will get replaced with the new one.]
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/mutate.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+By default, `mutate()` sticks the new column on the far right of the dataset (scroll over to the right to see `body_mass_kg` here):
+
+```{r}
+#| label: mutate-body-mass-kg
+
+penguins |> 
+  mutate(body_mass_kg = body_mass_g / 1000)
+```
+
+We can also control where the new column shows up with either the `.before` or `.after` argument:
+
+```{r}
+#| label: mutate-body-mass-kg-after
+
+penguins |> 
+  mutate(
+    body_mass_kg = body_mass_g / 1000,
+    .after = island
+  )
+```
+
+
+# Summarizing with `summarize()`
+
+The `summarize()` function, on the other hand, *is* destructive. It collapses our dataset into a single value and throws away any columns that we don't use when summarizing.
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/grp-summarize-00.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+After using `summarize()` on the penguins data, we only see three values in one row: average bill length, total penguin weight, and the number of penguins in the dataset. All other columns are gone.
+
+```{r}
+#| label: summ-no-group
+
+penguins |> 
+  summarize(
+    avg_bill_length = mean(bill_length_mm),
+    total_weight = sum(body_mass_g),
+    n_penguins = n()  # This returns the number of rows in the dataset
+  )
+```
+
+
+# Grouping and ungrouping with `group_by()` and `ungroup()`
+
+The `group_by()` function splits a dataset into smaller subsets based on the values of columns that we specify. Importantly, this splitting happens ***behind the scenes***—you don't actually ever see the data split up into smaller datasets.^[I like to imagine that the data is splitting into smaller groups, [Minority Report](https://www.youtube.com/watch?v=NwVBzx0LMNQ)-style, or like [Tony Stark's JARVIS-enabled HUD](https://www.youtube.com/watch?v=E7-o6a0OUHY).] To undo the grouping and bring all the rows back together, use `ungroup()`.
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/grp-ungroup.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+Importantly, grouping doesn't actually change the order of the rows in the dataset. If we use `group_by()` and look at your dataset, it'll still be in the existing order. The only sign that the data is invisibly grouped is a little `Groups: sex [2]` note at the top of the output.
+
+```{r}
+#| label: grp-only
+
+penguins |> 
+  group_by(sex)
+```
+
+Grouping is fairly useless on its own, but it becomes really powerful when combined with `mutate()` or `summarize()`.
+
+
+# Mutating within groups
+
+If we use `mutate()` after grouping, new columns are added to each subset separately. In many cases, you won't notice any difference between using `mutate()` on an ungrouped or grouped dataset—you'll get the same values. For instance, if we use `mutate(body_mass_kg = body_mass_g / 1000)` on an ungrouped dataset, R will create a column for the whole dataset that divides `body_mass_g` by 1,000; if we use `mutate(body_mass_kg = body_mass_g / 1000)` on a *grouped* dataset, R will create a new column *within each of the subsets*. Both approaches will generate the same values.^[Using `mutate()` on the grouped dataset will be a tiiiiiny bit slower because it's actually running `mutate()` on each of the groups.]
+
+This is actually important if we're referencing other values within the group. In the example above, we created a new column `y` that subtracted the smallest value of `x` from each value of `x`. When running `mutate(y = x - min(x))` on the ungrouped dataset, the smallest value of `x` is 1, so all the numbers decrease by 1. When running `mutate(y = x * 2)` on a *grouped* dataset, though, `min(x)` refers to the smallest value of `x` *within each of the subsets*. Check out this example here: the minimum values in groups A, B, and C are 1, 4, and 7 respectively, so in subset A we subtract 1 from all the values of `x`, in subset B we subtract 4 from all the values of `x`, and in subset C we subtract 7 from all the values of `x`. As a result, the new `y` column contains 0, 1, and 2 in each of the groups:
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/grp-mutate.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+Panel data (or time-series cross-sectional data, like the gapminder dataset) is good example of a situation where grouping and mutating is important. For example, we can use `lag()` to create a new column (`lifeExp_previous`) that shows the previous year's life expectancy.^[This is super common with models where you time-shifted variables, like predicting an outcome based on covariates in the previous year.]
+
+```{r}
+#| label: gapminder-bleeding
+
+library(gapminder)
+
+gapminder_smaller <- gapminder |> 
+  filter(year %in% c(1997, 2002, 2007))  # Only show a few years
+  
+gapminder_smaller |> 
+  mutate(lifeExp_previous = lag(lifeExp), .after = lifeExp)
+```
+
+Afghanistan in 1997 has a lagged life expectancy of `NA`, but that's fine and to be expected—there's no row for it to look at and copy the value (i.e. there's no Afghanistan 1992 row). Afghanistan's lagged life expectancy in 2002 is the same value as the actual life expectancy in 1997. Great, it worked!^[Technically this isn't a one-year lag; this is a five-year lag, since the data is spaced every 5 years.]
+
+But look at Albania's lagged life expectancy in 1997—it's 43.84, which is actually Afghanistan's 2007 life expectancy! Lagged values bleed across countries here.
+
+If we group the data by country before lagging, though, the lagging happens *within each of the subsets*, so the first year of every country is missing (since there's no previous year to look at). Now every country's 1997 value is `NA`, since the new column was created separately in each of the smaller behind-the-scenes country-specific datasets:
+
+```{r}
+#| label: gapminder-no-bleeding
+
+gapminder_smaller |> 
+  group_by(country) |> 
+  mutate(lifeExp_previous = lag(lifeExp), .after = lifeExp)
+```
+
+
+# Summarizing groups with `group_by() |> summarize()`
+
+While collapsing an entire dataset can be helpful for finding overall summary statistics (e.g. the average, minimum, and maximum values for columns you're interested in), `summarize()` is better used with groups. If we use `summarize()` on a *grouped* dataset, *each subset is collapsed into a single row*. This will create different summary values, depending on the groups you use. In this example, grouping by `cat1` gives us a summarized dataset with three rows (for `a`, `b`, and `c`):
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/grp-summarize-01.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+While here, if we group by `cat2`, we get a summarized dataset with two rows (for `j` and `k`):
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/grp-summarize-02.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+If we use `group_by()` before summarizing the penguins data, we'll get a column for the group, along with average bill length, total penguin weight, and the number of penguins *in each group*. As before, all other columns are gone.
+
+We can see summarized values by species:
+
+```{r}
+#| label: summ-species-full
+
+penguins |> 
+  group_by(species) |> 
+  summarize(
+    avg_bill_length = mean(bill_length_mm),
+    total_weight = sum(body_mass_g),
+    n_penguins = n()  # This returns the number of rows in each group
+  )
+```
+
+…or by sex…
+
+```{r}
+#| label: summ-sex-full
+
+penguins |> 
+  group_by(sex) |> 
+  summarize(
+    avg_bill_length = mean(bill_length_mm),
+    total_weight = sum(body_mass_g),
+    n_penguins = n()
+  )
+```
+
+…or by any other column.
+
+::: {.callout-caution}
+### Grouping by numeric columns
+
+One common mistake is to feed a numeric columns into `group_by()`, like this:
+
+```{r}
+#| label: summ-bad-group
+
+penguins |> 
+  group_by(flipper_length_mm) |> 
+  summarize(
+    avg_bill_length = mean(bill_length_mm),
+    total_weight = sum(body_mass_g),
+    n_penguins = n()
+  )
+```
+
+This technically calculates *something*, but it's generally not what you're looking for. R is making groups for each of the unique values of flipper length and then calculating summaries for those groups. There's only one penguin with a flipper length of 172 mm; there are 7 with 181 mm. Grouping by a numeric variable can be useful if you want to create a histogram-like table of counts of unique values, but most of the time, you don't want to do this.
+
+:::
+
+
+# Summarizing multiple groups
+
+We can specify more than one group with `group_by()`, which will create behind-the-scenes datasets for each unique combination of values in the groups. Here, when group by both `cat1` and `cat2`, we get six groups (`a & j`, `a & k`, `b & j`, `b & k`, `c & j`, `c & k`), which we can then use with `mutate()` or `summarize()`:
+
+::: {.column-page-inset-right}
+```{=html}
+<video controls width="100%" style="display: block; margin: auto;">
+  <source src="downloads/Video/grp-summarize-03.mp4" type="video/mp4">
+</video>
+```
+:::
+
+\ 
+
+
+# Leftover groupings and `ungroup()`
+
+Some subtle and interesting things happen when summarizing with multiple groups, though, and they throw people off all the time.
+
+When you use `summarize()` on a grouped dataset, **{dplyr} will automatically ungroup the last of the groups**. This happens invisibly when you're only grouping by one thing. For example, this has three rows, and no `Groups: species[3]` note at the top:
+
+```{r}
+#| label: summ-species
+
+penguins |> 
+  group_by(species) |> 
+  summarize(total = n())
+```
+
+When grouping by multiple things, {dplyr} will automatically ungroup the last of the groups (i.e. the right-most group), but keep everything else grouped. This has six rows and is grouped by species (hence the `Groups: species [3]`), and R gives you an extra message alerting you to the fact that it's still grouped by something: `` `summarise()` has grouped output by 'species'.``
+
+```{r}
+#| label: summ-species-sex
+
+penguins |> 
+  group_by(species, sex) |> 
+  summarize(total = n())
+```
+
+The same thing happens in reverse if we switch species and sex. The results here are still grouped by sex:
+
+```{r}
+#| label: summ-sex-species
+
+penguins |> 
+  group_by(sex, species) |> 
+  summarize(total = n())
+```
+
+We can use `ungroup()` to bring the data all the way back together and get rid of the groups:
+
+```{r}
+#| label: summ-species-sex-ungroup
+
+penguins |> 
+  group_by(species, sex) |> 
+  summarize(total = n()) |> 
+  ungroup()
+```
+
+Alternatively, `summarize` has a `.groups` argument that you can use to control what happens to the groups after you summarize. By default, it uses `.groups = "drop_last"` and gets rid of the right-most group, but you can also drop all the groups (`.groups = "drop"`) and keep all the groups (`.groups = "keep"`). See? No groups!
+
+```{r}
+#| label: summ-species-sex-drop
+
+penguins |> 
+  group_by(species, sex) |> 
+  summarize(total = n(), .groups = "drop")
+```
+
+::: {.callout-tip}
+## Experimental different way of grouping and summarizing
+
+With newer versions of {dplyr} there's a new experimental way to specify groups when summarizing, borrowed from [{data.table}](https://rdatatable.gitlab.io/data.table/). Rather than specify groups in an explicit `group_by()` function, you can do it inside `summarize()` with the `.by` argument:
+
+```{r}
+#| label: summ-species-sex-by
+
+penguins |> 
+  summarize(total = n(), .by = c(species, sex))
+```
+
+This automatically ungroups everything when it's done, so you don't have any leftover groupings.
+
+:::
+
+
+# Why care about leftover groups?
+
+Lots of the time, you don't actually need to worry about leftover groupings. If you're plotting or modeling or doing other stuff with the data, those functions will ignore the groups and work on the whole dataset. For example, I do stuff like calculating and plotting group summaries all the time—`plot_data` here is still grouped by `species` after summarizing, but `ggplot()` doesn't care:
+
+```{r}
+#| label: plot-grouped-data
+
+plot_data <- penguins |> 
+  group_by(species, sex) |> 
+  summarize(total = n())
+
+# plot_data is grouped by sex, but that doesn't matter here
+ggplot(plot_data, aes(x = species, y = total, fill = species)) +
+  geom_col() + 
+  guides(fill = "none") +
+  facet_wrap(vars(sex))
+```
+
+Leftover groups are ***very important*** when you use things like `mutate()` on the summarized dataset.
+
+Like here, we'll create a proportion column based on `total / sum(total)`. Because we only grouped by one thing, there are no leftover groupings, so the `prop` column adds up to 100%:
+
+```{r}
+#| label: summ-species-prop
+
+penguins |> 
+  group_by(species) |> 
+  summarize(total = n()) |> 
+  mutate(prop = total / sum(total))
+```
+
+Next, we'll group by two things, which creates behind-the-scenes datasets for all the six combinations of species and sex. When {dplyr} is done, it ungroups the sex group, but leaves the dataset grouped by species. The `prop` column no longer adds up to 100%; it adds to 300%. That's because it calculated `total/sum(total)` *within* each species group (so 50% of Adélies are female, 50% are male, etc.)
+
+```{r}
+#| label: summ-species-sex-prop
+
+penguins |> 
+  group_by(species, sex) |> 
+  summarize(total = n()) |> 
+  mutate(prop = total / sum(total))
+```
+
+If we reverse the grouping order so that sex comes first, {dplyr} will automatically stop grouping by species and keep the dataset grouped by sex. That means `mutate()` will work *within* each sex group, so the `prop` column here adds to 200%. 44% of female penguins are Adélies, 21% of female penguins are Chinstraps, and 35% of female penguins are Gentoos, and so on.
+
+```{r}
+#| label: summ-sex-species-prop
+
+penguins |> 
+  group_by(sex, species) |> 
+  summarize(total = n()) |> 
+  mutate(prop = total / sum(total))
+```
+
+If we explicitly ungroup before calculating the proportion,^[Or use the `.groups` argument or `.by` argument in `summarize()`] then `mutate()` will work on the whole dataset instead of sex- or species-specific groups. Here, 22% of all penguins are female Adélies, 10% are female Chinstraps, etc.
+
+```{r}
+#| label: summ-sex-species-prop-ungroup
+
+penguins |> 
+  group_by(sex, species) |> 
+  summarize(total = n()) |> 
+  ungroup() |> 
+  mutate(prop = total / sum(total))
+```
+
+We don't have to rely on {dplyr}'s automatic ungroup-the-last-grouping feature and we can add our own grouping explicitly later. Like here, {dplyr} stops grouping by sex, which means that the `prop` column would add to 300%, showing the proportion of sexes within each species. But if we throw in a `group_by(sex)` before `mutate()`, it'll put everything in two behind-the-scenes datasets (male and female) and calculate the proportion of species within each sex. The resulting dataset is still grouped by sex, since `mutate()` doesn't drop any groups like `summarize()`:
+
+```{r}
+#| label: summ-species-sex-prop-sex
+
+penguins |> 
+  group_by(species, sex) |> 
+  summarize(total = n()) |> 
+  group_by(sex) |>
+  mutate(prop = total / sum(total))
+```
+
+```{r eval=FALSE, include=FALSE}
+#| label: stuff-for-animation
+
+library(tidyverse)
+
+ungrouped <- tribble(
+  ~cat1, ~cat2, ~x,
+  "a",   "x",   1,
+  "a",   "x",   2,
+  "a",   "y",   3,
+  "b",   "x",   4,
+  "b",   "y",   5,
+  "b",   "y",   6,
+  "c",   "x",   7,
+  "c",   "x",   8,
+  "c",   "y",   9
+)
+
+ungrouped |> 
+  summarize(avg = mean(x), total = sum(x), n = n())
+
+ungrouped |> 
+  group_by(cat1, cat2) |> 
+  summarize(avg = mean(x), total = sum(x), n = n()) |> 
+  mutate(prop = n / sum(n))
+```
