@@ -32,6 +32,7 @@ include-before-body:
       }
     </style>
 doi: 10.59350/c9z3a-rcq16
+citation: true
 ---
 
 ```{r}

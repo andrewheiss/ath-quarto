@@ -18,6 +18,7 @@ format:
   html: 
     shift-heading-level-by: 1
 doi: 10.59350/d2sz4-w4e25
+citation: true
 ---
 
 ```{r}

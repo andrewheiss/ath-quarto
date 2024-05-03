@@ -20,6 +20,7 @@ resources:
   - "_book/**"
   - "img/*"
 doi: 10.59350/pe5s8-e0f47
+citation: true
 ---
 
 ::: {.callout-important}
