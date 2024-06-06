@@ -1,6 +1,6 @@
 ---
 title: What I'm doing now
-date: 2024-05-03
+date: 2024-06-06
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -15,10 +15,10 @@ freeze: false
 }
 ```
 
-As of May 3, 2024, I'm spending all my time on these things:
+As of June 6, 2024, I'm spending all my time on these things:
 
 - Staying at home pretty much 24/7 (STILL) because of the COVID-19 pandemic
-- Raising 6 kids (16.5, 14, 11.5, 8.5, 6, and 2) and trying to stay sane ([family blog](http://www.heissatopia.com/))
+- Raising 6 kids (16.5, 14.5, 12, 9, 6.5, and 2.5) and trying to stay sane ([family blog](http://www.heissatopia.com/))
 - Living in Atlanta and working as an assistant professor in the [Department of Public Management and Policy](https://aysps.gsu.edu/public-management-policy/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/)
 - Teaching [data visualization](https://datavizf22.classes.andrewheiss.com/), [program evaluation](https://evalsp24.classes.andrewheiss.com/), [comparative public administration](https://compasp23.classes.andrewheiss.com/),  [nonprofit management](https://nonprofitf22.classes.andrewheiss.com), and [microeconomics](https://econs23.classes.andrewheiss.com/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/)
 - Working as a part time data science mentor for [Posit Academy](https://posit.co/products/enterprise/academy/)
