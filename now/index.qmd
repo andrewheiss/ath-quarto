@@ -1,6 +1,6 @@
 ---
 title: What I'm doing now
-date: 2024-06-06
+date: 2024-06-17
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -15,7 +15,7 @@ freeze: false
 }
 ```
 
-As of June 6, 2024, I'm spending all my time on these things:
+As of June 17, 2024, I'm spending all my time on these things:
 
 - Staying at home pretty much 24/7 (STILL) because of the COVID-19 pandemic
 - Raising 6 kids (16.5, 14.5, 12, 9, 6.5, and 2.5) and trying to stay sane ([family blog](http://www.heissatopia.com/))
