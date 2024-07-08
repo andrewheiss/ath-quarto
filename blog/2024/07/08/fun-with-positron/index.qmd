@@ -1,0 +1,386 @@
+---
+title: "Fun with Positron"
+date: 2024-07-08
+description: "Combine the best of RStudio and Visual Studio Code in Posit's new Positron IDE"
+image: "img/positron-logo.png"
+twitter-card:
+  image: "img/positron-logo.png"
+open-graph:
+  image: "img/positron-logo.png"
+categories:
+  - r
+  - python
+  - positron
+  - data science
+format:
+  html: 
+    shift-heading-level-by: 1
+doi: 10.59350/zs7da-17c67
+citation: true
+---
+
+At the end of June 2024, [Posit released a beta version](https://www.infoworld.com/article/3715702/maker-of-rstudio-launches-new-r-and-python-ide.html) of its next-generation IDE for data science: [Positron](https://github.com/posit-dev/positron). This follows Posit's general vision for language-agnostic data analysis software: [RStudio PBC renamed itself to Posit PBC in 2022](https://posit.co/blog/rstudio-is-becoming-posit/) to help move away from a pure R focus, and [Quarto](https://quarto.org/) is pan-lingual successor to R Markdown. Having the name of the main programming language in the title of things is out—providing more general tools is in.
+
+Positron is essentially a specialized version of Microsoft's [Visual Studio Code](https://code.visualstudio.com/), and is a fork of the underlying [Code - OSS](https://github.com/microsoft/vscode) that powers VS Code. I'm super excited about this—in my own work, I use RStudio for most things R-related and VS Code for everything else (Stan, Python, HTML, CSS, Lua, LaTeX, Typst, etc.). VS Code is phenomenal and I love using it. It's the best way to [edit files on a remote server](https://code.visualstudio.com/docs/remote/ssh). It's the best way to [interact with Docker containers and Docker Compose](https://code.visualstudio.com/docs/containers/overview). [GitHub Copilot Chat](https://docs.github.com/en/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide) is fantastic.
+
+But for me, it's never quite been a replacement for RStudio. Every couple months, I play around with trying to use VS Code for R work full time, but the constellation of VS Code R extensions (like the [R extension](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r) and [Radian](https://github.com/randy3k/radian) for the terminal) and general R support has never been what I want, and I always end up going back to RStudio. Which is fine! I adore RStudio too and have been using it since it first came out in beta in February 2011 (13 years!).
+
+Positron brings pretty much all the little R-related things that I love from RStudio and have missed in Visual Studio Code. The regular collection of VS Code's R extensions and add-ons is no longer necessary, since Posit has created a [custom R kernel—Ark](https://github.com/posit-dev/ark)—for any text editor or IDE with Jupyter support. It's still a beta product and a little rough around the edges, but I've found that it really is the perfect blend of the best parts of RStudio and VS Code.
+
+Below, following the example of [Marc Dotson](https://occasionaldivergences.com/posts/positron-intro/) and [Christopher Kenny](https://christophertkenny.com/posts/2024-06-29-positron-settings/), I want to highlight some of the neat new things Positron can do and share some of the settings, extensions, and other customizations I've been using for the past couple weeks.
+
+
+## Some cool new things
+
+Positron brings RStudio's best features to other languages like Python, like line-by-line code execution:
+
+::: {.panel-tabset}
+### Line-by-line execution in Python
+
+```{=html}
+<video controls width="90%" style="display: block; margin: auto;">
+  <source src="img/line-by-line-python.mp4" type="video/mp4">
+</video>
+```
+
+### Line-by-line execution in R
+
+```{=html}
+<video controls width="90%" style="display: block; margin: auto;">
+  <source src="img/line-by-line-r.mp4" type="video/mp4">
+</video>
+```
+
+:::
+
+…and the variables panel (equivalent to the Environment panel in RStudio):
+
+::: {.panel-tabset}
+### Variables panel in Python
+
+![Variables panel in Python](img/variable-viewer-python.png)
+
+### Variables panel in R
+
+![Variables panel in R](img/variable-viewer-r.png)
+:::
+
+You can also switch between different R and Python installations and versions. If you have [rig](https://github.com/r-lib/rig) installed, you can switch between different R versions, and Positron scans your computer at startup to find all the different Python virtual environments you have. I think eventually [that little menu might also have better support for {renv} too](https://github.com/posit-dev/positron/issues/2659). Here I can switch between R 4.4.0 and 4.3.3, as well as a bunch of random Python virtual environments and installations (lol python installations are the worst):
+
+![Version switcher](img/environments.png){.border width="70%"}
+
+Plus, since it's just a fancy version of VS Code, Positron supports pretty much everything VS Code can do, including making complex layouts. Use the little menu in the top right corner to set up your workspace however you want:
+
+![Customize layout](img/customize-layout.png){.border}
+
+For instance, here's an example of a fully armed and operational layout I've been using for one project:
+
+::: {.column-screen-inset}
+
+![Full ultrawide workspace](img/full-workspace.png)
+
+:::
+
+## My settings
+
+::: {.callout-tip collapse="true"}
+### How to change settings in Positron / VS Code
+
+Positron (and VS Code in general) stores all its settings in a JSON file named `settings.json` that's stored somewhere on your computer. On macOS it's in `~/Library/Application Support/Positron/User/settings.json` ([see here for other operating systems](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations)). But you don't need to ever remember that!
+
+When you open Positron's settings (with <kbd>⌘,</kbd> on a Mac; using… something… on Windows), Positron provides a nice frontend for searching, managing, and changing settings so you don't need to edit raw JSON if you don't want to.
+
+![Positron settings page](img/positron-settings-json-button.png)
+
+If you click on the document button in the top right corner, you can open the actual `settings.json` file in the editor and make changes there. This is the easiest way to share settings with other people (like in this blog post) or with yourself (you can commit `settings.json` to a git repository, for instance).
+
+![Positron `settings.json`](img/positron-settings-json.png)
+:::
+
+Configuring and customizing Positron involved basically copying most of my settings from VS Code's `settings.json` into Positron's `settings.json`. Here's everything I have set up, with comments explaining stuff. A few things to note in particular:
+
+- I set `rstudio.keymap.enable` to `true` to enable most of [RStudio's R-related keyboard shortcuts](https://github.com/posit-dev/positron/wiki/Keyboard-Shortcuts#rstudio-keymap) (like <kbd>⌘⌥I</kbd> for a new chunk, <kbd>⌥-</kbd> to insert `<-`, etc.).
+
+- I'm using [GitHub's Monaspace font](https://monaspace.githubnext.com/#code-ligatures) because it looks neat and it has excellent font ligatures. I've enabled [a bunch of different stylistic sets](https://github.com/githubnext/monaspace?tab=readme-ov-file#coding-ligatures) for the ligatures.
+
+- I'm a big fan of the Monokai color theme and use it in RStudio and VS Code. It's easy enough to set in Positron too, but for mysterious unknown reasons, [it uses colors differently and is overly aggressive in what gets colorized](https://github.com/posit-dev/positron/issues/3688). Compare this ggplot code across three different Monokais (VS Code, Positron, and RStudio). The Positron version is incredibly green and pink, while VS Code and RStudio use color more sparingly.
+
+  ![Monokai highlighting in VS Code, Positron, and RStudio + Positron Dark](img/monokais.png)
+
+  So for now, I'm using the Positron Dark theme instead, which does the best job of highlighting the things that RStudio did. It's nice enough.
+
+Here's my `settings.json` file. Adapt from it however you want. All these settings are also accessible in the GUI too.
+
+![GUI for enabling RStudio keymapping](img/rstudio-keymap-enable.png){.border width="70%"}
+
+There are some extension-specific options at the bottom that I'll explain below too.
+
+```{.json filename="settings.json"}
+{
+    // Positron-specific settings
+    // -------------------------------------------------------------------------
+    "rstudio.keymap.enable": true,
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3.11",
+
+
+    // Editor settings
+    // -------------------------------------------------------------------------
+    // Fonts
+    // Use GitHub's Monaspace (https://github.com/githubnext/monaspace) and enable ligatures
+    "editor.fontFamily": "'Monaspace Argon Var'",
+    "editor.fontSize": 12.5,
+    "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig', 'liga'",
+
+    // Theme
+    // Monakai would be nice, but it has issues in Positron
+    // "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Default Dark Modern",
+
+    // Use nicer icons
+    "workbench.productIconTheme": "fluent-icons",
+    "workbench.iconTheme": "material-icon-theme",
+
+    // Highlight modified/unsaved tabs
+    "workbench.editor.highlightModifiedTabs": true,
+
+    // Add some rulers
+    "editor.rulers": [
+        80,
+        100
+    ],
+
+    // Indent with two spaces, but only for R
+    "[r]": {
+        "editor.tabSize": 2
+    },
+
+    // Nicer handling of end-of-document newlines, via
+    // https://rfdonnelly.github.io/posts/sane-vscode-whitespace-settings/
+    "files.insertFinalNewline": true,
+    "editor.renderFinalNewline": "dimmed",
+    "editor.renderWhitespace": "trailing",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    // Various editor settings
+    "editor.formatOnPaste": true,
+    "editor.detectIndentation": false,
+    "editor.showFoldingControls": "always",
+    "window.newWindowDimensions": "inherit",
+    "editor.scrollBeyondLastLine": false,
+    "window.title": "${activeEditorFull}${separator}${rootName}",
+    "editor.tabSize": 4,
+    "editor.wordWrap": "on",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+
+    // Hide things from the global search menu and watcher
+    "files.exclude": {
+        "**/.Rhistory": true,
+        "**/.Rproj": true,
+        "**/.Rproj.user": true,
+        "**/renv/library": true,
+        "**/renv/local": true,
+        "**/renv/staging": true
+    },
+    "files.watcherExclude": {
+        "**/.Rproj/*": true,
+        "**/renv/library": true,
+        "**/renv/local": true,
+        "**/renv/staging": true
+    },
+
+    // Sign git commits
+    "git.enableCommitSigning": true,
+
+
+    // Extension-specific settings
+    // -------------------------------------------------------------------------
+    // Markdown linting settings (idk if this stuff even works with Quarto though)
+    "markdownlint.config": {
+        "default": true,
+        "MD012": { "maximum": 2 },
+        "MD025": false,
+        "MD041": false
+    },
+
+    // Wrap at 80 columns with the "Rewrap" extension
+    "rewrap.wrappingColumn": 80,
+
+    // Hacky "Open Remote - SSH" settings
+    "remote.SSH.serverDownloadUrlTemplate": "https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v${version}/openvscode-server-v${version}-${os}-${arch}.tar.gz",
+    "remote.SSH.experimental.serverBinaryName": "openvscode-server",
+
+    // Don't phone home for the "YAML" extension
+    "redhat.telemetry.enabled": false,
+}
+```
+
+## My keyboard shortcuts
+
+::: {.callout-tip collapse="true"}
+### How to change keyboard shortcuts in Positron / VS Code
+
+Changing keyboard shortcuts is just like changing settings. All the settings are stored in a JSON file (`keybindings.json`) located in a [special folder on your computer](https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations), but you don't have to work with raw JSON if you don't want to.
+
+The easiest way to get to the keyboard shortcut settings page is to open the Command Palette (<kbd>⌘⇧P</kbd> on macOS; <kbd>ctrl + shift + p</kbd> on Windows) and search for "Open Keyboard Shortcuts":
+
+![Accessing keyboard shortcuts from the Command Palette](img/command-palette-keyboard.png){width="70%"}
+
+This will give you a nice page for changing different settings. There are hundreds of possible shortcuts, but there's a nice filtering system you can use to narrow things down.
+
+![Keyboard shortcut editor](img/positron-keyboard-shortcuts.png)
+
+If you click on the little document icon at the top, it will open the actual JSON file, just like with `settings.json`:
+
+![Keyboard shortcuts as JSON](img/positron-keyboard-shortcuts-json.png)
+:::
+
+Enabling Positron's [RStudio Keymap option](https://github.com/posit-dev/positron/wiki/Keyboard-Shortcuts#rstudio-keymap) with `rstudio.keymap.enable` takes care of like 90% of my keyboard customization needs. Years ago when I first switched to VS Code, I changed several of RStudio's keyboard shortcuts to match VS Code's like <kbd>⌘/</kbd> for toggling commented code instead of RStudio's default <kbd>⌘⇧C</kbd>. Positron uses <kbd>⌘/</kbd> by default for comment toggling too, but when you enable the RStudio Keymap option, that gets overridden with <kbd>⌘⇧C</kbd>, so I disable that.
+
+RStudio also uses <kbd>⌘D</kbd> for deleting a line, while VS Code uses it for adding text to a selection (i.e. if I select the word "the" in this document and then press <kbd>⌘D</kbd> a bunch of times, it'll add all those "the"s to the selection). The RStudio Keymap option adds <kbd>⌘D</kbd> to delete the current line, so I disable that shortcut too to bring things back in line with standard VS Code.
+
+Finally, I use [iTerm2](https://iterm2.com/) for macOS for my systemwide terminal, and I have it configured with a global hotkey <kbd>^\`</kbd> so I can access the terminal from everywhere. This conflicts with VS Code's and Positron's terminal toggling shortcut, which is the same, so I change it to be <kbd>^⇧\`</kbd>.
+
+Here's my `keybindings.json` file. Like with `settings.json`, these are also accessible in the GUI.
+
+![Custom keyboard shortcuts](img/user-keyboard-shortcuts.png){.border}
+
+```{.json filename="keybindings.json"}
+[
+    {
+        "key": "ctrl+alt+`",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+shift+`",
+        "command": "-workbench.action.terminal.new",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+shift+`",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    {
+        "key": "shift+cmd+c",
+        "command": "-editor.action.commentLine",
+        "when": "config.rstudio.keymap.enable && editorTextFocus"
+    },
+    {
+        "key": "alt+cmd+q",
+        "command": "rewrap.rewrapComment",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+q",
+        "command": "-rewrap.rewrapComment",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+d",
+        "command": "-editor.action.deleteLines",
+        "when": "config.rstudio.keymap.enable && editorTextFocus"
+    }
+]
+```
+
+## My extensions
+
+::: {.callout-tip collapse="true"}
+### How to install extensions in Positron / VS Code
+
+Installing extensions in Positron / VS Code is super straightforward ([see here](https://code.visualstudio.com/learn/get-started/extensions)). Click on the Extensions icon in the main Activity Bar, search for an extension, and click on "Install". You can also disable or uninstall existing extensions from here.
+
+![Extension page for Stan](img/install-extensions.png)
+
+:::
+
+One of the best things about Positron is that it has access to most of VS Code's extensions. Positron is not allowed to access [Microsoft's Visual Studio Extension Marketplace](https://marketplace.visualstudio.com/VSCode), but it can access ([and is a major sponsor of](https://github.com/posit-dev/positron/wiki#vs-code-extensions)) the alternative [Open VSX Registry](https://open-vsx.org/). With the exception of Microsoft's extensions like GitHub Copilot, Dev Containers, and Remote - SSH, Open VSX had pretty much all the extensions that I already regularly use in VS Code.
+
+The only minor VS Code extension I normally use that I couldn't install in Positron was [Stata Enhanced](https://marketplace.visualstudio.com/items?itemName=kylebarron.stata-enhanced) (Not that I even ever use Stata—I don't have it installed on my computer and don't have a license, but it's nice to be able to open `.do` files and see syntax highlighting). Stata Enhanced isn't listed at Open VSX, but [I've opened an issue requesting that it gets listed](https://github.com/kylebarron/language-stata/issues/125).
+
+Here's what I use:
+
+- **Managing other environments**
+  - [**Docker**](https://open-vsx.org/extension/ms-azuretools/vscode-docker): Manage Docker containers and volumes; right click on `docker-compose.yml` files to spin them up and shut them down; syntax highlighting for Dockerfiles and Docker Compose
+  - [**Open Remote - SSH**](https://open-vsx.org/extension/jeanp413/open-remote-ssh): Connect to remote servers with SSH ([see ***big caveat*** below for details about how to set this up](#sec-ssh))
+- **Text editing**
+  - [**Rewrap**](https://open-vsx.org/extension/stkb/rewrap): Automatically add line breaks in long comments or text (I have it set to wrap at 80 characters using <kbd>⌘⌥Q</kbd>)
+  - [**Better Comments**](https://open-vsx.org/extension/aaron-bond/better-comments): Add special syntax highlighting for some types of comments like `TODO`, `?`, `!`, and so on
+  - [**Shebang Snippets**](https://open-vsx.org/extension/rpinski/shebang-snippets): Provides snippets for adding [shebang directives](https://en.wikipedia.org/wiki/Shebang_(Unix)) (e.g. type `#!python` to get `#!/usr/bin/env python`)
+- **Viewers and syntaxes**
+  - [**Excel Viewer**](https://open-vsx.org/extension/GrapeCity/gc-excelviewer): View .xlsx files
+  - [**vscode-pdf**](https://open-vsx.org/extension/tomoki1207/pdf): View PDFs
+  - [**Rainbow CSV**](https://open-vsx.org/extension/mechatroner/rainbow-csv): Does neat syntax highlighting for CSV files (highlighting each column with specific colors)
+  - [**Stan**](https://open-vsx.org/extension/wardbrian/vscode-stan-extension): Syntax highlighting for Stan
+  - [**YAML**](https://open-vsx.org/extension/redhat/vscode-yaml): Syntax highlighting for YAML
+  - [**Lua**](https://open-vsx.org/extension/sumneko/lua): Syntax highlighting for Lua
+  - [**markdownlint**](https://open-vsx.org/extension/DavidAnson/vscode-markdownlint): Linting and style suggestions for Markdown
+- **Theme stuff**
+  - [**Material Icon Theme**](https://open-vsx.org/extension/PKief/material-icon-theme): Customize the icons associated with specific file types in the file explorer
+  - [**Fluent Icons**](https://open-vsx.org/extension/miguelsolorio/fluent-icons): Customize the icons in the general Positron app (primarily the icons in the Activity Bar, like Explorer, Search, Source Control, etc.)
+
+### Getting Open Remote - SSH to connect {#sec-ssh}
+
+One of the best features of VS Code is [its ability to connect to remote servers through SSH](https://code.visualstudio.com/docs/remote/remote-overview), but because that's enabled with a [special closed source Microsoft extension](https://code.visualstudio.com/docs/remote/ssh), it doesn't work in Positron.
+
+The [Open Remote - SSH](https://github.com/jeanp413/open-remote-ssh) extension replicates Microsoft's remote SSH extension, and it's available at Open VSX. However, it doesn't work with Positron immediately—you'll get an error when connecting. After a long time of fighting with it and hunting through GitHub issues, I found out how to get it to work though! [This comment here is the secret](https://github.com/jeanp413/open-remote-ssh/issues/83#issuecomment-1595787444).
+
+1. In `settings.json` on your computer, set this:
+
+   ```json
+   "remote.SSH.serverDownloadUrlTemplate": "https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v${version}/openvscode-server-v${version}-${os}-${arch}.tar.gz"
+   ```
+
+2. Try to connect to a remote server. It will connect and download and unzip stuff that needs to be installed on the remote server, but it will then fail with an error message.
+3. On the remote server, there will be a new directory at `~/.positron-server/bin/SOME_LONG_SHA_HASH`. Open that and edit the `product.json` in there. At the very bottom of that file, there's an entry called `"commit"`. Add the `SOME_LONG_SHA_HASH` there.
+4. In `settings.json` on your computer, set this:
+
+   ```json
+   "remote.SSH.experimental.serverBinaryName": "openvscode-server",
+   ```
+
+This works, but there are two ***HUGE*** caveats:
+
+- It's kind of annoying because it's tied to the specific version of Positron you have installed. If you update Positron, that `SOME_LONG_SHA_HASH` will change (you can see it by going to "About Positron"), and the connection will break and you'll have to log into the server and edit `product.json` again.
+- (*This is the bigger caveat*:) You can't run R or Python on the remote server. You can edit files just fine, but nothing is executable. It seems that Positron can't find any interpreters on remote servers.
+
+  ![No interpreters found on a remote server](img/remote-not-working.png)
+
+Alas.
+
+At least I can edit stuff remotely.
+
+
+## Things I still wish Positron could do
+
+Positron is still in beta and is undergoing rapid development, and that's totally fine. Even though it's not a finished product yet, it works really really well.
+
+There are still some things I wish it could do though. Some of these will eventually be addressed; some can't because of Microsoft.
+
+- **Packages panel**: I love RStudio's Packages panel. It's so helpful for seeing which packages are currently installed, which versions are installed, updating existing packages, and installing new ones.
+
+  ![RStudio's Packages panel](img/rstudio-packages-panel.png){width="70%"}
+
+  [Nothing like this exists for Positron right now](https://github.com/posit-dev/positron/discussions/3762#discussioncomment-9920294), but [there's discussion about how to build something like it](https://github.com/posit-dev/positron/issues/1391) (that would also work for Python).
+
+- **Plot dimensions**: ([*This will hopefully be addressed someday*](https://github.com/posit-dev/positron/issues/3676#issuecomment-2198991462)). In RStudio, when working with Quarto and R Markdown documents, inline images use the dimensions that you set in the chunk options, which makes it really easy to tinker with plot dimensions (i.e. changing from `fig-width: 2.5` to `fig-width: 2.75` to make sure labels fit in the plot area). Current, plots in Positron show up in the plots panel and use whatever dimensions that panel is set to use, either by manually resizing it or by using a dropdown menu with specific sizes:
+
+  ![Positron's plot panel](img/plot-panel.png){.border width="70%"}
+
+  It would be cool if Positron's plot panel could pick up the dimensions specified in a Quarto document and auto-resize to match. For now, I've just been using the "Custom Size" option. If I want to preview an image that's 5 inches wide and 3.75 inches tall, I convert the ratio of width/height to pixels. It's not exact—there are issues with different DPIs and retina screens—but it at least shows the correct proportion.
+
+  ![Custom sizes in Positron's plot panel](img/plot-panel-custom-size.png){.border width="70%"}
+
+- **Remote editing *and execution* with Open Remote - SSH**: It would be incredible if (1) it were a lot easier to install Open Remote - SSH, and (2) it were possible to run code on remote servers. [I think they're working on supporting this](https://github.com/posit-dev/positron/issues/2307).
+
+  Similar to this, but less important to me because I don't use Docker containers this way, VS Code can [work with Docker containers with the Dev Containers extension](https://code.visualstudio.com/docs/devcontainers/containers), similar to SSH, using Docker environments to run R/Python locally. [They might be working on supporting this some day](https://github.com/posit-dev/positron/discussions/3747).
+
+- **GitHub Copilot Chat**: Being able to chat with GitHub Copilot in VS Code is fantastic and it's like only LLM thing I use. But it only works through a closed source extension by Microsoft and probably won't ever work outside of VS Code proper.
