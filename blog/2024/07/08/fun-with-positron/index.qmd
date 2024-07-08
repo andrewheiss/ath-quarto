@@ -120,7 +120,7 @@ There are some extension-specific options at the bottom that I'll explain below 
     // Positron-specific settings
     // -------------------------------------------------------------------------
     "rstudio.keymap.enable": true,
-    "python.defaultInterpreterPath": "/opt/homebrew/bin/python3.11",
+    "python.defaultInterpreterPath": "/opt/homebrew/bin/python",
 
 
     // Editor settings
