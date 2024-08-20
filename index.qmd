@@ -1,6 +1,7 @@
 ---
 title: "Hello there!"
 pagetitle: "Andrew Heiss"
+description-meta: "Andrew Heiss is an assistant professor at Georgia State University, researching international NGOs and teaching data science & economics."
 main-photo: /files/profiles/andrew-heiss-2022.jpg
 main-photo-square: /files/profiles/andrew-heiss-2022-square.jpg
 title-block-banner: "#CF4446"
