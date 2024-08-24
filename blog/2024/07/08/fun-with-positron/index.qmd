@@ -310,7 +310,7 @@ Here's what I use:
 
 - **Managing other environments**
   - [**Docker**](https://open-vsx.org/extension/ms-azuretools/vscode-docker): Manage Docker containers and volumes; right click on `docker-compose.yml` files to spin them up and shut them down; syntax highlighting for Dockerfiles and Docker Compose
-  - [**Open Remote - SSH**](https://open-vsx.org/extension/jeanp413/open-remote-ssh): Connect to remote servers with SSH ([see ***big caveat*** below for details about how to set this up](#sec-ssh))
+  - [**Open Remote - SSH**](https://open-vsx.org/extension/jeanp413/open-remote-ssh): Connect to remote servers with SSH. **This is bundled with Positron and there's no need to install anything.**
 - **Text editing**
   - [**Rewrap**](https://open-vsx.org/extension/stkb/rewrap): Automatically add line breaks in long comments or text (I have it set to wrap at 80 characters using <kbd>⌘⌥Q</kbd>)
   - [**Better Comments**](https://open-vsx.org/extension/aaron-bond/better-comments): Add special syntax highlighting for some types of comments like `TODO`, `?`, `!`, and so on
@@ -327,36 +327,17 @@ Here's what I use:
   - [**Material Icon Theme**](https://open-vsx.org/extension/PKief/material-icon-theme): Customize the icons associated with specific file types in the file explorer
   - [**Fluent Icons**](https://open-vsx.org/extension/miguelsolorio/fluent-icons): Customize the icons in the general Positron app (primarily the icons in the Activity Bar, like Explorer, Search, Source Control, etc.)
 
-### Getting Open Remote - SSH to connect {#sec-ssh}
+### Remote connections with SSH
 
 One of the best features of VS Code is [its ability to connect to remote servers through SSH](https://code.visualstudio.com/docs/remote/remote-overview), but because that's enabled with a [special closed source Microsoft extension](https://code.visualstudio.com/docs/remote/ssh), it doesn't work in Positron.
 
-The [Open Remote - SSH](https://github.com/jeanp413/open-remote-ssh) extension replicates Microsoft's remote SSH extension, and it's available at Open VSX. However, it doesn't work with Positron immediately—you'll get an error when connecting. After a long time of fighting with it and hunting through GitHub issues, I found out how to get it to work though! [This comment here is the secret](https://github.com/jeanp413/open-remote-ssh/issues/83#issuecomment-1595787444).
+The [Open Remote - SSH](https://github.com/jeanp413/open-remote-ssh) extension replicates Microsoft's remote SSH extension, and it's available at Open VSX. ~~However, it doesn't work with Positron immediately—you'll get an error when connecting.~~ **This now works and there's no need to install anything!** ([See this for a previous partial workaround.](https://github.com/posit-dev/positron/issues/2307#issuecomment-2212869418))
 
-1. In `settings.json` on your computer, set this:
+::: {.callout-important}
+### August 2024 update!
 
-   ```json
-   "remote.SSH.serverDownloadUrlTemplate": "https://github.com/gitpod-io/openvscode-server/releases/download/openvscode-server-v${version}/openvscode-server-v${version}-${os}-${arch}.tar.gz"
-   ```
-
-2. Try to connect to a remote server. It will connect and download and unzip stuff that needs to be installed on the remote server, but it will then fail with an error message.
-3. On the remote server, there will be a new directory at `~/.positron-server/bin/SOME_LONG_SHA_HASH`. Open that and edit the `product.json` in there. At the very bottom of that file, there's an entry called `"commit"`. Add the `SOME_LONG_SHA_HASH` there.
-4. In `settings.json` on your computer, set this:
-
-   ```json
-   "remote.SSH.experimental.serverBinaryName": "openvscode-server",
-   ```
-
-This works, but there are two ***HUGE*** caveats:
-
-- It's kind of annoying because it's tied to the specific version of Positron you have installed. If you update Positron, that `SOME_LONG_SHA_HASH` will change (you can see it by going to "About Positron"), and the connection will break and you'll have to log into the server and edit `product.json` again.
-- (*This is the bigger caveat*:) You can't run R or Python on the remote server. You can edit files just fine, but nothing is executable. It seems that Positron can't find any interpreters on remote servers.
-
-  ![No interpreters found on a remote server](img/remote-not-working.png)
-
-Alas.
-
-At least I can edit stuff remotely.
+[As of August 2024](https://github.com/posit-dev/positron/pull/4251), Positron [now bundles an SSH extension](https://github.com/posit-dev/positron/issues/2307) that Just Works™. If you have R or Python installed on a remote server, you can connect to it and run code remotely and it's all great and wonderful now.
+:::
 
 
 ## Things I still wish Positron could do
