@@ -1,0 +1,19 @@
+- title: Data Visualization with R
+  description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
+  university: Georgia State University
+  number: PMAP 8551/4551
+  url: https://datavizf24.classes.andrewheiss.com/
+  logo: logos/datavizm20.png
+  semester:
+  - name: Fall 2024 (asynchronous online)
+    url: https://datavizf24.classes.andrewheiss.com/
+
+- title: Comparative Public Administration
+  description: "Explore how the public and nonprofit sectors work around the world and learn how political institutions shape government and civil society"
+  university: Georgia State University
+  number: PMAP 8441/4441
+  url: https://compaf24.classes.andrewheiss.com/
+  logo: logos/compasp23.png
+  semester:
+  - name: Fall 2024
+    url: https://compaf24.classes.andrewheiss.com/

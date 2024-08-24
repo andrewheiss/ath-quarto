@@ -12,8 +12,20 @@
   description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
   university: Georgia State University
   number: PMAP 8551/4551
-  url: https://datavizf23.classes.andrewheiss.com/
+  url: https://datavizs24.classes.andrewheiss.com/
   logo: logos/datavizm20.png
   semester:
   - name: Fall 2023 (asynchronous online)
     url: https://datavizf23.classes.andrewheiss.com/
+  - name: Summer 2024 (asynchronous online)
+    url: https://datavizs24.classes.andrewheiss.com/
+
+- title: Microeconomics for Public Policy
+  description: "Learn how to understand, speak, and do economics in the public sector"
+  university: Georgia State University
+  number: PMAP 8141
+  url: https://econs24.classes.andrewheiss.com/
+  logo: logos/econw19.png
+  semester:
+  - name: Summer 2024 (asynchronous online)
+    url: https://econs24.classes.andrewheiss.com/
