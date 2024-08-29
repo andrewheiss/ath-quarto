@@ -1,0 +1,24 @@
+- title: "Move beyond OLS! An introduction to Poisson, Beta, and zero-inflated Beta Bayesian distributional regression models"
+  date: 2024-04-25
+  description: 'Workshop presented at the Department of Agronomy at Kansas State University'
+  location: Manhattan, Kansas (via Zoom)
+  links:
+  - name: Companion site and materials
+    url: https://talks.andrewheiss.com/2024-04-25_ksu-bayes/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2024-04-25_ksu-bayes
+    icon: fa-brands fa-github
+
+- title: "Be curious, not judgmental: Creating a welcoming learning environment through radical transparency and judgment-free curiosity"
+  date: 2024-03-21
+  description: >-
+    Workshop for Posit Academy's "Mentors on Mentoring" series"
+  location: Online
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2024-03-21_be-curious-not-judgmental/
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository for talk
+    url: https://github.com/andrewheiss/Talks/tree/master/2024-03-21_be-curious-not-judgmental
+    icon: fa-brands fa-github

@@ -1,6 +1,10 @@
 ---
 title: "Talks"
 listing:
+  - id: talks_2024
+    contents: talks_2024.yml
+    sort: "date desc"
+    template: ../html/talks/listing.ejs
   - id: talks_2022
     contents: talks_2022.yml
     sort: "date desc"
@@ -52,6 +56,11 @@ This page contains the source code, links, and slides for various workshops, tal
 ### Copyright
 
 Except where noted, all content is © Andrew Heiss and licensed under [Creative Commons](https://creativecommons.org/licenses/by-sa/4.0/).
+:::
+
+## 2024
+
+:::{#talks_2024}
 :::
 
 ## 2022
