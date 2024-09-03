@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2024-08-19
+date: 2024-09-03
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -19,16 +19,15 @@ freeze: false
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of August 19, 2024 this is what I'm using: 
+I try to keep this updated fairly regularly. As of September 3, 2024 this is what I'm using: 
 
 
 ## Writing
 
 - I permanently ditched Word as a writing environment in 2008 after starting grad school. I do all my writing in [pandoc-flavored](http://pandoc.org/) [Markdown](https://daringfireball.net/projects/markdown/) (including e-mails and paper-and-pencil writing)—it's incredibly intuitive, imminently readable, flexible, future proof, and lets me ignore formatting and focus on content.
-- I live in [Ulysses](http://ulyssesapp.com/). At first I chafed at the fact that it stores everything in its own internal folder structure, since I store most of my writing in git repositories, but exporting a compiled Markdown file from a bunch of Ulysses sheets is trivial (and still easily trackable in version control).
-- I use [Typora](https://typora.io/) to edit standalone Markdown files, since Ulysses uses its own syntax when using fancy things like footnotes. Typora is my favorite standalone Markdown editor I've found so far because it inherently supports pandoc-flavored Markdown.
-- The key to my writing workflow is the magical [pandoc](http://pandoc.org/), which converts Markdown files into basically anything else. I use [my own variation](https://github.com/andrewheiss/Global-Pandoc-files) of Kieran Healy's [Plain Text Social Science workflow](http://plain-text.co/) to convert Markdown to HTML, PDF (through LaTeX), and Word (through LibreOffice).
-- I store all my bibliographic references, books, and articles in Zotero ([see here for why](/blog/2023/01/08/bibdesk-to-zotero-pandoc/)).
+- The key to my writing workflow is the magical [pandoc](http://pandoc.org/), which converts Markdown files into basically anything else. I use [Quarto](https://quarto.org/) to convert Markdown to HTML, PDF (through LaTeX), Word, and any other output format.
+- I do my academic writing in several different programs: for stats-heavy stuff, I use [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://github.com/posit-dev/positron), and for prose-heavy stuff, I use [Obsidian](https://obsidian.md/) or [Typora](https://typora.io/). I used to use [Ulysses](http://ulyssesapp.com/) (and still think it's a fantastic app!), but I found that I wasn't using it as much in the past few years as I've switched to Quarto for my writing.
+- I store all my bibliographic references, books, and articles in [Zotero](https://www.zotero.org/) ([see here for why](/blog/2023/01/08/bibdesk-to-zotero-pandoc/)).
 - I read and annotate all my PDFs with [Skim](http://skim-app.sourceforge.net/) (and [iAnnotate](http://www.iannotate.com/) on iOS), since both export annotations as clean plain text.
 - I store all my notes in [Obsidian](https://obsidian.md/). Before switching to Obsidian I used [Bear](https://bear.app/), which was great but didn't support fancier things like math or syntax highlighting. Before that, I used [Evernote](https://www.evernote.com/), but I abandoned it in September 2018 after 9 years of heavy use, given their ongoing privacy controversies and mass layoffs.
 
