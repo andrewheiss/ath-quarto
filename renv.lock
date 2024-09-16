@@ -5172,14 +5172,20 @@
     },
     "tinytable": {
       "Package": "tinytable",
-      "Version": "0.3.0.34",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "0.4.0.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "vincentarelbundock",
+      "RemoteRepo": "tinytable",
+      "RemoteRef": "main",
+      "RemoteSha": "2349573fa5614dc42e12a0b878c58c6c90002211",
+      "Remotes": "vincentarelbundock/tinysnapshot",
       "Requirements": [
         "R",
         "methods"
       ],
-      "Hash": "e446f99cfc5759d382073fa2d3911837"
+      "Hash": "bc69eb8587d99f43a0f05fd1d7bd0ad8"
     },
     "tinytex": {
       "Package": "tinytex",
