@@ -1,6 +1,7 @@
 ---
 title: "The ultimate practical guide to multilevel multinomial conjoint analysis with R"
 date: 2023-08-12
+date-modified: 2024-09-24
 description: "Learn how to use R, {brms}, {marginaleffects}, and {tidybayes} to analyze discrete choice conjoint data with fully specified hierarchical multilevel multinomial models"
 image: index_files/figure-html/plot-amces-minivans-carpool-1.png
 twitter-card:
@@ -49,7 +50,7 @@ set.seed(1234)
 ```{r tikz-stuff, include=FALSE}
 # Necessary for using dvisvgm on macOS
 # See https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/
-Sys.setenv(LIBGS = "/usr/local/share/ghostscript/9.53.3/lib/libgs.dylib.9.53")
+Sys.setenv(LIBGS = "/opt/homebrew/opt/ghostscript/lib/libgs.dylib")
 
 font_opts <- list(
   extra.preamble = c(
@@ -141,7 +142,7 @@ I'll do three things in this guide:
 Throughout this example, I'll use data from two different simulated conjoint choice experiments. You can download these files and follow along:
 
 - [{{< fa table >}} `choco_candy.csv`](data/choco_candy.csv): This is simulated data for a hypothetical experiment about consumer preferences for candy features. It comes from p. 292 in @Kuhfeld:2010, a [SAS technical note](http://support.sas.com/techsup/technote/mr2010f.pdf) about how to run multinomial models in SAS. Instead of copying/pasting from the PDF, [I found a version of it here](https://github.com/sangwoo-statistics/dataset), cleaned up by Sangwoo Kim (who also has [a YouTube tutorial](https://www.youtube.com/watch?v=ra8Y2FjRqOE) using the same candy data)
-- [{{< fa table >}} `rintro-chapter13conjoint.csv`](data/choco_candy.csv): This is simultated data for a hypothetical experiment about consumer preferences for minivan features. It comes from chapter 13 in @ChapmanFeit:2019 and is available from the [book's resources page](http://r-marketing.r-forge.r-project.org/) (or [directly from their data folder](http://r-marketing.r-forge.r-project.org/data/))
+- [{{< fa table >}} `rintro-chapter13conjoint.csv`](data/rintro-chapter13conjoint.csv): This is simultated data for a hypothetical experiment about consumer preferences for minivan features. It comes from chapter 13 in @ChapmanFeit:2019 and is available from the [book's resources page](http://r-marketing.r-forge.r-project.org/) (or [directly from their data folder](http://r-marketing.r-forge.r-project.org/data/))
 
 Additionally, in [Part 3](#part-3-minivans-repeated-questions-full-hierarchical-multinomial-logit), I fit a huge Stan model with {brms} that takes ≈30 minutes to run on my fast laptop. If you want to follow along and not melt your CPU for half an hour, you can download an .rds file of that fitted model that I stuck in [an OSF project](https://osf.io/3y7es/). The code for `brm()` later in this guide will load the .rds file automatically instead of rerunning the model as long as you put it in a folder named "models" in your working directory. This code uses the [{osfr} package](https://docs.ropensci.org/osfr/) to download [the .rds file from OSF](https://osf.io/zp6eh) automatically and places it where it needs to go:
 
@@ -477,24 +478,41 @@ We can do the same thing with R.
 
 ### Frequentist predictions
 
-{mlogit} model objects have predicted values stored in one of their slots (`model_chocolate_mlogit$probabilities`), but they're in a weird non-tidy matrix form and I like working with tidy data. I'm also a huge fan of [the {marginaleffects} package](https://vincentarelbundock.github.io/marginaleffects/), which provides a consistent way to calculate predictions, comparisons, and slopes/marginal effects (with `predictions()`, `comparisons()`, and `slopes()`) for dozens of kinds of models, including `mlogit()` models. 
+~~{mlogit} model objects have predicted values stored in one of their slots (`model_chocolate_mlogit$probabilities`), but they're in a weird non-tidy matrix form and I like working with tidy data. I'm also a huge fan of [the {marginaleffects} package](https://vincentarelbundock.github.io/marginaleffects/), which provides a consistent way to calculate predictions, comparisons, and slopes/marginal effects (with `predictions()`, `comparisons()`, and `slopes()`) for dozens of kinds of models, including `mlogit()` models. So instead of wrangling the built-in `mlogit()` probabilities, we'll generate predictions by feeding the model the unique combinations of `dark`, `soft`, and `nuts` to `marginaleffects::predictions()`, which will provide us with probability- or proportion-scale predictions:~~
 
-So instead of wrangling the built-in `mlogit()` probabilities, we'll generate predictions by feeding the model the unique combinations of `dark`, `soft`, and `nuts` to `marginaleffects::predictions()`, which will provide us with probability- or proportion-scale predictions:
+::: {.callout-note}
+{mlogit} and {marginaleffects}
+
+In September 2024, {marginaleffects} [removed support](https://github.com/vincentarelbundock/marginaleffects/commit/9778eef3ad98369c6e8d11ba7e894111ae6b4e94) for {mlogit} because the internal model object structure made it extremely difficult to calculate consistent results.
+
+We can calculate predictions with {mlogit}'s version of `predict()`, but it doesn't include standard errors, so we can't find confidence intervals or other measures of uncertainty without doing fancier things like bootstrapping or using Bayesian methods. The Bayesian approach is the whole point of this tutorial, really, so take the difficulty of {mlogit}-related postestimation work as a call to convert to the wonderful world of {brms} and Bayes. :)
+:::
+
+We can calculate probability-scale predictions by feeding the alternatives A–H (or the unique combinations of `dark`, `soft`, and `nuts`) to the model using `predict()`. We have to first create a little dataset of the alternatives (here I filter the data to include only Subject 1), and then feed that to `predict()`, which returns a named vector. To get that into a more usable data frame, we can convert the named vector into a data frame with `tidyr::enframe()` and then join it to the data frame of alternatives:
 
 ```{r pred-model-chocolate-mlogit}
-preds_chocolate_mlogit <- predictions(
-  model_chocolate_mlogit, 
-  newdata = datagrid(dark = unique, soft = unique, nuts = unique)
-)
+# Unique combinations of dark, soft, and nuts across the 8 alternatives
+alts <- chocolate %>% 
+  filter(subj == 1) %>% 
+  select(-subj, -choice)
 
-preds_chocolate_mlogit %>% 
-  # predictions() hides a bunch of columns; forcing it to be a tibble unhides them
-  as_tibble() %>% 
-  arrange(desc(estimate)) %>% 
-  select(group, dark, soft, nuts, estimate, std.error, statistic, p.value)
+# Named vector of predicted values
+preds <- predict(model_chocolate_mlogit, newdata = alts)
+
+preds_chocolate_mlogit <- alts %>% 
+  left_join(enframe(preds, name = "alt", value = "estimate"), by = join_by(alt)) %>% 
+  arrange(desc(estimate))
+preds_chocolate_mlogit
 ```
 
+
 Perfect! They're identical to the SAS output. 
+
+::: {.callout-warning}
+### jklol they're not perfect
+
+As far as I can tell, `predict()` doesn't provide standard errors for `mlogit()`-based models, and none of the more standard helper packages like `marginaleffects::predictions()` or `broom::agument()` really do either. I guess that's good incentive to do this with Bayesian methods instead :)
+:::
 
 We can play around with these predictions to describe the overall market for candy. Chewy candies dominate the market…
 
@@ -515,7 +533,7 @@ preds_chocolate_mlogit %>%
 
 ### Bayesian predictions
 
-{marginaleffects} supports {brms} models too, so we can basically run the same `predictions()` function to generate predictions for our Bayesian model. Magical.
+{marginaleffects} supports {brms} models too, so we can use its `predictions()` function to generate predictions for our Bayesian model.
 
 ::: {.callout-important}
 #### lol subject offsets
@@ -556,7 +574,7 @@ p1 <- preds_chocolate_mlogit %>%
   mutate(label = str_to_sentence(glue::glue("{dark} chocolate, {soft} interior, {nuts}"))) %>% 
   mutate(label = fct_inorder(label)) %>% 
   ggplot(aes(x = estimate, y = label)) +
-  geom_pointrange(aes(xmin = conf.low, xmax = conf.high), color = clrs[7]) +
+  geom_point(color = clrs[7]) +
   scale_x_continuous(labels = label_percent()) +
   labs(
     x = "Predicted probability of selection", y = NULL,
@@ -618,85 +636,109 @@ When holding all other features constant, moving from chewy → soft is associat
 
 ### Frequentist comparisons/contrasts
 
-We went out of order in this section and showed how to use `avg_comparisons()` with the Bayesian model first instead of the frequentist model. That's because it was easy. `mlogit()` models [behave strangely with {marginaleffects}](https://vincentarelbundock.github.io/marginaleffects/articles/categorical.html#mlogit-package) because {mlogit} forces its predictions to use every possible value of the alternatives A–H. Accordingly, the estimate for any coefficients in the attributes section of the {mlogit} formula (`dark`, `soft`, and `nuts` here) will automatically be zero. Note how here there are 24 rows of comparisons instead of 3, since we get comparisons in each of the 8 groups, and note how the estimates are all zero:
+We went out of order in this section and showed how to use `avg_comparisons()` with the Bayesian model first instead of the frequentist model. That's because it was easy. 
 
-```{r show-comparisons-chocolate-mlogit-wrong}
-avg_comparisons(model_chocolate_mlogit)
-```
+`mlogit()` models don't work with {marignaleffects} (or other model wrangling packages like {broom}), so there's no good way to do it. We're limited to calculating the contrasts of predictions by hand and manipulating and collapsing the data frame of predictions that we made previously.
 
-If we had continuous variables, we could work around this by [specifying our own tiny amount of marginal change](https://vincentarelbundock.github.io/marginaleffects/articles/categorical.html#mlogit-package) to compare across, but we're working with categories and can't do that. Instead, with categorical variables, we can return to `predictions()` and [define custom aggregations of different features and levels](https://vincentarelbundock.github.io/marginaleffects/articles/predictions.html#multinomial-models). 
-
-Before making custom aggregations, though, it'll be helpful to illustrate what exactly we're looking at when collapsing these results. Remember that earlier we calculated predictions for all the unique combinations of `dark`, `soft`, and `nuts`:
+It's helpful to illustrate what exactly we're looking at when collapsing these results. Remember that earlier we calculated predictions for all the unique combinations of `dark`, `soft`, and `nuts`:
 
 ```{r preds-chocolate-mlogit-again}
-preds_chocolate_mlogit <- predictions(
-  model_chocolate_mlogit, 
-  newdata = datagrid(dark = unique, soft = unique, nuts = unique)
-) 
+# Unique combinations of dark, soft, and nuts across the 8 alternatives
+alts <- chocolate %>% 
+  filter(subj == 1) %>% 
+  select(-subj, -choice)
 
-preds_chocolate_mlogit %>% 
-  as_tibble() %>% 
-  select(group, dark, soft, nuts, estimate)
+# Named vector of predicted values
+preds <- predict(model_chocolate_mlogit, newdata = alts, se.fit = TRUE)
+
+preds_chocolate_mlogit <- alts %>% 
+  left_join(enframe(preds, name = "alt", value = "estimate"), by = join_by(alt)) %>% 
+  arrange(desc(estimate))
+preds_chocolate_mlogit
 ```
 
 Four of the groups have `dark` = Milk and four have `dark` = Dark, with other varying characteristics across those groups (chewy/soft, nuts/no nuts). If we want the average proportion of all milk and dark chocolate options, we can group and summarize:
 
 ```{r preds-chocolate-avg-dark-manual}
-preds_chocolate_mlogit %>% 
+preds_dark <- preds_chocolate_mlogit %>% 
   group_by(dark) %>% 
   summarize(avg_pred = mean(estimate))
+preds_dark
 ```
 
-The average market share for milk chocolate candies, holding all other features constant, is 5% ($\frac{0.0540 + 0.126 + 0.006 + 0.014}{2} = 0.05$); the average market share for dark chocolate candies is 20% ($\frac{0.216 + 0.504 + 0.024 + 0.056}{2} = 0.2$). These values are the averages of the predictions from the four groups where `dark` is either Milk or Dark.
+The average market share for milk chocolate candies, holding all other features constant, is 5% ($\frac{0.0540 + 0.126 + 0.006 + 0.014}{2} = 0.05$); the average market share for dark chocolate candies is 20% ($\frac{0.216 + 0.504 + 0.024 + 0.056}{2} = 0.2$). These values are the averages of the predictions from the four groups where `dark` is either Milk or Dark. 
 
-Instead of calculating these averages manually (which would also force us to calculate standard errors and p-values manually, which, ugh), we can calculate these aggregate group means with `predictions()`. To do this, we can feed a little data frame to `predictions()` with the `by` argument. The data frame needs to contain columns for the features we want to collapse, and a `by` column with the labels we want to include in the output. For example, if we want to collapse the eight possible choices into those with milk chocolate and those with dark chocolate, we could create a `by` data frame like this:
-
-```{r by-df-example}
-by <- data.frame(dark = c("Milk", "Dark"), by = c("Milk", "Dark"))
-by
-```
-
-If we use that `by` data frame in `predictions()`, we get the same 5% and 20% from before, but now with all of {marginaleffects}'s extra features like standard errors and confidence intervals:
+If we find the difference between the two predictions, we'll see the average causal effect of moving from dark → milk—holding all other features constant, switching the chocolate type from dark to milk causes a 15 percentage point decrease in the probability of selecting the candy, on average.
 
 ```{r preds-chocolate-avg-by-dark}
-predictions(
-  model_chocolate_mlogit,
-  by = by
-)
+# Using diff() (reversing it so that it does Milk - Dark)
+diff(rev(preds_dark$avg_pred))
+
+# Tidyverse way
+preds_dark %>% 
+  pivot_wider(names_from = dark, values_from = avg_pred) %>% 
+  mutate(
+    term = "Milk - Dark",
+    estimate = Milk - Dark
+  ) %>% 
+  select(term, estimate)
 ```
 
-Even better, we can use the `hypothesis` functionality of `predictions()` to conduct a hypothesis test and calculate the difference (or contrast) between these two averages, which is *exactly what we're looking for* with categorical AMCEs. This shows the average causal effect of moving from milk → dark—holding all other features constant, switching the chocolate type from milk to dark causes a 15 percentage point increase in the probability of selecting the candy, on average.
-
-```{r preds-chocolate-avg-by-dark-hypothesis}
-predictions(
-  model_chocolate_mlogit,
-  by = by,
-  hypothesis = "revpairwise"
-)
-```
-
-We can't simultaneously specify all the contrasts we're interested in single `by` argument, but we can do them separately and combine them into a single data frame:
+We can use this same approach to make a big data frame of all the contrasts:
 
 ```{r preds-chocolate-avg-all}
 amces_chocolate_mlogit <- bind_rows(
-  dark = predictions(
-    model_chocolate_mlogit,
-    by = data.frame(dark = c("Milk", "Dark"), by = c("Milk", "Dark")),
-    hypothesis = "revpairwise"
-  ),
-  soft = predictions(
-    model_chocolate_mlogit,
-    by = data.frame(soft = c("Chewy", "Soft"), by = c("Chewy", "Soft")),
-    hypothesis = "revpairwise"
-  ),
-  nuts = predictions(
-    model_chocolate_mlogit,
-    by = data.frame(nuts = c("No nuts", "Nuts"), by = c("No nuts", "Nuts")),
-    hypothesis = "revpairwise"
-  ),
+  dark = preds_chocolate_mlogit %>% 
+    group_by(dark) %>% 
+    summarize(avg_pred = mean(estimate)) %>% 
+    pivot_wider(names_from = dark, values_from = avg_pred) %>% 
+    mutate(
+      term = "Dark - Milk",
+      estimate = Dark - Milk
+    ) %>% 
+    select(term, estimate),
+  soft = preds_chocolate_mlogit %>% 
+    group_by(soft) %>% 
+    summarize(avg_pred = mean(estimate)) %>% 
+    pivot_wider(names_from = soft, values_from = avg_pred) %>% 
+    mutate(
+      term = "Soft - Chewy",
+      estimate = Soft - Chewy
+    ) %>% 
+    select(term, estimate),
+  nuts = preds_chocolate_mlogit %>% 
+    group_by(nuts) %>% 
+    summarize(avg_pred = mean(estimate)) %>% 
+    pivot_wider(names_from = nuts, values_from = avg_pred) %>% 
+    mutate(
+      term = "Nuts - No nuts",
+      estimate = Nuts - `No nuts`
+    ) %>% 
+    select(term, estimate),
   .id = "variable"
 )
 amces_chocolate_mlogit
+```
+
+
+For instance, what's the causal effect of moving from milk → dark chocolate?
+
+```{r calc-amce-dark-mlogit}
+# Unique combinations of dark, soft, and nuts across the 8 alternatives
+alts <- chocolate %>% 
+  filter(subj == 1) %>% 
+  select(-subj, -choice)
+
+# Named vector of predicted values
+preds <- predict(model_chocolate_mlogit, newdata = alts, se.fit = TRUE)
+
+preds_chocolate_mlogit <- alts %>% 
+  left_join(enframe(preds, name = "alt", value = "estimate"), by = join_by(alt)) %>% 
+  arrange(desc(estimate))
+
+preds_chocolate_mlogit %>% 
+  group_by(dark) %>% 
+  summarize(estimate = mean(estimate))
 ```
 
 ### Plots
@@ -751,7 +793,7 @@ plot_data <- chocolate_var_levels %>%
   # Make these zero
   mutate(
     across(
-      c(estimate, conf.low, conf.high),
+      c(estimate),
       ~ ifelse(is.na(.x), 0, .x)
     )
   ) %>% 
@@ -763,7 +805,7 @@ p1 <- ggplot(
   aes(x = estimate, y = levels, color = variable_nice)
 ) +
   geom_vline(xintercept = 0) +
-  geom_pointrange(aes(xmin = conf.low, xmax = conf.high)) +
+  geom_point() +
   scale_x_continuous(labels = label_pp) +
   scale_color_manual(values = clrs[c(1, 3, 8)]) +
   guides(color = "none") +
@@ -789,6 +831,10 @@ posterior_mfx_nested <- posterior_mfx %>%
     delim = " - ", 
     names = c("variable_level", "reference_level")
   ) %>% 
+  # At some point marginaleffects() started adding "mean(Blah)" instead of
+  # "Blah" in the contrast column for avg_comparisons(), so this removes the
+  # function name and parentheses
+  mutate(variable_level = str_replace_all(variable_level, ".*\\(([^)]+)\\).*", "\\1")) %>% 
   group_by(term, variable_level) %>% 
   nest()
 
@@ -1104,15 +1150,15 @@ minivans_cat_marginalized %>%
 
 ### Frequentist predictions
 
-With the chocolate model, we could just use `avg_predictions(model_chocolate_mlogit)` and automatically get predictions for all 8 options. That's not the case here:
+With the chocolate model, we could use `predict(model_chocolate_mlogit)` and automatically get predictions for all 8 options. That's not the case here:
 
 ```{r show-mlogit-predictions-wrong}
-avg_predictions(model_minivans_mlogit)
+predict(model_minivans_mlogit)
 ```
 
 We get three predictions, and they're all 33ish%. That's because respondents were presented with three randomly shuffled options and chose one of them. All these predictions tell us is that across all 15 iterations of the questions, 1/3 of respondents selected the first option, 1/3 the second, and 1/3 the third. That's a good sign in this case—there's no evidence that people were just repeatedly choosing the first option. But in the end, these predictions aren't super useful.
 
-We instead want to be able to get predicted market shares (or predicted probabilities) for any given mix of products. For instance, here are six hypothetical products with different combinations of seats, cargo space, engines, and prices:
+We instead want to be able to get predicted market shares (or predicted probabilities) for any given mix of products. For instance, here are six arbitrary hypothetical products with different combinations of seats, cargo space, engines, and prices:
 
 ```{r create-example-product-mix}
 example_product_mix <- tribble(
@@ -1129,19 +1175,29 @@ example_product_mix <- tribble(
 example_product_mix
 ```
 
-If we were working with any other type of model, we could plug this data into the `newdata` argument of `predictions()` and get predicted values. That doesn't work here though. There were 200 respondents in the original data, and {mlogit}-predictions need to happen on a dataset with a multiple of that many rows. We can't just feed it 6 values.
+If we were working with any other type of model, we could plug this data into the `newdata` argument of `predict()` and get predicted values. That doesn't work here though. We get predicted values, but these don't correspond to each row of the `newdata` dataset—instead, each row sums to 100%, showing the probability of choosing column 1, 2 or 3 in the original survey, which isn't really all that helpful here. 
 
-```{r preds-minivan-mlogit-wrong, error=TRUE}
-predictions(model_minivans_mlogit, newdata = example_product_mix)
+```{r preds-minivan-mlogit-wrong}
+preds_wrong <- predict(model_minivans_mlogit, newdata = example_product_mix)
+preds_wrong
+```
+
+Further complicating things, it only returns two rows because it assumes that these six hypothetical product offerings were two different choice sets, or that rows 1–3 were shown together to the respondent, followed by rows 4–6. But that's not the case, and we're not interested in that.
+
+```{r preds-minivan-wrong-long}
+# Rearrange the predictions to be based on choice sets
+preds_wrong_df <- as.data.frame(preds_wrong) %>%
+  mutate(choice_set = row_number()) %>%
+  pivot_longer(cols = -choice_set, names_to = "alternative", values_to = "probability") %>% 
+  mutate(alternative = as.integer(alternative))
+
+# The probabilities within each fake choice set add to 100%
+example_product_mix %>%
+  mutate(choice_set = rep(1:2, each = 3), alternative = rep(1:3, 2)) %>%
+  left_join(preds_wrong_df, by = c("choice_set", "alternative"))
 ```
 
 Instead, following @ChapmanFeit:2019 (and [this Stan forum post](https://discourse.mc-stan.org/t/getting-predictions-for-multinomial-model-using-brms/22335)), we can manually multiply the covariates in `example_product_mix` with the model coefficients to calculate "utility" (or predicted vales on the logit scale), which we can then exponentiate and divide to calculate market shares.
-
-::: {.callout-important}
-#### Limits of {marginaleffects} and {mlogit}
-
-From what I can tell, this is not possible with {marginaleffects} because that package can't work with the coefficients from {mlogit} models and can only really work with predictions. {mlogit} predictions are forced to be on the response/probability scale since they're, like, predictions, so there's no way to get them on the log/logit link scale to calculate utilities and shares.
-:::
 
 ```{r generate-manual-predictions}
 # Create a matrix of 0s and 1s for the values in `example_product_mix`, omitting
@@ -1167,7 +1223,7 @@ bind_cols(share = share, logits = utility, example_product_mix)
 ::: {.callout-tip collapse="true"}
 ### Function version of this kind of prediction
 
-On p. 375 of @ChapmanFeit:2019 (and at [this Stan forum post](https://discourse.mc-stan.org/t/getting-predictions-for-multinomial-model-using-brms/22335/)), there's a function called `predict.mnl()` that does this utility and share calculation automatically. Because this post is more didactic and because I'm more interested in the Bayesian approach, I didn't use it earlier, but it works well.
+On p. 375 of @ChapmanFeit:2019 (and at [this Stan forum post](https://discourse.mc-stan.org/t/getting-predictions-for-multinomial-model-using-brms/22335/)), there's a function called `predict.mnl()` that does this utility and share calculation automatically. Because this post is more didactic and because I'm more interested in the Bayesian approach, I didn't use it earlier, but it works just the same.
 
 ```{r predict-mnl-example}
 predict.mnl <- function(model, data) {
@@ -1186,11 +1242,11 @@ predict.mnl(model_minivans_mlogit, example_product_mix)
 
 :::
 
-This new predicted `share` column sums to one, and it shows us the predicted market share assuming these are the only six products available. The \$30,000 six-seater 2ft gas van and the \$30,000 eight-seater 2ft gas van would comprise more than 75% (0.43337 + 0.31918) of a market consisting of these six products. Because we did this calculation by hand, we lose all of {marginaleffects}'s extra features like standard errors and hypothesis tests. Alas.
+This new predicted `share` column sums to one, and it shows us the predicted market share assuming these are the only six products available. The \$30,000 six-seater 2ft gas van and the \$30,000 eight-seater 2ft gas van would comprise more than 75% (0.43337 + 0.31918) of a market consisting of these six products.
 
 ### Bayesian predictions
 
-If we use the categorical multinomial {brms} model we run into the same issue of getting weird predictions. Here it shows that 2/3rds of predictions are 0, which makes sense—if a respondent is offered 10 iterations of 3 possible choices, that would be 30 total choices, but they can only choose one option per iteration, so 20 choices (or 20/30 or 2/3) wouldn't be selected. The other three groups are each 11%, since that's the remaining 33% divided evenly across three options. Neat, I guess, but still not super helpful.
+If we use the categorical multinomial {brms} model we run into the same issue of getting weird predictions. Using `marginaleffects::avg_predictions()`, we see that that 2/3rds of predictions are 0, which makes sense—if a respondent is offered 10 iterations of 3 possible choices, that would be 30 total choices, but they can only choose one option per iteration, so 20 choices (or 20/30 or 2/3) wouldn't be selected. The other three groups are each 11%, since that's the remaining 33% divided evenly across three options. Neat, I guess, but still not super helpful.
 
 ```{r show-brms-categorical-predictions-wrong, cache=TRUE}
 avg_predictions(model_minivans_categorical_brms)
@@ -1291,35 +1347,50 @@ shares_marginalized %>%
 
 As explained in the [AMCEs section for the chocolate data](#amces), in the social sciences we're less concerned about predicted market shares and more concerned about causal effects. Holding all other features constant, what is the effect of a \$5,000 increase in price or moving from 2 feet → 3 feet of storage space on the probability (or favorability) of selecting a minivan?
 
-In the chocolate example, we were able to use `marginaleffects::avg_comparisons()` with the Bayesian model and get categorical contrasts automatically. This was because we cheated and used a Poisson model, since those can secretly behave like multinomial models. For the frequentist {mlogit}-based model, we had to use `marginaleffects::predictions()` instead and specify a special `by` argument to collapse the predictions into the different contrasts we were interested in.
-
-In this case, since both the frequentist and Bayesian models for minivans are true multinomial models, we have to return to [{marginaleffects}'s special syntax](https://vincentarelbundock.github.io/marginaleffects/articles/predictions.html#multinomial-models) that lets us pass a data frame as the `by` argument. 
+In the chocolate example, we were able to use `marginaleffects::avg_comparisons()` with the Bayesian model and get categorical contrasts automatically. This was because we cheated and used a Poisson model, since those can secretly behave like multinomial models. For the frequentist {mlogit}-based model, we had to use base R's `predict()` instead and then collapse the predictions into the different contrasts we were interested in using `group_by() %>% summarize()`. We need to do the same thing here.
 
 ### Frequentist comparisons/contrasts
 
-To help with the intuition behind this, since it's more complex this time, we'll first create a data frame with all 54 combinations of all the feature levels (3 seats × 2 cargos × 3 engines × 3 prices) and create a `by` column label that concatenates all the labels together so there's a single unique label for each row:
+To help with the intuition behind this, since it's more complex this time, we'll create a data frame to show all the combinations of all the feature levels (3 seats × 2 cargos × 3 engines × 3 prices). There are 54 possible combinations:
 
-```{r create-mlogit-minivans-by}
-by_all_combos <- minivans %>% 
-  tidyr::expand(seat, cargo, eng, price) %>% 
-  mutate(by = paste(seat, cargo, eng, price, sep = "_"))
-by_all_combos
+```{r create-mlogit-minivans}
+van_all_combos <- minivans %>% 
+  tidyr::expand(seat, cargo, eng, price)
+van_all_combos
 ```
 
-We can then feed this `by_all_combos` data frame into `predictions()`, which will generate predictions for all these levels *collapsed by all three of the possible groups* (i.e. option 1, option 2, and option 3). We can then split the `by` column back into separate columns for each of the feature levels so that we have those original columns back.
+We want to calculate the probabilities for each of these combinations, regardless of whether the hypothetical minivan appeared as the first, second, or third option in the survey experiment.
+
+Fortunately, {mlogit} already did most of the work for us! One of the slots in the `model_minivans_mlogit` object is named `$probabilities`, which contains the a matrix of predicted probabilities for each of the 3,000 choice sets (200 respondents × 15 sets of questions)
+
+```{r show-minivan-mlogit-probs}
+# Number of choice sets
+nrow(model_minivans_mlogit$probabilities)
+
+# Probability of selecting each alternative within each choice set
+head(model_minivans_mlogit$probabilities)
+```
+
+Working with data like this, though, is messy and untidy. Fortunately again, if we use `model.frame()`, {mlogit} will return a long data frame with probabilities for each of the alternatives within each of the choice sets, or 9,000 rows (200 respondents × 15 sets of questions × 3 options within each question). This is the original data we used for the model, only now with columns for the fitted values on the logit scale (the `linpred` column) and the probability scale (the `probabilities` column).
+
+```{r show-minivan-mlogit-modelframe}
+model.frame(model_minivans_mlogit)
+```
+
+That's neat, but it's still a lot of data. Remember `van_all_combos` from earlier, with the 54 unique combinations of seat, cargo, engine, and price? We want to know the probabilities for each of those combinations.
+
+We can find those with some grouping and summarizing, finding the average probability within each of the combinations:
 
 ```{r create-all-preds-multinomial}
-all_preds_mlogit <- predictions(
-  model_minivans_mlogit,
-  # predictions.mlogit() weirdly gets mad when working with tibbles :shrug:
-  by = as.data.frame(by_all_combos)
-) %>%
-  # Split the `by` column up into separate columns
-  separate(by, into = c("seat", "cargo", "eng", "price"))
-as_tibble(all_preds_mlogit)
+all_preds_mlogit <- model.frame(model_minivans_mlogit) %>% 
+  group_by(seat, cargo, eng, price) %>% 
+  summarize(estimate = mean(probabilities))
+all_preds_mlogit
 ```
 
-There are a lot of predicted probabilities here, so we need to collapse and average these by groups to make any sense of them. For instance, suppose we're interested in the AMCE of cargo space. We can first find the average predicted probability of selection with some grouping and summarizing:
+Perfect. The option with 6 seats, 2 feet of cargo space, a gas engine, at \$30,000 had a 70% chance of being selected *regardless of whether it was presented as option 1, 2, or 3*.
+
+To find the AMCE of specific features, we can collapse and average even further. For instance, suppose we're interested in the AMCE of cargo space. We can first find the average predicted probability of selection with some grouping and summarizing, then calculate the difference between the two rows:
 
 ```{r manual-cargo-amce}
 manual_cargo_example <- all_preds_mlogit %>% 
@@ -1327,101 +1398,117 @@ manual_cargo_example <- all_preds_mlogit %>%
   summarize(avg_pred = mean(estimate))
 manual_cargo_example
 
+# diff() way
 diff(manual_cargo_example$avg_pred)
+
+# Tidyverse way
+manual_cargo_example %>% 
+  pivot_wider(names_from = cargo, values_from = avg_pred) %>% 
+  mutate(
+    term = "3ft - 2ft",
+    estimate = `3ft` - `2ft`
+  ) %>% 
+  select(term, estimate)
 ```
 
 Holding all other features constant, the average probability (or average favorability, or average market share, or whatever we want to call it) of selecting a minivan with 2 feet of storage space is 0.292 (this is the average of the 27 predictions from `all_preds_mlogit` where `cargo` = `2ft`); the average probability for a minivan with 3 feet of storage space is 0.375 (again, this is the average of the 27 predictions from `all_preds_mlogit` where `cargo` = `3ft`). There's an 8.3 percentage point difference between these groups. **This is the causal effect or AMCE**: switching from 2 feet to 3 feet increases minivan favorability by 8 percentage points on average.
-
-This manual calculation works, but it's tedious and doesn't include anything about standard errors. So instead, we can do it automatically with `predictions(..., by = data.frame(...))`.
-
-```{r preds-minivan-cargo-mlogit}
-preds_minivan_cargo_mlogit <- predictions(
-  model_minivans_mlogit, 
-  by = data.frame(
-    cargo = levels(minivans$cargo),
-    by = levels(minivans$cargo)
-  )
-)
-preds_minivan_cargo_mlogit
-```
-
-And if we use the `hypothesis` argument (or the standalone `hypotheses()` function), we can get the difference between these average predictions, or the AMCE we care about—moving from 2 feet → 3 feet causes an 8 percentage point increase in favorability.
-
-```{r preds-minivan-cargo-hypothesis-mlogit}
-hypotheses(preds_minivan_cargo_mlogit, hypothesis = "revpairwise")
-```
-
-The `hypothesis` functionality works with more than 2 levels too. If calculate average predictions for the 3 seat configurations and specify `pariwise` or `revpairwise`, {marginaleffects} will give three differences: row 2 − row 1; row 3 − row 1; and row 3 − row 2. If we specify `reference` or `revreference`, it'll only give two, all based on the first row.
-
-```{r preds-minivan-seat-hypotheses-mlogit}
-preds_minivan_seat_mlogit <- predictions(
-  model_minivans_mlogit, 
-  by = data.frame(
-    seat = levels(minivans$seat),
-    by = levels(minivans$seat)
-  )
-)
-
-hypotheses(preds_minivan_seat_mlogit, hypothesis = "revpairwise")
-hypotheses(preds_minivan_seat_mlogit, hypothesis = "reference")
-```
-
-We can specify any other comparisons with `bN`, where `N` stands for the row number from `predictions()`. For instance, if we just want the difference between 6 (row 1) and 8 (row 2), we can do this:
-
-```{r preds-minivan-seat-hypotheses-rows-mlogit}
-hypotheses(preds_minivan_seat_mlogit, hypothesis = "b2 = b1")
-```
 
 We can make a big data frame with all the AMCEs we're interested in. I've hidden the code here because it's really repetitive.
 
 ```{r generate-all-minivan-amces-mlogit}
 #| code-fold: true
 #| code-summary: "Make separate datasets of predictions and combine them in one data frame"
-preds_minivan_seat_mlogit <- predictions(
-  model_minivans_mlogit, 
-  by = data.frame(
-    seat = levels(minivans$seat),
-    by = levels(minivans$seat)
-  )
-)
+amce_minivan_seat_67_mlogit <- all_preds_mlogit %>% 
+  group_by(seat) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  filter(seat %in% c("6", "7")) %>%
+  pivot_wider(names_from = seat, values_from = avg_pred) %>% 
+  mutate(
+    term = "7 - 6",
+    estimate = `7` - `6`,
+    variable = "seat"
+  )  %>% 
+  select(variable, term, estimate)
 
-preds_minivan_cargo_mlogit <- predictions(
-  model_minivans_mlogit, 
-  by = data.frame(
-    cargo = levels(minivans$cargo),
-    by = levels(minivans$cargo)
-  )
-)
+amce_minivan_seat_68_mlogit <- all_preds_mlogit %>% 
+  group_by(seat) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  filter(seat %in% c("6", "8")) %>%
+  pivot_wider(names_from = seat, values_from = avg_pred) %>% 
+  mutate(
+    term = "8 - 6",
+    estimate = `8` - `6`,
+    variable = "seat"
+  )  %>% 
+  select(variable, term, estimate)
 
-preds_minivan_eng_mlogit <- predictions(
-  model_minivans_mlogit, 
-  by = data.frame(
-    eng = levels(minivans$eng),
-    by = levels(minivans$eng)
-  )
-)
+amce_minivan_cargo_mlogit <- all_preds_mlogit %>% 
+  group_by(cargo) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  pivot_wider(names_from = cargo, values_from = avg_pred) %>% 
+  mutate(
+    term = "3ft - 2ft",
+    estimate = `3ft` - `2ft`,
+    variable = "cargo"
+  )  %>% 
+  select(variable, term, estimate)
 
-preds_minivan_price_mlogit <- predictions(
-  model_minivans_mlogit, 
-  by = data.frame(
-    price = levels(minivans$price),
-    by = levels(minivans$price)
-  )
-)
+amce_minivan_eng_gas_elec_mlogit <- all_preds_mlogit %>% 
+  group_by(eng) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  filter(eng %in% c("gas", "elec")) %>%
+  pivot_wider(names_from = eng, values_from = avg_pred) %>% 
+  mutate(
+    term = "elec - gas",
+    estimate = elec - gas,
+    variable = "eng"
+  )  %>% 
+  select(variable, term, estimate)
+
+amce_minivan_eng_gas_hyb_mlogit <- all_preds_mlogit %>% 
+  group_by(eng) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  filter(eng %in% c("gas", "hyb")) %>%
+  pivot_wider(names_from = eng, values_from = avg_pred) %>% 
+  mutate(
+    term = "hyb - gas",
+    estimate = hyb - gas,
+    variable = "eng"
+  )  %>% 
+  select(variable, term, estimate)
+
+amce_minivan_price_3035_mlogit <- all_preds_mlogit %>% 
+  group_by(price) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  filter(price %in% c("30", "35")) %>%
+  pivot_wider(names_from = price, values_from = avg_pred) %>% 
+  mutate(
+    term = "35 - 30",
+    estimate = `35` - `30`,
+    variable = "price"
+  )  %>% 
+  select(variable, term, estimate)
+
+amce_minivan_price_3040_mlogit <- all_preds_mlogit %>% 
+  group_by(price) %>% 
+  summarize(avg_pred = mean(estimate)) %>%
+  filter(price %in% c("30", "40")) %>%
+  pivot_wider(names_from = price, values_from = avg_pred) %>% 
+  mutate(
+    term = "40 - 30",
+    estimate = `40` - `30`,
+    variable = "price"
+  )  %>% 
+  select(variable, term, estimate)
 
 amces_minivan_mlogit <- bind_rows(
-  seat = hypotheses(preds_minivan_seat_mlogit, hypothesis = "reference"),
-  cargo = hypotheses(preds_minivan_cargo_mlogit, hypothesis = "reference"),
-  eng = hypotheses(preds_minivan_eng_mlogit, hypothesis = "reference"),
-  # Need to specify these two tests manually because `hypotheses()` reeeeallly
-  # wants to use 35 as the reference level because it's the first value that
-  # appears in the original data. See
-  # https://github.com/vincentarelbundock/marginaleffects/issues/861
-  price = bind_rows(
-    hypotheses(preds_minivan_price_mlogit, hypothesis = "b1 = b2") %>% mutate(term = "35 - 30"),
-    hypotheses(preds_minivan_price_mlogit, hypothesis = "b3 = b2") %>% mutate(term = "40 - 30")
-  ),
-  .id = "variable"
+  amce_minivan_seat_67_mlogit,
+  amce_minivan_seat_68_mlogit,
+  amce_minivan_cargo_mlogit,
+  amce_minivan_eng_gas_elec_mlogit,
+  amce_minivan_eng_gas_hyb_mlogit,
+  amce_minivan_price_3035_mlogit,
+  amce_minivan_price_3040_mlogit
 )
 ```
 
@@ -1432,7 +1519,7 @@ amces_minivan_mlogit
 
 ### Bayesian comparisons/contrasts
 
-Unlike the chocolate example, where the outcome variable was binary, we have to do similar `by`-like shenanigans with the Bayesian minivan model here. We could theoretically work with things like `marginaleffects::comparisons()` or `marginaleffects::slopes()` to extract the AMCEs from the model, but as I'll show below, there are some weird mathy things we have to deal with because of the multinomial outcome, and I think it's beyond what {marginaleffects} is designed to easily do. 
+Unlike the chocolate example, where the outcome variable was binary, we have to do similar grouping and summarizing and marginalizing shenanigans with the Bayesian minivan model here. We could theoretically work with things like `marginaleffects::comparisons()` or `marginaleffects::slopes()` to extract the AMCEs from the model, but as I'll show below, there are some weird mathy things we have to deal with because of the multinomial outcome, and I think it's beyond what {marginaleffects} is designed to easily do. 
 
 So instead we can use `epred_draws()` from {tidybayes} and calculate posterior predictions ourselves ([see this guide](https://www.andrewheiss.com/blog/2022/09/26/guide-visualizing-types-posteriors/) for an overview of all of {tidybayes}'s different prediction functions).
 
@@ -1634,7 +1721,9 @@ plot_data <- minivan_var_levels %>%
   # Make these zero
   mutate(
     across(
-      c(estimate, conf.low, conf.high),
+      c(estimate),
+      # This is from when this worked with marginaleffects
+      # c(estimate, conf.low, conf.high),
       ~ ifelse(is.na(.x), 0, .x)
     )
   ) %>% 
@@ -1646,7 +1735,7 @@ p1 <- ggplot(
   aes(x = estimate, y = levels, color = variable_nice)
 ) +
   geom_vline(xintercept = 0) +
-  geom_pointrange(aes(xmin = conf.low, xmax = conf.high)) +
+  geom_point() +
   scale_x_continuous(labels = label_pp) +
   scale_color_manual(values = clrs[c(3, 7, 8, 9)], guide = "none") +
   labs(
