@@ -481,7 +481,7 @@ We can do the same thing with R.
 ~~{mlogit} model objects have predicted values stored in one of their slots (`model_chocolate_mlogit$probabilities`), but they're in a weird non-tidy matrix form and I like working with tidy data. I'm also a huge fan of [the {marginaleffects} package](https://vincentarelbundock.github.io/marginaleffects/), which provides a consistent way to calculate predictions, comparisons, and slopes/marginal effects (with `predictions()`, `comparisons()`, and `slopes()`) for dozens of kinds of models, including `mlogit()` models. So instead of wrangling the built-in `mlogit()` probabilities, we'll generate predictions by feeding the model the unique combinations of `dark`, `soft`, and `nuts` to `marginaleffects::predictions()`, which will provide us with probability- or proportion-scale predictions:~~
 
 ::: {.callout-note}
-{mlogit} and {marginaleffects}
+### {mlogit} and {marginaleffects}
 
 In September 2024, {marginaleffects} [removed support](https://github.com/vincentarelbundock/marginaleffects/commit/9778eef3ad98369c6e8d11ba7e894111ae6b4e94) for {mlogit} because the internal model object structure made it extremely difficult to calculate consistent results.
 
