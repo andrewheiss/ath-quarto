@@ -48,9 +48,9 @@ pub-info:
     Presented at the annual meeting of the Peace Science Society in Denver, Colorado, November 2022; and the annual meeting of the International Studies Association (ISA), Montréal, Canada, March 2023
 doi: 10.1080/03050629.2024.2413965
 haiku: 
-  - COVID policies
-  - could be bad for human rights—
-  - used as intended.
+  - COVID policies.
+  - Bad news for human rights? No.
+  - Used as intended.
 ---
 
 ## Important links
