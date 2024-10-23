@@ -21,7 +21,7 @@ categories:
   - prediction
 pub-info:
   reference: >-
-    <a href="https://arelbundock.com/">Vincent Arel-Bundock</a>, <a href="https://ngreifer.github.io/">Noah Greifer</a>, and <strong>Andrew Heiss</strong>, How to Interpret Statistical Models Using {marginaleffects} in R and Python,” <em>Journal of Statistical Software</em> forthcoming (2024), doi: <a href="#"><code>forthcoming</code></a>
+    <a href="https://arelbundock.com/">Vincent Arel-Bundock</a>, <a href="https://ngreifer.github.io/">Noah Greifer</a>, and <strong>Andrew Heiss</strong>, “How to Interpret Statistical Models Using {marginaleffects} in R and Python,” <em>Journal of Statistical Software</em> forthcoming (2024), doi: <a href="#"><code>forthcoming</code></a>
   links:
     - name: Preprint
       url: mfxplainer.pdf

@@ -21,7 +21,7 @@ categories:
   - COVID-19
 pub-info:
   reference: >-
-    <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, <a href="https://audreylcomstock.weebly.com/">Audrey L. Comstock</a>, and <strong>Andrew Heiss</strong>, Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19,” <em>International Interactions</em> (2024): 1–23, doi: <a href="https://doi.org/10.1080/03050629.2024.2413965"><code>10.1080/03050629.2024.2413965</code></a>
+    <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, <a href="https://audreylcomstock.weebly.com/">Audrey L. Comstock</a>, and <strong>Andrew Heiss</strong>, “Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19,” <em>International Interactions</em> (2024): 1–23, doi: <a href="https://doi.org/10.1080/03050629.2024.2413965"><code>10.1080/03050629.2024.2413965</code></a>
   links:
     - name: Preprint
       url: https://stats.andrewheiss.com/mountainous-mackerel/analysis/paper.html
