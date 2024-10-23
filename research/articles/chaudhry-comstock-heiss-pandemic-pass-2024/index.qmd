@@ -1,0 +1,90 @@
+---
+title: "Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19"
+date: 2024-10-22
+author:
+  - name: Suparna Chaudhry
+    url: http://www.suparnachaudhry.com/
+    orcid: 0000-0003-3506-7590
+    affiliation: Lewis & Clark College
+  - name: Audrey L. Comstock
+    url: https://audreylcomstock.weebly.com/
+    orcid: 0000-0003-1772-5350
+    affiliation: Arizona State University
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories:
+  - Human rights
+  - Treaty derogations
+  - Emergency policies
+  - COVID-19
+pub-info:
+  reference: >-
+    <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, <a href="https://audreylcomstock.weebly.com/">Audrey L. Comstock</a>, and <strong>Andrew Heiss</strong>, Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19,” <em>International Interactions</em> (2024): 1–23, doi: <a href="https://doi.org/10.1080/03050629.2024.2413965"><code>10.1080/03050629.2024.2413965</code></a>
+  links:
+    - name: Preprint
+      url: https://stats.andrewheiss.com/mountainous-mackerel/analysis/paper.html
+      icon: fa-solid fa-file-pdf
+    - name: Final version
+      url: https://doi.org/10.1080/03050629.2024.2413965
+      icon: fa-solid fa-scroll
+    - name: Code
+      url: https://github.com/andrewheiss/mountainous-mackerel
+      icon: fa-brands fa-github
+    - name: Analysis notebook
+      url: https://stats.andrewheiss.com/mountainous-mackerel/
+      icon: fa-solid fa-chart-simple
+    - name: Data
+      url: https://stats.andrewheiss.com/mountainous-mackerel/analysis/data-final.html
+      icon: fa-solid fa-table
+    - name: Replication Docker container
+      url: https://github.com/andrewheiss/mountainous-mackerel-docker
+      icon: fa-brands fa-docker
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1080/03050629.2024.2413965
+      icon: ai ai-zotero
+  extra: >-
+    Presented at the annual meeting of the Peace Science Society in Denver, Colorado, November 2022; and the annual meeting of the International Studies Association (ISA), Montréal, Canada, March 2023
+doi: 10.1080/03050629.2024.2413965
+haiku: 
+  - COVID policies
+  - could be bad for human rights—
+  - used as intended.
+---
+
+## Important links
+
+- [Paper (preprint)](https://stats.andrewheiss.com/mountainous-mackerel/analysis/paper.html)
+- [Appendix (preprint)](https://stats.andrewheiss.com/mountainous-mackerel/analysis/appendix.html)
+- [Statistical analysis notebook](https://stats.andrewheiss.com/mountainous-mackerel/)
+- [GitHub repository](https://github.com/andrewheiss/mountainous-mackerel)
+
+
+## Abstract
+
+This research note asks whether states issuing pandemic-era human rights treaty derogations implemented emergency provisions as intended or used them to abuse human rights during a time of crisis. In an effort to combat the COVID-19 pandemic, many countries declared states of emergency and derogated (temporarily suspended) from their international human rights treaty obligations. Using data from the Varieties of Democracy PanDem dataset and the Oxford COVID-19 Government Response Tracker, we find that states that derogated from their international human rights obligations imposed emergency measures that were temporary and did not violate non-derogable rights. On the other hand, states that did not derogate were more likely impose discriminatory measures, enact emergency measures without time limits and violate non-derogable rights. Our results support the role that flexibility mechanisms such as derogations play in international law and show that states are being sincere about their intentions and not, generally, using these mechanisms to cover abusive behavior.
+
+
+## Important figures
+
+![Figure 2a: Predicted effects of imposing specific emergency public health measures over first 15 months of the COVID pandemic, split by whether states formally derogated from the ICCPR](fig-preds-mfx-policies-1.png)
+
+![Figure 3a: Predicted effects of imposing specific emergency public health measures over first 15 months of the COVID pandemic, split by whether states formally derogated from the ICCPR](fig-preds-mfx-human-rights-1.png)
+
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1080/03050629.2024.2413965">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{ChaudhryComstockHeiss:2024,
+    Author = {Suparna Chaudhry and Audrey L. Comstock and Andrew Heiss},
+    Doi = {10.1080/03050629.2024.2413965},
+    Journal = {International Interactions},
+    Pages = {1--23},
+    Title = {Pandemic Pass? Treaty Derogations and Human Rights Practices During COVID-19},
+    Year = {2024}}
+```

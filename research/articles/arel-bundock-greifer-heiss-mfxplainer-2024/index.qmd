@@ -1,0 +1,78 @@
+---
+title: "How to Interpret Statistical Models Using {marginaleffects} in R and Python"
+date: 2024-10-01
+author:
+  - name: Vincent Arel-Bundock
+    url: https://arelbundock.com/
+    orcid: 0000-0003-2042-7063
+    affiliation: Université de Montréal
+  - name: Noah Greifer
+    url: https://ngreifer.github.io/
+    orcid: 0000-0003-3067-7154
+    affiliation: Institute for Quantitative Social Science, Harvard University
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories:
+  - regression
+  - marginal effect
+  - slope
+  - prediction
+pub-info:
+  reference: >-
+    <a href="https://arelbundock.com/">Vincent Arel-Bundock</a>, <a href="https://ngreifer.github.io/">Noah Greifer</a>, and <strong>Andrew Heiss</strong>, How to Interpret Statistical Models Using {marginaleffects} in R and Python,” <em>Journal of Statistical Software</em> forthcoming (2024), doi: <a href="#"><code>forthcoming</code></a>
+  links:
+    - name: Preprint
+      url: mfxplainer.pdf
+      icon: fa-solid fa-file-pdf
+      local: true
+    # - name: Final version
+    #   url: https://doi.org/10.1111/1758-5899.12984
+    #   icon: fa-solid fa-scroll
+    - name: Code
+      url: https://github.com/vincentarelbundock/mfxplainer
+      icon: fa-brands fa-github
+    # - name: Add to Zotero
+    #   url: https://www.zotero.org/save?type=doi&q=10.1111/1758-5899.12984
+    #   icon: ai ai-zotero
+# doi: 10.1111/1758-5899.12984
+haiku:
+  - Raw model results?
+  - Stop! Hard to understand! Use
+  - "{marginaleffects}."
+---
+
+## Important links
+
+- [Paper (preprint)](mfxplainer.pdf)
+- [GitHub repository](https://github.com/vincentarelbundock/mfxplainer)
+
+
+## Abstract
+
+The parameters of a statistical model can sometimes be difficult to interpret substantively, especially when that model includes non-linear components, interactions, or transformations. Analysts who fit such complex models often seek to transform raw parameter estimates into quantities that are easier for domain experts and stakeholders to understand. This article presents a simple conceptual framework to describe a vast array of such quantities of interest, which are reported under imprecise and inconsistent terminology across disciplines: predictions, marginal predictions, marginal means, marginal effects, conditional effects, slopes, contrasts, risk ratios, etc. We introduce {marginaleffects}, a package for R and Python which offers a simple and powerful interface to compute all of those quantities, and to conduct (non-)linear hypothesis and equivalence tests on them. {marginaleffects} is lightweight; extensible; it works well in combination with other R and Python packages; and it supports over 100 classes of models, including Linear, Generalized Linear, Generalized Additive, Mixed Effects, Bayesian, and several machine learning models.
+
+
+## Important figures
+
+![Figure 2: Predicted probability of impartiality by levels of equality and democracy](mfxplainer-fig2.png)
+
+![Figure 4: Tangents to the prediction function at 25 and 50](mfxplainer-fig4.png)
+
+
+## Citation
+
+::: {.content-hidden}
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1111/1758-5899.12984">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+:::
+
+```bibtex
+@article{Arel-BundockGreiferHeiss:2024,
+    title = {How to Interpret Statistical Models Using {marginaleffects} in {R} and {Python}},
+    author = {Vincent Arel-Bundock and Noah Greifer and Andrew Heiss},
+    year = {Forthcoming},
+    journal = {Journal of Statistical Software}}
+```
