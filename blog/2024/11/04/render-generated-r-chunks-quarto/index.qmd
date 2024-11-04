@@ -557,7 +557,7 @@ As before, we'll translate this template into a `glue()` string, feed some data 
 ::: {.callout-tip}
 ### Child documents
 
-This template is getting gnarly with so many moving parts and so many common {glue} delimiters like `{}`s and `[]`s and `<>`s. An alternative approach to put the template in a separate child Quarto document and then pre-render it with `knitr::knit_child()`, which behaves just like the inline `knitr::knit(file = BLAH)` approach we've been using. Quarto has an official example of how to do it here: [example](https://examples.quarto.pub/create-tabsets-panel-from-r-code/) and [code](https://github.com/quarto-dev/quarto-examples/blob/main/tabsets/tabsets-from-r-chunks/index.qmd).
+This template is getting gnarly with so many moving parts and so many common {glue} delimiters like `{}`s and `[]`s and `<>`s. An alternative approach is to put the template in a separate child Quarto document and then pre-render it with `knitr::knit_child()`, which behaves just like the inline `knitr::knit(file = BLAH)` approach we've been using. Quarto has an official example of how to do it here: [example](https://examples.quarto.pub/create-tabsets-panel-from-r-code/) and [code](https://github.com/quarto-dev/quarto-examples/blob/main/tabsets/tabsets-from-r-chunks/index.qmd).
 :::
 
 First, we'll make a data frame with all the different pieces we want to include, using the same `group_by(continent) |> nest()` approach as before:
