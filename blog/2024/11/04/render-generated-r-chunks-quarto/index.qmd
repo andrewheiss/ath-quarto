@@ -1,6 +1,6 @@
 ---
 title: "Guide to generating and rendering computational markdown content programmatically with Quarto"
-date: 2024-11-03
+date: 2024-11-04
 dsecription: "Learn how to use `knitr::knit()` in inline chunks to correctly render auto-generated R and markdown content in Quarto documents"
 image: "img/continent-reports.png"
 twitter-card:
