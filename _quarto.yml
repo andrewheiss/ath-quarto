@@ -77,14 +77,11 @@ website:
         href: atom.xml
       - text: "{{< iconify bi envelope size=1.1em title='E-mail' >}}"
         href: "mailto:aheiss@gsu.edu"
-      - text: "{{< iconify ph butterfly-bold size=1.2em title='Bluesky' >}}"
+      - text: "{{< iconify fa6-brands bluesky size=1.1em title='Bluesky' >}}"
         href: https://bsky.app/profile/andrew.heiss.phd
         rel: me
       - text: "{{< iconify bi mastodon size=1.1em title='Mastodon' >}}"
         href: https://fediscience.org/users/andrew/
-        rel: me
-      - text: "{{< iconify bi threads size=1em title='Threads' >}}"
-        href: https://www.threads.net/%40andrewheiss
         rel: me
       - text: "{{< iconify bi github size=1.1em title='GitHub' >}}"
         href: https://github.com/andrewheiss
