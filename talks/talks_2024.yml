@@ -1,3 +1,15 @@
+- title: "Go beyond OLS! An introduction to Poisson, Beta, and zero-inflated Beta Bayesian distributional regression"
+  date: 2024-11-13
+  description: 'Workshop presented at the Département de science politique at the Université de Montréal'
+  location: Montréal, Québec
+  links:
+  - name: Companion site and materials
+    url: https://talks.andrewheiss.com/2024-11-13_udem-beyond-ols/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2024-11-13_udem-beyond-ols
+    icon: fa-brands fa-github
+
 - title: "Move beyond OLS! An introduction to Poisson, Beta, and zero-inflated Beta Bayesian distributional regression models"
   date: 2024-04-25
   description: 'Workshop presented at the Department of Agronomy at Kansas State University'
