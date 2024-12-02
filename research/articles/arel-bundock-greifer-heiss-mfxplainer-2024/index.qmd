@@ -27,16 +27,16 @@ pub-info:
       url: mfxplainer.pdf
       icon: fa-solid fa-file-pdf
       local: true
-    # - name: Final version
-    #   url: https://doi.org/10.1111/1758-5899.12984
-    #   icon: fa-solid fa-scroll
+    - name: Final version
+      url: https://doi.org/10.18637/jss.v111.i09
+      icon: fa-solid fa-scroll
     - name: Code
       url: https://github.com/vincentarelbundock/mfxplainer
       icon: fa-brands fa-github
-    # - name: Add to Zotero
-    #   url: https://www.zotero.org/save?type=doi&q=10.1111/1758-5899.12984
-    #   icon: ai ai-zotero
-# doi: 10.1111/1758-5899.12984
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.18637/jss.v111.i09
+      icon: ai ai-zotero
+doi: 10.18637/jss.v111.i09
 haiku:
   - Raw model results?
   - Stop! Hard to understand! Use
@@ -63,16 +63,18 @@ The parameters of a statistical model can sometimes be difficult to interpret su
 
 ## Citation
 
-::: {.content-hidden}
 <p class="buttons" style="text-align:center;">
-<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1111/1758-5899.12984">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.18637/jss.v111.i09">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
 </p>
-:::
 
 ```bibtex
 @article{Arel-BundockGreiferHeiss:2024,
     title = {How to Interpret Statistical Models Using {marginaleffects} in {R} and {Python}},
     author = {Vincent Arel-Bundock and Noah Greifer and Andrew Heiss},
-    year = {Forthcoming},
-    journal = {Journal of Statistical Software}}
+    doi = {10.18637/jss.v111.i09},
+    journal = {Journal of Statistical Software},
+    year = {2024},
+    volume = {111},
+    number = {9},
+    pages = {1–32}}
 ```
