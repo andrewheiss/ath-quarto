@@ -26,9 +26,9 @@ I try to keep this updated fairly regularly. As of December 2, 2024 this is what
 
 - I permanently ditched Word as a writing environment in 2008 after starting grad school. I do all my writing in [pandoc-flavored](http://pandoc.org/) [Markdown](https://daringfireball.net/projects/markdown/) (including e-mails and paper-and-pencil writing)—it's incredibly intuitive, imminently readable, flexible, future proof, and lets me ignore formatting and focus on content.
 - The key to my writing workflow is the magical [pandoc](http://pandoc.org/), which converts Markdown files into basically anything else. I use [Quarto](https://quarto.org/) to convert Markdown to HTML, PDF (through LaTeX), Word, and any other output format.
-- I do my academic writing in several different programs: for stats-heavy stuff, I use [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://github.com/posit-dev/positron), and for prose-heavy stuff, I use [Obsidian](https://obsidian.md/) or [Typora](https://typora.io/). I used to use [Ulysses](http://ulyssesapp.com/) (and still think it's a fantastic app!), but I found that I wasn't using it as much in the past few years as I've switched to Quarto for my writing.
+- I do my academic writing in several different programs: for stats-heavy stuff, I use [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co/), and for prose-heavy stuff, I use [iA Writer](https://ia.net/writer) or [Typora](https://typora.io/). I used to use [Ulysses](http://ulyssesapp.com/) (and still think it's a fantastic app!), but I found that I wasn't using it as much in the past few years as I've switched to Quarto for my writing.
 - I store all my bibliographic references, books, and articles in [Zotero](https://www.zotero.org/) ([see here for why](/blog/2023/01/08/bibdesk-to-zotero-pandoc/)).
-- I read and annotate all my PDFs with [Skim](http://skim-app.sourceforge.net/) (and [iAnnotate](http://www.iannotate.com/) on iOS), since both export annotations as clean plain text.
+- I read and annotate all my PDFs with [Zotero](https://www.zotero.org/), both on desktop and on iOS, since it can export annotations as clean plain text.
 - I store all my notes in [Obsidian](https://obsidian.md/). Before switching to Obsidian I used [Bear](https://bear.app/), which was great but didn't support fancier things like math or syntax highlighting. Before that, I used [Evernote](https://www.evernote.com/), but I abandoned it in September 2018 after 9 years of heavy use, given their ongoing privacy controversies and mass layoffs.
 
 
@@ -37,9 +37,8 @@ I try to keep this updated fairly regularly. As of December 2, 2024 this is what
 ### Science and research
 
 - I post almost everything I write or develop on [GitHub](https://github.com/andrewheiss).
-- I use [R](https://www.r-project.org/) and [RStudio](https://www.rstudio.com/) for most of my statistical computing, and I'm a dedicated devotee of the [tidyverse](http://tidyverse.org/). In the interest of full reproducibility and transparency, I make [R Markdown websites](https://rmarkdown.rstudio.com/rmarkdown_websites.html) for each of my projects. I don't typically make full-blown literate documents (like, I have yet to write a full article or book in R Markdown)—instead, I generate figures and tables with R and reference them in my writing. [See a list of these websites](https://stats.andrewheiss.com/).
-- I also use [Python](https://www.python.org/) ([3!](http://www.onthelambda.com/2014/05/13/damn-the-torpedoes-full-speed-ahead-making-the-switch-to-python-3/)) occasionally. Every few months I play with pandas and numpy and Jupyter, but I'm far more comfortable with R for scientific computing.
-- I use RStudio for editing R files, but I use [Visual Studio Code](https://code.visualstudio.com/) for everything else.
+- I use [R](https://www.r-project.org/) and either [RStudio](https://www.rstudio.com/) or [Positron](https://positron.posit.co/) for most of my statistical computing, and I'm a dedicated devotee of the [tidyverse](http://tidyverse.org/). In the interest of full reproducibility and transparency, I make [Quarto websites](https://quarto.org/docs/websites/) for each of my projects. [See a list of these websites](https://stats.andrewheiss.com/).
+- I also use [Python](https://www.python.org/) occasionally. Every few months I play with pandas and numpy and Jupyter, but I'm far more comfortable with R for scientific computing.
 - I adapted the idea for research haikus [from Kirby Nielsen](https://kirbyknielsen.com/research/).
 - I use [The Rogue Scholar](https://rogue-scholar.org/blogs/andrewheiss) to create stable DOIs for each of my blog posts.
 
