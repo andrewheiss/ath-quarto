@@ -7,7 +7,7 @@ listing:
     title: "Andrew Heiss's blog"
     description: "Andrew Heiss's blog"
     items: 60
-    type: full
+    type: partial
     language: en
   contents:
     - "blog/**/index.qmd"
