@@ -42,6 +42,7 @@ toc-location: right
 toc-title: Academic year
 ---
 
+
 ## 2024–25
 
 :::{#ay_24-25}

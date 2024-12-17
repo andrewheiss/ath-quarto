@@ -7,6 +7,8 @@
   semester:
   - name: Fall 2024 (asynchronous online)
     url: https://datavizf24.classes.andrewheiss.com/
+  - name: Spring 2025 (asynchronous online)
+    url: https://datavizsp25.classes.andrewheiss.com/
 
 - title: Comparative Public Administration
   description: "Explore how the public and nonprofit sectors work around the world and learn how political institutions shape government and civil society"
@@ -17,3 +19,13 @@
   semester:
   - name: Fall 2024
     url: https://compaf24.classes.andrewheiss.com/
+
+- title: Program Evaluation for Public Service
+  description: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+  university: Georgia State University
+  number: PMAP 8521
+  url: https://evalsp25.classes.andrewheiss.com/
+  logo: logos/evalsp20.png
+  semester:
+  - name: Spring 2025
+    url: https://evalsp25.classes.andrewheiss.com/
