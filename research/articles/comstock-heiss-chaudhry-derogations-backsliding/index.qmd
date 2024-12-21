@@ -22,14 +22,14 @@ categories:
   - COVID-19
 pub-info:
   reference: >-
-    <a href="https://audreylcomstock.weebly.com/">Audrey L. Comstock</a>, <strong>Andrew Heiss</strong>, and <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, “Derogations, Democratic Backsliding, and International Human Rights During the COVID-19 Pandemic,” <em>Journal of Human Rights</em> (forthcoming)
+    <a href="https://audreylcomstock.weebly.com/">Audrey L. Comstock</a>, <strong>Andrew Heiss</strong>, and <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, “Derogations, Democratic Backsliding, and International Human Rights During the COVID-19 Pandemic,” <em>Journal of Human Rights</em> (forthcoming), doi: <a href="https://doi.org/10.1080/14754835.2024.2446854"><code>10.1080/14754835.2024.2446854</code></a>
   links:
     - name: Preprint
       url: https://stats.andrewheiss.com/lemon-lucifer/analysis/paper.html
       icon: fa-solid fa-file-pdf
-    # - name: Final version
-    #   url: https://doi.org/10.1080/03050629.2024.2413965
-    #   icon: fa-solid fa-scroll
+    - name: Final version
+      url: https://doi.org/10.1080/14754835.2024.2446854
+      icon: fa-solid fa-scroll
     - name: Code
       url: https://github.com/andrewheiss/lemon-lucifer
       icon: fa-brands fa-github
@@ -42,10 +42,10 @@ pub-info:
     - name: Replication Docker container
       url: https://github.com/andrewheiss/lemon-lucifer/tree/main/docker
       icon: fa-brands fa-docker
-    # - name: Add to Zotero
-    #   url: https://www.zotero.org/save?type=doi&q=10.1080/03050629.2024.2413965
-    #   icon: ai ai-zotero
-# doi: 10.1080/03050629.2024.2413965
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1080/14754835.2024.2446854
+      icon: ai ai-zotero
+doi: 10.1080/14754835.2024.2446854
 haiku: 
   - Pandemic human rights.
   - Backsliding states keep treaties—
@@ -72,9 +72,14 @@ Did states misuse international legal emergency provisions during the COVID-19 p
 
 ## Citation
 
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1080/14754835.2024.2446854">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
 ```bibtex
 @article{ComstockHeissChaudhry:2025,
     Author = {Audrey L. Comstock and Andrew Heiss and Suparna Chaudhry},
+    Doi = {10.1080/14754835.2024.2446854},
     Journal = {Journal of Human Rights},
     Title = {Derogations, Democratic Backsliding, and International Human Rights During the COVID-19 Pandemic},
     Year = {2025}}
