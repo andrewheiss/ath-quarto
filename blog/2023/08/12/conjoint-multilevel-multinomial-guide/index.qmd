@@ -144,6 +144,20 @@ Throughout this example, I'll use data from two different simulated conjoint cho
 - [{{< fa table >}} `choco_candy.csv`](data/choco_candy.csv): This is simulated data for a hypothetical experiment about consumer preferences for candy features. It comes from p. 292 in @Kuhfeld:2010, a [SAS technical note](http://support.sas.com/techsup/technote/mr2010f.pdf) about how to run multinomial models in SAS. Instead of copying/pasting from the PDF, [I found a version of it here](https://github.com/sangwoo-statistics/dataset), cleaned up by Sangwoo Kim (who also has [a YouTube tutorial](https://www.youtube.com/watch?v=ra8Y2FjRqOE) using the same candy data)
 - [{{< fa table >}} `rintro-chapter13conjoint.csv`](data/rintro-chapter13conjoint.csv): This is simultated data for a hypothetical experiment about consumer preferences for minivan features. It comes from chapter 13 in @ChapmanFeit:2019 and is available from the [book's resources page](http://r-marketing.r-forge.r-project.org/) (or [directly from their data folder](http://r-marketing.r-forge.r-project.org/data/))
 
+::: {.callout-note #mclogit-note}
+### {mlogit}, {mclogit}, and {marginaleffects}
+
+In September 2024, {marginaleffects} [removed support](https://github.com/vincentarelbundock/marginaleffects/commit/9778eef3ad98369c6e8d11ba7e894111ae6b4e94) for {mlogit} because the internal model object structure made it extremely difficult to calculate consistent results.
+
+We can calculate predictions with {mlogit}'s version of `predict()`, but it doesn't include standard errors, so we can't find confidence intervals or other measures of uncertainty without doing fancier things like bootstrapping or using Bayesian methods. The Bayesian approach is the whole point of this tutorial, really, so take the difficulty of {mlogit}-related postestimation work as a call to convert to the wonderful world of {brms} and Bayes. :)
+
+If you're really into frequentism and want to use {marginaleffects}, you can use [the {mclogit} package](https://cran.r-project.org/package=mclogit), which comes with `mclogit()` for fitting conditional logit models just like {mlogit}, but with {marginaleffects} support.
+
+The results that you get from `predict()` and `marginaleffects::predictions()` are different from `mlogit()` and seem to be closer to what happens with {brms}, but working with them is left as an exercise to the reader.
+
+I've included examples of how to fit `mclogit()` models for both the [chocolate example](#mclogit-model) and the [minivan example](#mclogit-model-1) below.
+:::
+
 Additionally, in [Part 3](#part-3-minivans-repeated-questions-full-hierarchical-multinomial-logit), I fit a huge Stan model with {brms} that takes ≈30 minutes to run on my fast laptop. If you want to follow along and not melt your CPU for half an hour, you can download an .rds file of that fitted model that I stuck in [an OSF project](https://osf.io/3y7es/). The code for `brm()` later in this guide will load the .rds file automatically instead of rerunning the model as long as you put it in a folder named "models" in your working directory. This code uses the [{osfr} package](https://docs.ropensci.org/osfr/) to download [the .rds file from OSF](https://osf.io/zp6eh) automatically and places it where it needs to go:
 
 ```{r get-rds-osf, eval=FALSE}
@@ -216,7 +230,6 @@ minivans <- read_csv("data/rintro-chapter13conjoint.csv") %>%
     eng = factor(eng, levels = c("gas", "hyb", "elec"))
   )
 ```
-
 
 \ 
 
@@ -360,6 +373,24 @@ model_parameters(model_chocolate_mlogit, digits = 4, p_digits = 4)
 
 Delightful. All the results are the same as the survival model and the Poisson model.
 
+### `mclogit` model
+
+[As noted earlier](#mclogit-note), {marginaleffects} doesn't support `mlogit()` because of its weird internal structure. It *does* support `mclogit::mclogit()` though.
+
+The syntax requires two parts on the left-hand side of the formula: (1) the choice selected (0 or 1), and (2) a unique id for set of choices, or the question. In this case, since each subject only saw one question, the `subj` column doubles as the question ID, so we can just use that.
+
+The results are the same:
+
+```{r mclogit-example-chocolate}
+library(mclogit)
+
+model_chocolate_mclogit <- mclogit(
+  choice | subj ~ dark + soft + nuts,
+  data = chocolate
+)
+model_parameters(model_chocolate_mclogit, digits = 4, p_digits = 4)
+```
+
 ### Bayesian model
 
 We can also fit this model in a Bayesian way using {brms}. Stan has a categorical distribution family for multinomial models, and we'll use it in the next example. For now, for the sake of simplicity, we'll use a Poisson family, since, as we saw above, that's a legal way of parameterizing multinomial distributions.
@@ -479,14 +510,6 @@ We can do the same thing with R.
 ### Frequentist predictions
 
 ~~{mlogit} model objects have predicted values stored in one of their slots (`model_chocolate_mlogit$probabilities`), but they're in a weird non-tidy matrix form and I like working with tidy data. I'm also a huge fan of [the {marginaleffects} package](https://vincentarelbundock.github.io/marginaleffects/), which provides a consistent way to calculate predictions, comparisons, and slopes/marginal effects (with `predictions()`, `comparisons()`, and `slopes()`) for dozens of kinds of models, including `mlogit()` models. So instead of wrangling the built-in `mlogit()` probabilities, we'll generate predictions by feeding the model the unique combinations of `dark`, `soft`, and `nuts` to `marginaleffects::predictions()`, which will provide us with probability- or proportion-scale predictions:~~
-
-::: {.callout-note}
-### {mlogit} and {marginaleffects}
-
-In September 2024, {marginaleffects} [removed support](https://github.com/vincentarelbundock/marginaleffects/commit/9778eef3ad98369c6e8d11ba7e894111ae6b4e94) for {mlogit} because the internal model object structure made it extremely difficult to calculate consistent results.
-
-We can calculate predictions with {mlogit}'s version of `predict()`, but it doesn't include standard errors, so we can't find confidence intervals or other measures of uncertainty without doing fancier things like bootstrapping or using Bayesian methods. The Bayesian approach is the whole point of this tutorial, really, so take the difficulty of {mlogit}-related postestimation work as a call to convert to the wonderful world of {brms} and Bayes. :)
-:::
 
 We can calculate probability-scale predictions by feeding the alternatives A–H (or the unique combinations of `dark`, `soft`, and `nuts`) to the model using `predict()`. We have to first create a little dataset of the alternatives (here I filter the data to include only Subject 1), and then feed that to `predict()`, which returns a named vector. To get that into a more usable data frame, we can convert the named vector into a data frame with `tidyr::enframe()` and then join it to the data frame of alternatives:
 
@@ -950,6 +973,32 @@ model_parameters(model_minivans_mlogit, digits = 4, p_digits = 4)
 ```
 
 These are the same results from p. 371 in @ChapmanFeit:2019, so it worked. Again, the marketing world doesn't typically do much with these coefficients beyond looking at their direction and magnitude. For instance, in @ChapmanFeit:2019 they say that the estimate for `seat [7]` here is negative, which means that a 7-seat option is less preferred than 6-seat option, and that the estimate for `price [40]` is more negative than the already-negative estimate for `price [35]`, which means that (1) respondents don't like the \$35,000 option compared to the baseline \$30,000 and that (2) respondents *really* don't like the \$40,000 option. We could theoretically exponentiate these things—like, seeing 7 seats makes it $e^{-0.5353}$ = 0.5855 = 41% less likely to select the option compared to 6 seats—but again, that's weird.
+
+
+### `mclogit` model
+
+[As noted earlier](#mclogit-note), {marginaleffects} doesn't support `mlogit()` because of its weird internal structure. It *does* support `mclogit::mclogit()` though.
+
+The syntax requires two parts on the left-hand side of the formula: (1) the choice selected (0 or 1), and (2) a unique id for set of choices, or the question. Like with `mlogit()`, we can create a `choice.id` column identifying the unique question numbers, and then use that in the formula.
+
+The results are the same: 
+
+```{r mclogit-example-vans}
+library(mclogit)
+
+minivans_mclogit <- minivans %>% 
+  # mclogit() needs a column with unique question id numbers
+  group_by(resp.id, ques) %>% 
+  mutate(choice.id = cur_group_id()) %>%
+  ungroup()
+
+model_minivans_mclogit <- mclogit(
+  choice | choice.id ~ seat + cargo + eng + price,
+  data = minivans_mclogit
+)
+
+model_parameters(model_minivans_mclogit, digits = 4, p_digits = 4)
+```
 
 
 ### Bayesian model with {brms}
