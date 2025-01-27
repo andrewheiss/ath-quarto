@@ -463,7 +463,7 @@ I don't like null hypotheses and I don't like flowcharts.
 
 :::
 
-Regular classical statistics classes teach about null hypotheses and flowcharts, but there's a better way. In his magisterial [*Statistical Rethinking*](https://xcelab.net/rm/statistical-rethinking/), Richard McElreath [describes how in legends people created mythological clay robots called golems that could protect cities from attacks](https://www.youtube.com/watch?v=cclUd_HoRlo), but that could also spin out of control and wreak all sorts of havoc. McElreaths uses the idea of golems as a metaphor for classical statistical models focused on null hypothesis significance testing, which also consist of powerful quasi-alchemical procedures that have to be followed precisely with specific flowcharts:
+Regular classical statistics classes teach about null hypotheses and flowcharts, but there's a better way. In his magisterial [*Statistical Rethinking*](https://xcelab.net/rm/statistical-rethinking/), Richard McElreath [describes how in legends people created mythological clay robots called golems that could protect cities from attacks](https://www.youtube.com/watch?v=cclUd_HoRlo), but that could also spin out of control and wreak all sorts of havoc. McElreath uses the idea of golems as a metaphor for classical statistical models focused on null hypothesis significance testing, which also consist of powerful quasi-alchemical procedures that have to be followed precisely with specific flowcharts:
 
 ```{r golem-slide, echo=FALSE, out.width="100%"}
 #| fig-cap: Statistical models as golems (slide 9 in [Statistical Rethinking 2022 Lecture 01](https://speakerdeck.com/rmcelreath/statistical-rethinking-2022-lecture-01?slide=9))

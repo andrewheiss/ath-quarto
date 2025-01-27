@@ -1,0 +1,1301 @@
+gender,age,marital_status,education,donate_frequency,volunteer_frequency,voted
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,At least once a month,At least once a month,No
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Divorced,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Separated,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Separated,Doctorate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Doctorate,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,At least once a month,Rarely,No
+Male,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Widowed,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Less than high school,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Transgender,More than median,Married,Some college,At least once a month,At least once a month,No
+Female,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Graduate or professional degree,At least once a month,Rarely,Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Divorced,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,Rarely,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,No
+Male,More than median,Never married,4 year degree,At least once a month,Rarely,Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,No
+Female,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Never married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Rarely,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Doctorate,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Married,Some college,At least once a month,At least once a month,No
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,No
+Male,Less than median,Never married,Doctorate,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Never married,4 year degree,At least once a month,Rarely,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,No
+Female,More than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Doctorate,At least once a month,At least once a month,Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,High school graduate,At least once a month,At least once a month,No
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Widowed,Some college,At least once a month,At least once a month,No
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Transgender,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Divorced,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,Some college,At least once a month,At least once a month,Yes
+Other,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,No
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Divorced,4 year degree,At least once a month,At least once a month,No
+Male,More than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Never married,2 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,No
+Female,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Rarely,No
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,Graduate or professional degree,"More than once a month, less than once a year",Rarely,Yes
+Male,More than median,Divorced,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,4 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Widowed,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Divorced,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,Graduate or professional degree,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Widowed,2 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Divorced,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,Rarely,No
+Male,More than median,Divorced,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,No
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,No
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Separated,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Never married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Separated,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Married,Graduate or professional degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Less than high school,"More than once a month, less than once a year",Rarely,No
+Male,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,Less than high school,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Divorced,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,No
+Female,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Less than high school,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Widowed,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Some college,At least once a month,At least once a month,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Separated,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Married,Graduate or professional degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Less than high school,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Widowed,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Separated,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Rarely,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Rarely,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Separated,Doctorate,At least once a month,At least once a month,Yes
+Male,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Divorced,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,No
+Male,More than median,Separated,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Divorced,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,At least once a month,At least once a month,No
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,High school graduate,At least once a month,At least once a month,No
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Rarely,No
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Divorced,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Separated,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Doctorate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Divorced,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Divorced,Some college,At least once a month,At least once a month,No
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,No
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Divorced,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Other,More than median,Never married,2 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Rarely,No
+Transgender,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Less than high school,At least once a month,At least once a month,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,High school graduate,At least once a month,At least once a month,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Separated,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Separated,Some college,At least once a month,Rarely,No
+Male,Less than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,No
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Widowed,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Other,Less than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Separated,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Widowed,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,More than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,No
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Divorced,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,2 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Prefer not to say,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",At least once a month,No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Other,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Separated,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Divorced,High school graduate,At least once a month,At least once a month,Yes
+Female,Less than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Divorced,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Separated,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Divorced,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Separated,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Separated,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Rarely,No
+Transgender,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,2 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Divorced,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Widowed,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Rarely,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,No
+Male,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Less than high school,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Separated,2 year degree,"More than once a month, less than once a year",Rarely,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Divorced,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,No
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,No
+Female,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,At least once a month,At least once a month,No
+Female,More than median,Separated,Less than high school,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Widowed,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Transgender,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,More than median,Divorced,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Separated,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Prefer not to say,Less than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Less than high school,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Separated,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,No
+Female,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Other,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Separated,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Transgender,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Divorced,4 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Separated,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Widowed,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Never married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Separated,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Widowed,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Separated,Some college,At least once a month,At least once a month,No
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Divorced,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,No
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,No
+Female,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,At least once a month,At least once a month,No
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Less than high school,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Less than high school,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Widowed,Some college,"More than once a month, less than once a year",Rarely,Yes
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Divorced,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,2 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,2 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,2 year degree,"More than once a month, less than once a year",Rarely,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Separated,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Other,Less than median,Never married,Less than high school,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Separated,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Less than high school,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Married,Less than high school,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,No
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,4 year degree,"More than once a month, less than once a year",Rarely,No
+Male,Less than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,No
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,Less than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",No
+Female,More than median,Widowed,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Widowed,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,No
+Male,Less than median,Never married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Divorced,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Less than high school,At least once a month,At least once a month,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Separated,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,High school graduate,At least once a month,At least once a month,No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Separated,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Separated,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Rarely,Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Separated,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,2 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Transgender,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",No
+Transgender,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Separated,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Rarely,No
+Female,Less than median,Never married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Separated,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,No
+Female,More than median,Widowed,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Separated,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,More than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Divorced,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Rarely,Yes
+Transgender,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Rarely,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Male,More than median,Never married,High school graduate,At least once a month,At least once a month,No
+Male,More than median,Never married,Doctorate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Married,Less than high school,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Other,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,More than median,Separated,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Separated,4 year degree,At least once a month,At least once a month,No
+Male,Less than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Prefer not to say,More than median,Never married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,Graduate or professional degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,2 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Female,Less than median,Married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Separated,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Divorced,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,High school graduate,At least once a month,At least once a month,No
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,4 year degree,At least once a month,At least once a month,No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Never married,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Divorced,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Less than high school,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Separated,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Married,Graduate or professional degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Transgender,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Divorced,Some college,At least once a month,At least once a month,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,More than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Separated,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Transgender,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Separated,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,No
+Male,More than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,No
+Female,Less than median,Never married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,High school graduate,At least once a month,Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Married,4 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,4 year degree,"More than once a month, less than once a year",At least once a month,No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Married,4 year degree,At least once a month,At least once a month,Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Divorced,Less than high school,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,2 year degree,At least once a month,Rarely,Yes
+Male,More than median,Separated,2 year degree,At least once a month,At least once a month,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,More than median,Divorced,2 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,More than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Male,Less than median,Divorced,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,More than median,Married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Transgender,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",No
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,More than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",No
+Female,Less than median,Never married,2 year degree,At least once a month,At least once a month,Yes
+Female,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,High school graduate,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Some college,At least once a month,At least once a month,Yes
+Female,Less than median,Married,Some college,"More than once a month, less than once a year",At least once a month,Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,Less than median,Never married,4 year degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,No
+Male,Less than median,Married,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Never married,Some college,At least once a month,"More than once a month, less than once a year",No
+Male,More than median,Married,4 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Male,Less than median,Separated,Some college,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Married,2 year degree,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,Some college,At least once a month,At least once a month,Yes
+Male,Less than median,Married,4 year degree,At least once a month,"More than once a month, less than once a year",Yes
+Male,Less than median,Married,Graduate or professional degree,At least once a month,"More than once a month, less than once a year",Yes
+Female,More than median,Never married,Graduate or professional degree,"More than once a month, less than once a year",Rarely,Yes
+Male,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,No
+Female,More than median,Never married,4 year degree,At least once a month,At least once a month,No
+Female,More than median,Divorced,Some college,At least once a month,"More than once a month, less than once a year",Yes
+Female,Less than median,Married,2 year degree,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,More than median,Never married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,Less than median,Married,High school graduate,"More than once a month, less than once a year","More than once a month, less than once a year",Yes
+Female,Less than median,Never married,High school graduate,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,At least once a month,Haven't volunteered in past 12 months,Yes
+Female,More than median,Never married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Female,More than median,Married,Some college,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,More than median,Married,Graduate or professional degree,"More than once a month, less than once a year",Haven't volunteered in past 12 months,Yes
+Male,Less than median,Never married,Graduate or professional degree,At least once a month,At least once a month,Yes
