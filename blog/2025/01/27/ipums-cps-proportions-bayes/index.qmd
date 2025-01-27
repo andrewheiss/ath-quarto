@@ -133,7 +133,7 @@ I'll then show how to answer the question of whether a survey proportion is equi
 
 Before getting started, let's load all the packages we need and create some helpful functions and variables.
 
-The experimental survey data here comes from @ChaudhryDotsonHeiss:2024. Since we haven't published it yet (though it's close—it's under review post R&R now!), the original data isn't quite public yet. So I used [the {synthpop} R package](https://synthpop.org.uk/get-started.html) to create a synthetic version of part of our data that has the same relationships and distributions as the real results, but is all fake. You can see [the R code I used for that process here](TODO).
+The experimental survey data here comes from @ChaudhryDotsonHeiss:2024. Since we haven't published it yet (though it's close—it's under review post R&R now!), the original data isn't quite public yet. So I used [the {synthpop} R package](https://synthpop.org.uk/get-started.html) to create a synthetic version of part of our data that has the same relationships and distributions as the real results, but is all fake. You can see [the R code I used for that process here](https://github.com/andrewheiss/ath-quarto/blob/main/blog/2025/01/27/ipums-cps-proportions-bayes/make_synthetic_data.R).
 
 If you want to follow along, you can download this synthetic data here:
 
