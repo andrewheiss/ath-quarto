@@ -84,7 +84,7 @@ Thanks to the wonders of the R community—and thanks to publicly accessible dat
 It was a magically quick and easy process, so I figured I'd make a guide about it so that the rest of the world (but mostly future me) can see how to do it.
 
 
-# Nationally representative democraphic data
+# Nationally representative demographic data
 
 Finding nationally representative demographic data (in the US, at least) is pretty easy, and there are two common sources for it:
 
@@ -1218,7 +1218,7 @@ prop_in_rope <- age_draws |>
     is_below_rope = diff < age_rope$rope_low,
     is_above_rope = diff > age_rope$rope_high
   ) |> 
-  summarize(is_inside_rope = 1 - sum(is_below_rope + is_above_rope > 0) / n())
+  summarize(is_inside_rope = 1 - mean(is_below_rope | is_above_rope))
 prop_in_rope$is_inside_rope
 ```
 
@@ -1292,7 +1292,7 @@ age_draws |>
     is_below_rope = diff < age_rope$rope_low,
     is_above_rope = diff > age_rope$rope_high
   ) |> 
-  summarize(is_inside_rope = 1 - sum(is_below_rope + is_above_rope > 0) / n())
+  summarize(is_inside_rope = 1 - mean(is_below_rope | is_above_rope))
 ```
 
 Or with the more automatic `bayestestR::rope()`:
@@ -1420,7 +1420,7 @@ vol_draws |>
     is_below_rope = b_Intercept < vol_rope$rope_avg_low,
     is_above_rope = b_Intercept > vol_rope$rope_avg_high
   ) |> 
-  summarize(is_inside_rope = 1 - sum(is_below_rope + is_above_rope > 0) / n())
+  summarize(is_inside_rope = 1 - mean(is_below_rope | is_above_rope))
 ```
 
 ## Posterior proportions, differences, and ROPEs for everything all at once
@@ -1486,9 +1486,7 @@ prop_test_bayes <- function(short_name, sample_column, cps_prop, cps_sd) {
       is_below_rope_full = b_Intercept < rope$rope_avg_low,
       is_above_rope_full = b_Intercept > rope$rope_avg_high
     ) |> 
-    summarize(
-      is_inside_rope_full = 1 - sum(is_below_rope_full + is_above_rope_full > 0) / n()
-    )
+    summarize(is_inside_rope_full = 1 - mean(is_below_rope_full | is_above_rope_full))
 
   return(lst(model, draws, rope, prop_in_rope))
 }
