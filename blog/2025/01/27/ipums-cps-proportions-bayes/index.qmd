@@ -88,8 +88,8 @@ It was a magically quick and easy process, so I figured I'd make a guide about i
 
 Finding nationally representative demographic data (in the US, at least) is pretty easy, and there are two common sources for it:
 
-- The US Census's [American Community Survey](https://www.census.gov/programs-surveys/acs) (ACS) is a rolling monthly survey of ≈3.5 million (!!!) US households that's compiled into an annual dataset.
-- The US Census's [Current Population Survey](https://www.census.gov/programs-surveys/cps.html) (CPS) is a monthly survey of ≈100,000 US households. A more comprehensive annual version—the Annual Social and Economic Supplement (ASEC)—is published every March.
+- The US Census's [American Community Survey](https://www.census.gov/programs-surveys/acs) (ACS) is a rolling monthly survey of ≈3.5 million (!!!) US *households* that's compiled into an annual dataset.
+- The US Census's [Current Population Survey](https://www.census.gov/programs-surveys/cps.html) (CPS) is a monthly survey of ≈100,000 US *individuals*. A more comprehensive annual version—the Annual Social and Economic Supplement (ASEC)—is published every March.
 
 The two surveys serve different purposes, and [the Census has an FAQ fact sheet explaining the difference between the ACS and CPS](https://www.census.gov/topics/income-poverty/poverty/guidance/data-sources/acs-vs-cps.html). Notably, the ACS only surveys *households*, and it uses a shorter 8-question survey, while the CPS tries to reach the entire civilian noninstitutionalized population and uses a longer, more detailed survey.
 
