@@ -47,7 +47,7 @@ resources:
 bibliography: references.json
 csl: chicago-author-date.csl
 
-# doi: 10.59350/kw2gj-kw740
+doi: 10.59350/8ws3f-1fd56
 citation: true
 ---
 
@@ -1165,7 +1165,7 @@ age_rope <- tibble(
 age_rope
 ```
 
-Following this rule, we shouldn't care about sample/population differences between ±4.99 percentage points. For all intents and purposes, any differences in that range—or any sample proportions between 53% ± 4.99 (or 48%–50%)—are equivalent.
+Following this rule, we shouldn't care about sample/population differences between ±4.99 percentage points. For all intents and purposes, any differences in that range—or any sample proportions between 53% ± 4.99 (or 48%–58%)—are equivalent.
 
 Here's what the ROPE for age looks like, both for the full proportion and for the difference:
 
@@ -1273,7 +1273,7 @@ model_age_binomial |>
 ::: {.callout-tip collapse="true"}
 ### BONUS: How much of the posterior should we count?
 
-[There are big debates in the ROPE world](https://easystats.github.io/bayestestR/articles/region_of_practical_equivalence.html#credible-interval-in-rope-vs-full-posterior-in-rope) about how much of the posterior we should look at when working with ROPEs. We just looked at the 100% of the sample posterior. Some people [@McElreath:2020] say to look instead at how much of the 95% (or 89%) highest density interval (HDI) falls within the ROPE.
+[There are big debates in the ROPE world](https://easystats.github.io/bayestestR/articles/region_of_practical_equivalence.html#credible-interval-in-rope-vs-full-posterior-in-rope) about how much of the posterior we should look at when working with ROPEs. We just looked at the 100% of the sample posterior. Some people [@Kruschke:2015; @McElreath:2020] say to look instead at how much of the 95% (or 89%) highest density interval (HDI) falls within the ROPE.
 
 I have no strong preferences either way, and it's fairly straightforward to calculate the proportion of the HDI in the ROPE. Here's an example with a Richard McElreath-style 89% HDI:
 
