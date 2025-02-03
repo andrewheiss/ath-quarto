@@ -29,7 +29,7 @@ knitr::opts_chunk$set(fig.align = "center", fig.retina = 3,
                       fig.width = 6, fig.height = (6 / 1.618),
                       out.width = "90%", collapse = TRUE,
                       dev = "ragg_png",
-                      cache.extra = 123)  # Change number to invalidate cache
+                      cache.extra = 1234)  # Change number to invalidate cache
 options(digits = 3, width = 300,
         dplyr.summarise.inform = FALSE)
 
@@ -595,7 +595,7 @@ The neat thing about Stan is that it translates fairly directly from this mathem
 2. Parameters to estimate, or $\pi_\text{US}$ and $\pi_\text{Mexico}$
 3. The prior and model for estimating those parameters, or $\operatorname{Beta}(2, 6)$ and $y \sim \operatorname{Binomial}(n, \pi)$
 
-```{.stan, eval=FALSE, output.var="", filename="props-basic.stan"}
+```{.stan filename="props-basic.stan"}
 // Stuff from R
 data {
   int<lower=0> often_us;
@@ -716,7 +716,7 @@ We'll tackle each of these issues in turn.
 
 First we'll change how the script handles the data so that it's more dynamic. Now instead of defining explicit variables and parameters as `total_us` or `pi_mexico` or whatever, we'll use arrays and vectors so that we can use any arbitrary number of groups if we want:
 
-```{.stan, eval=FALSE, output.var="", filename="props-better.stan"}
+```{.stan filename="props-better.stan"}
 // Stuff from R
 data {
   int<lower=0> n;
@@ -771,7 +771,7 @@ It worked and the results are the same! The parameter names are now `r pi1` and 
 
 Finally, we can modify the script a little more to automatically calculate `r span_col('θ', clr_diff)`. We'll add a `generated quantities` block for that:
 
-```{.stan, eval=FALSE, output.var="", filename="props-best.stan"}
+```{.stan filename="props-best.stan"}
 // Stuff from R
 data {
   int<lower=0> n;
