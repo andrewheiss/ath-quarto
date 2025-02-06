@@ -431,7 +431,7 @@ Here's an abbreviated example of how to get the same data extract we collected m
 
      # Find the names for 2019 samples
      all_cps_samples |> 
-       filter(str_detect(description, "ASEC 2019"))
+       filter(str_detect(description, "2019"))
      #> # A tibble: 13 × 2
      #>    name        description              
      #>    <chr>       <chr>                    
@@ -501,7 +501,7 @@ Here's an abbreviated example of how to get the same data extract we collected m
 ::: {.callout-important}
 ### The IPUMS API and literate programming
 
-If you're using a literate programming document Quarto or R Markdown, **don't include this API extraction process in your document**. It will rerun every time you render your document and create a new IPUMS extract each time, which is excessive. It's best to run this process in a separate R script or function (perhaps orchestrated with something like [{targets}](https://books.ropensci.org/targets/)), and then load the DDI `.xml` and `.dat` data in the document.
+If you're using a literate programming system like Quarto or R Markdown, **don't include this API extraction process in your document**. It will rerun every time you render your document and create a new IPUMS extract each time, which is excessive. It's best to run this process in a separate R script or function (perhaps orchestrated with something like [{targets}](https://books.ropensci.org/targets/)), and then load the DDI `.xml` and `.dat` data in the document.
 :::
 
 
@@ -577,8 +577,8 @@ If we're calculating basic averages, we can use `weighted.mean()` instead of `me
 
 cps_demographics |> 
   summarize(
-    avg_age_weighted = weighted.mean(AGE, w = ASECWT),  # BAD
-    avg_age_unweighted = mean(AGE)  # GOOD
+    avg_age_unweighted = mean(AGE),  # BAD
+    avg_age_weighted = weighted.mean(AGE, w = ASECWT)  # GOOD
   )
 ```
 
@@ -658,7 +658,7 @@ national_voting <- cps_voting |>
   )
 ```
 
-I like to store these in a little one-row data frame so that it's easy to access invidiual values:
+I like to store these in a little one-row data frame so that it's easy to access individual values:
 
 ```{r}
 #| label: show-national-values-df
