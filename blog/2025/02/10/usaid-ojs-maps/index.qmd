@@ -88,7 +88,7 @@ So in this post, I show what I learned about working with geographic data and ma
 ::: {.callout-warning}
 #### Caveat!
 
-I'm really bad at Javascript! The code here is probably wildy inefficient and feels R-flavored.
+I'm really bad at Javascript! The code here is probably wildly inefficient and feels R-flavored.
 
 But it works, and that's all that matters :)
 :::
