@@ -73,9 +73,9 @@ resources:
 citation: true
 ---
 
-As part of Elon Musk's weird Department of Government Efficiency's unconstitutional rampage through the federal government, USAID's ForeignAssistance.gov was taken offline on January 31, 2025. It reappeared on February 3, but it's not clear how long it will be available, esepcially as USAID is gutted (despite court orders and injunctions to stop).
+As part of Elon Musk's weird Department of Government Efficiency's unconstitutional rampage through the federal government, USAID's ForeignAssistance.gov was taken offline on January 31, 2025. It reappeared on February 3, but it's not clear how long it will be available, especially as USAID is gutted (despite court orders and injunctions to stop).
 
-I study civil society, human rights, and foriegn aid and rely on USAID aid data for several of my [research projects](https://www.andrewheiss.com/research/working-papers/chaudhry-heiss-ngos-aid/), so as a backup, I used [Datasette](https://datasette.io/) to create a mirror website/API of the entire ForeignAssistance.gov dataset at <https://foreignassistance-data.andrewheiss.com/>. Everything as of December 19, 2024 is available there, both as a queryable SQL database and as downloadable CSV files.
+I study civil society, human rights, and foreign aid and rely on USAID aid data for several of my [research projects](https://www.andrewheiss.com/research/working-papers/chaudhry-heiss-ngos-aid/), so as a backup, I used [Datasette](https://datasette.io/) to create a mirror website/API of the entire ForeignAssistance.gov dataset at <https://foreignassistance-data.andrewheiss.com/>. Everything as of December 19, 2024 is available there, both as a queryable SQL database and as downloadable CSV files.
 
 I also made [a little frontend website](https://foreignassistance.andrewheiss.com/) with links to each individual dataset. As I built that website, I decided to try recreating the ForeignAssistance.gov dashboard, which had neat interactive maps and tables.
 
@@ -714,7 +714,7 @@ To make it easier to access and filter and manipulate things, I put the rescued 
 
 For example, one of the rescued USAID datasets is named [`us_foreign_aid_country`](https://foreignassistance-data.andrewheiss.com/2025-02-03_foreign-assistance/~2E~2Fus_foreign_aid_country) and it contains 22,000+ rows, with data on aid obligations, appropriations, and disbursements starting in 1999.
 
-If we want to get a total of all constand USD aid obligations by country in 2023, omitting regional and world totals, we could do something like this with R and {dplyr}:
+If we want to get a total of all constant USD aid obligations by country in 2023, omitting regional and world totals, we could do something like this with R and {dplyr}:
 
 ```{r}
 #| eval: false
@@ -997,7 +997,7 @@ The other problem is in the legend, which uses a logarithmic scale and includes 
 
 The issue is the \$10 billion, which is abbreviated with "G".
 
-This is happening because `d3.format()` uses SI ([Système international d'unités, or International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units)) values for its numeric formats, which means that it uses [SI metrix prefixes](https://en.wikipedia.org/wiki/Metric_prefix). Those legend breaks, therefore, actually technically mean this: 
+This is happening because `d3.format()` uses SI ([Système international d'unités, or International System of Units](https://en.wikipedia.org/wiki/International_System_of_Units)) values for its numeric formats, which means that it uses [SI metric prefixes](https://en.wikipedia.org/wiki/Metric_prefix). Those legend breaks, therefore, actually technically mean this: 
 
 - 10k: 10 kilodollars
 - 1M: 1 megadollar
