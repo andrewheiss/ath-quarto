@@ -131,7 +131,7 @@ st_write(
 ::: {.callout-note}
 #### Maybe skip intermediate saving?
 
-We could probably use [Quarto's special R-to-OJS function `ojs_define()`](https://quarto.org/docs/interactive/ojs/data-sources.html#python-and-r) and make these R objects directly accessible to OJS without needing to stave intermediate files:
+We could probably use [Quarto's special R-to-OJS function `ojs_define()`](https://quarto.org/docs/interactive/ojs/data-sources.html#python-and-r) and make these R objects directly accessible to OJS without needing to save intermediate files:
 
 ```{r}
 #| eval: false
