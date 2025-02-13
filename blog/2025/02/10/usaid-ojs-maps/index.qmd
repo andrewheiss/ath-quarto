@@ -21,7 +21,6 @@ format:
     shift-heading-level-by: 1
     toc-depth: 4
     highlight-style: arrow
-    toc-expand: true
 
     include-in-header:
       - text: |
