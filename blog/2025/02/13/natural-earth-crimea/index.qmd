@@ -48,7 +48,7 @@ format:
           }
           </style>
 
-# doi: 10.59350/c0aep-hp989
+doi: 10.59350/28kp0-nbq92
 citation: true
 ---
 
@@ -117,9 +117,9 @@ ne_countries(scale = 110) |>
 
 **Maps are intensely political things.** There are dozens of disputes over maps and land and territories (e.g., Palestine, Western Sahara, Northern Cyprus, Taiwan, Kashmir, etc.), and many UN member states don't recognize other UN member states ([Israel isn't recognized by many Arab states](https://en.wikipedia.org/wiki/International_recognition_of_Israel); [Pakistan doesn't recognize Armenia](https://en.wikipedia.org/wiki/Armenia%E2%80%93Pakistan_relations)).
 
-The Natural Earth Project's [official policy for disputed territories](https://www.naturalearthdata.com/about/disputed-boundaries-policy/) is to reflect on-the-ground *de facto* [control over each piece of land](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/)^[[OpenStreetMap does this too](https://osmfoundation.org/w/images/d/d8/DisputedTerritoriesInformation.pdf)]:
+The Natural Earth Project's [official policy for disputed territories](https://www.naturalearthdata.com/about/disputed-boundaries-policy/) is to reflect on-the-ground *de facto* [control over each piece of land](https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/)^[[OpenStreetMap does this too](https://osmfoundation.org/w/images/d/d8/DisputedTerritoriesInformation.pdf).]:
 
-> Natural Earth Vector draws boundaries of sovereign states according to defacto status. We show who actually controls the situation on the ground. For instance, we show China and Taiwan as two separate states. But we show Palestine as part of Israel.:
+> Natural Earth Vector draws boundaries of sovereign states according to defacto status. We show who actually controls the situation on the ground. For instance, we show China and Taiwan as two separate states. But we show Palestine as part of Israel.
 
 Though [they claim that this *de facto* policy "is rigorous and self consistent"](https://www.naturalearthdata.com/about/disputed-boundaries-policy/), it gets them in trouble a lot. For instance, there are nearly [two dozen issues on GitHub](https://github.com/search?q=repo:nvkelso/natural-earth-vector+crimea&type=issues) about Crimea, which is [illegally occupied by Russia](https://en.wikipedia.org/wiki/Annexation_of_Crimea_by_the_Russian_Federation) but [*de jure* part of Ukraine](https://en.wikipedia.org/wiki/Russian_occupation_of_Crimea#Annexation). [There](https://github.com/nvkelso/natural-earth-vector/issues/391) [are](https://github.com/nvkelso/natural-earth-vector/issues/489) [huge](https://github.com/nvkelso/natural-earth-vector/issues/926) [debates](https://github.com/nvkelso/natural-earth-vector/issues/810) [over](https://github.com/nvkelso/natural-earth-vector/issues/812) the ethics of the *de facto* policy. 
 
@@ -771,11 +771,11 @@ Plot.plot({
 
 ### Visionscarto
 
-There are JSON-based map files created by [\@fil at Observable](https://observablehq.com/user/@fil) as part of the [Visionscarto project](https://observablehq.com/@visionscarto/world-atlas-topojson)
+There are JSON-based map files created by [\@fil at Observable](https://observablehq.com/user/@fil) as part of the [Visionscarto project](https://observablehq.com/@visionscarto/world-atlas-topojson).
 
 They're based on Natural Earth, but with [some specific adjustments](https://observablehq.com/@visionscarto/world-atlas-topojson#cell-93) like adding Crimea to Ukraine, making Gaza a little bit bigger so that it doesn't get dropped at lower resolutions like 110m, and using UN boundaries for Western Sahara. 
 
-Like GISCO, though, these don't have the additional columns that Natural Earth comes from (country names in a bunch of languages, region and continent designations, map coloring schemes, population and GDP estimates, etc.), and those would need to be added manually in R or Observable or whatever.
+Like GISCO, though, these don't have the additional columns that Natural Earth comes with (country names in a bunch of languages, region and continent designations, map coloring schemes, population and GDP estimates, etc.), and those would need to be added manually in R or Observable or whatever.
 
 ```{ojs}
 //| label: plot-visionscarto

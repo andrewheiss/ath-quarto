@@ -2356,6 +2356,22 @@
       ],
       "Hash": "c5ba8f5056487403a299b91984be86ca"
     },
+    "giscoR": {
+      "Package": "giscoR",
+      "Version": "0.6.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "countrycode",
+        "geojsonsf",
+        "jsonlite",
+        "rappdirs",
+        "sf",
+        "utils"
+      ],
+      "Hash": "7c2452ce2b91504c67233e759b6aca95"
+    },
     "globals": {
       "Package": "globals",
       "Version": "0.16.3",
