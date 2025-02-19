@@ -3189,6 +3189,29 @@
       ],
       "Hash": "819d7169c7d39f0f952473e943375da1"
     },
+    "legendry": {
+      "Package": "legendry",
+      "Version": "0.2.0.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "legendry",
+      "RemoteUsername": "teunbrand",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "2286d44d064f7f68490a5b56ed49296ec58282ef",
+      "Requirements": [
+        "R",
+        "cli",
+        "ggplot2",
+        "grid",
+        "gtable",
+        "lifecycle",
+        "rlang",
+        "scales",
+        "vctrs"
+      ],
+      "Hash": "4ccdd012278842aab08b9719ba6e3026"
+    },
     "libcoin": {
       "Package": "libcoin",
       "Version": "1.0-10",
