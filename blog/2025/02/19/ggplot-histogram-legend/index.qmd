@@ -1,0 +1,465 @@
+---
+title: "How to use a histogram as a legend in {ggplot2}"
+date: 2025-02-19
+description: "Land isn't unemployed—people are. Here's how to use R, {ggplot2}, {sf}, and {patchwork} to create a histogram legend in a choropleth map to better see the distribution of values."
+
+image: index_files/figure-html/plot-histogram-legend-1.png
+twitter-card: 
+    image: "index_files/figure-html/plot-histogram-legend-1.png"
+open-graph: 
+    image: "index_files/figure-html/plot-histogram-legend-1.png"
+
+categories:
+  - r
+  - tidyverse
+  - ggplot
+  - gis
+  - maps
+
+format:
+  html:
+    shift-heading-level-by: 1
+    lightbox: true
+
+# doi: 10.59350/28kp0-nbq92
+citation: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.height = 6 * 0.618,
+  fig.retina = 3,
+  dev = "ragg_png",
+  fig.align = "center",
+  out.width = "90%",
+  collapse = TRUE,
+  cache.extra = 1234  # Change number to invalidate cache
+)
+
+options(
+  digits = 4,
+  width = 300,
+  dplyr.summarise.inform = FALSE
+)
+
+options(tigris_use_cache = TRUE)
+Sys.setenv(TIGRIS_CACHE_DIR = "maps")
+```
+
+On Bluesky the other day, I came across [this neat post](https://bsky.app/profile/obumbratta.com/post/3lbs67ic5bc2w) that suggested using a histogram as a plot legend to provide additional context for the data being shown:
+
+![Joey Cherdarchuk's original post](img/bsky-post.png){width="70%" fig-align="center" .lightbox}
+
+Here's a closer comparison of those two maps (click to zoom):
+
+![Joey Cherdarchuk's maps side-by-side](img/map-histogram-legend.jpg){width="100%" fig-align="center" .lightbox}
+
+This histogram legend is especially useful for choropleth maps where units like counties are sized differently, which can create an illusion of a different distribution. For instance, in that original post, larger dark blue areas stand out a lot visually—like in Alaska, New Mexico, Arizona, and Central California—and make it seem like unemployment is fairly high.
+
+But looking at the histogram that's not actually the case. Most counties have an unemployment rate around 3–6%. This illusion is happening because [land isn't unemployed—people are](https://storymaps.arcgis.com/stories/0e636a652d44484b9457f953994b212b).
+
+I thought this was a cool approach, so I figured I'd try to replicate it with R. In the original post, [the map was created with D3, the bar chart legend was created with Excel, and the two were combined with Figma](https://bsky.app/profile/obumbratta.com/post/3lihzar4lc222). That process is a little too manual for me, but with the magic of R, {ggplot2}, and [{patchwork}](https://patchwork.data-imaginist.com/), we can create the same map completely programmatically. 
+
+Let's do it!
+
+# Clean and join data
+
+First, let's load some packages and tweak some theme settings:
+
+```{r}
+#| label: packages-settings
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(readxl)
+library(sf)
+library(tigris)
+library(patchwork)
+
+# Add some font settings to theme_void()
+theme_fancy_map <- function() {
+  theme_void(base_family = "IBM Plex Sans") +
+    theme(
+      plot.title = element_text(face = "bold", hjust = 0.13, size = rel(1.4)),
+      plot.subtitle = element_text(hjust = 0.13, size = rel(1.1)),
+      plot.caption = element_text(hjust = 0.13, size = rel(0.8), color = "grey50"),
+    )
+}
+```
+
+## BLS unemployment data
+
+Next, we can get 2016 unemployment data from the Bureau of Labor Statistics. BLS offers county-level data on annual average labor force participation [here](https://www.bls.gov/lau/tables.htm#cntyaa), both as plain text and Excel files. The plain text data is structured a little goofily (it's not comma-separated; it's a fixed width format where column headings span multiple lines), but the Excel version is in nice columns and is easier to work with. Though even then, we need to skip the first few rows, and the last few rows, and specify column names ourselves.
+
+[Download this first from the BLS](https://www.bls.gov/lau/tables.htm#cntyaa):
+
+- [Labor force data by county, 2016 annual averages (XLS)](https://www.bls.gov/lau/laucnty16.xlsx)
+
+For the sake of mapping, we'll truncate the unemployment rate at 9% and mark any counties with higher than 9% unemployment with 9.1 and modify the legend to show ">9%":
+
+```{r}
+#| label: load-clean-bls
+
+# Load BLS data and clean it up
+bls_2016 <- read_excel(
+  "laucnty16.xlsx",
+  skip = 5,
+  col_names = c(
+    "laus_code", "STATEFP", "COUNTYFP", "county_name_state",
+    "year", "nothing", "labor_force", "employed", "unemployed", "unemp"
+  )
+) |> 
+  # The last few rows in the Excel file aren't actually data, but extra notes,
+  # so drop those rows here since they don't have a state FIPS code
+  drop_na(STATEFP) |> 
+  # Truncate the unemployment rate at 9
+  mutate(unemp_truncated = ifelse(unemp > 9, 9.1, unemp))
+
+bls_2016
+```
+
+## Census geographic data
+
+Next we'll get geographic data from the US Census with [{tigris}](https://github.com/walkerke/tigris)
+
+::: {.callout-note}
+#### Backup data source
+
+At the time of this writing, {tigris} is working. It wasn't working a couple weeks ago as the wildly illegal Department of Government Efficiency rampaged through different federal agencies—including the US Census—and shut down the Census's GIS APIs. But it seems to be working for now?
+
+If it's not working, [IPUMS's NHGIS project](https://www.nhgis.org/) offers the same shapefiles.
+:::
+
+The BLS data and the Census data each have columns with [state and county FIPS codes](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standard_state_code) which we can use to join the two datasets:
+
+```{r}
+#| label: load-census-gis
+
+# Get county and state shapefiles from Tigris
+us_counties <- counties(year = 2016, cb = TRUE) |> 
+  filter(as.numeric(STATEFP) <= 56) |> 
+  shift_geometry()  # Move AK and HI
+
+us_states <- states(year = 2016, cb = TRUE) |> 
+  filter(as.numeric(STATEFP) <= 56) |> 
+  shift_geometry()  # Move AK and HI
+
+# Join BLS data to the map
+counties_with_unemp <- us_counties |>
+  left_join(bls_2016, by = join_by(STATEFP, COUNTYFP))
+
+# Check out the joined data
+counties_with_unemp |> 
+  select(STATEFP, COUNTYFP, county_name_state, unemp_truncated, geometry)
+```
+
+The map works!
+
+```{r}
+#| label: plot-basic map
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+
+ggplot() +
+  geom_sf(data = us_states, fill = "#0074D9", color = "white", linewidth = 0.25) +
+  # Albers projection
+  coord_sf(crs = st_crs("ESRI:102003"))
+```
+
+## Map adjustments
+
+We need to make a couple little adjustments to the map first. In the original image on Bluesky, there's extra space on the right side of the map to allow for the legend. We can change the plot window by adding 10% of the width of the map to the right. 
+
+Technically we don't have to work with percents here; the data is currently using the Albers projection, which works in meters, so we could add something like 500,000 meters / 500 km to the left. But this is a more general solution and also works if the map data is in decimal degrees instead of meters.
+
+Also, the far western Aleutian islands mess with the visual balance of the map (and they don't appear because they're so small), so we'll also subtract 10% of the map from the left.
+
+```{r}
+#| label: plot-shifted-window
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+
+# Get x-axis limits of the bounding box for the state data
+xlim_current <- st_bbox(us_states)$xlim
+
+# Add 540ish km (or 10% of the US) to the bounds (thus shifting the window over)
+xlim_expanded <- c(
+  xlim_current[1] + (0.1 * diff(xlim_current)), 
+  xlim_current[2] + (0.1 * diff(xlim_current))
+)
+
+ggplot() +
+  geom_sf(data = us_states, fill = "#0074D9", color = "white", linewidth = 0.25) +
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded)
+```
+
+## Extract interior state borders
+
+Because we're using `color = "white", linewidth = 0.25`, every state gets a thin white border. This causes some issues though. All the states that share borders actually get a thicker border, since a state's western border joins up with its neighbors eastern border. Also, all the coastlines and islands get borders, which diminishes the landmass—especially on a white background.
+
+Like, look at [Alaska's Aleutian Islands](https://en.wikipedia.org/wiki/Aleutian_Islands), or [Hawai'i's smaller islands](https://en.wikipedia.org/wiki/List_of_islands_of_Hawaii#Northwestern_Hawaii_Islands), or Michigan's [Les Cheneaux Islands](https://en.wikipedia.org/wiki/Les_Cheneaux_Islands) and [Isle Royale](https://en.wikipedia.org/wiki/Isle_Royale_National_Park), or [California's Channel Islands](https://en.wikipedia.org/wiki/Channel_Islands_(California)), or the [Florida Keys](https://en.wikipedia.org/wiki/Florida_Keys), or [North Carolina's Outer Banks](https://en.wikipedia.org/wiki/Outer_Banks)—they all basically disappear.
+
+To fix this, we can use `st_intersection()` to identify the intersections of all the state shapes (see [this](https://ikashnitsky.phd/2023/map-borders/) and [this](https://stackoverflow.com/a/57138069) for more details)
+
+Now all the islands and coastlines have much better definition and the borders between states are truly sized at 0.25:
+
+```{r}
+#| label: plot-interior-borders
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+
+interior_state_borders <- st_intersection(us_states) |>
+  filter(n.overlaps > 1) |> 
+  # Remove weird points that st_intersection() adds
+  filter(!(st_geometry_type(geometry) %in% c("POINT", "MULTIPOINT")))
+
+ggplot() +
+  geom_sf(data = us_states, fill = "#0074D9", linewidth = 0) +
+  geom_sf(data = interior_state_borders, linewidth = 0.25, color = "white") +
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded)
+```
+
+# Map with horizontal gradient step legend
+
+Now that we have cleaned and adjusted geographic and unemployment data, we can make a fancy map! Instead of building this sequentially, I've included all the code all at once, with lots of comments at each step.
+
+A few things to note:
+
+- `scale_fill_stepsn()` lets you use [distinct bins of color](https://ggplot2.tidyverse.org/reference/scale_steps.html) instead of a continuous gradient
+
+- We position the legend inside the plot with `theme(legend.position = "inside", legend.position.inside = c(0.86, 0.32))`. Those `0.86, 0.32` coordinates took a lot of tinkering to get! The units for `legend.position.inside` are based on percentages of the plot, so the legend appears where x is 86% across and 32% up. **The position changes every time the plot dimensions change.** To make life easier as I played with different values, I used [{ggview}](https://github.com/idmn/ggview) to specify and lock in exact dimensions of the plot:
+
+  ```{.r}
+  library(ggview)
+  
+  p <- ggplot(...) +
+    geom_sf(...)
+  
+  p + canvas(7, 5)
+  ```
+
+  I'm not using `ggview::canvas()` here in the post because I'm specifying figure dimensions with Quarto chunk options instead (`fig-width: 7` and `fig-height: 5`).
+
+Here's the map!
+
+```{r}
+#| label: plot-horizontal-legend
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+
+ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = counties_with_unemp, aes(fill = unemp_truncated), linewidth = 0
+  ) +
+  # Add interior state boundaries
+  geom_sf(
+    data = interior_state_borders, color = "white", linewidth = 0.25
+  ) +
+  # Show the unemployment legend as steps instead of a standard gradient
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = 1:10,
+    limits = c(1, 10),
+    # Change the label for >9%
+    labels = case_match(
+      1:10,
+      1 ~ "1%",
+      10 ~ ">9%",
+      .default = as.character(1:10)
+    )
+  ) +
+  # Yay labels
+  labs(
+    title = "US unemployment rates",
+    subtitle = "2016 annual averages by county",
+    caption = "Source: US Bureau of Labor Statistics",
+    fill = "Unemployment rate"
+  ) +
+  # Use Albers projection and new x-axis limits
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded) +
+  # Theme adjustments
+  theme_fancy_map() +
+  theme(
+    legend.position = "inside",
+    legend.position.inside = c(0.86, 0.32),
+    legend.direction = "horizontal",
+    legend.text = element_text(size = rel(0.55)),
+    legend.title = element_text(hjust = 0.5, face = "bold", size = rel(0.7), margin = margin(t = 3)),
+    legend.title.position = "bottom",
+    legend.key.width = unit(1.55, "lines"),
+    legend.key.height = unit(0.7, "lines")
+  )
+```
+
+# Map with histogram legend
+
+We can replace the step gradient legend with a histogram that is filled using the same colors as the step legend. 
+
+The easiest method that gives us the most control over the legend histogram is to create a separate plot object for the histogram and place it inside the map with [{patchwork}'s `inset_element()`](https://patchwork.data-imaginist.com/articles/guides/layout.html#insets). 
+
+Here's the histogram, again with comments at each step. Only one neat trick to note here:
+
+- `geom_histogram` automatically determines the bin width for the variable assigned to the x aesthetic. In order to fill each bar by bin-specific color, we need to access information about those newly created bins. [We can do this with `after_stat()`](https://yjunechoe.github.io/posts/2022-03-10-ggplot2-delayed-aes-1/)—here we fill each bar using the already-calculated x bin categories with `fill = after_stat(factor(x))`
+
+```{r}
+#| label: plot-histogram-legend-alone
+#| fig-width: 3
+#| fig-height: 1.4
+#| out-width: 70%
+
+hist_legend <- ggplot(bls_2016, aes(x = unemp_truncated)) +
+  # Fill each histogram bar using the x axis category that ggplot creates
+  geom_histogram(
+    aes(fill = after_stat(factor(x))), 
+    binwidth = 1, boundary = 0, color = "white"
+  ) +
+  # Fill with the same palette as the map
+  scale_fill_brewer(palette = "YlGnBu", guide = "none") +
+  # Modify the x-axis labels to use >9%
+  scale_x_continuous(
+    breaks = 2:10, 
+    labels = case_match(
+      2:10,
+      2 ~ "2%",
+      10 ~ ">9%",
+      .default = as.character(2:10)
+    )
+  ) +
+  # Just one label to replicate the legend title
+  labs(x = "Unemployment rate") +
+  # Theme adjustments
+  theme_fancy_map() +
+  theme(
+    axis.text.x = element_text(size = rel(0.55)),
+    axis.title.x = element_text(size = rel(0.68), margin = margin(t = 3, b = 3), face = "bold")
+  )
+hist_legend
+```
+
+Next, we'll place that `hist_legend` plot inside a map with `inset_element()`. Like `legend.position.inside = c(0.86, 0.32)` in the previous map, the `left = 0.75, bottom = 0.26, right = 0.98, top = 0.5` values here are percentages of the plot area and they're fully dependent on the overall dimensions of the plot. Getting these exact numbers took a lot of manual adjusting, and `ggview::canvas()` was once again indispensable for keeping the plot dimensions constant.
+
+```{r}
+#| label: plot-histogram-legend
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+
+unemp_map <- ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = counties_with_unemp, aes(fill = unemp_truncated), color = NA, linewidth = 0
+  ) +
+  # Add interior state boundaries
+  geom_sf(
+    data = interior_state_borders, color = "white", linewidth = 0.25, fill = NA
+  ) +
+  # Show the unemployment legend as steps instead of a standard gradient, but
+  # don't actually show the legend
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = 1:10, 
+    guide = "none"
+  ) +
+  # Yay labels
+  labs(
+    title = "US unemployment rates",
+    subtitle = "2016 annual averages by county",
+    caption = "Source: US Bureau of Labor Statistics"
+  ) +
+  # Use Albers projection and new x-axis limits
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded) +
+  # Theme stuff
+  theme_fancy_map()
+
+# Add the histogram to the map
+combined_map_hist <- unemp_map + 
+  inset_element(hist_legend, left = 0.75, bottom = 0.26, right = 0.98, top = 0.45)
+combined_map_hist
+```
+
+
+# Map with automatic histogram legend with {legendry}
+
+Finally, [the new {legendry} package](https://teunbrand.github.io/legendry/) makes it so we can create a custom histogram-based legend without needing to use {patchwork} with a separate histogram plot!
+
+It doesn't provide as much control over the resulting histogram. The `gizmo_histogram()` function uses base R's `hist()` behind the scenes, so we have to specify bin widths and other settings in `hist.arg` as base R arguments, like `breaks = 10` instead of ggplot's `binwidth = 10`. 
+
+Not all of `hist()`'s options seem to work here. For instance, I get a warning if I use `border = "white"` to add a white border around each bar (`argument ‘border’ is not made use of`), since that border option is disabled when using base R's `hist()` with `plot = FALSE`:
+
+```{r}
+#| label: hist-warning
+
+hist(counties_with_unemp$unemp_truncated, breaks = 10, border = "white", plot = FALSE)
+```
+
+Also, it's currently filling each histogram bar with the full gradient, not the 9 distinct steps, and I can't figure out how to define custom colors for each bar—and it might not even be possible since color settings aren't picked up anyway because of {legendry}'s use of `plot = FALSE` 🤷‍♂️.
+
+But despite these downsides, this automatic histogram legend with {legendry} is really neat!
+
+```{r}
+#| label: plot-histogram-legend-legendry
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+
+library(legendry)
+
+# Create a custom histogram guide
+histogram_guide <- compose_sandwich(
+  middle = gizmo_histogram(just = 0, hist.arg = list(breaks = 10)),
+  text = "axis_base"
+)
+
+ggplot() +
+  # Add counties filled with unemployment levels
+  geom_sf(
+    data = counties_with_unemp, aes(fill = unemp_truncated), color = NA, linewidth = 0
+  ) +
+  # Add interior state boundaries
+  geom_sf(
+    data = interior_state_borders, color = "white", linewidth = 0.25, fill = NA
+  ) +
+  # Show the unemployment legend with a custom histogram guide
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = 1:10,
+    limits = c(1, 10),
+    guide = histogram_guide,
+    # Change the label for >9%
+    labels = case_match(
+      1:10,
+      1 ~ "1%",
+      10 ~ ">9%",
+      .default = as.character(1:10)
+    )
+  ) +
+  # Yay labels
+  labs(
+    title = "US unemployment rates",
+    subtitle = "2016 annual averages by county",
+    caption = "Source: US Bureau of Labor Statistics",
+    fill = "Unemployment rate"
+  ) +
+  # Use Albers projection and new x-axis limits
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded) +
+  # Theme stuff
+  theme_fancy_map() +
+  theme(
+    legend.position = "inside",
+    legend.position.inside = c(0.86, 0.32),
+    legend.direction = "horizontal",
+    legend.text = element_text(size = rel(0.55)),
+    legend.title = element_text(hjust = 0.5, face = "bold", size = rel(0.7), margin = margin(t = 3)),
+    legend.title.position = "bottom"
+  )
+```
