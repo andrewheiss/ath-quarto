@@ -463,3 +463,68 @@ ggplot() +
     legend.title.position = "bottom"
   )
 ```
+
+# Bonus! Use points instead of choropleths
+
+We're still using choropleth maps here, which still isn't ideal for showing the idea that "land isn't unemployed". One solution is to plot points that are sized by population. This is pretty straightforward with {sf}—we need to convert the county polygons into single points, which we can do with `st_centroid()`. Then, after a bunch of tinkering with legend options, we'll have this gorgeous map:
+
+```{r}
+#| label: plot-histogram-points
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+#| warning: false
+
+# Convert the county polygons into single points
+counties_with_unemp_centroids <- counties_with_unemp |> 
+  st_centroid()
+
+unemp_map_points <- ggplot() +
+  # Use a gray background
+  geom_sf(data = us_states, fill = "gray90", linewidth = 0) +
+  geom_sf(data = interior_state_borders, linewidth = 0.25, color = "white") +
+  # Include semi-transparent points with shape 21 (so there's a border)
+  geom_sf(
+    data = counties_with_unemp_centroids, 
+    aes(size = labor_force, fill = unemp_truncated), 
+    pch = 21, color = "white", stroke = 0.25, alpha = 0.8
+  ) +
+  # Control the size of the points in the legend
+  scale_size_continuous(
+    range = c(1, 9), labels = scales::label_comma(), 
+    breaks = c(10000, 100000, 1000000),
+    # Make the points black and not have a border
+    guide = guide_legend(override.aes = list(pch = 19, color = "black"))
+  ) +
+  # Show the unemployment legend as steps instead of a standard gradient, but
+  # don't actually show the legend
+  scale_fill_stepsn(
+    colours = scales::brewer_pal(palette = "YlGnBu")(9),
+    breaks = 1:10, 
+    guide = "none"
+  ) +
+  # Labels
+  labs(
+    title = "US unemployment rates",
+    subtitle = "2016 annual averages by county",
+    caption = "Source: US Bureau of Labor Statistics",
+    fill = "Unemployment rate",
+    size = "Labor force"
+  ) +
+  # Albers
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded) +
+  # Theme stuff
+  theme_fancy_map() +
+  theme(
+    legend.position = "inside",
+    legend.position.inside = c(0.837, 0.13),
+    legend.text = element_text(size = rel(0.55)),
+    legend.title = element_text(hjust = 0.5, face = "bold", size = rel(0.7), margin = margin(t = 3)),
+    legend.title.position = "bottom"
+  )
+
+# Add the histogram to the map
+combined_map_hist_points <- unemp_map_points + 
+  inset_element(hist_legend, left = 0.75, bottom = 0.26, right = 0.98, top = 0.45)
+combined_map_hist_points
+```
