@@ -202,7 +202,7 @@ ggplot() +
 
 ## Extract interior state borders
 
-Because we're using `color = "white", linewidth = 0.25`, every state gets a thin white border. This causes some issues though. All the states that share borders actually get a thicker border, since a state's western border joins up with its neighbors eastern border. Also, all the coastlines and islands get borders, which diminishes the landmass—especially on a white background.
+Because we're using `color = "white", linewidth = 0.25`, every state gets a thin white border. This causes some issues though. All the states that share borders actually get a thicker border, since a state's western border joins up with its neighbor's eastern border. Also, all the coastlines and islands get borders, which diminishes the landmass—especially on a white background.
 
 Like, look at [Alaska's Aleutian Islands](https://en.wikipedia.org/wiki/Aleutian_Islands), or [Hawai'i's smaller islands](https://en.wikipedia.org/wiki/List_of_islands_of_Hawaii#Northwestern_Hawaii_Islands), or Michigan's [Les Cheneaux Islands](https://en.wikipedia.org/wiki/Les_Cheneaux_Islands) and [Isle Royale](https://en.wikipedia.org/wiki/Isle_Royale_National_Park), or [California's Channel Islands](https://en.wikipedia.org/wiki/Channel_Islands_(California)), or the [Florida Keys](https://en.wikipedia.org/wiki/Florida_Keys), or [North Carolina's Outer Banks](https://en.wikipedia.org/wiki/Outer_Banks)—they all basically disappear.
 
