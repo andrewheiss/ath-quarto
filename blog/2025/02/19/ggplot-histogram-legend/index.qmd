@@ -21,7 +21,7 @@ format:
     shift-heading-level-by: 1
     lightbox: true
 
-# doi: 10.59350/28kp0-nbq92
+doi: 10.59350/gt0nr-wct91
 citation: true
 ---
 
@@ -117,8 +117,12 @@ bls_2016 <- read_excel(
   # The last few rows in the Excel file aren't actually data, but extra notes,
   # so drop those rows here since they don't have a state FIPS code
   drop_na(STATEFP) |> 
-  # Truncate the unemployment rate at 9
-  mutate(unemp_truncated = ifelse(unemp > 9, 9.1, unemp))
+  mutate(
+    # Truncate the unemployment rate at 9
+    unemp_truncated = ifelse(unemp > 9, 9.1, unemp),
+    # Find difference from Fed target of 4%
+    unemp_diff = unemp_truncated - 4
+  )
 
 bls_2016
 ```
@@ -466,7 +470,7 @@ ggplot() +
 
 # Bonus! Use points instead of choropleths
 
-We're still using choropleth maps here, which still isn't ideal for showing the idea that "land isn't unemployed". One solution is to plot points that are sized by population. This is pretty straightforward with {sf}—we need to convert the county polygons into single points, which we can do with `st_centroid()`. Then, after a bunch of tinkering with legend options, we'll have this gorgeous map:
+We're still using choropleth maps here, which still isn't ideal for showing the idea that "land isn't unemployed". One solution is to plot points that are sized by population. This is pretty straightforward with {sf}—we need to convert the county polygons into single points, which we can do with `st_point_on_surface()`. Then, after a bunch of tinkering with legend options, we'll have this gorgeous map:
 
 ```{r}
 #| label: plot-histogram-points
@@ -476,8 +480,8 @@ We're still using choropleth maps here, which still isn't ideal for showing the 
 #| warning: false
 
 # Convert the county polygons into single points
-counties_with_unemp_centroids <- counties_with_unemp |> 
-  st_centroid()
+counties_with_unemp_points <- counties_with_unemp |> 
+  st_point_on_surface()
 
 unemp_map_points <- ggplot() +
   # Use a gray background
@@ -485,7 +489,7 @@ unemp_map_points <- ggplot() +
   geom_sf(data = interior_state_borders, linewidth = 0.25, color = "white") +
   # Include semi-transparent points with shape 21 (so there's a border)
   geom_sf(
-    data = counties_with_unemp_centroids, 
+    data = counties_with_unemp_points, 
     aes(size = labor_force, fill = unemp_truncated), 
     pch = 21, color = "white", stroke = 0.25, alpha = 0.8
   ) +
@@ -527,4 +531,149 @@ unemp_map_points <- ggplot() +
 combined_map_hist_points <- unemp_map_points + 
   inset_element(hist_legend, left = 0.75, bottom = 0.26, right = 0.98, top = 0.45)
 combined_map_hist_points
+```
+
+# Bonus #2! Use a diverging color scheme + nested legend circles
+
+But wait, there's more! Based on discussions with really smart dataviz people on Bluesky in the wake of [me posting about this blog post there](https://bsky.app/profile/andrew.heiss.phd/post/3like2os2d22c), we can make two additional tweaks:
+
+- While the different sizes for the points are neat, I'm not a fan of how big the vertical spacing is between the 10,000; 100,000; and 1,000,000. Unfortunately there's no way to change it. Technically we can use `legend.key.spacing.y` in `theme()` to adjust it, but that doesn't work as expected here because each of those legend entries is sized to match the largest point—i.e., the point for 1,000,000 is the biggest, so the legend entries for all the other values match its height, even if they don't need all that space.
+
+  To fix this, we can use `guide_circles()` from {legendry} to show the different point sizes as coencentric circles, which is more compact (and just looks neat).
+
+- Instead of showing a range of low → high values, [we can color these counties based on a meaningful midpoint](https://bsky.app/profile/abmakulec.bsky.social/post/3limfykl2i22n) to help highlight which counties are doing great (low unemployment! good!) and which aren't (high unemployment! bad!). That might not always necessarily be the best approach—showing the full range of actual values like in the original map is a way of just describing the range and doesn't inherently imply good or bad. But in other plots where data might be more actionable, divergences from some central value would be much more helpful.
+
+  In the United States, the Federal Reserve has a [unique dual mandate](https://www.stlouisfed.org/in-plain-english/the-fed-and-the-dual-mandate) to use macroeconomic policies to target both inflation and unemployment (most other countries' central banks only target inflation). The Fed typically aims for an inflation rate of 2% and an unemployment rate of [4ish%](https://www.marketplace.org/2024/07/29/what-is-maximum-employment-target/). So in this new map, we'll center each county's unemployment rate around 4% and show the percentage point deviations from that Fed target. Counties colored in darker red have higher unemployment rates than the target; counties colored in blue have lower rates than the target.
+
+  We can then imagine that we're a policymaker interested in unemployment trends—we can look at the map and quickly identify areas that are doing poorly and doing well.
+
+Up at the beginning of the document where we loaded and cleaned the `bls_2016` dataset, I've added a new variable that centers the unemployment rate at 4:
+
+```{.r}
+mutate(unemp_diff = unemp_truncated - 4)
+```
+
+We can then use this to create a new histogram and new map colored with the "vik" palette from [the {scico} package](https://github.com/thomasp85/scico), which has lots of [neat diverging palettes](https://www.fabiocrameri.ch/colourmaps/). We'll also create a fancy circle-based legend with {legendry}. Here's the fully annotated code and final map:
+
+```{r}
+#| label: plot-histogram-points-diffs
+#| fig-width: 7
+#| fig-height: 5
+#| out-width: 100%
+#| warning: false
+
+library(ggtext)  # For Markdown-based text in ggplot
+library(scico)   # For perceptually uniform colors
+
+# Make new histogram legend
+hist_legend_diffs <- ggplot(bls_2016, aes(x = unemp_diff)) +
+  # Fill each histogram bar using the x axis category that ggplot creates
+  # Use boundary = 0.5 to shift the bin ranges from things like 1-2 to 1.5-2.5
+  geom_histogram(
+    aes(fill = after_stat((x))), 
+    binwidth = 1, boundary = 0.5, color = "white"
+  ) +
+  # Fill with the same palette as the map
+  # scale_fill_brewer(palette = "YlGnBu", guide = "none") +
+  scale_fill_scico(palette = "vik", midpoint = 0, guide = "none") +
+  # Modify the x-axis labels to show perentage point values and format them with
+  # markdown to get original unemployment values on separate lines
+  scale_x_continuous(
+    breaks = -2:5, 
+    labels = case_match(
+      -2:5,
+      -2 ~ "**−2 pp.**<br>(2%)",
+      0 ~ "**0**<br>(4% ±<br>0.5 pp.)",
+      5 ~ "**>+4 pp.**<br>(>9%)",
+      .default = glue::glue(
+        "**{x}**", 
+        x = scales::label_comma(
+          style_positive = "plus", style_negative = "minus"
+        )(-2:5))
+    )
+  ) +
+  # Just one label to replicate the legend title
+  labs(x = "Difference from Fed target") +
+  # Theme adjustments
+  theme_fancy_map() +
+  theme(
+    axis.text.x = element_markdown(size = rel(0.5), vjust = 1, lineheight = 1.3),
+    axis.title.x = element_text(size = rel(0.68), margin = margin(t = 3, b = 3), face = "bold")
+  )
+
+unemp_map_points_diffs <- ggplot() +
+  # Use a lighter gray background
+  geom_sf(data = us_states, fill = "gray95", linewidth = 0) +
+  # Use slightly darker state borders
+  geom_sf(data = interior_state_borders, linewidth = 0.25, color = "grey60") +
+  # Include semi-transparent points with shape 21 (so there's a border)
+  geom_sf(
+    data = counties_with_unemp_points, 
+    aes(size = labor_force, fill = unemp_diff), 
+    shape = 21, color = "white", stroke = 0.25, alpha = 0.8
+  ) +
+  # Control the size of the points in the legend
+  scale_size_continuous(
+    range = c(1, 11), labels = scales::label_comma(), 
+    breaks = c(100000, 1000000, 5000000),
+    # Make the points black and not have a border
+    guide = guide_circles(
+      text_position = "right",
+      override.aes = list(
+        fill = "grey30", alpha = 0.8
+      )
+    )
+  ) +
+  # This is tricky! We want to use the diverging vik palette but have it 
+  # centered at 0. With scale_fill_scico(), there's a midpoint argument, like we 
+  # used for the histogram. For generating regular lists of colors with scico(), 
+  # though, there's no midpoint argument. Instead, we need to make a few 
+  # specific adjustments: 
+  #
+  # 1. Generate 11 possible colors, since there are 5 colors above the 0 
+  #    midpoint in the histogram and we need 5 parallel negative colors below 0 
+  #    (even though we're only using 2)
+  # 2. Set the limits of the legend to the symmetrical -5 to 5 range so that 
+  #    it's centered at 0
+  # 3. Set the breaks to go asymmetrically from -2:5. But actually set them 
+  #    from -2.5 to 4.5 since that matches the shifted histogram, which uses a 
+  #    boundary of 0.5 instead of 0 (so the histogram bins cover ranges like 
+  #    0.5 to 1.5 instead of 0 to 1)
+  scale_fill_stepsn(
+    colours = scico::scico(11, palette = "vik"),
+    limits = c(-5, 5),
+    breaks = seq(-2.5, 4.5, by = 1),
+    guide = "none"
+  ) +
+  # Labels
+  labs(
+    title = "US unemployment (2016)",
+    subtitle = "Differences from the Federal Reserve's 4% target",
+    caption = "Source: US Bureau of Labor Statistics",
+    fill = "Unemployment rate",
+    size = "County labor force"
+  ) +
+  # Albers
+  coord_sf(crs = st_crs("ESRI:102003"), xlim = xlim_expanded) +
+  # Theme adjustments
+  theme_fancy_map() +
+  theme(
+    # {legendry} complains if there's no legend.margin setting; using 
+    # theme_void() removes that setting and breaks the plot, so we specify 
+    # some 0 values here
+    legend.margin = margin(0, 0, 0, 0, "pt"),
+    legendry.legend.key.margin = margin(0, 5, 0, 0, "pt"),
+    legend.ticks = element_line(colour = "black", linetype = "22"),
+    legend.position = "inside",
+    legend.position.inside = c(0.87, 0.17),
+    legend.text = element_text(size = rel(0.55)),
+    legend.title = element_text(hjust = 0.5, face = "bold", size = rel(0.7), margin = margin(t = 3)),
+    plot.subtitle = element_text(hjust = 0.18),
+    legend.title.position = "bottom"
+  )
+
+# Add the histogram to the map
+combined_map_hist_points_diffs <- unemp_map_points_diffs + 
+  inset_element(hist_legend_diffs, left = 0.75, bottom = 0.26, right = 0.98, top = 0.45)
+combined_map_hist_points_diffs
 ```
