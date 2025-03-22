@@ -11,7 +11,8 @@ categories:
   - r
   - tidyverse
   - quarto
-  - observablejs
+  - ojs
+  - observable plot
   - plumber
   - api
   - make
