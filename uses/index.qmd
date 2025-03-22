@@ -67,12 +67,12 @@ I try to keep this updated fairly regularly. As of February 19, 2025 this is wha
 
 ### Productivity
 
-- My secret for avoiding the siren call of the internet is [Freedom](https://freedom.to/). I have two blocklists: (1) *antisocial*, which blocks Facebook and Twitter, and (2) *nuclear*, which blocks everything. I have the antisocial blocklist enabled on my laptop and phone from 8:00 AM–6:00 PM and 8:30 PM–11:30 PM. Since I accidentally discovered that it's relatively easy to circumvent the blocking on the Mac, I also use [Focus](https://heyfocus.com/) with the same schedule.
+- My secret for avoiding the siren call of the internet is [Focus](https://heyfocus.com/). I have a blocklist that blocks Bluesky, Mastodon, Facebook, and Instagram from 8:00 AM–5:00 PM and 9:00 PM–11:59 PM.
 - I was an early convert to [Todo.txt](http://todotxt.com/) and used it for years until my tasks and projects got too unwieldy. I switched to [Taskpaper](https://www.taskpaper.com/) for a while, used [2Do](http://www.2doapp.com/) for a couple years, and now I'm a convert to [OmniFocus](https://www.omnigroup.com/omnifocus).
 - [Fantastical 2](https://flexibits.com/fantastical)’s natural language input is a glorious thing.
 - I use [Timery](https://timeryapp.com/) as an interface to [Toggl](https://toggl.com/) to [track my time](https://thesweetsetup.com/apps/best-time-tracking-app/) during the day
 - I keep a log of what I work on (and occasionally do more traditional diary-like entries) with [Day One](http://dayoneapp.com/) on both iOS and macOS.
-- I use [TextExpander](https://smilesoftware.com/textexpander) to replace and expand a ton of snippets, and I use [Keyboard Maestro](https://www.keyboardmaestro.com/main/) to run dozens of little scripts that help control my computer with the keyboard.
+- I use [Espanso](https://espanso.org/) to replace and expand a ton of snippets—[see them all here](https://github.com/andrewheiss/espanso), and I use [Raycast](https://www.raycast.com/) to run dozens of little scripts that help control my computer with the keyboard.
 - I use [Übersicht](http://tracesof.net/uebersicht/) to show weather, iTunes track information, and my todo lists on my desktop.
 - I use [Dropbox](https://www.dropbox.com) religiously and use [Backblaze](https://www.backblaze.com/) to back up all the computers in our house to the cloud.
 - With all these little helper apps, I use [Bartender](https://www.macbartender.com/) to keep my menubar clean.
