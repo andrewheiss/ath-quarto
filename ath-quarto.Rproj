@@ -1,4 +1,5 @@
 Version: 1.0
+ProjectId: dbdc2867-4f65-4b24-bd9e-249fbb9201ca
 
 RestoreWorkspace: Default
 SaveWorkspace: Default
@@ -13,3 +14,5 @@ RnwWeave: Sweave
 LaTeX: XeLaTeX
 
 AutoAppendNewline: Yes
+
+ProjectName: ath-quarto
