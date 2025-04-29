@@ -26,7 +26,7 @@ I try to keep this updated fairly regularly. As of April 27, 2025 this is what I
 
 - I permanently ditched Word as a writing environment in 2008 after starting grad school. I do all my writing in [pandoc-flavored](http://pandoc.org/) [Markdown](https://daringfireball.net/projects/markdown/) (including e-mails and paper-and-pencil writing)—it's incredibly intuitive, imminently readable, flexible, future proof, and lets me ignore formatting and focus on content.
 - The key to my writing workflow is the magical [pandoc](http://pandoc.org/), which converts Markdown files into basically anything else. I use [Quarto](https://quarto.org/) to convert Markdown to HTML, PDF (through LaTeX), Word, and any other output format.
-- I do my academic writing in several different programs: for stats-heavy stuff, I use [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co/), and for prose-heavy stuff, I use [iA Writer](https://ia.net/writer) or [Typora](https://typora.io/). I used to use [Ulysses](http://ulyssesapp.com/) (and still think it's a fantastic app!), but I found that I wasn't using it as much in the past few years as I've switched to Quarto for my writing.
+- I do my academic writing in several different programs: for stats-heavy stuff, I use [Positron](https://positron.posit.co/), and for prose-heavy stuff, I use [iA Writer](https://ia.net/writer) or [Typora](https://typora.io/). I used to use [Ulysses](http://ulyssesapp.com/) (and still think it's a fantastic app!), but I found that I wasn't using it as much in the past few years as I've switched to Quarto for my writing.
 - I store all my bibliographic references, books, and articles in [Zotero](https://www.zotero.org/) ([see here for why](/blog/2023/01/08/bibdesk-to-zotero-pandoc/)).
 - I read and annotate all my PDFs with [Zotero](https://www.zotero.org/), both on desktop and on iOS, since it can export annotations as clean plain text.
 - I store all my notes in [Obsidian](https://obsidian.md/). Before switching to Obsidian I used [Bear](https://bear.app/), which was great but didn't support fancier things like math or syntax highlighting. Before that, I used [Evernote](https://www.evernote.com/), but I abandoned it in September 2018 after 9 years of heavy use, given their ongoing privacy controversies and mass layoffs.
@@ -46,7 +46,7 @@ I try to keep this updated fairly regularly. As of April 27, 2025 this is what I
 
 - I run my main web server on a [DigitalOcean](https://www.digitalocean.com/) droplet, and [I spin up temporary droplets all the time](https://github.com/andrewheiss/cloud-config-files) to offload scraping scripts, complicated R models, and to create on-the-fly VPNs.
 - I normally access my remote files through SSH in a terminal, but for more complicated things, I've found that [Mountain Duck](https://mountainduck.io/) is indispensable.
-- My website uses [Pelican](http://blog.getpelican.com/). My teaching websites all use [blogdown + Hugo](https://bookdown.org/yihui/blogdown/).
+- My website uses [Quarto](https://quarto.org/docs/websites/).
 - I use [Let's Encrypt](https://letsencrypt.org/) for SSL.
 
 ### Miscellaneous
@@ -60,8 +60,8 @@ I try to keep this updated fairly regularly. As of April 27, 2025 this is what I
 
 ### Graphic design
 
-- Though I regularly use LaTeX (through pandoc), I adore [InDesign CC](https://www.adobe.com/products/indesign.html) and use it to make fancier academic and policy documents. I also used it for [all the typesetting I did](https://github.com/andrewheiss/maxwell-institute-typesetting/blob/master/books-i-made.md) for [BYU's Neal A. Maxwell Institute](http://mi.byu.edu/).
-- I use [Illustrator CC](https://www.adobe.com/products/illustrator.html) all the time to enhance graphics I make in R and to make non-data-driven figures and diagrams.
+- Though I regularly use LaTeX (through pandoc), I adore [InDesign](https://www.adobe.com/products/indesign.html) and use it to make fancier academic and policy documents. I also used it for [all the typesetting I did](https://github.com/andrewheiss/maxwell-institute-typesetting/blob/master/books-i-made.md) for [BYU's Neal A. Maxwell Institute](http://mi.byu.edu/), and continue to use it for the books I typset for [By Common Consent Press](https://www.bccpress.org/).
+- I use [Illustrator](https://www.adobe.com/products/illustrator.html) all the time to enhance graphics I make in R and to make non-data-driven figures and diagrams.
 - I use [Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) and [Photoshop](https://www.adobe.com/products/photoshop.html) too, but less often nowadays.
 - Despite my dislike for Word and Excel, I use PowerPoint for all my presentations. It's not my favorite, but in the apocryphal words of Churchill, "PowerPoint is the worst form of slide editor, except for all the others."
 
@@ -74,10 +74,10 @@ I try to keep this updated fairly regularly. As of April 27, 2025 this is what I
 - I keep a log of what I work on (and occasionally do more traditional diary-like entries) with [Day One](http://dayoneapp.com/) on both iOS and macOS.
 - I use [Espanso](https://espanso.org/) to replace and expand a ton of snippets—[see them all here](https://github.com/andrewheiss/espanso), and I use [Raycast](https://www.raycast.com/) to run dozens of little scripts that help control my computer with the keyboard.
 - I use [Übersicht](http://tracesof.net/uebersicht/) to show weather, iTunes track information, and my todo lists on my desktop.
-- I use [Dropbox](https://www.dropbox.com) religiously and use [Backblaze](https://www.backblaze.com/) to back up all the computers in our house to the cloud.
+- I use [Dropbox](https://www.dropbox.com) for syncing stuff across my different devices and use [Backblaze](https://www.backblaze.com/) to back up all the computers in our house to the cloud.
 - With all these little helper apps, I use [Bartender](https://www.macbartender.com/) to keep my menubar clean.
 
 
 ## Hardware
 
-- I use a 2021 14″ M1 Max MacBook Pro, a 2018 15″ MacBook Pro, a 5th generation iPad, and an iPhone 8.
+- I use a 2021 14″ M1 Max MacBook Pro, a 13″ iPad Pro, and an iPhone 13.
