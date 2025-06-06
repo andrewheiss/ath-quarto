@@ -452,7 +452,7 @@ We ultimately want to model that curvy line, but working with regular slopes and
 
 Instead, we can transform the outcome variable from 0s and 1s into logged odds or logits, which creates a nice straight line that we can use with regular old linear regression. Again, I won't go into the details of how logistic regression works here (see [this example](https://evalf22.classes.andrewheiss.com/example/matching-ipw.html#oversimplified-crash-course-in-logistic-regression) or [this tutorial](https://uc-r.github.io/logistic_regression) or [this post](https://www.andrewheiss.com/blog/2021/11/08/beta-regression-guide/#2-fractional-logistic-regression) or [this post](http://post8000.svmiller.com/lab-scripts/logistic-regression-lab.html) for lots more about it). 
 
-Just know that logits (or log odds) are a transformation of probabilities ($p$) into a different scale using on this formula:
+Just know that logits (or log odds) are a transformation of probabilities ($p$) into a different scale using this formula:
 
 $$
 \operatorname{logit}(p) = \log\left(\frac{p}{1 - p}\right)
