@@ -1,0 +1,185 @@
+---
+title: "Open files in external programs with Positron or Visual Studio Code"
+date: 2025-07-03
+description: "Positron is great for code, but macOS has better programs specifically for writing with Markdown. Quickly open a Quarto file in an external program with tasks."
+
+image: img/quarto-typora-side-by-side.png
+twitter-card: 
+    image: "img/quarto-typora-side-by-side.png"
+open-graph: 
+    image: "img/quarto-typora-side-by-side.png"
+
+categories:
+  - positron
+  - writing
+  - data science
+
+resources: 
+  - video/*
+
+format:
+  html:
+    lightbox: true
+
+# doi: 10.59350/gt0nr-wct91
+citation: true
+---
+
+[Positron's Quarto support](https://quarto.org/docs/tools/positron/) is really quite robust and it's full of nice little features like previewing a citation using whatever bibliography style your document is using (Chicago, APA, etc.) when you hover over a citation key:
+
+![Preview of a citation](img/quarto-citation-preview.png)
+
+…or knowing about the different headings inside your document for tab-completed cross references:
+
+![Tab completion list of sections in a document](img/quarto-jump-to-section.png)
+
+…or even knowing about those headings in other documents in a project:
+
+![Tab completion list of sections in a different document](img/quarto-jump-to-section-other-file.png)
+
+That's all neat, but for long-form writing, like blog posts, articles, and book chapters, there are tools that make writing with Markdown a lot nicer, especially on macOS. Within most text editing areas, macOS has really neat writing tools and spellchecking and autocorrect features. For example, if you press <kbd>⌘^D</kbd> while your cursor is in a word, you'll get a little dictionary+thesaurus popup:
+
+![Dictionary and thesaurus popup](img/dictionary-popup.png){width="60%" fig-align="center"}
+
+You also get macOS's built-in autocorrect and spellchecking and autocomplete:
+
+```{=html}
+<video controls width="100%" style="display: block; margin: 1rem auto 2rem;">
+  <source src="video/autocorrect.mp4" type="video/mp4">
+</video>
+```
+
+You can also access macOS's [Writing Tools](https://support.apple.com/en-ng/guide/mac-help/mchldcd6c260/mac), which are like a built-in [Grammarly](https://www.grammarly.com/). I actually *really don't like these* except for the proofread option, which is like an LLM-backed grammar/style suggestion generator.
+
+```{=html}
+<video controls width="100%" style="display: block; margin: 1rem auto 2rem;">
+  <source src="video/writing-tools.mp4" type="video/mp4">
+</video>
+```
+
+However, lots of these tools don't work in Positron (or Visual Studio Code, or really any [Electron](https://www.electronjs.org/) app). There's a [longstanding bug in Chromium/Electron-based apps](https://issues.chromium.org/issues/351745838) (like Positron, Visual Studio Code, [Obsidian](https://obsidian.md/), and others) where some of these writing tools don't work ([this issue](https://forum.obsidian.md/t/support-os-level-auto-correct-text-correction-in-macos/68567/42) is my least favorite thing about Obsidian). Some non-native apps support spellchecking, and most let you look up selected words in the dictionary or thesaurus, but they don't use macOS's autocorrect, autocomplete, or Writing Tools.
+
+Positron and Visual Studio Code don't support macOS's built-in dictionary unless you use the [vscode-spellright](https://github.com/bartosz-antosik/vscode-spellright) extension which uses macOS's native spelling API. However, even then, it doesn't work like it does in regular apps---misspelled words appear with a red underline and display in the Problems Pane, but you can't right click on misspelled words to change them automatically.
+
+![Fixing spelling problems in Positron with vscode-spellright](img/spelling-problems.png)
+
+There are a ton of Markdown editors for macOS, and I've probably used them all since 2008(!). Most of them fully support all of macOS's writing features, and they're generally designed to be delightful writing experiences. I'm particularly fond of [ia Writer](https://ia.net/writer), [Ulysses](https://ulysses.app/), and [Typora](https://typora.io/). 
+
+[Typora](https://typora.io/) in particular is nice because it's the only one I've found that's based on [pandoc-flavored Markdown](https://pandoc.org/MANUAL.html), so it can properly preview things like subscripts (`CO~2~` becomes CO~2~), superscripts (`x^2^` becomes x^2^), strikethroughs (`~~deleted~~` becomes ~~deleted~~), inline footnotes (`Blah.^[A note.]` makes a footnote), and other pandoc-specific syntax. Typora can also display LaTeX math, and it can open Quarto Markdown files without any problems---it just can't run any code chunks, but that's not surprising, since it's not an IDE.
+
+
+### Quarto and Typora
+
+My normal workflow for writing documents in Quarto Markdown (and R Markdown before that) is to open a `.qmd` file in multiple apps. I open files in Positron or RStudio when working on code-related stuff, and I open files in Typora when focusing more on writing and editing. (I rarely actually ever put them side-by-side, and don't typically always have the same document open in each simultaneously—it depends on what I'm doing: mainly writing or mainly coding).
+
+![The same document open in both Positron and Typora](img/quarto-typora-side-by-side.png)
+
+I'm happy with this system and I've used it for years. If Positron / Visual Studio Code or RStudio had full access to all of the macOS spellchecking and autocorrect and writing features, I could do *everything* there and skip Typora, but IDEs have a different purpose than writing apps, so I don't think they'll ever be as polished and nice as Typora or other Markdown editors.
+
+One spot of friction in this workflow is getting a `.qmd` file in Positron open in Typora. I typically need to right click on the `.qmd` file in the File Explorer Pane, select "Reveal in Finder" to open it in macOS Finder, then right click on the `.qmd` file in Finder, select "Open With" and finally choose Typora:
+
+```{=html}
+<video controls width="100%" style="display: block; margin: 1rem auto 2rem;">
+  <source src="video/finder-to-typora.mp4" type="video/mp4">
+</video>
+```
+
+That's a lot of clicking and it's often enough of a hurdle where I won't open the file in Typora, and I'll end up with lots of unnecessary typos or or [*sic*] repeated words from doing lots of writing in Positron.
+
+It would be great if Positron / Visual Studio Code had an option to open a file in an external program from the File Explorer Pane, but it doesn't.
+
+But I recently discovered a workaround!
+
+
+### Running external processes with tasks
+
+Both Visual Studio Code and Positron have support for [Tasks](https://code.visualstudio.com/docs/debugtest/tasks), which let you run external tools and programs that you define in a `tasks.json` file.
+
+You can edit the systemwide `tasks.json` if you go to Positron > Settings > Tasks (on macOS; on Windows, it'll be somewhere in the settings menu):
+
+![Opening `tasks.json`](img/tasks-menu.png){width="60%" fig-align="center"}
+
+The [full documentation for the Tasks syntax is online](https://code.visualstudio.com/docs/debugtest/tasks#vscode), but it's fairly straightforward. We can add a task to open a file with Typora like this:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Open in Typora",
+            "type": "shell",
+            "command": "open -a Typora '${file}'"
+        }
+    ]
+}
+```
+
+To run the task, open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), search for "Tasks: Run Task", and then choose the "Open in Typora" task.
+
+```{=html}
+<video controls width="100%" style="display: block; margin: 1rem auto 2rem;">
+  <source src="video/command-palette-tasks.mp4" type="video/mp4">
+</video>
+```
+
+Magical!
+
+
+### Launch tasks more quickly
+
+One downside to this, though, is that it's a two-step process with the Command Palette—you need to go into "Tasks: Run Task" first, then find the exact task there. We can speed this up in a couple ways.
+
+First, we can assign a keyboard shortcut to the task ([see this for complete documentation](https://code.visualstudio.com/docs/debugtest/tasks#_binding-keyboard-shortcuts-to-tasks)). In `keybindings.json`, add an entry for `workbench.action.tasks.runTask` with the `args` argument set to whatever you used as `label` in the task definition. With this, I can mash <kbd>⌘⌥⇧^T</kbd> and open the current file in Typora:
+
+```json
+{
+    "key": "shift+alt+cmd+ctrl+t",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Open in Typora"
+}
+```
+
+```{=html}
+<video controls width="100%" style="display: block; margin: 1rem auto 2rem;">
+  <source src="video/open-with-keyboard.mp4" type="video/mp4">
+</video>
+```
+
+Second, there's [a neat `tasks` extension](https://github.com/actboy168/vscode-tasks) that lets you add little shortcut buttons to the status bar in Positron / Visual Studio Code. After installing the extension, modify `tasks.json` to look like this:
+
+```json
+{
+    "version": "2.0.0",
+    "statusbar.default.hide": true,  // Hide all tasks by default
+    "tasks": [
+        {
+            "label": "Open in Typora",
+            "type": "shell",
+            "command": "open -a Typora '${file}'",
+            "options": {
+                "statusbar": {
+                    "hide": false,  // Show this task
+                    "label" : "$(pencil) Open in Typora",
+                    "detail" : "Open current Markdown-ish file in Typora",
+                    "filePattern" : ".*\\.\\S*md$"  // Show this only for Markdown-flavored files
+                }
+            }
+        }
+    ]
+}
+```
+
+::: {.callout-tip}
+### Limit button to specific file types
+
+The `filaPattern` entry here lets you control when the status button bar appears. The regular expression incantation `".*\\.\\S*md$"` will make it appear on any file with a Markdown-like extension, like `.md`, `.qmd`, `.Rmd`, and so on.
+:::
+
+There should be a new button down in the status bar that you can click to run the task and open the file in Typora:
+
+![An "Open in Typora" button in Positron's status bar](img/typora-status-bar.png){width="60%" fig-align="center"}
+
+
+### Do more with tasks
+
+This is just an example of one simple task that opens a file in a different program. You can modify it to any other program, or make even more complex tasks like testing and building packages, or building and deplying websites. You can even chain tasks together in a sequence. See [this](https://www.allisonthackston.com/articles/vscode-tasks.html) or [this](https://www.reddit.com/r/vscode/comments/dhekzd/does_anyone_use_tasks_what_do_you_do_with_them/) or [this](https://medium.com/@chhaymenghong/a-deep-dive-into-vscode-tasks-improve-your-developer-workflow-today-8a75e40e0f0a) for other examples.
