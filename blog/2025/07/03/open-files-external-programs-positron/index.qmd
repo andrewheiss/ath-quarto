@@ -63,7 +63,7 @@ Positron and Visual Studio Code don't support macOS's built-in dictionary unless
 
 ![Fixing spelling problems in Positron with vscode-spellright](img/spelling-problems.png)
 
-There are a ton of Markdown editors for macOS, and I've probably used them all since 2008(!). Most of them fully support all of macOS's writing features, and they're generally designed to be delightful writing experiences. I'm particularly fond of [ia Writer](https://ia.net/writer), [Ulysses](https://ulysses.app/), and [Typora](https://typora.io/). 
+There are a ton of Markdown editors for macOS, and I've probably used them all since 2008(!). Most of them fully support all of macOS's writing features, and they're generally designed to create delightful writing experiences. I'm particularly fond of [iA Writer](https://ia.net/writer), [Ulysses](https://ulysses.app/), and [Typora](https://typora.io/). 
 
 [Typora](https://typora.io/) in particular is nice because it's the only one I've found that's based on [pandoc-flavored Markdown](https://pandoc.org/MANUAL.html), so it can properly preview things like subscripts (`CO~2~` becomes CO~2~), superscripts (`x^2^` becomes x^2^), strikethroughs (`~~deleted~~` becomes ~~deleted~~), inline footnotes (`Blah.^[A note.]` makes a footnote), and other pandoc-specific syntax. Typora can also display LaTeX math, and it can open Quarto Markdown files without any problems---it just can't run any code chunks, but that's not surprising, since it's not an IDE.
 
@@ -76,7 +76,7 @@ My normal workflow for writing documents in Quarto Markdown (and R Markdown befo
 
 I'm happy with this system and I've used it for years. If Positron / Visual Studio Code or RStudio had full access to all of the macOS spellchecking and autocorrect and writing features, I could do *everything* there and skip Typora, but IDEs have a different purpose than writing apps, so I don't think they'll ever be as polished and nice as Typora or other Markdown editors.
 
-One spot of friction in this workflow is getting a `.qmd` file in Positron open in Typora. I typically need to right click on the `.qmd` file in the File Explorer Pane, select "Reveal in Finder" to open it in macOS Finder, then right click on the `.qmd` file in Finder, select "Open With" and finally choose Typora:
+One point of friction in this workflow is getting a `.qmd` file in Positron open in Typora. I typically need to right click on the `.qmd` file in the File Explorer Pane, select "Reveal in Finder" to open it in macOS Finder, then right click on the `.qmd` file in Finder, select "Open With" and finally choose Typora:
 
 ```{=html}
 <video controls width="100%" style="display: block; margin: 1rem auto 2rem;">
