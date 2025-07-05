@@ -21,7 +21,7 @@ format:
   html:
     lightbox: true
 
-# doi: 10.59350/gt0nr-wct91
+doi: 10.59350/87hpe-4ah24
 citation: true
 ---
 
@@ -101,7 +101,7 @@ You can edit the systemwide `tasks.json` if you go to Positron > Settings > Task
 
 The [full documentation for the Tasks syntax is online](https://code.visualstudio.com/docs/debugtest/tasks#vscode), but it's fairly straightforward. We can add a task to open a file with Typora like this:
 
-```json
+```{.json filename="tasks.json"}
 {
     "version": "2.0.0",
     "tasks": [
@@ -131,7 +131,7 @@ One downside to this, though, is that it's a two-step process with the Command P
 
 First, we can assign a keyboard shortcut to the task ([see this for complete documentation](https://code.visualstudio.com/docs/debugtest/tasks#_binding-keyboard-shortcuts-to-tasks)). In `keybindings.json`, add an entry for `workbench.action.tasks.runTask` with the `args` argument set to whatever you used as `label` in the task definition. With this, I can mash <kbd>⌘⌥⇧^T</kbd> and open the current file in Typora:
 
-```json
+```{.json filename="keybindings.json"}
 {
     "key": "shift+alt+cmd+ctrl+t",
     "command": "workbench.action.tasks.runTask",
@@ -147,7 +147,7 @@ First, we can assign a keyboard shortcut to the task ([see this for complete doc
 
 Second, there's [a neat `tasks` extension](https://github.com/actboy168/vscode-tasks) that lets you add little shortcut buttons to the status bar in Positron / Visual Studio Code. After installing the extension, modify `tasks.json` to look like this:
 
-```json
+```{.json filename="tasks.json"}
 {
     "version": "2.0.0",
     "statusbar.default.hide": true,  // Hide all tasks by default
