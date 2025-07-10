@@ -17,7 +17,7 @@ format:
   html:
     lightbox: true
 
-# doi: 10.59350/87hpe-4ah24
+doi: 10.59350/fredm-56671
 citation: true
 ---
 
