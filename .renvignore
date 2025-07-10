@@ -1,0 +1,7 @@
+# Ignore site output
+_site/
+
+# Ignore Quarto stuff
+_extensions/
+_freeze/
+.quarto/
