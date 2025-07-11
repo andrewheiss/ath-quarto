@@ -44,7 +44,7 @@ format:
           }
           </style>
 
-# doi: 10.59350/87hpe-4ah24
+doi: 10.59350/w37d8-vj489
 citation: true
 ---
 
