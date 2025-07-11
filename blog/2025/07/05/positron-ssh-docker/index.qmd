@@ -31,7 +31,7 @@ But getting the computing environment set up for this to work is *difficult*. De
 
 In [one recent project](https://github.com/andrewheiss/lemon-lucifer), [I wrote up detailed instructions for installing the computing environment with {renv}](https://github.com/andrewheiss/lemon-lucifer?tab=readme-ov-file#method-2-run-locally-with-renv-and-project-specific-packages), but it took a ton of back-and-forth emailing with the editorial office because their RA used an older version of Windows and they couldn't get several parts of the environment installed.
 
-To make life easier for everyone, I decided the best option for maximum cross platform reproducibility was to essentially give the journal's RA a whole virtual computer with everything installed in it, all through the magic of [Docker](https://www.docker.com/). Anyone can reproduce the results by following [these instructions](https://github.com/andrewheiss/lemon-lucifer?tab=readme-ov-file#method-1-docker-compose)—in short, this uses Docker Compose to (1) build a Linux computer with R locked at version 4.4.1, thanks to the [Rocker Project](https://rocker-project.org/), (2) install all the version-locked R packages, which takes ≈15–20 minutes, (3) [run a {targets} pipeline](https://github.com/andrewheiss/lemon-lucifer/blob/main/_targets.R), which takes ≈20 minutes, and (4) spit out a final HTML/PDF/Word version of the manuscript and [an accompanying analysis](https://stats.andrewheiss.com/lemon-lucifer/) notebook. 
+To make life easier for everyone, I decided the best option for maximum cross platform reproducibility was to essentially give the journal's RA a whole virtual computer with everything installed in it, all through the magic of [Docker](https://www.docker.com/). Anyone can reproduce the results by following [these instructions](https://github.com/andrewheiss/lemon-lucifer?tab=readme-ov-file#method-1-docker-compose)—in short, this uses Docker Compose to (1) build a Linux computer with R locked at version 4.4.1, thanks to the [Rocker Project](https://rocker-project.org/), (2) install all the version-locked R packages, which takes ≈15–20 minutes, (3) [run a {targets} pipeline](https://github.com/andrewheiss/lemon-lucifer/blob/main/_targets.R), which takes ≈20 minutes, and (4) spit out a final HTML/PDF/Word version of the manuscript and [an accompanying analysis notebook](https://stats.andrewheiss.com/lemon-lucifer/). 
 
 Again, probably (definitely) overkill. But the RA at that journal was able to reproduce everything right away with Docker, and [RAs at other journals have since done it flawlessly](https://github.com/andrewheiss/silent-skywalk) without a ton of back-and-forth troubleshooting. 
 
@@ -75,7 +75,7 @@ The `project/` folder in the example will automatically be mounted into the Dock
 
 This process is super neat. You can access the container-based R from your browser and run and edit everything interactively there, and all changes and output will automatically show up on your local computer.
 
-The main downside to this, though, is that you have to use RStudio in the browser. It doesn't know about any custom settings and configuration you have in your regular RStudio installation on your computer. If you like to work in a dark theme with a [ligature-based font like Fira Code](https://github.com/tonsky/FiraCode) and you have a bunch of custom keyboard shortcuts set up, or custom panel arrangements, or anything else, none of those change will appear in the browser version because *it's a completely different version of RStudio*. You can change settings for RStudio in the browser version, but unless you change the Docker Compose file to make it so that RStudio's settings files/folders are mounted to your computer, any changes you make are ephemeral and will disappear the next time you run the Docker image. Also, your browser's keyboard shortcuts will conflict with RStudio's keyboard shortcuts. Like in Arc, <kbd>⌘S</kbd> is used to toggle the tab sidebar. If I use it to save a file in RStudio, it'll complain. And—maybe most annoyingly—if you use the <kbd>⌘W</kbd> keyboard shortcut to close a file tab inside RStudio, it'll actually close the whole browser tab.
+The main downside to this, though, is that you have to use RStudio in the browser. It doesn't know about any custom settings and configuration you have in your regular RStudio installation on your computer. If you like to work in a dark theme with a [ligature-based font like Fira Code](https://github.com/tonsky/FiraCode) and you have a bunch of custom keyboard shortcuts set up, or custom panel arrangements, or anything else, none of those changes will appear in the browser version because *it's a completely different version of RStudio*. You can change settings for RStudio in the browser version, but unless you change the Docker Compose file to make it so that RStudio's settings files/folders are mounted to your computer, any changes you make are ephemeral and will disappear the next time you run the Docker image. Also, your browser's keyboard shortcuts will conflict with RStudio's keyboard shortcuts. Like in Arc, <kbd>⌘S</kbd> is used to toggle the tab sidebar. If I use it to save a file in RStudio, it'll complain. And—maybe most annoyingly—if you use the <kbd>⌘W</kbd> keyboard shortcut to close a file tab inside RStudio, it'll actually close the whole browser tab.
 
 Doing actual development in the container/browser version of RStudio is (1) important, since you get to use the version-locked packages and R installation, but (2) annoying because it feels like using someone else's computer without all your tweaks and adjustments. Because of this, in practice, for projects where I care about exact replicability with version-locked packages and dependencies, I generally do all my coding and writing and analysis on my local computer and then try running it in the container at the end.
 
@@ -87,7 +87,7 @@ But with Positron, there's now (kind of) a way! [Positron has native support for
 
 **The trick here is to use Positron to SSH *into the container* rather than into some remote machine.**
 
-The Rocker R images don't have SSH enabled—or even installed, so we have to do a little extra work to do that. The `docker-compose.yml` and `Dockerfile` files in the example repository show all the changes that need to happen.
+The Rocker R images don't have SSH enabled—or even installed—so we have to do a little extra work to do that. The `docker-compose.yml` and `Dockerfile` files in the example repository show all the changes that need to happen.
 
 In short, we use a custom `Dockerfile` to pull rocker/tidyverse at R 4.5.0, and then we install and configure an SSH server on it. We can either set it up to require a password to connect (which is annoying) or use [password-less public key authentication](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server) (which is not annoying once you have a public key set up).
 
@@ -150,7 +150,7 @@ CMD service ssh start && /init
 
 Right click on `docker-compose.yml` in the File Explorer Pane in Positron or Visual Studio Code and choose "Compose Up", or run `docker compose -f docker-compose.yml up -d` in a terminal.
 
-Once it's done builing, the container will still have an RStudio Server instance available at <http://localhost:8787>, and it will also have an SSH server exposed at port 2222. You can connect to it from the terminal on your computer with:
+Once it's done building, the container will still have an RStudio Server instance available at <http://localhost:8787>, and it will also have an SSH server exposed at port 2222. You can connect to it from the terminal on your computer with:
 
 ```sh
 ssh rstudio@localhost -p 2222
@@ -171,7 +171,7 @@ With that shortcut, you can connect like this from the terminal:
 ssh positron-docker
 ```
 
-Even better, once you add the connection to `~/,ssh/config`, you can use Positron's Remote Explorer to connect to the not-actually-remote remote SSH server running inside the container:
+Even better, once you add the connection to `~/.ssh/config`, you can use [Positron's Remote Explorer](https://positron.posit.co/remote-ssh.html) to connect to the not-actually-remote remote SSH server running inside the container:
 
 ![Connecting to remote connections with Positron's Remote Explorer](img/positron-connections.png){width="60%"}
 
@@ -179,4 +179,4 @@ This gives you a(n almost) **fully armed and operational Positron session that u
 
 ![Positron connected to a not-really-remote remote session inside a Docker container](img/positron-remote-session.png)
 
-This makes it way easier to develop directly in the container. You get all your regular settings and you don't get behavior that conflicts with the browser behavior.
+This makes it way easier to develop directly in the container. You get all your regular settings and you don't get behavior that conflicts with the browser.
