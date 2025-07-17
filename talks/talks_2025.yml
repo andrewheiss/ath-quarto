@@ -6,6 +6,9 @@
   - name: Companion site and materials
     url: https://talks.andrewheiss.com/2025-04_usu-asc/elections-targets-quarto/
     icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2025-04_usu-asc
+    icon: fa-brands fa-github
 
 - title: "How to interpret statistical models using {marginaleffects} in Python"
   date: 2025-04-09T17:30
@@ -21,6 +24,9 @@
   - name: "{marginaleffects} Python playground"
     url: https://talks.andrewheiss.com/2025-04_usu-asc/marginaleffects/playground.html
     icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2025-04_usu-asc
+    icon: fa-brands fa-github
 
 - title: "Data science for public service: How to make an impact on the public and nonprofit sector through data analysis"
   date: 2025-04-09T12:30
@@ -33,3 +39,6 @@
   - name: Companion site and materials
     url: https://talks.andrewheiss.com/2025-04_usu-asc/causal-inference/
     icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2025-04_usu-asc
+    icon: fa-brands fa-github
