@@ -1,0 +1,90 @@
+---
+title: "Navigating Hostility: The Effect of Nonprofit Transparency and Accountability on Donor Preferences in the Face of Shrinking Civic Space"
+date: 2025-07-16
+author:
+  - name: Suparna Chaudhry
+    url: http://www.suparnachaudhry.com/
+    orcid: 0000-0003-3506-7590
+    affiliation: Lewis & Clark College
+  - name: Marc Dotson
+    url: https://occasionaldivergences.com/
+    affiliation: Jon M. Huntsman School of Business, Utah State University
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+categories: 
+  - Philanthropy
+  - Experiment
+  - Conjoint analysis
+  - Bayes
+  - INGOs
+pub-info:
+  reference: >-
+    <a href="http://www.suparnachaudhry.com/">Suparna Chaudhry</a>, <a href="https://occasionaldivergences.com/">Marc Dotson</a>, and <strong>Andrew Heiss</strong>, “Navigating Hostility: The Effect of Nonprofit Transparency and Accountability on Donor Preferences in the Face of Shrinking Civic Space,” <em>Nonprofit and Voluntary Sector Quarterly</em> (2025), doi: <a href="https://doi.org/10.1177/08997640251348654"><code>10.1177/08997640251348654</code></a>
+  links:
+    - name: Preprint
+      url: https://stats.andrewheiss.com/silent-skywalk/notebook/manuscript.html
+      icon: fa-solid fa-file-pdf
+    - name: Final version
+      url: https://doi.org/10.1080/03050629.2024.2413965
+      icon: fa-solid fa-scroll
+    - name: Code
+      url: https://github.com/andrewheiss/silent-skywalk
+      icon: fa-brands fa-github
+    - name: Analysis notebook
+      url: https://stats.andrewheiss.com/silent-skywalk/
+      icon: fa-solid fa-chart-simple
+    - name: Data
+      url: https://github.com/andrewheiss/silent-skywalk/tree/main/data/raw_data
+      icon: fa-solid fa-table
+    - name: Replication Docker container
+      url: https://github.com/andrewheiss/silent-skywalk/tree/main/docker
+      icon: fa-brands fa-docker
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1177/08997640251348654
+      icon: ai ai-zotero
+doi: 10.1177/08997640251348654
+haiku: 
+  - Donors unhappy
+  - when states restrict NGOs—
+  - ‘cept when transparent.
+---
+
+
+## Important links
+
+- [Paper (preprint)](https://stats.andrewheiss.com/silent-skywalk/notebook/manuscript.html)
+- [Appendix (preprint)](https://stats.andrewheiss.com/silent-skywalk/notebook/appendix.html)
+- [Statistical analysis notebook](https://stats.andrewheiss.com/silent-skywalk/)
+- [GitHub repository](https://github.com/andrewheiss/silent-skywalk)
+- [Experiment preregistration](https://osf.io/hsbyd) (research question #1)
+
+
+## Abstract
+
+Governments across the world have increasingly used laws to restrict the work of nonprofits, which has led to a reduction in public or official foreign aid directed towards these groups. Many international nonprofits, in response, have turned to individual donors to offset the loss of traditional funding. What are individual donors’ preferences regarding donating to legally besieged nonprofits abroad? We conducted a conjoint experiment on a nationally representative sample of likely donors in the US and found that learning about host government criticism and legal restrictions on nonprofits decreases individuals’ preferences to donate to them. However, organizational features such as financial transparency and accountability can protect against this dampening effect. Our results have important implications both for understanding private international philanthropy and how nonprofits can better frame their fundraising appeals at a time when they are facing restrictive civic spaces and hostile governments abroad.
+
+
+## Important figures
+
+![Figure 1: Estimated marginal means and average marginal component effects for conjoint experiment results](fig-all-results-1.png){width="90%" fig-align="center"}
+
+![Figure 3: Estimated marginal means and average marginal component effects for the interaction between transparency and crackdown](fig-transp-crackdown-1.png){width="90%" fig-align="center"}
+
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1177/08997640251348654">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{ChaudhryDotsonHeiss:2025,
+    Author = {Suparna Chaudhry and Marc Dotson and Andrew Heiss},
+    Doi = {10.1177/08997640251348654},
+    Journal = {Nonprofit and Voluntary Sector Quarterly},
+    Pages = {1--27},
+    Title = {Navigating Hostility: The Effect of Nonprofit Transparency and Accountability on Donor Preferences in the Face of Shrinking Civic Space},
+    Year = {2025}}
+```
