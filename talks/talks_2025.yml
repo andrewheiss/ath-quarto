@@ -1,0 +1,35 @@
+- title: "Elections, {targets}, and Quarto"
+  date: 2025-04-10
+  description: "Workshop for the Analytics Solutions Center's Innovation Studio at the Jon M. Huntsman School of Business at Utah State University"
+  location: Logan, Utah
+  links:
+  - name: Companion site and materials
+    url: https://talks.andrewheiss.com/2025-04_usu-asc/elections-targets-quarto/
+    icon: fa-solid fa-up-right-from-square
+
+- title: "How to interpret statistical models using {marginaleffects} in Python"
+  date: 2025-04-09T17:30
+  description: "Workshop for the Analytics Solutions Center's Open Forum at the Jon M. Huntsman School of Business at Utah State University"
+  location: Logan, Utah
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2025-04_usu-asc/slides/marginaleffects-slides.html#/title-slide
+    icon: fa-solid fa-chalkboard-user
+  - name: Companion site and materials
+    url: https://talks.andrewheiss.com/2025-04_usu-asc/marginaleffects/
+    icon: fa-solid fa-up-right-from-square
+  - name: "{marginaleffects} Python playground"
+    url: https://talks.andrewheiss.com/2025-04_usu-asc/marginaleffects/playground.html
+    icon: fa-solid fa-up-right-from-square
+
+- title: "Data science for public service: How to make an impact on the public and nonprofit sector through data analysis"
+  date: 2025-04-09T12:30
+  description: "Guest lecture for DATA 6620 in the Analytics Solutions Center at the Jon M. Huntsman School of Business at Utah State University"
+  location: Logan, Utah
+  links:
+  - name: Slides
+    url: https://talks.andrewheiss.com/2025-04_usu-asc/causal-inference/
+    icon: fa-solid fa-chalkboard-user
+  - name: Companion site and materials
+    url: https://talks.andrewheiss.com/2025-04_usu-asc/causal-inference/
+    icon: fa-solid fa-up-right-from-square
