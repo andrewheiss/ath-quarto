@@ -1,13 +1,13 @@
 ---
 title: Curriculum vitæ
 description: "Andrew Heiss's CV"
-date: 2023-02-28
+date: 2025-07-18
 title-block-banner: "#771C6D"
 published-title: CV last updated
 engine: knitr
 freeze: false
 cv:
-  pdf: "2023-02-28_andrew-heiss-cv.pdf"
+  pdf: "2025-07-18_andrew-heiss-cv.pdf"
 ---
 
 ```{css, echo=FALSE}
