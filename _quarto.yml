@@ -71,6 +71,8 @@ website:
         href: now/index.qmd
       - text: "Uses"
         file: uses/index.qmd
+      - text: "AI"
+        file: ai/index.qmd
     
     right:
       - text: "{{< iconify bi rss size=1.1em title='RSS' >}}"

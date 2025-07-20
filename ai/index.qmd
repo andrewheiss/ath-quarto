@@ -1,0 +1,99 @@
+---
+title: AI usage
+date: 2025-07-19
+description: Here's how I use AI and LLMs in my work
+published-title: Last updated
+title-block-banner: "#771C6D"
+toc: true
+toc-location: left
+toc-title: "Areas to consider"
+engine: knitr
+freeze: false
+bibliography: llms.json
+csl: chicago-notes-bibliography.csl
+link-citations: false
+---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
+
+::: {.fs-3}
+Everything on this website, my research, and my courses is written by me, personally—not by an AI. 
+
+I enjoy creating things. I like being the human behind all this stuff.
+:::
+
+---
+
+I think LLMs are helpful tools for some things, awful and useless tools for other things, and always ethically fraught. 
+
+Here's my current thinking about using LLMs:
+
+::: {.callout-note}
+#### The /ai manifesto
+
+Check out [The '/ai' manifesto](https://www.bydamo.la/p/ai-manifesto) to learn why I made this page!
+:::
+
+
+### Text
+
+I am deeply opposed to LLMs for writing. LLMs are designed to create statistically-likely chains of text. The text they produce might look like something someone might write, but the text will philosophically be meaningless. It is bullshit,[^bs] or "speech or text produced without concern for its truth."[@HicksHumphriesSlater:2024, 2; @Frankfurt:2005]
+
+I believe that [the process of writing is actually the process of thinking](https://www.latimes.com/opinion/story/2023-06-20/google-microsoft-chatgpt-ai-writing-assistants-artificial-intelligence). Text that is meaningless doesn't reflect thought. As [the increasingly-common-in-our-LLM-times adage goes](https://www.bbc.com/news/articles/c15q5qzdjqxo), "why would I bother to read something someone couldn't be bothered to write?" Reading LLM-generated text is boring and gross—I want to read what humans think!
+
+[^bs]: I'm a super straight-laced Mormon and, like, never ever swear or curse, but in this case, the word has a [formal philosophical meaning](https://en.wikipedia.org/wiki/On_Bullshit), so it doesn’t count :)
+
+Tools that are custom-designed for specific writing tasks—like Apple's Writing Tools or Grammarly—can sometimes be useful, but I don't generally like using them.
+
+### Images and video
+
+Ew no. I personally find the style of fully LLM-generated images and video to be aesthetically repulsive.
+
+I find that tools that are custom-designed for specific artsy tasks, like Photoshop's [object selection tool](https://www.theverge.com/2019/11/4/20943796/adobe-photoshop-object-selection-tool-cloud-psd-update), are useful and I do use those—but these existed before the creation of ChatGPT and Adobe's pivot to shoving LLM stuff everywhere.
+
+### Code
+
+This is one area where I find LLMs to actually be useful. LLMs are designed to create statistically-likely chains of text. Unlike human languages, computer languages are fairly rigid in what kind of syntax is allowed—when syntax is wrong, things break. Given that so much of different LLMs' training data contains code, they do a fairly good job at producing plausible code. 
+
+This is especially the case with languages and packages that have good coverage online, are widely used, and have good documentation. In these cases, I tend to use LLMs for two general code tasks:
+
+1. LLMs as fancy documentation: I imagine code-focused LLMs as an amalgamation of StackOverflow + GitHub search + reading the documentation—GPT algorithms can typically figure out the most average, standard-looking way to approach specific coding issues. Like "here's code for a bar chart with Observable Plot; how would I format the y-axis to have commas like 1,000 instead of 1000?" All the pieces for that answer are somewhere in the giant haystack of training data—statistically, the LLM can build something plausible.
+2. LLMs to translate between languages: I'll often use LLMs to translate from things I know well into things I don't. Like "here's some R and ggplot code to run a regression and make a scatterplot; how would I do this with Python using Seaborn Objects?" That answer is also somewhere in the giant haystack of training data—statistically, the LLM can get there.
+
+To avoid falling into over-reliance on LLM-assisted code help, I add as much friction into my workflow as possible. I only use GitHub Copilot and Claude in the browser, not through the chat sidebar in Positron or Visual Studio Code. I treat the code it generates like random answers from StackOverflow or blog posts and generally rewrite it completely. I disable the inline LLM-based auto complete in text editors. For routine tasks like generating {roxygen2} documentation scaffolding for functions, I use [the {chores} package](https://posit.co/blog/introducing-chores/), which requires a bunch of pointing and clicking to use.
+
+### Research
+
+I don't use LLMs for research. I hate that they're incorporated into search engine results.
+
+I've tried using things like [Perplexity](https://www.perplexity.ai/) and [Elicit](https://elicit.com/), since they're designed to give non-invented citations and links, but I've found that they're not as helpful as good old fashioned Google + Google Scholar + library search engines.
+
+### Learning
+
+Oof. I hate this. I hate how LLMs are being jammed into education everywhere. 
+
+I've found that LLMs are really detrimental to learning when you don't already know what you're doing. They spit out statistically-likely average text agglomerated from training data—without enough background knowledge to say "wait, that's not quite right" to its answers, there's no way to know if the answers are good.
+
+Learning is hard. Learning requires failure and repetition and more failure and more repetition. As the [writer Ted Chiang](https://en.wikipedia.org/wiki/Ted_Chiang) says, "Using ChatGPT to complete assignments is like bringing a forklift into the weight room; you will never improve your cognitive fitness that way."[@Chiang:2024]
+
+[I have a whole spiel for my students about using LLMs for learning.](https://datavizs25.classes.andrewheiss.com/resource/ai-bs.html) I don't know how many of them take it to heart. I feel like I'm pushing against a runaway freight train with this AI in education stuff. It's awful.
+
+### Ethics
+
+Oh man.
+
+Read *The AI Con*.[@BenderHanna:2025] Read *Empire of AI*.[@Hao:2025] They're excellent and do a fantastic job covering the moral, environmental, and legal issues surrounding these things. 
+
+Data centers are [poisoning people](https://www.selc.org/news/resistance-against-elon-musks-xai-facility-in-south-memphis-gets-stronger/) and [causing droughts](https://restofworld.org/2025/ai-resource-extraction-chile-indigenous-communities/). People contracted to do reinforcement learning with human feedback (RLHF) are [paid nearly nothing](https://time.com/6247678/openai-chatgpt-kenya-workers/) to sift through the worst humanity can throw at them. Intellectual property rights [have been smashed](https://www.nbcnews.com/tech/tech-news/openai-urges-us-allow-ai-models-train-copyrighted-material-rcna196313).
+
+I still haven't fully settled on how to think about using them ethically. They are useful tools and can be trained in ways that respect community norms and consent. *Empire of AI* concludes with a fascinating story of indigenous communities in New Zealand working to create a custom LLM to [help reconstruct and preserve some Māori dialects that had been recorded in oral interviews](https://www.technologyreview.com/2022/04/22/1050394/artificial-intelligence-for-the-people/). That's super cool and exciting. 
+
+Meta's [Ollama](https://ollama.com/) lets you run custom local LLMs on your computer, and it's possible to use Ollama models for working with code, [creating reproducible automated text](https://github.com/ArthurSpirling/LargeLanguageReplication/blob/main/explainer/explainer.md) classification, or anything else. But other than playing around with it a few times, I don't use local Ollama stuff.
+
+Hypocritical confession time: I use Claude and GitHub Copilot and friends and feel bad doing it.[^ethical-consumption]
+
+[^ethical-consumption]: In *The Good Place*, Chidi eschews dairy on ethical grounds and drinks almond milk instead, but then realizes that growing almonds also has a negative environmental impacts, and blames his almond consumption for his ending up in the Bad Place. In S3E10 ("The Book of Dougs"), this point is brought home: [there is no ethical consumption in capitalism](https://www.undertheradarmag.com/reviews/the_good_place_season_3_episode_10_the_book_of_dougs). 
