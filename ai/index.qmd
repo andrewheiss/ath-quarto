@@ -78,7 +78,7 @@ Oof. I hate this. I hate how LLMs are being jammed into education everywhere.
 
 I've found that LLMs are really detrimental to learning when you don't already know what you're doing. They spit out statistically-likely average text agglomerated from training data—without enough background knowledge to say "wait, that's not quite right" to its answers, there's no way to know if the answers are good.
 
-Learning is hard. Learning requires failure and repetition and more failure and more repetition. As the [writer Ted Chiang](https://en.wikipedia.org/wiki/Ted_Chiang) says, "Using ChatGPT to complete assignments is like bringing a forklift into the weight room; you will never improve your cognitive fitness that way."[@Chiang:2024]
+Learning is hard. Learning requires struggle and repetition and more struggle and more repetition. As the [writer Ted Chiang](https://en.wikipedia.org/wiki/Ted_Chiang) says, "Using ChatGPT to complete assignments is like bringing a forklift into the weight room; you will never improve your cognitive fitness that way."[@Chiang:2024]
 
 [I have a whole spiel for my students about using LLMs for learning.](https://datavizs25.classes.andrewheiss.com/resource/ai-bs.html) I don't know how many of them take it to heart. I feel like I'm pushing against a runaway freight train with this AI in education stuff. It's awful.
 
