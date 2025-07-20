@@ -35,7 +35,7 @@ Here's my current thinking about using LLMs:
 ::: {.callout-note}
 #### The /ai manifesto
 
-Check out [The '/ai' manifesto](https://www.bydamo.la/p/ai-manifesto) to learn why I made this page!
+Check out ["The '/ai' manifesto"](https://www.bydamo.la/p/ai-manifesto) to learn why I made this page!
 :::
 
 
