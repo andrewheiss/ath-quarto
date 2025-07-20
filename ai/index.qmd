@@ -21,7 +21,7 @@ link-citations: false
 ```
 
 ::: {.fs-3}
-Everything on this website, my research, and my courses is written by me, personally—not by an AI. 
+Everything on this website, in my research, and in my courses is written by me, personally—not by an AI. 
 
 I enjoy creating things. I like being the human behind all this stuff.
 :::
