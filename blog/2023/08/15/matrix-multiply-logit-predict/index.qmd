@@ -29,15 +29,13 @@ options(
 set.seed(1234)
 ```
 
-In a project I'm working on, I need to generate predictions from a logistic regression model. That's typically a really straightforward task—we can just use `predict()` to plug a dataset of values into a model, which will spit out predictions either on the (gross, uninterpretable) log odds scale or on the (nice, interpretable) percentage-point scale.^[And for pro-level predictions, use `predictions()` from [{marginaleffects}](https://vincentarelbundock.github.io/marginaleffects/articles/predictions.html).]
+In a project I'm working on, I need to generate predictions from a logistic regression model. That's typically a really straightforward task—we can just use `predict()` to plug a dataset of values into a model, which will spit out predictions either on the (gross, uninterpretable) log odds scale or on the (nice, interpretable) percentage-point scale.^[And for pro-level predictions, use `predictions()` from [{marginaleffects}](https://marginaleffects.com/chapters/predictions.html).]
 
 However, in this project I cannot use `predict()`—I'm working with a big matrix of posterior coefficient draws from a Bayesian model fit with raw Stan code, so there's no special `predict()` function that will work. Instead, I need to use matrix multiplication and manually multiply a matrix of new data with a vector of slopes from the model. 
 
 I haven't had to matrix multiply coefficients with data since my first PhD stats class back in 2012 and I've completely forgotten how. 
 
 I created this little guide as a reference for myself, and I figured it'd probably be useful for others, so up on the blog it goes ([see the introduction to this post for more about my philosophy of public work](https://www.andrewheiss.com/blog/2022/05/20/marginalia/index.html)).
-
-![Image generated with Bing Image Creator with the prompt "regression matrix multiplication in a sketchy style"](social-image.png)
 
 ## Example 1: Logistic regression model with an intercept and slopes
 
