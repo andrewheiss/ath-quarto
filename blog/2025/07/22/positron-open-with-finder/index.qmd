@@ -16,7 +16,7 @@ categories:
   - positron
   - automator
 
-# doi: 10.59350/w37d8-vj489
+doi: 10.59350/pt66c-57w73
 citation: true
 ---
 
@@ -43,6 +43,10 @@ Positron doesn't have the concept of an `Rproj` file, but [it most definitely st
 Positron also has a helpful project switcher menu in the top right corner, just like RStudio:
 
 ![Positron's project menu](img/project-menu.png){width="60%"}
+
+You can also use <kbd>ctrl+r</kbd> in Positron to see a list of recently opened projects/folders:
+
+![Recent Positron projects with <kbd>ctrl+r</kbd>](img/recent-projects-ctrl-r.png){width="60%"}
 
 That's all great and wonderful and fine.
 
