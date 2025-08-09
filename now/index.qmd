@@ -1,6 +1,6 @@
 ---
 title: What I'm doing now
-date: 2025-07-27
+date: 2025-08-09
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -15,13 +15,11 @@ freeze: false
 }
 ```
 
-As of July 27, 2025, I'm spending all my time on these things:
+As of August 9, 2025, I'm spending all my time on these things:
 
-- Staying at home pretty much 24/7 (STILL) because of the COVID-19 pandemic
-- Raising 6 kids (18, 15.5, 13, 10, 7.5, and 3.5) and trying to stay sane ([family blog](http://www.heissatopia.com/))
+- Raising 6 kids (18, 15.5, 13, 10, 7.5, and 3.5) and trying to stay sane ([family blog](http://www.heissatopia.com/)); the oldest is studying at Brigham Young University; the others are all at home
 - Living in Atlanta and working as an assistant professor in the [Department of Public Management and Policy](https://aysps.gsu.edu/public-management-policy/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/)
+- [Researching](https://www.andrewheiss.com/research/) anti-NGO restrictions, human rights, and statistical methods for nonprofit and public administration
 - Teaching [data visualization](https://datavizsp25.classes.andrewheiss.com/), [program evaluation](https://evalsp25.classes.andrewheiss.com/), [comparative public administration](https://compaf24.classes.andrewheiss.com/), [nonprofit management](https://nonprofitf22.classes.andrewheiss.com), and [microeconomics](https://econs24.classes.andrewheiss.com/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/)
 - Working as a part time data science mentor for [Posit Academy](https://posit.co/products/enterprise/academy/)
-- Converting my dissertation into multiple articles and sending them out to journals + continuing [my research on authoritarianism and international NGOs](https://www.ingoresearch.org/)
-- Working on several articles on NGO restrictions with [Suparna Chaudhry](http://www.suparnachaudhry.com/) and [Marc Dotson](https://marriottschool.byu.edu/directory/details?id=50683)
 - Reading some sort of religiously themed text every day ([books](https://www.goodreads.com/review/list/2733632-andrew-heiss?shelf=religious))

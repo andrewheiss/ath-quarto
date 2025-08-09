@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2025-07-27
+date: 2025-08-09
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -19,7 +19,7 @@ freeze: false
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of July 27, 2025 this is what I'm using: 
+I try to keep this updated fairly regularly. As of August 9, 2025 this is what I'm using: 
 
 
 ## Writing
@@ -37,7 +37,7 @@ I try to keep this updated fairly regularly. As of July 27, 2025 this is what I'
 ### Science and research
 
 - I post almost everything I write or develop on [GitHub](https://github.com/andrewheiss).
-- I use [R](https://www.r-project.org/) and either [RStudio](https://www.rstudio.com/) or [Positron](https://positron.posit.co/) for most of my statistical computing, and I'm a dedicated devotee of the [tidyverse](http://tidyverse.org/). In the interest of full reproducibility and transparency, I make [Quarto websites](https://quarto.org/docs/websites/) for each of my projects. [See a list of these websites](https://stats.andrewheiss.com/).
+- I use [R](https://www.r-project.org/) and either [Positron](https://positron.posit.co/) or [RStudio](https://www.rstudio.com/) for my statistical computing, and I'm a dedicated devotee of the [tidyverse](http://tidyverse.org/). In the interest of full reproducibility and transparency, I make [Quarto websites](https://quarto.org/docs/websites/) for each of my projects. [See a list of these websites](https://stats.andrewheiss.com/).
 - I also use [Python](https://www.python.org/) occasionally. Every few months I play with pandas and numpy and Jupyter, but I'm far more comfortable with R for scientific computing.
 - I adapted the idea for research haikus [from Kirby Nielsen](https://kirbyknielsen.com/research/).
 - I use [The Rogue Scholar](https://rogue-scholar.org/blogs/andrewheiss) to create stable DOIs for each of my blog posts.
@@ -45,7 +45,7 @@ I try to keep this updated fairly regularly. As of July 27, 2025 this is what I'
 ### Web
 
 - I run my main web server on a [DigitalOcean](https://www.digitalocean.com/) droplet, and [I spin up temporary droplets all the time](https://github.com/andrewheiss/cloud-config-files) to offload scraping scripts, complicated R models, and to create on-the-fly VPNs.
-- I normally access my remote files through SSH in a terminal, but for more complicated things, I've found that [Mountain Duck](https://mountainduck.io/) is indispensable.
+- I normally access my remote files through SSH in a terminal or with the Remote Explorer feature in Positron/Visual Studio Code, but for more complicated things, I've found that [Mountain Duck](https://mountainduck.io/) is indispensable.
 - My website uses [Quarto](https://quarto.org/docs/websites/).
 - I use [Let's Encrypt](https://letsencrypt.org/) for SSL.
 
@@ -68,7 +68,7 @@ I try to keep this updated fairly regularly. As of July 27, 2025 this is what I'
 ### Productivity
 
 - My secret for avoiding the siren call of the internet is [Focus](https://heyfocus.com/). I have a blocklist that blocks Bluesky, Mastodon, Facebook, and Instagram from 8:00 AM–5:00 PM and 9:00 PM–11:59 PM.
-- I was an early convert to [Todo.txt](http://todotxt.com/) and used it for years until my tasks and projects got too unwieldy. I switched to [Taskpaper](https://www.taskpaper.com/) for a while, used [2Do](http://www.2doapp.com/) for a couple years, and now I'm a convert to [OmniFocus](https://www.omnigroup.com/omnifocus).
+- I use [Things](https://culturedcode.com/things/) for my todo list. I was an early convert to [Todo.txt](http://todotxt.com/) and used it for years until my tasks and projects got too unwieldy. I switched to [Taskpaper](https://www.taskpaper.com/) for a while, used [2Do](http://www.2doapp.com/) for a couple years, used [OmniFocus](https://www.omnigroup.com/omnifocus) for a few more years, and then switched to [Things](https://culturedcode.com/things/).
 - [Fantastical 2](https://flexibits.com/fantastical)’s natural language input is a glorious thing.
 - I use [Timery](https://timeryapp.com/) as an interface to [Toggl](https://toggl.com/) to [track my time](https://thesweetsetup.com/apps/best-time-tracking-app/) during the day
 - I keep a log of what I work on (and occasionally do more traditional diary-like entries) with [Day One](http://dayoneapp.com/) on both iOS and macOS.
