@@ -1,0 +1,68 @@
+---
+title: "Historical Redlining and COVID-19 Outcomes in Atlanta, Georgia: A Multilevel Approach to Place-Based Research"
+date: 2025-08-13
+author:
+  - name: Nikita Rao
+    orcid: 0000-0003-0369-3650
+    affiliation: School of Public Health, Georgia State University
+  - name: Karen Nielsen
+    orcid: 0000-0003-3771-5272
+    affiliation: School of Public Health, Georgia State University
+  - name: Andrew Heiss
+    url: https://www.andrewheiss.com/
+    orcid: 0000-0002-3948-3914
+    affiliation: Andrew Young School of Policy Studies, Georgia State University
+  - name: Therese Pigott
+    orcid: 0000-0002-5976-246X
+    affiliation: College of Education & Human Development, Georgia State University
+  - name: Daniel Whitaker
+    orcid: 0000-0003-0229-0016
+    affiliation: School of Public Health, Georgia State University
+categories:
+  - COVID-19
+  - multilevel models
+  - redlining
+  - mortality
+  - health equity
+pub-info:
+  reference: >-
+    Nikita Rao, Karen Nielsen, <strong>Andrew Heiss</strong>, Therese Pigott, and Daniel Whitaker, “Historical Redlining and COVID-19 Outcomes in Atlanta, Georgia: A Multilevel Approach to Place-Based Research,” Race and Social Problems (2025), doi: <a href="https://doi.org/10.1007/s12552-025-09447-z"><code>10.1007/s12552-025-09447-z</code></a>.
+  links:
+    - name: Final version
+      url: https://doi.org/10.1007/s12552-025-09447-z
+      icon: fa-solid fa-scroll
+    - name: Add to Zotero
+      url: https://www.zotero.org/save?type=doi&q=10.1007/s12552-025-09447-z
+      icon: ai ai-zotero
+doi: 10.1007/s12552-025-09447-z
+# haiku:
+#   - Raw model results?
+#   - Stop! Hard to understand! Use
+#   - "{marginaleffects}."
+---
+
+## Abstract
+
+The COVID-19 pandemic has been shown to disproportionately impact racial minorities in the United States, exacerbating exiting socioeconomic disparities and increasing vulnerability to morbidity and mortality. This study investigates the long-term impacts systematic disinvestment through historical redlining on COVID-19 mortality outcomes in Atlanta. We employed longitudinal multilevel linear regression models to analyze confirmed cumulative COVID-19 mortality rates per 1,000 people across ZIP code tabulation areas (ZCTAs) from March 17, 2020, to December 31, 2022. Our analysis revealed that redlined ZCTAs exhibited significantly higher COVID-19 mortality rates and a steeper increase in cumulative deaths over time. Furthermore, a higher proportion of Black residents in these ZCTAs was strongly associated with increased mortality, even after controlling for redlined status. These findings illustrate the persistent effects of historical segregation on health outcomes and underscore the importance of addressing interconnected socioeconomic factors to enhance health equity in vulnerable communities. Understanding these dynamics is crucial for developing effective interventions and policies aimed at mitigating disparities in health outcomes.
+
+
+## Important figures
+
+![Figure 3: COVID-19 Mortality in Historically Redlined vs. Non-Redlined ZCTA Over Time (Note: The red line shows the average effect of time on COVID-19 mortality per 1000 people over time across all ZCTA for redlined areas while the blue line shows the same outcome over time for non-redlined areas)](fig3.png)
+
+
+## Citation
+
+<p class="buttons" style="text-align:center;">
+<a class="btn btn-danger" target="_blank" href="https://www.zotero.org/save?type=doi&q=10.1007/s12552-025-09447-z">{{< ai zotero >}}&emsp;Add to Zotero {{< fa square-arrow-up-right >}}</a>
+</p>
+
+```bibtex
+@article{RaoNielsenHeiss:2025,
+    title = {Historical Redlining and {COVID-19} Outcomes in {Atlanta}, {Georgia}: {A} Multilevel Approach to Place-Based Research},
+    author = {Nikita Rao and Karen Nielsen and Andrew Heiss and Therese Pigott and Daniel Whitaker},
+    doi = {10.1007/s12552-025-09447-z},
+    journal = {Race and Social Problems},
+    year = {2025},
+    pages = {1–23}}
+```
