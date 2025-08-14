@@ -26,7 +26,7 @@ categories:
   - health equity
 pub-info:
   reference: >-
-    Nikita Rao, Karen Nielsen, <strong>Andrew Heiss</strong>, Therese Pigott, and Daniel Whitaker, “Historical Redlining and COVID-19 Outcomes in Atlanta, Georgia: A Multilevel Approach to Place-Based Research,” Race and Social Problems (2025), doi: <a href="https://doi.org/10.1007/s12552-025-09447-z"><code>10.1007/s12552-025-09447-z</code></a>.
+    Nikita Rao, Karen Nielsen, <strong>Andrew Heiss</strong>, Therese Pigott, and Daniel Whitaker, “Historical Redlining and COVID-19 Outcomes in Atlanta, Georgia: A Multilevel Approach to Place-Based Research,” <em>Race and Social Problems</em> (2025), doi: <a href="https://doi.org/10.1007/s12552-025-09447-z"><code>10.1007/s12552-025-09447-z</code></a>.
   links:
     - name: Final version
       url: https://doi.org/10.1007/s12552-025-09447-z
