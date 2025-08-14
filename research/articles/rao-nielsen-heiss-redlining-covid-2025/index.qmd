@@ -35,10 +35,10 @@ pub-info:
       url: https://www.zotero.org/save?type=doi&q=10.1007/s12552-025-09447-z
       icon: ai ai-zotero
 doi: 10.1007/s12552-025-09447-z
-# haiku:
-#   - Raw model results?
-#   - Stop! Hard to understand! Use
-#   - "{marginaleffects}."
+haiku:
+  - Redlining in past
+  - linked to worse COVID outcomes—
+  - deep disparities.
 ---
 
 ## Abstract
