@@ -1,6 +1,10 @@
 ---
 title: "Teaching"
 listing:
+  - id: ay_25-26
+    contents: ay_25-26.yml
+    sort: "date desc"
+    template: ../html/teaching/listing.ejs
   - id: ay_24-25
     contents: ay_24-25.yml
     sort: "date desc"
@@ -42,6 +46,10 @@ toc-location: right
 toc-title: Academic year
 ---
 
+## 2025–26
+
+:::{#ay_25-26}
+:::
 
 ## 2024–25
 
