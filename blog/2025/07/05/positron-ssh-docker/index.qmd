@@ -1,5 +1,5 @@
 ---
-title: "Use Positron to run R inside Docker a image through SSH"
+title: "Use Positron to run R inside a Docker image through SSH"
 date: 2025-07-05
 description: "Running R in Docker containers is great for reproducible projects, but writing and running code in the container can be a hassle. Use Positron to SSH into local Docker containers instead!"
 
