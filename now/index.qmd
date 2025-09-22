@@ -1,6 +1,6 @@
 ---
 title: What I'm doing now
-date: 2025-09-08
+date: 2025-09-22
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -15,7 +15,7 @@ freeze: false
 }
 ```
 
-As of September 8, 2025, I'm spending all my time on these things:
+As of September 22, 2025, I'm spending all my time on these things:
 
 - Raising 6 kids (18, 15.5, 13, 10, 7.5, and 3.5) and trying to stay sane ([family blog](http://www.heissatopia.com/)); the oldest is studying at Brigham Young University; the others are all at home
 - Living in Atlanta and working as an assistant professor in the [Department of Public Management and Policy](https://aysps.gsu.edu/public-management-policy/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/)
