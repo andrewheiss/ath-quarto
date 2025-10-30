@@ -15,3 +15,5 @@ static/etc/*
 .DS_Store
 
 /.luarc.json
+
+**/*.quarto_ipynb
