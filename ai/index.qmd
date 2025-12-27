@@ -1,6 +1,6 @@
 ---
 title: AI usage
-date: 2025-12-02
+date: 2025-12-27
 description: Here's how I use AI and LLMs in my work
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -30,7 +30,7 @@ I enjoy creating things. I like being the human behind all this stuff.
 
 I think LLMs are helpful tools for some things, awful and useless tools for other things, and always ethically fraught. 
 
-Here's my current thinking about using LLMs, as of December 2, 2025:
+Here's my current thinking about using LLMs, as of December 27, 2025:
 
 ::: {.callout-note}
 #### The /ai manifesto
@@ -68,7 +68,9 @@ To avoid falling into over-reliance on LLM-assisted code help, I add as much fri
 
 ### Research
 
-I don't use LLMs for research. I hate that they're incorporated into search engine results.
+I don't use LLMs for research. I hate that they're incorporated into search engine results. 
+
+And I super hate that their output is infecting published academic work—and even made it on record [in *Rolling Stone*](https://www.rollingstone.com/culture/culture-features/ai-chatbot-journal-research-fake-citations-1235485484/) talking about this ([unpaywalled](https://archive.is/0Iuo6){.small}).
 
 I've tried using things like [Perplexity](https://www.perplexity.ai/) and [Elicit](https://elicit.com/), since they're designed to give non-invented citations and links, but I've found that they're not as helpful as good old fashioned Google + Google Scholar + library search engines.
 

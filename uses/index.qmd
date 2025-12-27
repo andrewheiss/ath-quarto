@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2025-12-02
+date: 2025-12-27
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -19,7 +19,7 @@ freeze: false
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of December 2, 2025 this is what I'm using:
+I try to keep this updated fairly regularly. As of December 27, 2025 this is what I'm using:
 
 ## Writing
 
