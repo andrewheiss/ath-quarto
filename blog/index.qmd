@@ -3,11 +3,15 @@ title: "Blog"
 author: ""
 description: "Andrew Heiss's blog"
 listing:
+  - id: posts_2026
+    contents: "2026/**/index.qmd"
+    sort: "date desc"
+    template: ../html/blog/listing.ejs
+    categories: true
   - id: posts_2025
     contents: "2025/**/index.qmd"
     sort: "date desc"
     template: ../html/blog/listing.ejs
-    categories: true
   - id: posts_2024
     contents: "2024/**/index.qmd"
     sort: "date desc"
@@ -89,6 +93,11 @@ freeze: false
     display: none;
 }
 ```
+
+## 2026
+
+:::{#posts_2026}
+:::
 
 ## 2025
 
