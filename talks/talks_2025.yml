@@ -1,3 +1,21 @@
+- title: "Elelction Night Reporting using R and Quarto"
+  date: 2025-09-18
+  description: "Talk (with Gabe Osterhout) at posit::conf(2025), Posit's annual R and Python data science conference"
+  location: Atlanta, Georgia
+  links:
+  - name: Companion site and reproducible example
+    url: https://andrewheiss.github.io/election-desk/
+    icon: fa-solid fa-up-right-from-square
+  - name: Video
+    url: https://www.youtube.com/watch?v=UCloM4GcfVY
+    icon: fa-brands fa-youtube
+  - name: Slides
+    url: https://andrewheiss.github.io/election-desk/posit-conf-2025.html
+    icon: fa-solid fa-chalkboard-user
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/election-desk
+    icon: fa-brands fa-github
+
 - title: "Elections, {targets}, and Quarto"
   date: 2025-04-10
   description: "Workshop for the Analytics Solutions Center's Innovation Studio at the Jon M. Huntsman School of Business at Utah State University"

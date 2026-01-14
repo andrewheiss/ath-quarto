@@ -1,0 +1,11 @@
+- title: "How to make your data analysis life easier using Positron, Raycast, and Espanso"
+  date: 2026-01-13
+  description: "Appearance on Posit's Data Science Lab"
+  location: Online
+  links:
+  - name: Links and resources
+    url: https://www.andrewheiss.com/blog/2026/01/13/dsl-positron-workflow/
+    icon: fa-solid fa-up-right-from-square
+  # - name: Video
+  #   url: https://www.youtube.com/watch?v=UCloM4GcfVY
+  #   icon: fa-brands fa-youtube
