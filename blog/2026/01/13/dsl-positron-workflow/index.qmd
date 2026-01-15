@@ -18,7 +18,7 @@ categories:
   - duckdb
   - automator
 
-# doi: DOI HERE
+doi: 10.59350/zj8p7-7kg49
 citation: true
 
 filters: 
