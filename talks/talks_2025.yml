@@ -1,4 +1,13 @@
-- title: "Elelction Night Reporting using R and Quarto"
+- title: "Programmatic flexibility and private funding: How INGOs navigate closing civic space"
+  date: 2025-11-07
+  description: '"Closing Civic Space—A New Voices in National Security," a New Voices in National Security workshop sponsored by Bridging the Gap and the Carnegie Endowment for International Peace'
+  location: Washington, D.C.
+  links:
+  - name: Workshop policy memo
+    url: https://stats.andrewheiss.com/2025-11_carnegie-closing-space-workshop/
+    icon: fa-solid fa-file-lines
+
+- title: "Election night reporting using R and Quarto"
   date: 2025-09-18
   description: "Talk (with Gabe Osterhout) at posit::conf(2025), Posit's annual R and Python data science conference"
   location: Atlanta, Georgia
@@ -15,6 +24,15 @@
   - name: GitHub repository
     url: https://github.com/andrewheiss/election-desk
     icon: fa-brands fa-github
+
+- title: "The art of clarity"
+  date: 2025-05-29
+  description: "Podcast interview with Lucy D'Agostino McGowan and Ellie Murray"
+  location: Season 6, episode 6 of Casual Inference, sponsored by the American Journal of Epidemiology
+  links:
+  - name: Podcast episode
+    url: https://casualinfer.libsyn.com/the-art-of-clarity-with-andrew-heiss-season-6-episode-6/
+    icon: fa-solid fa-podcast
 
 - title: "Elections, {targets}, and Quarto"
   date: 2025-04-10
