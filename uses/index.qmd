@@ -80,4 +80,4 @@ I try to keep this updated fairly regularly. As of January 26, 2026 this is what
 ## Hardware
 
 - I use a 2021 14″ M1 Max MacBook Pro, a 13″ iPad Pro, and an iPhone 13.
-- I use a [Logitech Spotlight Presentation Remote](https://www.amazon.com/Logitech-Spotlight-Presentation-Remote-Highlighting/dp/B07S5HMQBH) when presenting, and when I teach in hybrid settings, I use an [Insta360 Link motion sensing camera](https://www.amazon.com/Logitech-Spotlight-Presentation-Remote-Highlighting/dp/B07S5HMQBH) and [a wireless lavalier microphone](https://www.amazon.com/dp/B095K9T8QH).
+- I use a [Logitech Spotlight Presentation Remote](https://www.amazon.com/Logitech-Spotlight-Presentation-Remote-Highlighting/dp/B07S5HMQBH) when presenting, and when I teach in hybrid settings, I use an [Insta360 Link motion sensing camera](https://www.amazon.com/dp/B0B826KS4B) and [a wireless lavalier microphone](https://www.amazon.com/dp/B095K9T8QH).
