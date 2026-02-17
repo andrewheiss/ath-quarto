@@ -1,3 +1,15 @@
+- title: "Building reproducible workflows with {targets}"
+  date: 2026-02-17
+  description: "Workshop for the Statistical Computing Workshop at Northwestern University's Department of Political Science"
+  location: Evanston, Illinois (via Zoom)
+  links:
+  - name: Companion site and materials
+    url: https://andrewheiss.github.io/2026-02-17_northwestern-targets/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2026-02-17_northwestern-targets
+    icon: fa-brands fa-github
+
 - title: "How to make your data analysis life easier using Positron, Raycast, and Espanso"
   date: 2026-01-13
   description: "Appearance on Posit's Data Science Lab"
