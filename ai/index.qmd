@@ -1,6 +1,6 @@
 ---
 title: AI usage
-date: 2026-01-26
+date: 2026-02-17
 description: Here's how I use AI and LLMs in my work
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -30,7 +30,7 @@ I enjoy creating things. I like being the human behind all this stuff.
 
 I think LLMs are helpful tools for some things, awful and useless tools for other things, and always ethically fraught. 
 
-Here's my current thinking about using LLMs, as of January 26, 2026:
+Here's my current thinking about using LLMs, as of February 17, 2026:
 
 ::: {.callout-note}
 #### The /ai manifesto
@@ -64,7 +64,7 @@ This is especially the case with languages and packages that have good coverage 
 1. LLMs as fancy documentation: I imagine code-focused LLMs as an amalgamation of StackOverflow + GitHub search + reading the documentation—GPT algorithms can typically figure out the most average, standard-looking way to approach specific coding issues. Like "here's code for a bar chart with Observable Plot; how would I format the y-axis to have commas like 1,000 instead of 1000?" All the pieces for that answer are somewhere in the giant haystack of training data—statistically, the LLM can build something plausible.
 2. LLMs to translate between languages: I'll often use LLMs to translate from things I know well into things I don't. Like "here's some R and ggplot code to run a regression and make a scatterplot; how would I do this with Python using Seaborn Objects?" That answer is also somewhere in the giant haystack of training data—statistically, the LLM can get there.
 
-To avoid falling into over-reliance on LLM-assisted code help, I add as much friction into my workflow as possible. I only use GitHub Copilot and Claude in the browser, not through the chat sidebar in Positron or Visual Studio Code. I treat the code it generates like random answers from StackOverflow or blog posts and generally rewrite it completely. I disable the inline LLM-based auto complete in text editors. For routine tasks like generating {roxygen2} documentation scaffolding for functions, I use [the {chores} package](https://posit.co/blog/introducing-chores/), which requires a bunch of pointing and clicking to use.
+To avoid falling into over-reliance on LLM-assisted code help, I add as much friction into my workflow as possible. I only use GitHub Copilot and Claude in the browser, not through the chat sidebar in Positron or Visual Studio Code. When I use Claude Code, I don't use it in real projects—I use it in separate projects with simulated data and have it create Quarto files explaining what it does. I treat the code LLMs generate like random answers from StackOverflow or blog posts and generally rewrite it completely. I disable the inline LLM-based auto complete in text editors. For routine tasks like generating {roxygen2} documentation scaffolding for functions, I use [the {chores} package](https://posit.co/blog/introducing-chores/), which requires a bunch of pointing and clicking to use.
 
 ### Research
 
