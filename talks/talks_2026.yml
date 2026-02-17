@@ -3,11 +3,23 @@
   description: "Workshop for the Statistical Computing Workshop at Northwestern University's Department of Political Science"
   location: Evanston, Illinois (via Zoom)
   links:
-  - name: Companion site and materials
+  - name: Companion site, slides, and materials
     url: https://andrewheiss.github.io/2026-02-17_northwestern-targets/
     icon: fa-solid fa-up-right-from-square
   - name: GitHub repository
     url: https://github.com/andrewheiss/2026-02-17_northwestern-targets
+    icon: fa-brands fa-github
+
+- title: "Creating an internet presence as a PhD student"
+  date: 2026-02-06
+  description: "Workshop for PMAP 9181 (dissertation colloquium), Department of Public Management and Policy, Andrew Young School of Policy Studies, Georgia State University"
+  location: Atlanta, Georgia
+  links:
+  - name: Companion site, slides, and materials
+    url: https://andrewheiss.github.io/2026-02-06_ays-dissertation-colloquium/
+    icon: fa-solid fa-up-right-from-square
+  - name: GitHub repository
+    url: https://github.com/andrewheiss/2026-02-06_ays-dissertation-colloquium
     icon: fa-brands fa-github
 
 - title: "How to make your data analysis life easier using Positron, Raycast, and Espanso"
