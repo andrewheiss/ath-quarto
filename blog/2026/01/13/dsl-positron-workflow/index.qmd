@@ -59,7 +59,7 @@ options(
 
 On January 13, 2026, I was on Posit's Data Science Lab to talk about my Positron settings and other neat workflow-y things I use to make my life easier.
 
-I'll post the video here once it's up.
+{{< video https://www.youtube.com/embed/kqYbJoebrwE >}}
 
 This isn't a standard blog post—it's mostly just a list of the stuff we talked about, with lots of different links to other resources.
 
