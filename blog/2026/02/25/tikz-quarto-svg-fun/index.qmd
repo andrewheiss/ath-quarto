@@ -1,0 +1,476 @@
+---
+title: "How to automatically convert TikZ images to SVG with Quarto"
+date: 2026-02-25
+description: "Make Quarto convert TikZ graphics to SVG files when rendering to non-LaTeX outputs like HTML, Word, and Typst"
+
+image: "fancy-dag.png"
+twitter-card:
+  image: "fancy-dag.png"
+open-graph:
+  image: "fancy-dag.png"
+
+categories:
+  - quarto
+  - tikz
+
+# doi: DOI HERE
+citation: true
+
+format:
+  html:
+    include-in-header:
+      - text: |
+          <style>
+          svg.mermaid-js { 
+            max-width: 100% !important; 
+            width: 100% !important; 
+          }
+          
+          .centered-tikz {
+            text-align: center; 
+            margin-bottom: 1em;
+          }
+          </style>
+
+filters:
+  - diagram
+
+diagram:
+  cache: true
+  cache-dir: tikz-cache
+  engine:
+    tikz:
+      execpath: lualatex
+      # Colors come from MoMAColors::moma.colors("ustwo")
+      header-includes:
+        - '\definecolor{xcolor}{HTML}{d7433b}'
+        - '\definecolor{ycolor}{HTML}{008d98}'
+        - '\definecolor{zcolor}{HTML}{ffcc3d}'
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.height = 6 * 0.618,
+  fig.retina = 3,
+  dev = "ragg_png",
+  fig.align = "center",
+  out.width = "90%",
+  collapse = TRUE,
+  cache.extra = 1234  # Change number to invalidate cache
+)
+```
+
+Back in 2021 [I wrote a little guide to how to use tikz chunks in R Markdown documents](https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/). {knitr} supports tikz natively, and with some some shenanigans and special settings—and after recompiling LaTeX with one extra feature and setting a new environment variable on macOS—it's possible to have tikz chunks automatically knit to PDF in PDFs and SVG in HTML and Word. While convoluted, it's a neat process and I've used it for several published papers (like, see [Figures A2 and A3 here](https://stats.andrewheiss.com/mountainous-mackerel/analysis/appendix.html)—those are [built with tikz](https://github.com/andrewheiss/mountainous-mackerel/blob/main/manuscript/appendix.qmd)!).
+
+While that process works, I've also found it ***really annoying***, and for years I've looked for better ways. The very first pre-release version of Quarto was also in 2021, but it was too young to do much with languages beyond R and Python. Since then, though, Quarto has added native support for [two different diagram languages](https://quarto.org/docs/authoring/diagrams.html): [Mermaid](https://quarto.org/docs/authoring/diagrams.html#mermaid) and [Graphviz](https://quarto.org/docs/authoring/diagrams.html#graphviz). They work well for lots of diagrams, but not for most of the diagrams I make, where (1) I want exact control over where items go, and (2) I want them to look nice and visually fit with the rest of the document.
+
+For instance, let's say I want to include a minimalist little standard directed acyclic graph (DAG) that shows that some treatment $X$ causes some outcome $Y$ in the subsequent time period, but the effect is confounded by a third variable $Z$. Something like this:
+
+![A simple DAG](index_files/mediabag/basic-example.svg){width="50%"}
+
+
+## Quick, easy, ugly diagrams with Mermaid and Graphviz
+
+We can create this DAG with Mermaid, but there are limited styling options and not really any good way to control the layout, so we're pretty much stuck with this:
+
+:::: {.grid}
+
+::: {.g-col-6}
+
+```{{mermaid}}
+graph LR
+  X([X]) --> Y([Y])
+  Z([Z]) --> X([X])
+  Z([Z]) --> Y([Y])
+```
+
+:::
+
+::: {.g-col-6}
+
+```{mermaid}
+%%| echo: false
+graph LR
+  X([X]) --> Y([Y])
+  Z([Z]) --> X([X])
+  Z([Z]) --> Y([Y])
+```
+
+:::
+
+::::
+
+We can also use Graphviz to make the same DAG, and it has a few extra options for layout—like here, we tell it that the Z node is the focal point of the diagram and that X and Y should be pushed down:
+
+:::: {.grid}
+
+::: {.g-col-6}
+
+```{{dot}}
+digraph {
+  node [shape=circle]
+    
+  { rank=source; Z }
+  { rank=sink; X; Y }
+    
+  X -> Y
+  Z -> X
+  Z -> Y
+}
+```
+
+:::
+
+::: {.g-col-6}
+
+```{dot}
+//| echo: false
+//| fig-width: 3.5
+//| fig-height: 3
+digraph {
+  node [shape=circle]
+    
+  { rank=source; Z }
+  { rank=sink; X; Y }
+    
+  X -> Y
+  Z -> X
+  Z -> Y
+}
+```
+
+:::
+
+::::
+
+That's all fine, but what if we want, like, control over these diagrams? Or math? Or typographic things like subscripts or superscripts? Good luck.
+
+## Nicer diagrams with TikZ
+
+[TikZ is very good at making diagrams](https://en.wikipedia.org/wiki/PGF/TikZ). It handles math. It handles fancy formatting. It's also absolutely miserable to work with—you have to draw diagrams with a kinda-sorta-dialect of LaTeX. (Making initial TikZ diagrams is one area where LLMs are incredibly useful!). TikZ also converts exclusively to PDF,^[*Technically* DVI, but whatever.] but you can convert those diagrams from PDF to other formats like SVG or PNG.
+
+Here's that same DAG as TikZ:
+
+```{.latex}
+\begin{tikzpicture}[>={stealth}]
+  \node (x) at (0,0) {$X_{t}$};
+  \node (y) at (2,0) {$Y_{t + 1}$};
+  \node (z) at (1,1) {$Z$};
+  \path[->] (z) edge (x);
+  \path[->] (z) edge (y);
+  \path[->] (x) edge (y);
+\end{tikzpicture}
+```
+
+However, Quarto won't render this as an image because it requires feeding it through LaTeX. [As I show here](https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/), it's possible to use R Markdown with {knitr} in a special `tikz` chunk, which would appear as a nice diagram when rendering to PDF. With a bunch of extra setup, you can also get `tikz` chunks to appear as SVG when rendering to non-PDF formats.
+
+[My guide](https://www.andrewheiss.com/blog/2021/08/27/tikz-knitr-html-svg-fun/) still works with Quarto and you can just do that if you want to use TikZ chunks! I've been doing it for years! But Quarto re-renders and re-converts each diagram every time you render the document, which is excessive and slow. Getting all the special scaffolding set up is annoying too. It only works with R-based documents. You have to reinstall LaTeX with special extra settings on macOS. You have to create a special chunk template and then hook that into the `tikz` engine. And you have to do that every time. Oof.
+
+There's an easier way though!
+
+## Converting TikZ to both PDF and SVG with Quarto and `diagram`
+
+The pandoc team has an extension called [`diagram`](https://github.com/pandoc-ext/diagram) that is essentially a fancy Lua filter that will take code for several different diagram languages (including TikZ) and convert them into images.[^others] In 2023 they reorganized it to work as a Quarto extension, so installing it and using it is nice and straightforward. It's language agnostic—you don't have to use it only in an R document. You don't have to recompile LaTeX on macOS or set any systemwide environment variables. It Just Works™.
+
+[^others]: There are two other Quarto extensions/filters that do something similar ([`imagify`](https://github.com/dialoa/imagify) and [`quarto_tikz`](https://github.com/danmackinlay/quarto_tikz)). I'm sure they work great too—albeit differently from `diagrams`. I super trust the pandoc people, so I'm happy to stick with `diagrams`.
+
+Here's what you have to do:
+
+1. **Download and install Inkscape and tell your terminal that it exists**. The `diagram` extension uses [Inkscape](https://inkscape.org/), an open source vector editor (like Adobe Illustrator, but free) to handle the PDF → SVG conversion. This is the only external piece of software you need to get this process to work, and you never really need to open it. You'll install it and set it up once—after that, things will work normally.
+
+   ::: {.callout-tip title="Putting `inkscape` in your PATH" collapse="true"}
+   Inkscape can be used from the terminal using the `inkscape` command, but that program lives in different places depending on your operating system. The diagram extension assumes that you can access it by running `inkscape` in your terminal, but this likely won't work immediately.
+
+   - **For macOS**: On macOS, `inkscape` lives in `/Applications/Inkscape.app/Contents/MacOS/inkscape`. You can symlink it to a more accessible location with this terminal command:
+
+     ```sh
+     ln -s /Applications/Inkscape.app/Contents/MacOS/inkscape /usr/local/bin/inkscape
+     ```
+
+   - **For Windows**: On Windows, `inkscape.exe` lives in the `bin` folder of wherever you installed Inkscape, likely somewhere like `C:\Program Files\Inkscape\bin`. You'll need to add that to your PATH. You can do that by going to System Properties > Environment Variables > and append `C:\Program Files\Inkscape\bin` to the `PATH` variable, or you can run this in PowerShell:
+
+     ```powershell
+     [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Inkscape\bin", "Machine")
+     ```
+
+   - **For both**: Once you've symlinked the program or added it to your path, you should be able to open a new terminal window and run this:
+     
+     ```sh
+     inkscape --version
+     ```
+   :::
+
+2. **Install the `diagram` extension in a Quarto project**. Create a new Quarto project. From the terminal, run this to install the `diagram` extension:
+
+   ```sh
+   quarto install extension pandoc-ext/diagram
+   ```
+
+3. **Tell your document to use the extension**. Add this to the YAML header of a Quarto document:
+
+   ```yaml
+   filters:
+     - diagram
+   ```
+
+4. **Add a `.tikz` block to your document**. Add a tikz code block to your document like this:
+
+   ````markdown
+   ```{.tikz}
+   \begin{tikzpicture}[>={stealth}]
+     \node (x) at (0,0) {$X_{t}$};
+     \node (y) at (2,0) {$Y_{t + 1}$};
+     \node (z) at (1,1) {$Z$};
+     \path[->] (z) edge (x);
+     \path[->] (z) edge (y);
+     \path[->] (x) edge (y);
+   \end{tikzpicture}
+   ```
+   ````
+
+5. **Render!** Render the document to PDF and you should see a diagram. Render it to HTML or .docx or Typst and it should use `inkscape` to convert it to SVG. Magic.
+
+   ::: {.centered-tikz}
+   
+   ```{.tikz}
+   %%| filename: basic-example
+   %%| width: 50%
+   
+   \begin{tikzpicture}[>={stealth}]
+     \node (x) at (0,0) {$X_{t}$};
+     \node (y) at (2,0) {$Y_{t + 1}$};
+     \node (z) at (1,1) {$Z$};
+     \path[->] (z) edge (x);
+     \path[->] (z) edge (y);
+     \path[->] (x) edge (y);
+   \end{tikzpicture}
+   ```
+
+   :::
+
+That's it! No weird LaTeX recompilation. No special R-only knitr templates and engine overrides. Quarto, pandoc, Lua, and Inkscape take care of everything automatically.
+
+## Extra settings and complete example
+
+You can configure lots of other settings too—see [the TikZ section of the documentation at `sample.md` here](https://github.com/pandoc-ext/diagram/blob/main/sample.md#tikz) or the extension's [test file for tikz](https://github.com/pandoc-ext/diagram/blob/main/test/input-tikz.md) for more details. 
+
+For example, you can control the LaTeX engine that gets used, add LaTeX and TikZ packages and other preamble-y things, and enable caching so that figures don't need to be recompiled every time. You can even use native Quarto cross referencing and captions, but you need to use [its cross-reference div syntax](https://quarto.org/docs/authoring/cross-references-divs.html).
+
+Here's a complete mini example. Because we enabled caching, it won't rebuild and re-convert each time you render, and because we gave it a filename, there will be a standalone SVG file in `example_files/mediabag/a-neat-dag.svg`. It also defines some custom colors and fonts.
+
+```` {.markdown filename="example.qmd"}
+---
+title: "Some neat document"
+
+filters:
+  - diagram
+
+diagram:
+  cache: true
+  cache-dir: ./tikz-cache
+  engine:
+    tikz:
+      execpath: lualatex
+      header-includes:
+        - '\usepackage{libertine}'
+        - '\usepackage{libertinust1math}'
+        - '\definecolor{xcolor}{HTML}{d7433b}'
+        - '\definecolor{ycolor}{HTML}{008d98}'
+        - '\definecolor{zcolor}{HTML}{ffcc3d}'
+---
+
+See @fig-dag-thing for a neat example!
+
+::: {#fig-dag-thing}
+
+```{.tikz}
+%%| filename: a-neat-dag
+%%| width: 50%
+
+\begin{tikzpicture}[>={stealth}]
+  \node [xcolor] (x) at (0,0) {$X_{t}$};
+  \node [ycolor] (y) at (2,0) {$Y_{t + 1}$};
+  \node [zcolor] (z) at (1,1) {$Z$};
+  \path[->] (z) edge (x);
+  \path[->] (z) edge (y);
+  \path[->] (x) edge (y);
+\end{tikzpicture}
+```
+
+Caption for the DAG
+
+:::
+
+````
+
+That will create a diagram like this:
+
+::: {#fig-dag-thing .centered-tikz}
+
+```{.tikz}
+%%| filename: a-neat-dag
+%%| width: 50%
+
+\begin{tikzpicture}[>={stealth}]
+  \node [xcolor] (x) at (0,0) {$X_{t}$};
+  \node [ycolor] (y) at (2,0) {$Y_{t + 1}$};
+  \node [zcolor] (z) at (1,1) {$Z$};
+  \path[->] (z) edge (x);
+  \path[->] (z) edge (y);
+  \path[->] (x) edge (y);
+\end{tikzpicture}
+```
+
+Caption for the DAG
+
+:::
+
+---
+
+This process works with any TikZ diagram (these came from [Christian Testa's tikz examples](https://github.com/ctesta01/tikz-examples)). There's *no way* you can do stuff like this with Mermaid or Graphviz :)
+
+:::: {#fig-tikz-examples layout-ncol=2 layout-valign="bottom"}
+
+::: {#fig-cone}
+
+```{.tikz}
+%%| filename: cone
+%%| width: 100%
+
+\usetikzlibrary{calc, backgrounds}
+
+\begin{tikzpicture}[scale=.75,
+  background rectangle/.style={fill=white},
+  show background rectangle]
+  \draw[dashed] (0,0) arc (170:10:2cm and 0.4cm)coordinate[pos=0] (a);
+  \draw (0,0) arc (-170:-10:2cm and 0.4cm) coordinate (b);
+  \draw[densely dashed] 
+      ([yshift=4cm]$(a)!0.5!(b)$) -- 
+      node[right,font=\footnotesize] {1} coordinate[pos=0.95] (aa)($(a)!0.5!(b)$) -- 
+      node[above,font=\footnotesize] {1} coordinate[pos=0.1] (bb) (b);
+  \draw (aa) -| (bb);
+  \draw (a) -- ([yshift=4cm]$(a)!0.5!(b)$) -- (b);
+\end{tikzpicture}
+```
+
+A cone with a height and radius ([original](https://github.com/ctesta01/tikz-examples/blob/main/2023/cone/cone.tex))
+
+:::
+
+::: {#fig-set}
+
+```{.tikz}
+%%| filename: set-belonging
+%%| width: 100%
+
+\usetikzlibrary{backgrounds}
+
+\begin{tikzpicture}[scale=1.5, background rectangle/.style={fill=white}, show background rectangle]
+  % Draw the universe rectangle
+  \draw[thick] (-2,-1.75) rectangle (2,1.75) node[below left] {\(\Omega\)};
+
+  % Draw the fill for circle A and label it
+  \draw[thick, fill=blue!20, draw opacity = .65] (-0.5,0) circle (1);
+  \node at (-1, 0.2) {\(A\)};
+
+  % Draw circle B and label it
+  \draw[thick] (0.5,0) circle (1);
+  \draw[thick, fill=red!20, opacity = .65] (0.5,0) circle (1);
+
+  % Draw the outer circle for A so it appears "on top of" the intersection
+  \node at (1,0.2) {\(B\)};
+
+  %
+  \draw[thick] (-0.5,0) circle (1);
+
+  % Label the intersection (A \cap B)
+  \node at (0,0) {\(A \cap B\)};
+\end{tikzpicture}
+```
+
+Definition of an intersection ([original](https://github.com/ctesta01/tikz-examples/blob/main/2023/intersection/intersection.tex))
+
+:::
+
+Some example TikZ diagrams
+
+::::
+
+---
+
+Here's the Markdown to make @fig-cone and @fig-set in @fig-tikz-examples:
+
+````{.markdown filename="example.qmd"}
+Here's the Markdown to make @fig-cone and @fig-set in @fig-tikz-examples:
+
+:::: {#fig-tikz-examples layout-ncol=2 layout-valign="bottom"}
+
+::: {#fig-cone}
+
+```{.tikz}
+%%| filename: cone
+%%| width: 100%
+
+\usetikzlibrary{calc, backgrounds}
+
+\begin{tikzpicture}[scale=.75,
+  background rectangle/.style={fill=white},
+  show background rectangle]
+  \draw[dashed] (0,0) arc (170:10:2cm and 0.4cm)coordinate[pos=0] (a);
+  \draw (0,0) arc (-170:-10:2cm and 0.4cm) coordinate (b);
+  \draw[densely dashed] 
+      ([yshift=4cm]$(a)!0.5!(b)$) -- 
+      node[right,font=\footnotesize] {1} coordinate[pos=0.95] (aa)($(a)!0.5!(b)$) -- 
+      node[above,font=\footnotesize] {1} coordinate[pos=0.1] (bb) (b);
+  \draw (aa) -| (bb);
+  \draw (a) -- ([yshift=4cm]$(a)!0.5!(b)$) -- (b);
+\end{tikzpicture}
+```
+
+A cone with a height and radius ([original](https://github.com/ctesta01/tikz-examples/blob/main/2023/cone/cone.tex))
+
+:::
+
+::: {#fig-set}
+
+```{.tikz}
+%%| filename: set-belonging
+%%| width: 100%
+
+\usetikzlibrary{backgrounds}
+
+\begin{tikzpicture}[scale=1.5, background rectangle/.style={fill=white}, show background rectangle]
+  % Draw the universe rectangle
+  \draw[thick] (-2,-1.75) rectangle (2,1.75) node[below left] {\(\Omega\)};
+
+  % Draw the fill for circle A and label it
+  \draw[thick, fill=blue!20, draw opacity = .65] (-0.5,0) circle (1);
+  \node at (-1, 0.2) {\(A\)};
+
+  % Draw circle B and label it
+  \draw[thick] (0.5,0) circle (1);
+  \draw[thick, fill=red!20, opacity = .65] (0.5,0) circle (1);
+
+  % Draw the outer circle for A so it appears "on top of" the intersection
+  \node at (1,0.2) {\(B\)};
+
+  %
+  \draw[thick] (-0.5,0) circle (1);
+
+  % Label the intersection (A \cap B)
+  \node at (0,0) {\(A \cap B\)};
+\end{tikzpicture}
+```
+
+Definition of an intersection ([original](https://github.com/ctesta01/tikz-examples/blob/main/2023/intersection/intersection.tex))
+
+:::
+
+Some example TikZ diagrams
+
+::::
+````
