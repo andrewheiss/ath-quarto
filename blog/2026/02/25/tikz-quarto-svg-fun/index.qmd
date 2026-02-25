@@ -13,7 +13,7 @@ categories:
   - quarto
   - tikz
 
-# doi: DOI HERE
+doi: 10.59350/5m018-qax35
 citation: true
 
 format:
@@ -75,7 +75,7 @@ For instance, let's say I want to include a minimalist little standard directed 
 
 ## Quick, easy, ugly diagrams with Mermaid and Graphviz
 
-We can create this DAG with Mermaid, but there are limited styling options and not really any good way to control the layout, so we're pretty much stuck with this:
+We can create this DAG with Mermaid, but there are limited styling options and there's not really any good way to control the layout, so we're pretty much stuck with this:
 
 :::: {.grid}
 
@@ -213,8 +213,10 @@ Here's what you have to do:
 3. **Tell your document to use the extension**. Add this to the YAML header of a Quarto document:
 
    ```yaml
+   ---
    filters:
      - diagram
+   ---
    ```
 
 4. **Add a `.tikz` block to your document**. Add a tikz code block to your document like this:
