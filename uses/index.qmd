@@ -66,10 +66,10 @@ I try to keep this updated fairly regularly. As of February 17, 2026 this is wha
 
 ### Productivity
 
-- My secret for avoiding the siren call of the internet is [Focus](https://heyfocus.com/). I have a blocklist that blocks Bluesky, Mastodon, Facebook, and Instagram from 8:00 AM–5:00 PM and 9:00 PM–11:59 PM.
+- My secret for avoiding the siren call of the internet is [Focus](https://heyfocus.com/). I have a blocklist that blocks Bluesky, Mastodon, LinkedIn, Facebook, and Instagram from 8:00 AM–5:00 PM and 9:00 PM–11:59 PM.
 - I use [Things](https://culturedcode.com/things/) for my todo list. I was an early convert to [Todo.txt](http://todotxt.com/) and used it for years until my tasks and projects got too unwieldy. I switched to [Taskpaper](https://www.taskpaper.com/) for a while, used [2Do](http://www.2doapp.com/) for a couple years, used [OmniFocus](https://www.omnigroup.com/omnifocus) for a few more years, and then switched to [Things](https://culturedcode.com/things/).
 - [Fantastical 2](https://flexibits.com/fantastical)’s natural language input is a glorious thing.
-- I use [Timery](https://timeryapp.com/) as an interface to [Toggl](https://toggl.com/) to [track my time](https://thesweetsetup.com/apps/best-time-tracking-app/) during the day
+- I use [Flow](https://www.flow.app/) for [pomodoro-ing](https://en.wikipedia.org/wiki/Pomodoro_Technique).
 - I keep a log of what I work on (and occasionally do more traditional diary-like entries) with [Day One](http://dayoneapp.com/) on both iOS and macOS.
 - I use [Espanso](https://espanso.org/) to replace and expand a ton of snippets—[see them all here](https://github.com/andrewheiss/espanso), and I use [Raycast](https://www.raycast.com/) to run dozens of little scripts that help control my computer with the keyboard.
 - I use [Übersicht](http://tracesof.net/uebersicht/) to show weather, iTunes track information, and my todo lists on my desktop.
