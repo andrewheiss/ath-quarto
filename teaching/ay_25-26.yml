@@ -2,11 +2,13 @@
   description: "Use R, ggplot2, and the principles of graphic design to create beautiful and truthful visualizations of data"
   university: Georgia State University
   number: PMAP 8551/4551
-  url: https://datavizf25.classes.andrewheiss.com/
+  url: https://datavizsp26.classes.andrewheiss.com/
   logo: logos/datavizm20.png
   semester:
   - name: Fall 2025 (asynchronous online)
     url: https://datavizf25.classes.andrewheiss.com/
+  - name: Spring 2026 (asynchronous online)
+    url: https://datavizsp26.classes.andrewheiss.com/
 
 - title: Governance around the world
   description: "Explore how the public and nonprofit sectors work around the world and learn how political institutions shape government and civil society"
@@ -17,3 +19,13 @@
   semester:
   - name: Fall 2025
     url: https://governancef25.classes.andrewheiss.com/
+
+- title: Program Evaluation for Public Service
+  description: "Combine research design, causal inference, and econometric tools to measure the effects of social programs"
+  university: Georgia State University
+  number: PMAP 8521
+  url: https://evalsp26.classes.andrewheiss.com/
+  logo: logos/evalsp20.png
+  semester:
+  - name: Spring 2026
+    url: https://evalsp26.classes.andrewheiss.com/
