@@ -39,6 +39,9 @@ website:
   site-url: "https://www.andrewheiss.com"
   repo-url: "https://github.com/andrewheiss/ath-quarto"
 
+  # Help out the robots
+  llms-txt: true
+
   google-analytics: "UA-527449-5"
 
   twitter-card: 
