@@ -1,6 +1,6 @@
 ---
 title: AI usage
-date: 2026-02-17
+date: 2026-03-27
 description: Here's how I use AI and LLMs in my work
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -30,7 +30,7 @@ I enjoy creating things. I like being the human behind all this stuff.
 
 I think LLMs are helpful tools for some things, awful and useless tools for other things, and always ethically fraught. 
 
-Here's my current thinking about using LLMs, as of February 17, 2026:
+Here's my current thinking about using LLMs, as of March 27, 2026:
 
 ::: {.callout-note}
 #### The /ai manifesto
