@@ -44,6 +44,8 @@ website:
 
   google-analytics: "UA-527449-5"
 
+  draft-mode: unlinked
+
   twitter-card: 
     image: "/files/profiles/twitter-card-large.png"
     card-style: summary_large_image
