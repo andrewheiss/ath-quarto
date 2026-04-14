@@ -335,8 +335,8 @@ To explain why the second `runif()` produced different random numbers, I would t
 #| echo: true
 
 set.seed(1234)
-runif(5)  # This uses "round 1" of the seed. Pretend it's like the seed is 1234
-runif(5)  # This uses "round 2" of the seed. Pretend it's like the seed is 1234.1 or something (it's not!)
+runif(5)  # This uses "round 1" of the seed. The seed is 1234
+runif(5)  # This uses "round 2" of the seed. Pretend it's like the seed is 1234.1 (it's not!)
 ```
 
 That also fits with this idea of resetting the "rounds" when resetting the seed:
