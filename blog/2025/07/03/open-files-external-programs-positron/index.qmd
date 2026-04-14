@@ -25,6 +25,20 @@ doi: 10.59350/87hpe-4ah24
 citation: true
 ---
 
+::: {.callout-note title="Update!"}
+In March/April 2026, Typora created its own [VS Code extension](https://support.typora.io/Open-in-Typora-VS-Code-Extension/) (here's [the Open VSX version](https://open-vsx.org/extension/typora/typora-open-in-typora)) for opening Markdown files in Typora, so you don't need to set up a custom task for that any more. I now have this set as my keyboard shortcut:
+
+```{.json filename="keybindings.json"}
+{
+    "key": "ctrl+shift+alt+cmd+t",
+    "command": "typora.openInTypora"
+}
+```
+
+Tasks are still a useful way to open any other type of file in any other external program though!
+:::
+
+
 [Positron's Quarto support](https://quarto.org/docs/tools/positron/) is really quite robust and it's full of nice little features like previewing a citation using whatever bibliography style your document is using (Chicago, APA, etc.) when you hover over a citation key:
 
 ![Preview of a citation](img/quarto-citation-preview.png)
