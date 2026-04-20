@@ -474,6 +474,8 @@ So if $m$ in the LCG algorithm is 5, we need to calculate the remainder when div
 24 mod 5 = 4:
 
 ```{r}
+#| echo: true
+
 24 %% 5
 ```
 
@@ -979,7 +981,7 @@ lcg_8_values |>
 
 It starts over! $X_1$ and $X_9$ are the same; $X_2$ and $X_{10}$ are the same; and so on. We have a repeating cycle and our series of pseudorandom numbers gets recycled.
 
-This happens because of a severe limitation in the LCG algorithm—cycles, or periods, are inevitable and are related to the size of the modulus parameter $m$. Since we're dividing by 8 and getting the remainder, we only have the numbers 0--7 to work with for each subsequent number, and eventually we'll run out and get into a cycle. We can somewhat avoid this by boosting the $m$. If we increase the modulus to something like 500 (try it in the interactive simulation up above), we'll have remainders like 403, 291, and so on. That many unique possibilities will make the period last longer, but eventually it will recycle.
+This happens because of a severe limitation in the LCG algorithm—cycles, or periods, are inevitable and are related to the size of the modulus parameter $m$. Since we're dividing by 8 and getting the remainder, we only have the numbers 0--7 to work with for each subsequent number, and eventually we'll run out and get into a cycle. We can somewhat avoid this by boosting the $m$. If we increase the modulus to some big prime number like 499 (try it in the interactive simulation up above), we'll have remainders like 403, 291, and so on. That many unique possibilities will make the period last longer, but eventually it will recycle.
 
 So to *actually* get around this, no statistical or computational software really uses LCG.^[Though, surprisingly, Java used an LCG [up until 2020](https://en.wikipedia.org/wiki/Pseudorandom_number_generator#Potential_issues)(!). It only switched to something more complex with Java 17.] Instead, they use much fancier techniques with more complex algorithms that prevent cycling. Fundamentally all these algorithms do the same thing—they start with a seed number, do some math to it, and spit out a random number that is then used to create the next number in the sequence. They just do it with really fancy math.
 
@@ -1090,7 +1092,7 @@ possible_seeds <- data.frame(seed = 1:10000) |>
 possible_seeds |> filter(all_heads)
 ```
 
-Of those 10,000 seeds, 10 of them happened to create universes where the predetermined list of pseudorandom numbers result in 10 heads at the beginning.
+Of those 10,000 seeds, 10 of them happened to create universes where the predetermined list of pseudorandom numbers results in 10 heads at the beginning.
 
 Let's try one and confirm. Seed 614 actually creates 13 heads in a row (!):
 
@@ -1115,9 +1117,9 @@ In an extreme case, in the 2010s, Eddie Tipton—the IT security director of the
 
 # Can computers even create true randomness?
 
-Every single "random" function in statistical software, programming languages in general, and even things like Minecraft technically generate pseudorandom values. If you know the algorithm and the current state (e.g. the value of $X_{n-1}$ in LCG), you can predict all the numbers in the entire series. 
+Every single "random" function in statistical software, programming languages in general, and even things like Minecraft technically generate *pseudo*random values. If you know the algorithm and the current state (e.g. the value of $X_{n-1}$ in LCG), you can predict all the numbers in the entire series. 
 
-Internet security protocols like SSL rely on randomness for encryption. Pseudorandom values from things like the Mersenne Twister are insecure for encryption. If dedicated hackers ever figure out or guess the current value in the algorithm (or the initial seed), they'd be able to decrypt future (and past!) internet traffic. Actual real life SSL algorithms prevent this—don't worry!
+Internet security protocols like SSL rely on *true* randomness for encryption. Pseudorandom values from things like the Mersenne Twister are insecure for encryption. If dedicated hackers ever figure out or guess the current value in the algorithm (or the initial seed), they'd be able to decrypt future (and past!) internet traffic. Actual real life SSL algorithms prevent this—don't worry!
 
 So is there any way to make computers create true non-deterministic random values? Yes! 
 
@@ -1222,6 +1224,7 @@ glue::glue("{seed} copied to clipboard")
 ```
 
 :::
+
 
 # “…as an ook cometh of a litel spyr…”
 
