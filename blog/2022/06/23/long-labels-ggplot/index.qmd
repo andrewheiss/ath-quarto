@@ -55,10 +55,14 @@ Fortunately there are a bunch of different ways to fix this, each with their own
 
 ## Option A: Make the plot wider
 
-One quick and easy way to fix this is to change the dimensions of the plot so that there's more space along the x-axis. If you're using R Markdown or Quarto, you can modify the chunk options and specify `fig.width`:
+One quick and easy way to fix this is to change the dimensions of the plot so that there's more space along the x-axis. If you're using R Markdown or Quarto, you can modify the chunk options and specify `fig-width`:
 
-```{r plot-wider, fig.width=10, fig.height=4}
+```{r}
 #| echo: fenced
+#| label: plot-wider
+#| fig-width: 10
+#| fig-height: 4
+
 ggplot(essential_by_category,
        aes(x = CATEGORY, y = total)) +
   geom_col() +
@@ -74,8 +78,12 @@ ggsave(name_of_plot, width = 10, height = 4, units = "in")
 
 That works, but now the font is tiny, so we need to adjust it up with `theme_gray(base_size = 18)`:
 
-```{r plot-wider-bigger, fig.width=10, fig.height=4}
+```{r}
 #| echo: fenced
+#| label: plot-wider-bigger
+#| fig-width: 10
+#| fig-height: 4
+
 ggplot(essential_by_category,
        aes(x = CATEGORY, y = total)) +
   geom_col() +
