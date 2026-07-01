@@ -1,6 +1,6 @@
 ---
 title: What I use
-date: 2026-04-14
+date: 2026-07-01
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 title-block-banner: "#771C6D"
 published-title: Last updated
@@ -19,7 +19,7 @@ freeze: false
 
 People often ask me what programs I use for my writing and design. In truth, my workflow tends to look like [this](https://xkcd.com/1579/) or [this](https://xkcd.com/1172/), but here's a more detailed list of all the interconnected programs I use.
 
-I try to keep this updated fairly regularly. As of April 14, 2026 this is what I'm using: 
+I try to keep this updated fairly regularly. As of July 1, 2026 this is what I'm using: 
 
 ## Writing
 
@@ -59,7 +59,7 @@ I try to keep this updated fairly regularly. As of April 14, 2026 this is what I
 
 ### Graphic design
 
-- Though I regularly use LaTeX (through pandoc), I adore [InDesign](https://www.adobe.com/products/indesign.html) and use it to make fancier academic and policy documents. I also used it for [all the typesetting I did](https://github.com/andrewheiss/maxwell-institute-typesetting/blob/master/books-i-made.md) for [BYU's Neal A. Maxwell Institute](http://mi.byu.edu/), and continue to use it for the books I typset for [By Common Consent Press](https://www.bccpress.org/).
+- Though I regularly use LaTeX (through pandoc), I adore [InDesign](https://www.adobe.com/products/indesign.html) and use it to make fancier academic and policy documents. I also used it for [all the typesetting I did](https://github.com/andrewheiss/maxwell-institute-typesetting/blob/master/books-i-made.md) for [BYU's Neal A. Maxwell Institute](http://mi.byu.edu/), and continue to use it for the books I typeset for [By Common Consent Press](https://www.bccpress.org/).
 - I use [Illustrator](https://www.adobe.com/products/illustrator.html) all the time to enhance graphics I make in R and to make non-data-driven figures and diagrams.
 - I use [Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) and [Photoshop](https://www.adobe.com/products/photoshop.html) too, but less often nowadays.
 - Despite my dislike for Word and Excel, I use PowerPoint for all my presentations. It's not my favorite, but in the apocryphal words of Churchill, "PowerPoint is the worst form of slide editor, except for all the others."
@@ -74,10 +74,10 @@ I try to keep this updated fairly regularly. As of April 14, 2026 this is what I
 - I use [Espanso](https://espanso.org/) to replace and expand a ton of snippets—[see them all here](https://github.com/andrewheiss/espanso), and I use [Raycast](https://www.raycast.com/) to run dozens of little scripts that help control my computer with the keyboard.
 - I use [Übersicht](http://tracesof.net/uebersicht/) to show weather, iTunes track information, and my todo lists on my desktop.
 - I use [Dropbox](https://www.dropbox.com) for syncing stuff across my different devices and use [Backblaze](https://www.backblaze.com/) to back up all the computers in our house to the cloud.
-- With all these little helper apps, I use [Bartender](https://www.macbartender.com/) to keep my menubar clean.
+- With all these little helper apps, I use [Ice](https://icemenubar.app/) to keep my menubar clean.
 
 
 ## Hardware
 
-- I use a 2021 14″ M1 Max MacBook Pro, a 13″ iPad Pro, and an iPhone 13.
+- I use a 2026 14″ M5 Pro MacBook Pro, a 13″ iPad Pro, and an iPhone 16.
 - I use a [Logitech Spotlight Presentation Remote](https://www.amazon.com/Logitech-Spotlight-Presentation-Remote-Highlighting/dp/B07S5HMQBH) when presenting, and when I teach in hybrid settings, I use an [Insta360 Link motion sensing camera](https://www.amazon.com/dp/B0B826KS4B) and [a wireless lavalier microphone](https://www.amazon.com/dp/B095K9T8QH).
