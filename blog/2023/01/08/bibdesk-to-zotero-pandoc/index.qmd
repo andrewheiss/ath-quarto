@@ -74,7 +74,7 @@ Zotero conveniently fixes all these issues:
 
 2. It's **super easy** to collaborate with Zotero. You can create shared group libraries with different sets of coauthors and not worry about Dropbox synchronization issues or accidental deletion of `}` characters in the `.bib` file. For one of my reading-intensive class, [I've even created a shared Zotero group library](https://compasp23.classes.andrewheiss.com/class/) that all the students can join and cite from, which is neat.
 
-   It's also far easier to maintain a master list of references. You can create a [Zotero collection](https://www.zotero.org/support/collections_and_tags) for specific projects, and items can live in multiple collections. Editing an item in one collection updates that item in all other collections. Zotero treats collections like iTunes/Apple Music playlists—just like songs can belong to multiple playlists, bibliographic entries can belong to multiple collections.
+   It's also easy to maintain a master list of references. You can create a [Zotero collection](https://www.zotero.org/support/collections_and_tags) for specific projects, and items can live in multiple collections. Editing an item in one collection updates that item in all other collections. Zotero treats collections like iTunes/Apple Music playlists—just like songs can belong to multiple playlists, bibliographic entries can belong to multiple collections. (However, [BibDesk has various ways to group references](https://bibdesk.sourceforge.io/manual/BibDeskHelp_32.html) including "static groups" that are analogous to Zotero collections.)
 
 3. Zotero follows the CSL standard that pandoc uses. It was the first program to adopt CSL (way back in 2006!). It supports all kinds of entry types and fields, beyond what BibTeX supports.
 
@@ -227,7 +227,7 @@ Now the read status and ratings tags are easily accessible and appear directly i
 
 ### Tags to collections
 
-Zotero has two different methods for categorizing entries—[tags and collections](https://www.zotero.org/support/collections_and_tags)—while BibDesk / BibTeX only uses keywords, which Zotero treats as tags. 
+Zotero has two different methods for categorizing entries—[tags and collections](https://www.zotero.org/support/collections_and_tags). Zotero's tags are analogous to BibDesk's keywords, and Zotero's collections are analogous to [BibDesk's static groups](https://bibdesk.sourceforge.io/manual/BibDeskHelp_32.html).
 
 I decided that in Zotero I'd use both tags and collections. Tags are reserved for things like general topics, ratings, to-read designations, etc., while collections represent specific projects or classes. 
 
