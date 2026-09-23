@@ -1,0 +1,37 @@
+---
+title: Meet with me
+description: Schedule a time to meet with me
+title-block-banner: "#CF4446"
+toc: false
+engine: knitr
+freeze: false
+page-layout: full
+---
+
+```{css, echo=FALSE}
+#title-block-header .description {
+    display: none;
+}
+```
+
+::: {.panel-tabset}
+
+### Doha times
+
+```{=html}
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/andrewheiss" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+```
+
+### North America times {.active}
+
+```{=html}
+<!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/andrewheiss/meeting-online-north-america-only" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+```
+
+:::
