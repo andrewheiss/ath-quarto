@@ -484,18 +484,24 @@ So if $m$ in the LCG algorithm is 5, we need to calculate the remainder when div
 The mod operator is a super common way to determine if a number is even or odd. If a number is even, it should have no remainder when you divide it by 2. 24 mod 2 should be 0:
 
 ```{r}
+#| echo: true
+
 24 %% 2
 ```
 
 If there's a remainder when dividing by 2, it means that the number is not even. 25 mod 2 is 1 (since 25 ÷ 2 = 12 remainder 1)
 
 ```{r}
+#| echo: true
+
 25 %% 2
 ```
 
 You can use this mod operator to make your own function for checking if a number is even/odd:
 
 ```{r}
+#| echo: true
+
 is_even <- function(x) {
   if (x %% 2 == 0) {
     "Yep! The number is even!"
