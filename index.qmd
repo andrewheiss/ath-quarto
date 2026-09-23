@@ -33,7 +33,7 @@ format:
 
 ::: {.g-col-12 .g-col-sm-8}
 
-I'm an assistant professor at Edmund A. Walsh School of Foreign Service at [Georgetown University in Qatar](https://guq.qatar.georgetown.edu/). Prior to coming to Qatar, I was assistant professor in the [Department of Public Management and Policy](https://aysps.gsu.edu/public-management-policy/) at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/). I received a PhD in public policy and political science from Duke University's [Sanford School of Public Policy](http://sanford.duke.edu/) in 2017.
+I'm an assistant professor at Edmund A. Walsh School of Foreign Service at [Georgetown University in Qatar](https://guq.qatar.georgetown.edu/). Prior to coming to Qatar, I was assistant professor at the [Andrew Young School of Policy Studies](https://aysps.gsu.edu/) at [Georgia State University](https://www.gsu.edu/). I received a PhD in public policy and political science from Duke University's [Sanford School of Public Policy](http://sanford.duke.edu/) in 2017.
 
 I study [how international NGOs work in authoritarian countries](https://www.ingoresearch.org/amicable-contempt/), and I received the 2016–2018 [Emerging Scholar Dissertation Award](https://www.istr.org/page/DissertationISTR) from the [International Society for Third Sector Research (ISTR)](https://www.istr.org/). I do research in public administration and policy, nonprofit management, international relations, and comparative politics.
 

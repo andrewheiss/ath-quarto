@@ -1,6 +1,6 @@
 ---
 title: What I'm doing now
-date: 2026-08-26
+date: 2026-09-23
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -15,9 +15,9 @@ freeze: false
 }
 ```
 
-As of August 26, 2026, I'm spending all my time on these things:
+As of September 23, 2026, I'm spending all my time on these things:
 
-- Raising 6 kids (19, 16.5, 14, 11, 8.5, and 4.5) and trying to stay sane ([family blog](http://www.heissatopia.com/)); the oldest is studying at Brigham Young University and will be serving an 18-month LDS mission in Hanoi, Vietnam starting in September; the others are all at home
+- Raising 6 kids (19, 16.5, 14, 11, 8.5, and 4.5) and trying to stay sane ([family blog](http://www.heissatopia.com/)); the oldest is serving an 18-month LDS mission in Hanoi, Vietnam; the others are all at home
 - Living in Doha and working as an assistant professor of international politics and policy at [Georgetown University in Qatar](https://guq.qatar.georgetown.edu/)
 - [Researching](https://www.andrewheiss.com/research/) anti-NGO restrictions, human rights, and statistical methods for nonprofit and public administration
 - Teaching [quantitative methods for international relations](https://quantf26.classes.andrewheiss.com/) at [Georgetown University in Qatar](https://guq.qatar.georgetown.edu/)
