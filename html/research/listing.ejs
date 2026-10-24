@@ -4,7 +4,7 @@
     <% for (const item of items) { %>
         <li class="project" <%=metadataAttrs(item) %>>
             <div class="project-content listing-pub-info">
-                <p><%= item['pub-info'].reference %></p>
+                <p><%- item['pub-info'].reference %></p>
             </div>
 
             <% if(item.categories) { %>
