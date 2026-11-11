@@ -112,7 +112,7 @@ There are a lot of moving parts here, but remember, the focus in this equation i
 
 Here, $G_{\overline{X}}$ means "the original causal graph with all arrows into X removed", while the $Y \perp Z \mid W, X$ part means "Y is independent of Z, given W and X" in the new modified graph. If the Y and Z nodes are d-separated from each other after we account for both W and X, we can get rid of Z and ignore it.
 
-Let's look at this graphically to help make better sense of this. We'll use the `dagify()` function from **ggdag** to build a couple DAGs: one complete one ($G$) and one with all the arrows into X deleted ($G_{\overline{X}}$). X causes both X and Y, while W confounds X, Y, and Z. 
+Let's look at this graphically to help make better sense of this. We'll use the `dagify()` function from **ggdag** to build a couple DAGs: one complete one ($G$) and one with all the arrows into X deleted ($G_{\overline{X}}$). X causes both Z and Y, while W confounds X, Y, and Z. 
 
 ```{r build-rule1}
 rule1_g <- dagify(
