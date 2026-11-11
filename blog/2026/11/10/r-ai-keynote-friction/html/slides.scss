@@ -1,0 +1,179 @@
+/*-- scss:defaults --*/
+
+// Adapted from ~/Sites/courses/quantf26/slides/slides.scss
+// Brand colors ($brand-*) come from slides-brand.yml
+
+$font-body: "Atkinson Hyperlegible Next", sans-serif !default;
+$font-code: "Source Code Pro", monospace !default;
+
+$presentation-heading-font: $font-body;
+$font-family-sans-serif:    $font-body;
+$font-family-monospace:     $font-code;
+
+$body-bg:                    $brand-off-white;
+$body-color:                 $brand-off-black;
+$presentation-heading-color: $brand-off-black;
+
+// Deck is 1600×900, so everything is scaled up from quantf26's 40px root
+$presentation-font-size-root: 48px;
+$presentation-h1-font-size:   130px;
+$presentation-h2-font-size:   80px;
+$presentation-h3-font-size:   56px;
+$presentation-line-height:    1.3;
+
+/*-- scss:rules --*/
+
+// Decktape struggles with shadows, so turn them off
+.decktape-export * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+// Slide colors, like quantf26. ## Title {.clr-2} colors headings and the
+// quote bar/bold text; [text]{.text-clr-2} colors a span
+@for $i from 1 through 10 {
+  .reveal section.clr-#{$i} {
+    --slide-accent: var(--brand-clr-#{$i});
+    --slide-accent-text: var(--brand-clr-#{$i}-text);
+
+    h1, h2, h3, h4, h5, h6 { color: var(--brand-clr-#{$i}); }
+  }
+
+  .text-clr-#{$i} { color: var(--brand-clr-#{$i}-text) !important; }
+}
+
+// Helpers (from quantf26)
+.huge    { font-size: 2.2em; }
+.large   { font-size: 1.7em; }
+.medium  { font-size: 1.4em; }
+.small   { font-size: 0.8em; }
+.smaller { font-size: 0.65em; }
+.tiny    { font-size: 0.5em; }
+
+.box-center { text-align: center; }
+
+.shadow {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+// Center .r-stretch images (reveal pulls them out of their paragraph)
+.reveal .slides section img.r-stretch {
+  display: block;
+  margin: 0 auto;
+}
+
+// reveal ignores the footer when sizing .r-stretch but does subtract margins,
+// so leave room for it
+.reveal .slides section:has(div.footer) img.r-stretch {
+  margin-bottom: 50px;
+}
+
+// Crop an image to 4:3 so images in columns line up
+.reveal img.crop-4x3 {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+// Title slide (with html/title-slide.html)
+.reveal .slides section#title-slide {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  color: #ffffff;
+
+  h1.title {
+    font-size: 2.6em;
+    line-height: 1.1;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  p.subtitle {
+    margin-top: 0.4em;
+    font-size: 1.15em;
+    color: $brand-navy-200;
+  }
+
+  p.author {
+    margin: 2.5em 0 0 0;
+    font-size: 0.75em;
+    font-weight: 700;
+  }
+
+  p.institute {
+    margin: 0;
+    font-size: 0.6em;
+  }
+
+  p.date {
+    margin: 0.5em 0 0 0;
+    font-size: 0.6em;
+    color: $brand-navy-200;
+  }
+}
+
+// Section dividers: big centered white text on a colored background
+// ## Learning {.section-slide background-gradient="..." ...}
+.reveal .slides section.section-slide {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.75);
+
+  h1, h2 {
+    color: #ffffff;
+    font-size: 2.6em;
+    line-height: 1.05;
+    margin: 0;
+  }
+}
+
+// Big block quotes: ## {.quote-slide .clr-2}
+// Use .medium/.small on the slide to resize; .dim grays everything but **bold**
+.reveal .slides section.quote-slide {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 0 1.75em;
+  box-sizing: border-box;
+
+  blockquote {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 0.9em;
+    box-shadow: none;
+    background: none;
+    border-left: 12px solid var(--slide-accent, #{$brand-blue});
+    font-size: 1.25em;
+    line-height: 1.3;
+    font-style: normal;
+
+    p { margin: 0 0 0.5em 0; }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--slide-accent-text, #{$brand-blue-text}); }
+  }
+
+  &.dim blockquote {
+    color: $brand-gray-400;
+    strong { color: $brand-off-black; }
+  }
+
+  // Attribution paragraph after the quote
+  blockquote + p {
+    margin-top: 1em;
+    padding-left: calc(0.9em + 12px);
+    font-size: 0.7em;
+    color: $brand-gray-700;
+  }
+}

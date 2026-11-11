@@ -1,0 +1,260 @@
+meta:
+  name: "Friction Worth Keeping: What Keeps Us Human When AI Makes Everything Easy"
+  license: CC BY-SA 4.0
+  link:
+    home: https://www.andrewheiss.com/
+
+color:
+  palette:
+    # Navy
+    navy: &navy "#041E42"
+    navy-50: "#F4F6FF"
+    navy-100: "#E1E8FF"
+    navy-200: &navy-light "#CCD4EE"
+    navy-300: "#B0B8D2"
+    navy-400: "#959DB7"
+    navy-500: "#7B839D"
+    navy-600: "#616A84"
+    navy-700: "#48526C"
+    navy-800: "#303B57"
+    navy-900: *navy
+    navy-950: "#001534"
+    navy-light: *navy-light
+    navy-text: *navy
+
+    # Maroon
+    maroon: &maroon "#8A1538"
+    maroon-50: "#FFF4F5"
+    maroon-100: "#FEE1E5"
+    maroon-200: &maroon-light "#FFC6CE"
+    maroon-300: "#FF9DAE"
+    maroon-400: "#EB7C91"
+    maroon-500: "#CE6177"
+    maroon-600: "#B2455D"
+    maroon-700: "#972844"
+    maroon-800: *maroon
+    maroon-900: "#4F001A"
+    maroon-950: "#36000E"
+    maroon-light: *maroon-light
+    maroon-text: *maroon
+
+    # Blue
+    blue: &blue "#2878B5"
+    blue-50: "#F1F7FF"
+    blue-100: "#DBE9FF"
+    blue-200: &blue-light "#B9D7FF"
+    blue-300: "#84BDFB"
+    blue-400: "#65A2E0"
+    blue-500: "#4388C5"
+    blue-600: *blue
+    blue-700: &blue-text "#005689"
+    blue-800: "#003E65"
+    blue-900: "#002640"
+    blue-950: "#011729"
+    blue-light: *blue-light
+    blue-text: *blue-text
+
+    # Teal
+    teal: &teal "#009E9A"
+    teal-50: "#D1FFFD"
+    teal-100: "#94F9F5"
+    teal-200: &teal-light "#7DE5E1"
+    teal-300: "#5CC9C5"
+    teal-400: "#33AEAA"
+    teal-500: *teal
+    teal-600: "#077774"
+    teal-700: &teal-text "#065C5A"
+    teal-800: "#054341"
+    teal-900: "#002928"
+    teal-950: "#021918"
+    teal-light: *teal-light
+    teal-text: *teal-text
+
+    # Green
+    green: &green "#2D934F"
+    green-50: "#DCFFE3"
+    green-100: "#A4FCB9"
+    green-200: &green-light "#8FE7A5"
+    green-300: "#72CB89"
+    green-400: "#53B06E"
+    green-500: *green
+    green-600: "#057B38"
+    green-700: &green-text "#01602A"
+    green-800: "#02451D"
+    green-900: "#002B0E"
+    green-950: "#001B07"
+    green-light: *green-light
+    green-text: *green-text
+
+    # Gold
+    gold: &gold "#F2B701"
+    gold-50: "#FFF5E9"
+    gold-100: "#FFE4BF"
+    gold-200: &gold-light "#FFCD70"
+    gold-300: *gold
+    gold-400: "#C79600"
+    gold-500: "#A77D07"
+    gold-600: "#876505"
+    gold-700: &gold-text "#694E03"
+    gold-800: "#4D3801"
+    gold-900: "#302100"
+    gold-950: "#1E1400"
+    gold-light: *gold-light
+    gold-text: *gold-text
+
+    # Orange
+    orange: &orange "#E17C05"
+    orange-50: "#FFF4F0"
+    orange-100: "#FFE2D6"
+    orange-200: &orange-light "#FFC9AF"
+    orange-300: "#FFA265"
+    orange-400: *orange
+    orange-500: "#C76D02"
+    orange-600: "#A25703"
+    orange-700: &orange-text "#7F4300"
+    orange-800: "#5D3001"
+    orange-900: "#3A1C00"
+    orange-950: "#261000"
+    orange-light: *orange-light
+    orange-text: *orange-text
+
+    # Red
+    red: &red "#CC503E"
+    red-50: "#FEF4F4"
+    red-100: "#FEE2E0"
+    red-200: &red-light "#FFC7C3"
+    red-300: "#FF9F96"
+    red-400: "#F77768"
+    red-500: *red
+    red-600: "#BB412C"
+    red-700: &red-text "#9D2600"
+    red-800: "#741900"
+    red-900: "#4A0C00"
+    red-950: "#310500"
+    red-light: *red-light
+    red-text: *red-text
+
+    # Purple
+    purple: &purple "#6F4C9B"
+    purple-50: "#F8F5FF"
+    purple-100: "#EEE4FF"
+    purple-200: &purple-light "#DFCCFF"
+    purple-300: "#C9ABF6"
+    purple-400: "#AE90DB"
+    purple-500: "#9475C1"
+    purple-600: "#7C5BA8"
+    purple-700: *purple
+    purple-800: "#512180"
+    purple-900: "#390062"
+    purple-950: "#250042"
+    purple-light: *purple-light
+    purple-text: *purple
+
+    # Gray
+    gray: &gray "#696A6F"
+    gray-50: &off-white "#F5F6FB"
+    gray-100: "#E7E8ED"
+    gray-200: &gray-light "#D3D4D9"
+    gray-300: "#B7B8BD"
+    gray-400: "#9D9EA2"
+    gray-500: "#828388"
+    gray-600: *gray
+    gray-700: &gray-text "#515257"
+    gray-800: "#3A3B41"
+    gray-900: "#22232A"
+    gray-950: &off-black "#13151E"
+    gray-light: *gray-light
+    gray-text: *gray-text
+
+    # Neutrals
+    white: "#FFFFFF"
+    off-white: *off-white
+    off-black: *off-black
+    black: "#000000"
+
+    # Numbered aliases
+    clr-1: *navy
+    clr-2: *maroon
+    clr-3: *blue
+    clr-4: *teal
+    clr-5: *green
+    clr-6: *gold
+    clr-7: *orange
+    clr-8: *red
+    clr-9: *purple
+    clr-10: *gray
+
+    clr-1-light: *navy-light
+    clr-2-light: *maroon-light
+    clr-3-light: *blue-light
+    clr-4-light: *teal-light
+    clr-5-light: *green-light
+    clr-6-light: *gold-light
+    clr-7-light: *orange-light
+    clr-8-light: *red-light
+    clr-9-light: *purple-light
+    clr-10-light: *gray-light
+
+    clr-1-text: *navy
+    clr-2-text: *maroon
+    clr-3-text: *blue-text
+    clr-4-text: *teal-text
+    clr-5-text: *green-text
+    clr-6-text: *gold-text
+    clr-7-text: *orange-text
+    clr-8-text: *red-text
+    clr-9-text: *purple
+    clr-10-text: *gray-text
+
+  # Bootstrap things
+  primary: navy
+  secondary: maroon
+  tertiary: teal
+  success: green
+  info: blue
+  warning: gold
+  danger: red
+
+  foreground: off-black
+  background: white
+  light: navy-light
+  dark: off-black
+
+typography:
+  fonts:
+    - family: Atkinson Hyperlegible Next
+      weight: [200, 400, 700]
+      style: ["normal", "italic"]
+      source: bunny
+    - family: Source Code Pro
+      weight: [400, 500, 700]
+      style: ["normal", "italic"]
+      source: bunny
+
+  base:
+    family: Atkinson Hyperlegible Next
+    weight: 400
+
+  headings:
+    family: Atkinson Hyperlegible Next
+    weight: 700
+    color: maroon
+  
+  monospace:
+    family: Source Code Pro
+    weight: 400
+
+  link:
+    color: blue
+    decoration: underline
+
+defaults:
+  bootstrap:
+    defaults:  # Bootstrap Sass variables to override
+      link-hover-color: $brand-orange
+      code-bg: $brand-gray-100
+      code-color: $brand-red-text
+    rules: |
+      a {
+        text-decoration: underline;
+      }
