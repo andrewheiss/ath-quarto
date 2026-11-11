@@ -1,3 +1,18 @@
+- title: "Friction Worth Keeping: What Keeps Us Human When AI Makes Everything Easy"
+  date: 2026-11-10
+  description: "Opening keynote address for the R Consortium's 2026 R+AI conference"
+  location: Online
+  links:
+  - name: Full text
+    url: https://www.andrewheiss.com/blog/2026/11/10/r-ai-keynote-friction/
+    icon: fa-solid fa-up-right-from-square
+  # - name: Video
+  #   url: https://www.youtube.com/watch?v=UCloM4GcfVY
+  #   icon: fa-brands fa-youtube
+  - name: Slides
+    url: https://www.andrewheiss.com/blog/2026/11/10/r-ai-keynote-friction/slides.html
+    icon: fa-solid fa-chalkboard-user
+
 - title: "Building reproducible workflows with {targets}"
   date: 2026-02-17
   description: "Workshop for the Statistical Computing Workshop at Northwestern University's Department of Political Science"
