@@ -8,6 +8,7 @@
 /.quarto/
 _site/
 **/*_cache/*
+/_freeze/
 
 # Miscellaneous stuff
 design-assets/*
