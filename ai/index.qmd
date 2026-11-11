@@ -1,6 +1,6 @@
 ---
 title: AI usage
-date: 2026-10-31
+date: 2026-11-11
 description: Here's how I use AI and LLMs in my work
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -30,12 +30,17 @@ I enjoy creating things. I like being the human behind all this stuff.
 
 I think LLMs are helpful tools for some things, awful and useless tools for other things, and always ethically fraught. 
 
-Here's my current thinking about using LLMs, as of October 31, 2026: 
+Here's my current thinking about using LLMs, as of November 11, 2026: 
 
 ::: {.callout-note}
 #### The /ai manifesto
 
 Check out ["The '/ai' manifesto"](https://www.bydamo.la/p/ai-manifesto) to learn why I made this page! See [the /ai public database](https://slashai.page/) for more.
+:::
+
+
+::: {.callout-tip title="AI and formative friction"}
+I gave the opening keynote address at the [R Consortium's 2026 R+AI conference](https://web.archive.org/web/20261111085640/https://rconsortium.github.io/RplusAI_website/Abstracts.html#andrew-heiss), where I talked about the importance of seeking out formative friction when AI makes everything easy. [Check it out here](/blog/2026/11/10/r-ai-keynote-friction/) for more of my thoughts on all this.
 :::
 
 

@@ -1,6 +1,6 @@
 ---
 title: What I'm doing now
-date: 2026-10-31
+date: 2026-11-11
 description: Andrew Heiss is working on a bunch of exciting and groundbreaking projects
 published-title: Last updated
 title-block-banner: "#771C6D"
@@ -15,7 +15,7 @@ freeze: false
 }
 ```
 
-As of October 31, 2026, I'm spending all my time on these things:
+As of November 11, 2026, I'm spending all my time on these things:
 
 - Raising 6 kids (19, 17, 14, 11.5, 9, and 4.5) and trying to stay sane ([family blog](http://www.heissatopia.com/)); the oldest is serving an 18-month LDS mission in Hanoi, Vietnam; the others are all at home
 - Living in Doha and working as an assistant professor of international politics and policy at [Georgetown University in Qatar](https://guq.qatar.georgetown.edu/)
